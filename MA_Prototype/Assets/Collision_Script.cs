@@ -6,12 +6,10 @@ public class Collision_Script : MonoBehaviour {
 
 	GameObject bridge;
 
+	public int speed;
+
 	// Use this for initialization
 	void Start () {
-// 		bridge = GameObject.FindGameObjectWithTag ("bridge");
-//		Destroy (bridge);
-
-		Destroy (GameObject.FindGameObjectWithTag ("bridge"));
 		
 	}
 	
