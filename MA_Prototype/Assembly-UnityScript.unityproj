@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{72172E86-F6C7-4F2D-53C9-4BA924DE7E50}</ProjectGuid>
+    <ProjectGuid>{9C0CB2B2-7199-0A8F-F966-2FC0C9ABD4D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-UnityScript</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -51,11 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Collision_Script.cs" />
-     <Compile Include="Assets\Draw_Line.cs" />
-     <Compile Include="Assets\Draw_Line_2.cs" />
-     <Compile Include="Assets\script.cs" />
-     <Compile Include="Assets\Test.cs" />
+     <Compile Include="Assets\Draw_Line_JS.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

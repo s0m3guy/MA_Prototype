@@ -7,6 +7,9 @@ TagManager:
   - bridge
   - falling_object
   - funcBlock
+  - outputA
+  - inputB1
+  - inputB2
   layers:
   - Default
   - TransparentFX
