@@ -34,7 +34,9 @@ public class Draw_Line : MonoBehaviour {
 		//		lineRenderer.SetPosition (1, new Vector3(2,4,0));
 
 		lineRenderer.SetPosition (0, origin.position);
-		lineRenderer.SetPosition (1, destin.position);
+//		lineRenderer.SetPosition (1, destin.position);
+//		lineRenderer.SetPosition (1, Input.mousePosition);
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
 	}
 }
