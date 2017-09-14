@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Draw_Connecting_Line : MonoBehaviour {
 
+	private LineRenderer lineRenderer = new LineRenderer ();
+
+	public Transform origin;
+	public Transform destin;
+
+	void Awake () {
+		lineRenderer = GetComponent<LineRenderer> ();
+	}
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,5 +21,10 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnMouseDrag () {
+		lineRenderer.SetPosition (0, origin.position);
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 	}
 }
