@@ -24,7 +24,8 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	}
 
 	void OnMouseDrag () {
-		lineRenderer.SetPosition (0, origin.position);
+//		lineRenderer.SetPosition (0, origin.position);
+		lineRenderer.SetPosition (0, new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y, origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 	}
 }
