@@ -10,7 +10,7 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	public Transform destin;
 
 	void Awake () {
-		lineRenderer = GetComponent<LineRenderer> ();
+		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
 	}
 
 	// Use this for initialization
@@ -24,8 +24,14 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	}
 
 	void OnMouseDrag () {
-//		lineRenderer.SetPosition (0, origin.position);
 		lineRenderer.SetPosition (0, new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y, origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+	}
+
+	void OnCollisionEnter(Collision col) {
+
+		if (col.gameObject.name == "Input 1B") {
+			Debug.Log ("COLLISION!!!1111");
+		}
 	}
 }

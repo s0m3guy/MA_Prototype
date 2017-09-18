@@ -10,6 +10,7 @@ TagManager:
   - outputA
   - inputB1
   - inputB2
+  - line
   layers:
   - Default
   - TransparentFX
