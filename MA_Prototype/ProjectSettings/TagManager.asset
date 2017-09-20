@@ -11,6 +11,7 @@ TagManager:
   - inputB1
   - inputB2
   - line
+  - dummy
   layers:
   - Default
   - TransparentFX
