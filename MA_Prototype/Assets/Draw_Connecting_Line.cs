@@ -35,14 +35,14 @@ public class Draw_Connecting_Line : MonoBehaviour {
 		Vector2 screenPos = new Vector2();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
-		lineRenderer.SetPosition (0, new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y, origin.position.z));
+		lineRenderer.SetPosition (0,
+			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
+				origin.position.y,
+				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
 		newVertices[0] = new Vector2 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y);
 		newVertices[1] = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-
-		Debug.Log (newVertices.Count);
-		Debug.Log (newVertices);
 
 		edgeCol.points = newVertices.ToArray ();
 	}

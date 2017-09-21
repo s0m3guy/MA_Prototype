@@ -1,13 +1,38 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Draw_Connecting_Line.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\LineScript.cs">
     <Files>
-      <File FileName="Assets\Draw_Connecting_Line.cs" Line="31" Column="1" />
-      <File FileName="Assets\Collision_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\LineScript2.cs" Line="7" Column="26" />
+      <File FileName="Assets\LineScript.cs" Line="28" Column="32" />
+      <File FileName="Assets\Draw_Connecting_Line.cs" Line="19" Column="6" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MA_Prototype" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="LineScript.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>newVertices</Value>
+          <Value>boxCol.bounds</Value>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="MA_Prototype" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\ilja\Documents\uni\thesis\MA_Prototype\MA_Prototype\Assets\LineScript.cs" line="28" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
