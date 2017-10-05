@@ -51,14 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Collision_Script.cs" />
+     <Compile Include="Assets\BlockScript.cs" />
      <Compile Include="Assets\Draw_Connecting_Line.cs" />
-     <Compile Include="Assets\Draw_Line.cs" />
      <Compile Include="Assets\LineScript.cs" />
-     <Compile Include="Assets\LineScript2.cs" />
-     <Compile Include="Assets\MouseBoundTest.cs" />
-     <Compile Include="Assets\script.cs" />
-     <Compile Include="Assets\Test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
