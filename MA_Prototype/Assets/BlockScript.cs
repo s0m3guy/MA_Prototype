@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision_Script : MonoBehaviour {
+public class BlockScript : MonoBehaviour {
 
 	GameObject bridge;
 
