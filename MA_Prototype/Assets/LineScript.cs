@@ -16,7 +16,7 @@ public class LineScript : MonoBehaviour {
 		line = GetComponent<LineRenderer> ();
 		circCol = goalInput.GetComponent<CircleCollider2D> ();
 
-		origin = GameObject.FindGameObjectWithTag ("outputA").transform;
+		origin = GameObject.FindGameObjectWithTag ("output").transform;
 		destin = goalInput.transform;
 	}
 
@@ -38,14 +38,6 @@ public class LineScript : MonoBehaviour {
 				destin.position.x - (destin.GetComponent<SpriteRenderer>().bounds.size.x)/2,
 				destin.position.y,
 				destin.position.z));
-		}
-	}
-
-	void OnCollisionEnter2D (Collision2D col) {
-
-		if (col.gameObject.CompareTag("inputB1")) {
-			Debug.Log ("COLLISION!!!1111");
-			Destroy (col.gameObject);
 		}
 	}
 }

@@ -445,10 +445,15 @@ Prefab:
         type: 2}
       propertyPath: destin
       value: 
-      objectReference: {fileID: 106103466}
+      objectReference: {fileID: 0}
     - target: {fileID: 1316978096785976, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_Name
       value: testBlockA
+      objectReference: {fileID: 0}
+    - target: {fileID: 114369066023186964, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: origin
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}

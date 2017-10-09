@@ -16,6 +16,9 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	public Transform destin;
 
 	void Awake () {
+
+		origin = GetComponent<Transform> ();
+
 		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
 		edgeCol = GameObject.Find("Line").GetComponent<EdgeCollider2D> ();
 	}
