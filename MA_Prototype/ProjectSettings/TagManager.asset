@@ -12,6 +12,11 @@ TagManager:
   - inputB2
   - line
   - dummy
+  - AND
+  - OR
+  - NOT
+  - XOR
+  - NAND
   layers:
   - Default
   - TransparentFX
@@ -51,4 +56,7 @@ TagManager:
     locked: 0
   - name: Functional Blocks
     uniqueID: 2276785175
+    locked: 0
+  - name: Block Label
+    uniqueID: 540012313
     locked: 0

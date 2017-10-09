@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BlockScript : MonoBehaviour {
 
-	GameObject bridge;
-
+	public Transform block;
 	public int speed;
 
 	// Use this for initialization
 	void Start () {
+
+		block = GetComponent<Transform> ();
 		
 	}
 	
@@ -19,17 +20,12 @@ public class BlockScript : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter2D (Collision2D col) {
-		Debug.Log ("Collision");
-		if (col.gameObject.tag == "bridge") {
-			Destroy (gameObject);
-		}
-	}
-
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
 	void OnMouseDown() {
+
+		Instantiate (block);
 
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
