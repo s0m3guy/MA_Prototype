@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bridge
   - falling_object
   - funcBlock
   - outputA
@@ -17,6 +16,8 @@ TagManager:
   - NOT
   - XOR
   - NAND
+  - output
+  - input
   layers:
   - Default
   - TransparentFX

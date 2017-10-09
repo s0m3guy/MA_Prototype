@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50614280084321510}
   m_Layer: 0
   m_Name: OutputA
-  m_TagString: outputA
+  m_TagString: output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61111323933196020}
   m_Layer: 0
   m_Name: Input 1A
-  m_TagString: Untagged
+  m_TagString: input
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 61641579943325134}
   m_Layer: 0
   m_Name: Input 2A
-  m_TagString: Untagged
+  m_TagString: input
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
