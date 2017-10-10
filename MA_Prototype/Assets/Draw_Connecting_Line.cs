@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Draw_Connecting_Line : MonoBehaviour {
 
+	// (As of right now) This class 
+
 	private LineRenderer lineRenderer = new LineRenderer ();
 	private List<Vector2> newVertices = new List<Vector2> () {
 		new Vector2 (0, 0),

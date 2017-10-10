@@ -27,8 +27,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Block Panel
+  - Line
   - 
   - 
   - 
@@ -55,9 +55,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Block Panel
+    uniqueID: 2992651977
+    locked: 0
   - name: Functional Blocks
     uniqueID: 2276785175
     locked: 0
-  - name: Block Label
-    uniqueID: 540012313
+  - name: Line
+    uniqueID: 2645189757
     locked: 0
