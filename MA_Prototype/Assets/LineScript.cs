@@ -9,7 +9,7 @@ public class LineScript : MonoBehaviour {
 
 	private LineRenderer line = new LineRenderer();
 
-	private GameObject goalInput = null;
+	private GameObject goalInput;
 	private GameObject[] goalInputs;
 	private CircleCollider2D circCol;
 	private CircleCollider2D[] circCols;
@@ -24,12 +24,8 @@ public class LineScript : MonoBehaviour {
 			circCols[i] = goalInputs[i].GetComponent<CircleCollider2D>();
 		}
 			
-//		goalInput = GameObject.FindGameObjectWithTag("inputB2");
 		line = GetComponent<LineRenderer> ();
-//		circCol = goalInput.GetComponent<CircleCollider2D> ();
-
-		origin = GameObject.FindGameObjectWithTag ("output").transform;
-//		destin = goalInput.transform;
+//		origin = GameObject.FindGameObjectWithTag ("output").transform;
 	}
 
 
@@ -40,6 +36,8 @@ public class LineScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		ScanInput ();
 
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePos.z = 0;
@@ -53,13 +51,14 @@ public class LineScript : MonoBehaviour {
 					destin.position.z));
 			}
 		}
+	}
 
-//		if (circCol.bounds.Contains(mousePos)) {
-//				
-//			line.SetPosition (1, new Vector3(
-//				destin.position.x - (destin.GetComponent<SpriteRenderer>().bounds.size.x)/2,
-//				destin.position.y,
-//				destin.position.z));
-//		}
+	void ScanInput () {
+		goalInputs = GameObject.FindGameObjectsWithTag ("input");
+		circCols = new CircleCollider2D[goalInputs.Length];
+
+		for (int i = 0; i < goalInputs.Length; i++) {
+			circCols [i] = goalInputs [i].GetComponent<CircleCollider2D> ();
+		}
 	}
 }
