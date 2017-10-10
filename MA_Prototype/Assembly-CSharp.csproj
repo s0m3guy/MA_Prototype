@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BlockScript.cs" />
+     <Compile Include="Assets\BlockMovingScript.cs" />
      <Compile Include="Assets\Draw_Connecting_Line.cs" />
      <Compile Include="Assets\LineScript.cs" />
  <Reference Include="UnityEngine.UI">

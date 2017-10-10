@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockScript : MonoBehaviour {
+public class BlockMovingScript: MonoBehaviour {
 
 	public Transform block;
 	public int speed;

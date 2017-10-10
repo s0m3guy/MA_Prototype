@@ -9,9 +9,11 @@ public class LineScript : MonoBehaviour {
 	private CircleCollider2D circCol;
 	private Rect goalBox;
 	private Transform origin, destin;
+	private GameObject[] inputs;
 
 
 	void Awake () {
+		inputs = GameObject.FindGameObjectsWithTag ("input");
 		goalInput = GameObject.FindGameObjectWithTag("inputB2");
 		line = GetComponent<LineRenderer> ();
 		circCol = goalInput.GetComponent<CircleCollider2D> ();
