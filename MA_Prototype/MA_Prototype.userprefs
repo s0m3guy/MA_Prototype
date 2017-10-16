@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BlockScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RandomDotScript.cs">
     <Files>
       <File FileName="Assets\LineScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Draw_Connecting_Line.cs" Line="1" Column="1" />
-      <File FileName="Assets\BlockScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\BlockMovingScript.cs" Line="9" Column="1" />
+      <File FileName="Assets\RandomDotScript.cs" Line="14" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
