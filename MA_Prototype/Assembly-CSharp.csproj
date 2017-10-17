@@ -55,6 +55,7 @@
      <Compile Include="Assets\Draw_Connecting_Line.cs" />
      <Compile Include="Assets\LineScript.cs" />
      <Compile Include="Assets\RandomDotScript.cs" />
+     <Compile Include="Assets\RandomLEDScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
