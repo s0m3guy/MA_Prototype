@@ -53,8 +53,6 @@
   <ItemGroup>
      <Compile Include="Assets\BlockMovingScript.cs" />
      <Compile Include="Assets\Draw_Connecting_Line.cs" />
-     <Compile Include="Assets\InputAScript.cs" />
-     <Compile Include="Assets\InputBScript.cs" />
      <Compile Include="Assets\LineScript.cs" />
      <Compile Include="Assets\RandomDotScript.cs" />
      <Compile Include="Assets\RandomLEDScript.cs" />
