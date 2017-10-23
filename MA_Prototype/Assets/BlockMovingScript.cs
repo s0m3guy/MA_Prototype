@@ -9,6 +9,10 @@ public class BlockMovingScript: MonoBehaviour {
 	private bool isClone = false;
 	private Transform clone;
 
+	private bool inputAset = false;
+	private bool inputBset = false;
+	private bool outputSet = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -49,5 +53,12 @@ public class BlockMovingScript: MonoBehaviour {
 
 		clone.position = curPosition;
 
+	}
+
+	public void setInputA() {
+		inputAset = true;
+	}
+	public void setInputB() {
+		inputBset = true;
 	}
 }

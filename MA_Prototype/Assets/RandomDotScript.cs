@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomDotScript : MonoBehaviour {
 
-	private bool isOn = true;
+	public bool isOn = true;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
