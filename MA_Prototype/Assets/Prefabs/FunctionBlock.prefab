@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 4440554245321044}
   - component: {fileID: 212612817907944040}
   - component: {fileID: 58506153493699510}
-  - component: {fileID: 114081283866925990}
   m_Layer: 0
   m_Name: Input 1A
   m_TagString: inputA
@@ -76,7 +75,6 @@ GameObject:
   - component: {fileID: 4805817134383134}
   - component: {fileID: 212133513074351578}
   - component: {fileID: 58044419038588198}
-  - component: {fileID: 114777697437975298}
   m_Layer: 0
   m_Name: Input 2A
   m_TagString: inputB
@@ -229,17 +227,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114081283866925990
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241237589636616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57850c4676b213c469647823ce807e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114261439078105060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,17 +253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 4243498715353294}
   destin: {fileID: 0}
---- !u!114 &114777697437975298
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994100526598792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 313242ef43248cb44b70bdd7a65a3c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212133513074351578
 SpriteRenderer:
   m_ObjectHideFlags: 1
