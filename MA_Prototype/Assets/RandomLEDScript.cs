@@ -21,7 +21,6 @@ public class RandomLEDScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (isOn);
 		if (isOn) {
 			spritRend.sprite = sprite_dot_off;
 		} else {

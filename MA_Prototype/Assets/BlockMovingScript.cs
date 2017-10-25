@@ -25,9 +25,7 @@ public class BlockMovingScript: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		if (gameObject.name.Contains ("(Clone)")) {
-//			Debug.Log ("KLOOON");
-//		}
+
 	}
 
 	private Vector3 screenPoint;
@@ -35,9 +33,7 @@ public class BlockMovingScript: MonoBehaviour {
 
 	void OnMouseDown() {
 
-//		if (!isClone) {
-			clone = Instantiate (block);
-//		}
+		clone = Instantiate (block);
 
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 

@@ -19,8 +19,6 @@ public class LineScript : MonoBehaviour {
 
 	public Draw_Connecting_Line originCircle;
 
-	public GameObject originObject;
-
 	private BlockMovingScript originBlockScript, destinBlockScript;
 
 	void Awake () {
@@ -65,7 +63,7 @@ public class LineScript : MonoBehaviour {
 					destinBlockScript = circCols [i].GetComponentInParent<BlockMovingScript> ();
 					destinBlockScript.setInputB ();
 				}
-				originCircle.GetComponentInParent<BlockMovingScript> ().setInputB ();
+				originCircle.GetComponentInParent<BlockMovingScript> ().setOutput ();
 			}
 		}
 	}
