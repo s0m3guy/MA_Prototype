@@ -17,6 +17,10 @@ public class LineScript : MonoBehaviour {
 
 	private Transform origin, destin;
 
+	public Draw_Connecting_Line originCircle;
+
+	public GameObject originObject;
+
 	private BlockMovingScript originBlockScript, destinBlockScript;
 
 	void Awake () {
@@ -28,7 +32,6 @@ public class LineScript : MonoBehaviour {
 		}
 			
 		line = GetComponent<LineRenderer> ();
-//		origin = GameObject.FindGameObjectWithTag ("output").transform;
 	}
 
 
@@ -62,6 +65,7 @@ public class LineScript : MonoBehaviour {
 					destinBlockScript = circCols [i].GetComponentInParent<BlockMovingScript> ();
 					destinBlockScript.setInputB ();
 				}
+				originCircle.GetComponentInParent<BlockMovingScript> ().setInputB ();
 			}
 		}
 	}
@@ -82,8 +86,6 @@ public class LineScript : MonoBehaviour {
 			GameObject[] objs = GameObject.FindGameObjectsWithTag (tag);
 			list.AddRange (objs);
 		}
-//		GameObject[] objs3 = GameObject.FindGameObjectsWithTag ("input");
-//		GameObject[] objs2 = GameObject.FindGameObjectsWithTag ("output");
 		return list.ToArray ();
 	}
 }

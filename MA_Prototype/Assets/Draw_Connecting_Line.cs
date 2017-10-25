@@ -7,22 +7,20 @@ public class Draw_Connecting_Line : MonoBehaviour {
 	// (As of right now) This class 
 
 	private LineRenderer lineRenderer = new LineRenderer ();
-	private List<Vector2> newVertices = new List<Vector2> () {
-		new Vector2 (0, 0),
-		new Vector2 (0, 0)
-	};
-
-	private EdgeCollider2D edgeCol;
-
+		
 	public Transform origin;
-	public Transform destin;
+
+	private LineScript line;
 
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
 
 		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
-		edgeCol = GameObject.Find("Line").GetComponent<EdgeCollider2D> ();
+
+		line = GameObject.Find ("Line").GetComponent<LineScript> ();
+
+		line.originCircle = this;
 	}
 
 	// Use this for initialization
@@ -46,9 +44,6 @@ public class Draw_Connecting_Line : MonoBehaviour {
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-		newVertices[0] = new Vector2 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y);
-		newVertices[1] = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 
-		edgeCol.points = newVertices.ToArray ();
 	}
 }

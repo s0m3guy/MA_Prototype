@@ -61,4 +61,7 @@ public class BlockMovingScript: MonoBehaviour {
 	public void setInputB() {
 		inputBset = true;
 	}
+	public void setOutput() {
+		outputSet = true;
+	}
 }
