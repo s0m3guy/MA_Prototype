@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class FunctionBlock: MonoBehaviour {
 
-	public Transform block;
+	public Transform block, clone;
 	public int speed;
 	private bool isClone = false;
-	private Transform clone;
 
 	private bool inputAset = false;
 	private bool inputBset = false;

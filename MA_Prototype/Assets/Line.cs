@@ -19,7 +19,7 @@ public class Line : MonoBehaviour {
 
 	public OutputCircle originCircle;
 
-	private BlockMovingScript originBlockScript, destinBlockScript;
+	private FunctionBlock originBlockScript, destinBlockScript;
 
 	void Awake () {
 		goalInputs = GameObject.FindGameObjectsWithTag ("input");
@@ -57,13 +57,13 @@ public class Line : MonoBehaviour {
 					destin.position.z));
 
 				if (circCols [i].CompareTag ("inputA")) {
-					destinBlockScript = circCols [i].GetComponentInParent<BlockMovingScript> ();
+					destinBlockScript = circCols [i].GetComponentInParent<FunctionBlock> ();
 					destinBlockScript.setInputA ();
 				} else if (circCols [i].CompareTag ("inputB")) {
-					destinBlockScript = circCols [i].GetComponentInParent<BlockMovingScript> ();
+					destinBlockScript = circCols [i].GetComponentInParent<FunctionBlock> ();
 					destinBlockScript.setInputB ();
 				}
-				originCircle.GetComponentInParent<BlockMovingScript> ().setOutput ();
+				originCircle.GetComponentInParent<FunctionBlock> ().setOutput ();
 			}
 		}
 	}
