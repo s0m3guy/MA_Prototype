@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BlockMovingScript.cs" />
+     <Compile Include="Assets\FunctionBlock.cs" />
      <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\OutputCircle.cs" />
      <Compile Include="Assets\RandomDotScript.cs" />

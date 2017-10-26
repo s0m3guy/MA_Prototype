@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa6aa507c6ea69419ab71a055f5d08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOn: 1
 --- !u!212 &365147934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1108,9 +1109,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1433379363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb90fca7135e7e45897f1b8cd264e3e, type: 3}
+  m_Script: {fileID: 11500000, guid: b9fe66913927b9e4c81cf4eadfbe27ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originCircle: {fileID: 0}
 --- !u!1001 &1448764859
 Prefab:
   m_ObjectHideFlags: 0
