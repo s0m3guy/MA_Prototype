@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineScript : MonoBehaviour {
+public class Line : MonoBehaviour {
 
 	// (As of right now) This script draws the line following the mouse and checks if the mouse
 	// collides with the bounding box of the input of another block
@@ -17,7 +17,7 @@ public class LineScript : MonoBehaviour {
 
 	private Transform origin, destin;
 
-	public Draw_Connecting_Line originCircle;
+	public OutputCircle originCircle;
 
 	private BlockMovingScript originBlockScript, destinBlockScript;
 

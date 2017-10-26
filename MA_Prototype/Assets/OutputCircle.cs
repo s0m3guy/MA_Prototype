@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Draw_Connecting_Line : MonoBehaviour {
+public class OutputCircle : MonoBehaviour {
 
 	// (As of right now) This class 
 
@@ -10,7 +10,7 @@ public class Draw_Connecting_Line : MonoBehaviour {
 		
 	public Transform origin;
 
-	private LineScript line;
+	private Line line;
 
 	void Awake () {
 
@@ -18,7 +18,7 @@ public class Draw_Connecting_Line : MonoBehaviour {
 
 		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
 
-		line = GameObject.Find ("Line").GetComponent<LineScript> ();
+		line = GameObject.Find ("Line").GetComponent<Line> ();
 
 		line.originCircle = this;
 	}
