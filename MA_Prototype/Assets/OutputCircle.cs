@@ -16,7 +16,7 @@ public class OutputCircle : MonoBehaviour {
 
 		origin = GetComponent<Transform> ();
 
-		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
+//		lineRenderer = GameObject.Find ("Line").GetComponent<LineRenderer> ();
 
 		line = GameObject.Find ("Line").GetComponent<Line> ();
 
@@ -37,7 +37,7 @@ public class OutputCircle : MonoBehaviour {
 
 	void OnMouseDrag () {
 
-		// instantiate Line after clicking circle
+		lineRenderer = newLine.gameObject.GetComponent<LineRenderer> ();
 
 		Vector2 screenPos = new Vector2();
 		Camera.main.ScreenToWorldPoint (screenPos);
@@ -50,6 +50,8 @@ public class OutputCircle : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
+
+		// instantiate Line after clicking circle
 	
 		newLine = Instantiate (currentLine);
 
