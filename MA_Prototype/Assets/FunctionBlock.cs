@@ -10,7 +10,7 @@ public class FunctionBlock: MonoBehaviour {
 
 	private bool inputAset = false;
 	private bool inputBset = false;
-	private bool outputSet = false;
+	bool outputSet = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,22 +32,25 @@ public class FunctionBlock: MonoBehaviour {
 
 	void OnMouseDown() {
 
-		clone = Instantiate (block);
+		if (!isClone) {
+			clone = Instantiate (block);
+		}
+//		if (isClone) {
+			screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
-		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
-
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
+			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+//		}
 	}
 
 	void OnMouseDrag() {
 
-		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+//		if (isClone) {
+			Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
 
-		Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+			Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 
-		clone.position = curPosition;
-
+			clone.position = curPosition;																				// Move clone to this position
+//		}
 	}
 
 	public void setInputA() {

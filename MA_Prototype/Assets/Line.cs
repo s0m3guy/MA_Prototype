@@ -7,7 +7,7 @@ public class Line : MonoBehaviour {
 	// (As of right now) This script draws the line following the mouse and checks if the mouse
 	// collides with the bounding box of the input of another block
 
-	private LineRenderer line = new LineRenderer();
+	public LineRenderer line = new LineRenderer();
 
 	private GameObject goalInput;
 	private GameObject[] goalInputs;
@@ -22,12 +22,12 @@ public class Line : MonoBehaviour {
 	private FunctionBlock originBlockScript, destinBlockScript;
 
 	void Awake () {
-		goalInputs = GameObject.FindGameObjectsWithTag ("input");
-		circCols = new CircleCollider2D[goalInputs.Length];
-
-		for(int i = 0; i < goalInputs.Length; i++) {
-			circCols[i] = goalInputs[i].GetComponent<CircleCollider2D>();
-		}
+//		goalInputs = GameObject.FindGameObjectsWithTag ("input");
+//		circCols = new CircleCollider2D[goalInputs.Length];
+//
+//		for(int i = 0; i < goalInputs.Length; i++) {
+//			circCols[i] = goalInputs[i].GetComponent<CircleCollider2D>();
+//		}
 			
 		line = GetComponent<LineRenderer> ();
 	}
@@ -40,6 +40,12 @@ public class Line : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+//		if (getGameObjectAtPosition ().CompareTag ("inputA")) {
+//			Debug.Log ("hallo, input gefunden");
+//		}
+
+//		Debug.Log (getGameObjectAtPosition ().transform.name);
 
 		ScanInput ();
 
@@ -63,7 +69,7 @@ public class Line : MonoBehaviour {
 					destinBlockScript = circCols [i].GetComponentInParent<FunctionBlock> ();
 					destinBlockScript.setInputB ();
 				}
-				originCircle.GetComponentInParent<FunctionBlock> ().setOutput ();
+//				originCircle.GetComponentInParent<FunctionBlock> ().setOutput ();					// originCircle is null(Why?)
 			}
 		}
 	}
@@ -85,5 +91,14 @@ public class Line : MonoBehaviour {
 			list.AddRange (objs);
 		}
 		return list.ToArray ();
+	}
+
+	Transform getGameObjectAtPosition()
+	{
+		RaycastHit hit;
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out hit))
+					Debug.Log("found " + hit.transform.name + " at distance: " + hit.distance);
+		return hit.transform;
 	}
 }
