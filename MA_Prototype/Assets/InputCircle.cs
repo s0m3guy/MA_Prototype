@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutputCircle : MonoBehaviour {
+public class InputCircle : MonoBehaviour {
 
 	// (As of right now) This class 
 
@@ -36,7 +36,7 @@ public class OutputCircle : MonoBehaviour {
 
 		line = newLine.GetComponent<Line>();
 
-		line.originCircle = this;
+//		line.originCircle = this;		// needs fix
 
 		lineRenderer = newLine.gameObject.GetComponent<LineRenderer> ();
 
