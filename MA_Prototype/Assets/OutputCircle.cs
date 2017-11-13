@@ -65,10 +65,10 @@ public class OutputCircle : MonoBehaviour {
 		// Contains the logic for creating lines
 
 		// For testing purposes
-		Debug.Log ("Touched circle");
-		set = true;
-		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
-			Debug.Log ("Linie detektiert");
-		}
+//		Debug.Log ("Touched circle");
+//		set = true;
+//		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
+//			Debug.Log ("Linie detektiert");
+//		}
 	}
 }
