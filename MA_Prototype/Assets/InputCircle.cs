@@ -14,6 +14,8 @@ public class InputCircle : MonoBehaviour {
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
 
+	private OutputCircle outputCircle = new OutputCircle ();
+
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
@@ -33,6 +35,7 @@ public class InputCircle : MonoBehaviour {
 
 	void OnMouseDrag () {
 
+		#region currently deprecated
 //		line = newLine.GetComponent<Line>();
 //
 ////		line.originCircle = this;		// needs fix
@@ -47,6 +50,7 @@ public class InputCircle : MonoBehaviour {
 //				origin.position.y,
 //				origin.position.z));
 //		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		#endregion currently deprecated
 	}
 
 	void OnMouseDown () {
@@ -65,8 +69,8 @@ public class InputCircle : MonoBehaviour {
 		// For testing purposes
 		Debug.Log ("Touched circle");
 		set = true;
-		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
-			Debug.Log ("Line detected");
-		}
+//		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
+//			Debug.Log ("Line detected");
+//		}
 	}
 }

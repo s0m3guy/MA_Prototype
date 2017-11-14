@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RandomDotScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Line.cs">
     <Files>
       <File FileName="Assets\RandomDotScript.cs" Line="20" Column="3" />
-      <File FileName="Assets\FunctionBlock.cs" Line="1" Column="1" />
+      <File FileName="Assets\OutputCircle.cs" Line="13" Column="8" />
+      <File FileName="Assets\Line.cs" Line="102" Column="28" />
+      <File FileName="Assets\InputCircle.cs" Line="24" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

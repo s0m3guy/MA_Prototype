@@ -10,7 +10,7 @@ public class OutputCircle : MonoBehaviour {
 	private LineRenderer lineRenderer = new LineRenderer ();
 	private LineRenderer newLineRend = new LineRenderer();
 	public Transform origin;
-	private GameObject newLine;
+	public GameObject newLine;
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
 
