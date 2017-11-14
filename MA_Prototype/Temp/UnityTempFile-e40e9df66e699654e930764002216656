@@ -99,6 +99,7 @@
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_HAS_GOOGLEVR
 Assets/FunctionBlock.cs
+Assets/InputCircle.cs
 Assets/Line.cs
 Assets/OutputCircle.cs
 Assets/RandomDotScript.cs

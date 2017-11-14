@@ -9,15 +9,14 @@ public class OutputCircle : MonoBehaviour {
 	private bool set;
 	private LineRenderer lineRenderer = new LineRenderer ();
 	private LineRenderer newLineRend = new LineRenderer();
-	public Transform origin, newLine, currentLine;
+	public Transform origin;
+	private GameObject newLine;
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
 
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
-
-		currentLine = GameObject.Find ("Line").GetComponent<Transform> ();
 
 		circCol = GetComponent<CircleCollider2D> ();
 	}
@@ -29,7 +28,7 @@ public class OutputCircle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log (newCircCol.gameObject.name);
+
 	}
 
 	void OnMouseDrag () {
@@ -54,10 +53,8 @@ public class OutputCircle : MonoBehaviour {
 
 		// instantiate Line after clicking circle
 	
-		newLine = Instantiate (currentLine);
+		newLine = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 		newLineRend = newLine.GetComponent<LineRenderer> ();
-
-		Debug.Log(newLineRend.GetPosition (0));
 	}
 		
 	void OnMouseEnter() {
@@ -68,7 +65,7 @@ public class OutputCircle : MonoBehaviour {
 //		Debug.Log ("Touched circle");
 //		set = true;
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
-//			Debug.Log ("Linie detektiert");
+//			Debug.Log ("Line detected");
 //		}
 	}
 }

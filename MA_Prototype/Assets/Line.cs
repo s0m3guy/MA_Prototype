@@ -18,6 +18,7 @@ public class Line : MonoBehaviour {
 	private Transform origin, destin;
 
 	public OutputCircle originCircle;
+	public InputCircle destinCircle;
 
 	private FunctionBlock originBlockScript, destinBlockScript;
 
