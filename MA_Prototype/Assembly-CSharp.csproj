@@ -54,6 +54,7 @@
      <Compile Include="Assets\FunctionBlock.cs" />
      <Compile Include="Assets\InputCircle.cs" />
      <Compile Include="Assets\Line.cs" />
+     <Compile Include="Assets\Manager.cs" />
      <Compile Include="Assets\OutputCircle.cs" />
      <Compile Include="Assets\RandomDotScript.cs" />
      <Compile Include="Assets\RandomLEDScript.cs" />

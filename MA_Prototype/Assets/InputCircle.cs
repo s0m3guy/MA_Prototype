@@ -72,5 +72,7 @@ public class InputCircle : MonoBehaviour {
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
 //			Debug.Log ("Line detected");
 //		}
+
+
 	}
 }
