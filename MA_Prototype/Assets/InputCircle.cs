@@ -67,10 +67,24 @@ public class InputCircle : MonoBehaviour {
 		// Contains the logic for creating lines
 
 		// For testing purposes
-		Debug.Log ("Touched circle");
+//		Debug.Log ("Touched circle");
 		set = true;
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
 //			Debug.Log ("Line detected");
 //		}
+
+		Debug.Log("The raycast just hit " + Raycast ().name);
+
+	}
+
+	GameObject Raycast ()
+	{
+		Vector2 worldPoint = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		RaycastHit2D hit = Physics2D.Raycast (worldPoint, Vector2.zero);
+		if (hit.collider != null) {
+			Debug.Log (hit.collider.name);
+			return hit.collider.gameObject;
+		}
+		return null;
 	}
 }

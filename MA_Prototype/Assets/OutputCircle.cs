@@ -13,6 +13,12 @@ public class OutputCircle : MonoBehaviour {
 	public GameObject newLine;
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
+	private EdgeCollider2D edgeCol;
+
+	private List<Vector2> newVertices = new List<Vector2> () {
+		new Vector2 (0, 0),
+		new Vector2 (0, 0)
+	};
 
 	void Awake () {
 
@@ -38,6 +44,7 @@ public class OutputCircle : MonoBehaviour {
 		line.originCircle = this;
 
 		lineRenderer = newLine.gameObject.GetComponent<LineRenderer> ();
+		edgeCol = newLine.gameObject.GetComponent<EdgeCollider2D> ();
 
 		Vector2 screenPos = new Vector2();
 		Camera.main.ScreenToWorldPoint (screenPos);
@@ -46,7 +53,14 @@ public class OutputCircle : MonoBehaviour {
 			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
 				origin.position.y,
 				origin.position.z));
+
+		newVertices[0] = new Vector2 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2, origin.position.y);
+
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+		newVertices[1] = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+
+		edgeCol.points = newVertices.ToArray ();
 	}
 
 	void OnMouseDown () {
