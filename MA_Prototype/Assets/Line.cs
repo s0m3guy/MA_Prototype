@@ -7,7 +7,7 @@ public class Line : MonoBehaviour {
 	// (As of right now) This script draws the line following the mouse and checks if the mouse
 	// collides with the bounding box of the input of another block
 
-	public LineRenderer line = new LineRenderer();
+	private LineRenderer line = new LineRenderer();
 
 	private GameObject goalInput;
 	private GameObject[] goalInputs;
@@ -23,13 +23,14 @@ public class Line : MonoBehaviour {
 	private FunctionBlock originBlockScript, destinBlockScript;
 
 	void Awake () {
+		#region deprecated
 //		goalInputs = GameObject.FindGameObjectsWithTag ("input");
 //		circCols = new CircleCollider2D[goalInputs.Length];
 //
 //		for(int i = 0; i < goalInputs.Length; i++) {
 //			circCols[i] = goalInputs[i].GetComponent<CircleCollider2D>();
 //		}
-			
+		#endregion deprecated
 		line = GetComponent<LineRenderer> ();
 	}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Manager {
-
-	public static GameObject MouseLine;
+	
+	public static Line MouseLineScript;
+	public static LineRenderer MouseLineRenderer;
 }

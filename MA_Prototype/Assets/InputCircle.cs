@@ -30,8 +30,16 @@ public class InputCircle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log (newCircCol.gameObject.name);
+
+		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		mousePos.z = 0;
+
+		if(circCol.bounds.Contains(mousePos)) {
+			Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+		}
 	}
+			
+			
 
 	void OnMouseDrag () {
 
@@ -67,12 +75,18 @@ public class InputCircle : MonoBehaviour {
 		// Contains the logic for creating lines
 
 		// For testing purposes
-		Debug.Log ("Touched circle");
-		set = true;
+//		Debug.Log ("Touched circle");
+//		set = true;
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
 //			Debug.Log ("Line detected");
 //		}
 
+		Line currentLine = new Line();
 
+		if (Manager.MouseLineScript != null) {
+			Manager.MouseLineScript.destinCircle = this;
+
+			Debug.Log (Manager.MouseLineScript.destinCircle.name);
+		}
 	}
 }
