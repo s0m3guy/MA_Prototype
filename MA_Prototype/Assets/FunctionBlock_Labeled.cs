@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FunctionBlock_Labeled: MonoBehaviour {
 
@@ -49,8 +50,11 @@ public class FunctionBlock_Labeled: MonoBehaviour {
 
 			Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 
-		gameObject.GetComponentInParent<Transform>().position = curPosition;																				// Move clone to this position
-//		}
+			gameObject.GetComponentInParent<Transform>().position = curPosition;											// Move clone to this position
+
+				
+
+		//		}
 	}
 
 	public void setInputA() {
