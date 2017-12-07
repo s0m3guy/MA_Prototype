@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\FunctionBlock.cs" />
+     <Compile Include="Assets\FunctionBlock_Labeled.cs" />
      <Compile Include="Assets\InputCircle.cs" />
      <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\Manager.cs" />

@@ -20,7 +20,7 @@ public class Line : MonoBehaviour {
 	public OutputCircle originCircle;
 	public InputCircle destinCircle;
 
-	private FunctionBlock originBlockScript, destinBlockScript;
+	private FunctionBlock_Labeled originBlockScript, destinBlockScript;
 
 	void Awake () {
 		#region deprecated
