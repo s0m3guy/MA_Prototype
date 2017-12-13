@@ -17,8 +17,13 @@ public class Line : MonoBehaviour {
 
 	private Transform origin, destin;
 
+	/* old Circle variant
 	public OutputCircle originCircle;
 	public InputCircle destinCircle;
+	*/
+
+	public GameObject originObject;
+	public GameObject destinObject;
 
 	private FunctionBlock_Labeled originBlockScript, destinBlockScript;
 

@@ -8,10 +8,19 @@ public class RandomDotScript : MonoBehaviour {
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
+	private Line line, newLineScript;
+	private LineRenderer lineRenderer = new LineRenderer ();
+	private LineRenderer newLineRend = new LineRenderer();
+	public GameObject newLineObj;
+	public Transform origin;
+
+
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
 		sprite_dot_off = Resources.Load ("connecting_dot_inactive", typeof (Sprite)) as Sprite;
 		sprite_dot_on = Resources.Load ("connecting_dot_active", typeof(Sprite)) as Sprite;
+
+		origin = GetComponent<Transform> ();
 	}
 
 	// Use this for initialization
@@ -30,5 +39,41 @@ public class RandomDotScript : MonoBehaviour {
 
 	private void SwitchDot () {
 		isOn = !isOn;
+	}
+
+	void OnMouseDrag () {
+
+		line = newLineObj.GetComponent<Line>();
+
+//		line.originCircle = this;
+		line.originObject = this.gameObject;
+
+		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
+
+		Vector2 screenPos = new Vector2();
+		Camera.main.ScreenToWorldPoint (screenPos);
+
+		lineRenderer.SetPosition (0,
+			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
+				origin.position.y,
+				origin.position.z));
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
+		Manager.MouseLineRenderer = newLineRend;
+	}
+
+	void OnMouseDown () {
+
+		// instantiate Line after clicking circle
+
+		Debug.Log ("hellooooo");
+
+		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
+
+		if (newLineObj) {
+			newLineRend = newLineObj.GetComponent<LineRenderer> ();
+			newLineScript = newLineObj.GetComponent<Line> ();
+		}
 	}
 }

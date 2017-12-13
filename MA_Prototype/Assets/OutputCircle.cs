@@ -35,7 +35,8 @@ public class OutputCircle : MonoBehaviour {
 
 		line = newLineObj.GetComponent<Line>();
 
-		line.originCircle = this;
+//		line.originCircle = this;
+		line.originObject = this.gameObject;
 
 		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
 
@@ -66,6 +67,7 @@ public class OutputCircle : MonoBehaviour {
 		
 	void OnMouseEnter() {
 
+		#region deprecated
 		// Contains the logic for creating lines
 
 		// For testing purposes
@@ -74,5 +76,6 @@ public class OutputCircle : MonoBehaviour {
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
 //			Debug.Log ("Line detected");
 //		}
+		#endregion deprecated
 	}
 }
