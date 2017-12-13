@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Line : MonoBehaviour {
+public class Line : MonoBehaviour, IConductable {
 
 	// (As of right now) This script draws the line following the mouse and checks if the mouse
 	// collides with the bounding box of the input of another block
@@ -108,5 +108,8 @@ public class Line : MonoBehaviour {
 		if (Physics.Raycast(ray, out hit))
 					Debug.Log("found " + hit.transform.name + " at distance: " + hit.distance);
 		return hit.transform;
+	}
+
+	public void forwardInput () {
 	}
 }

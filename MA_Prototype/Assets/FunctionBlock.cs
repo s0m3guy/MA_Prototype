@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FunctionBlock: MonoBehaviour {
+public class FunctionBlock: MonoBehaviour, IConductable {
 
 	public Transform block, clone;
 	public int speed;
