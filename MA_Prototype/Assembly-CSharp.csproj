@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Conductive.cs" />
      <Compile Include="Assets\FunctionBlock.cs" />
      <Compile Include="Assets\FunctionBlock_Labeled.cs" />
      <Compile Include="Assets\InputCircle.cs" />
