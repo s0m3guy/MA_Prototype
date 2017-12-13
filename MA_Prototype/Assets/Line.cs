@@ -110,6 +110,6 @@ public class Line : MonoBehaviour, IConductable {
 		return hit.transform;
 	}
 
-	public void forwardInput () {
+	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
 	}
 }

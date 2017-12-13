@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IConductable {
 
-	void forwardInput ();
+	void forwardInput (GameObject[] inputs, GameObject[] output);
 
 }

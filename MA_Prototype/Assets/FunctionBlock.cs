@@ -62,4 +62,8 @@ public class FunctionBlock: MonoBehaviour, IConductable {
 	public void setOutput() {
 		outputSet = true;
 	}
+
+	public void forwardInput (GameObject[] inputs, GameObject[] output) {
+
+	}
 }
