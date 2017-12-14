@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
-public class FunctionBlock: MonoBehaviour, IConductable {
+public class FunctionBlock : MonoBehaviour, IConductable {
 
 	public Transform block, clone;
 	public int speed;
@@ -11,6 +12,11 @@ public class FunctionBlock: MonoBehaviour, IConductable {
 	private bool inputAset = false;
 	private bool inputBset = false;
 	bool outputSet = false;
+
+	public string logicGate;
+
+
+	public GameObject[] inputs, outputs;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +30,7 @@ public class FunctionBlock: MonoBehaviour, IConductable {
 	
 	// Update is called once per frame
 	void Update () {
-
+		forwardInput (null, null);		// Testing
 	}
 
 	private Vector3 screenPoint;
@@ -64,6 +70,28 @@ public class FunctionBlock: MonoBehaviour, IConductable {
 	}
 
 	public void forwardInput (GameObject[] inputs, GameObject[] output) {
+//		string logicGate;
+		bool isNegated = false;
+		string blockLabel = GetComponentInChildren<Canvas> ().GetComponentInChildren<Text>().text;
 
+		if (blockLabel == "=1") {
+			logicGate = "XOR";
+		} else if (blockLabel == "&") {
+			logicGate = "AND";
+		} else {
+			logicGate = "OR";
+		}
+
+		if (GetComponentInChildren<Canvas> ().GetComponentInChildren <SpriteRenderer> () != null) {
+			isNegated = true;
+		}
+			
+		if (logicGate == "AND" && isNegated) {
+			logicGate = "NAND";
+		} else if (logicGate == "OR" && isNegated) {
+			logicGate = "NOR";
+		}
+
+		Debug.Log (isNegated);
 	}
 }
