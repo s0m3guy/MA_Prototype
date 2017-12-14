@@ -70,7 +70,11 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 	}
 
 	public void forwardInput (GameObject[] inputs, GameObject[] output) {
-//		string logicGate;
+
+		int[] inputValues = new int[inputs.Length];
+		int[] outputValues = new int[output.Length];
+		int result = 0;
+		string logicGate;
 		bool isNegated = false;
 		string blockLabel = GetComponentInChildren<Canvas> ().GetComponentInChildren<Text>().text;
 
@@ -92,6 +96,36 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 			logicGate = "NOR";
 		}
 
+		/*
+		for(int i = 0; i <= inputs.Length; i++) {
+			inputValues[i] = inputs[i].GetComponent<Pin?>().value;
+		}
+
+		/*
+		if(logicGate == "AND") {
+			if(inputValues.Contains(0)) {
+				result = 0;
+				if (isNegative) {
+					result = 0;
+				}
+			}
+		} else if (LogicGate == "OR") {
+			if(inputValues.Contains(1) {
+				result = 1;
+				if (isNegative) {
+					result = 0;
+				}
+			}
+		} else if (LogicGate == "XOR")
+
+
+
+
+
+
+
+
+		*/
 		Debug.Log (isNegated);
 	}
 }
