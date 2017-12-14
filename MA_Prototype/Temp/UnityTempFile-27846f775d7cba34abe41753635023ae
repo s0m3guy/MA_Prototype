@@ -98,9 +98,8 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_HAS_GOOGLEVR
-Assets/Conductive.cs
 Assets/FunctionBlock.cs
-Assets/FunctionBlock_Labeled.cs
+Assets/IConductable.cs
 Assets/InputCircle.cs
 Assets/Line.cs
 Assets/Manager.cs
