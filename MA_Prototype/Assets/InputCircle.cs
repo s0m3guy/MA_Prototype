@@ -73,6 +73,7 @@ public class InputCircle : MonoBehaviour {
 		
 	void OnMouseEnter() {
 
+		/* deprecated
 		// Contains the logic for creating lines
 
 		// For testing purposes
@@ -81,6 +82,7 @@ public class InputCircle : MonoBehaviour {
 //		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
 //			Debug.Log ("Line detected");
 //		}
+		*/
 
 		Line currentLine = new Line();
 
