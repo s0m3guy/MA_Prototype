@@ -5,11 +5,8 @@ using UnityEngine;
 public class OutputDot : MonoBehaviour {
 
 	private CircleCollider2D circCol, newCircCol;
-	public Transform origin;
 
 	void Awake () {
-
-		origin = GetComponent<Transform> ();
 
 		circCol = GetComponent<CircleCollider2D> ();
 
