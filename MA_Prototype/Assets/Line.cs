@@ -25,7 +25,7 @@ public class Line : MonoBehaviour, IConductable {
 	public GameObject originObject;
 	public GameObject destinObject;
 
-	private FunctionBlock_Labeled originBlockScript, destinBlockScript;
+	private FunctionBlock originBlockScript, destinBlockScript;
 
 	void Awake () {
 		#region deprecated
