@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 50273554781515170}
   - component: {fileID: 114206566060934030}
   - component: {fileID: 212636527047079304}
-  m_Layer: 9
-  m_Name: Line
+  m_Layer: 10
+  m_Name: LinePrefab
   m_TagString: line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fe66913927b9e4c81cf4eadfbe27ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originCircle: {fileID: 0}
+  originObject: {fileID: 0}
+  destinObject: {fileID: 0}
 --- !u!120 &120926039092245938
 LineRenderer:
   m_ObjectHideFlags: 1
