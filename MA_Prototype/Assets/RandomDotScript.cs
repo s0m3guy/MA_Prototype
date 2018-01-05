@@ -45,7 +45,6 @@ public class RandomDotScript : MonoBehaviour {
 
 		line = newLineObj.GetComponent<Line>();
 
-//		line.originCircle = this;
 		line.originObject = this.gameObject;
 
 		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
@@ -67,13 +66,17 @@ public class RandomDotScript : MonoBehaviour {
 
 		// instantiate Line after clicking circle
 
-		Debug.Log ("hellooooo");
-
 		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 
 		if (newLineObj) {
 			newLineRend = newLineObj.GetComponent<LineRenderer> ();
 			newLineScript = newLineObj.GetComponent<Line> ();
+		}
+	}
+
+	public void forwardInput (GameObject[] inputs, GameObject[] output) {
+		for (int i = 0; i <= output.Length; i++) {
+			output [i] = inputs [0];
 		}
 	}
 }

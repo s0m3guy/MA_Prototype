@@ -69,10 +69,10 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 		outputSet = true;
 	}
 
-	public void forwardInput (GameObject[] inputs, GameObject[] output) {
+	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
 
 		int[] inputValues = new int[inputs.Length];
-		int[] outputValues = new int[output.Length];
+		int[] outputValues = new int[outputs.Length];
 		int result = 0;
 		string logicGate;
 		bool isNegated = false;
