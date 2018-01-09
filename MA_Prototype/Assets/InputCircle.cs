@@ -84,8 +84,6 @@ public class InputCircle : MonoBehaviour {
 //		}
 		*/
 
-		Line currentLine = new Line();
-
 		/* old Circle variant
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinCircle = this;

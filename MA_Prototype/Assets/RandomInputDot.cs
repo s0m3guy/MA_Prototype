@@ -14,6 +14,8 @@ public class RandomInputDot : MonoBehaviour {
 	public GameObject newLineObj;
 	public Transform origin;
 
+	public int[] inputs, outputs;
+
 
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();

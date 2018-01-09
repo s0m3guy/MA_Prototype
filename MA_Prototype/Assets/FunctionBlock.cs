@@ -15,8 +15,7 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 
 	public string logicGate;
 
-
-	public GameObject[] inputs, outputs;
+	public int[] inputs, outputs;
 
 	// Use this for initialization
 	void Start () {
