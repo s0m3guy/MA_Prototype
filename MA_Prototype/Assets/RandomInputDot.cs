@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomDotScript : MonoBehaviour {
+public class RandomInputDot : MonoBehaviour {
 
 	public bool isOn = true;
 	private SpriteRenderer spritRend;

@@ -59,7 +59,7 @@
      <Compile Include="Assets\Output.cs" />
      <Compile Include="Assets\OutputCircle.cs" />
      <Compile Include="Assets\OutputDot.cs" />
-     <Compile Include="Assets\RandomDotScript.cs" />
+     <Compile Include="Assets\RandomInputDot.cs" />
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />
      <Compile Include="Assets\TouchTest.cs" />
