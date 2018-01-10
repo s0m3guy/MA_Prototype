@@ -20,9 +20,14 @@ public class Line : MonoBehaviour, IConductable {
 	public GameObject originObject;
 	public GameObject destinObject;
 
-	private FunctionBlock originBlockScript, destinBlockScript;
+	private FunctionBlock originBlock, destinBlock;
 
-	public int[] inputs, outputs;
+	private RandomInputDot randomInputDotScript;
+	private InputCircle inputCircleScript;
+	private OutputCircle outputCircleScript;
+	private OutputDot outputDotScript;
+
+	public int input, output;
 
 	void Awake () {
 
@@ -69,6 +74,10 @@ public class Line : MonoBehaviour, IConductable {
 	}
 
 	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
-		
+		if(origin) {
+			script = origin.gameObject.GetComponent<Script> ();
+			input = script.
+
+
 	}
 }

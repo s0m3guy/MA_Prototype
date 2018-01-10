@@ -16,7 +16,6 @@ public class RandomInputDot : MonoBehaviour {
 
 	public int[] outputs;
 
-
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
 		sprite_dot_off = Resources.Load ("connecting_dot_inactive", typeof (Sprite)) as Sprite;
@@ -46,7 +45,6 @@ public class RandomInputDot : MonoBehaviour {
 	}
 
 	private void SwitchDot () {
-//		isOn = !isOn;
 
 		if (value == 1) {
 			value = 0;
@@ -89,8 +87,8 @@ public class RandomInputDot : MonoBehaviour {
 	}
 
 	public void forwardInput (int input, int[] outputs) {
-//		for (int i = 0; i <= outputs.Length; i++) {
-			outputs[0] = value;
-//		}
+		for (int i = 0; i <= outputs.Length-1; i++) {
+			outputs[i] = value;
+		}
 	}
 }
