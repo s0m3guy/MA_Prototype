@@ -25,14 +25,7 @@ public class Line : MonoBehaviour, IConductable {
 	public int[] inputs, outputs;
 
 	void Awake () {
-		#region deprecated
-//		goalInputs = GameObject.FindGameObjectsWithTag ("input");
-//		circCols = new CircleCollider2D[goalInputs.Length];
-//
-//		for(int i = 0; i < goalInputs.Length; i++) {
-//			circCols[i] = goalInputs[i].GetComponent<CircleCollider2D>();
-//		}
-		#endregion deprecated
+
 		line = GetComponent<LineRenderer> ();
 	}
 
@@ -44,39 +37,7 @@ public class Line : MonoBehaviour, IConductable {
 	
 	// Update is called once per frame
 	void Update () {
-		#region deprecated
-//		if (getGameObjectAtPosition ().CompareTag ("inputA")) {
-//			Debug.Log ("hallo, input gefunden");
-//		}
 
-//		Debug.Log (getGameObjectAtPosition ().transform.name);
-
-//		ScanInput ();
-//
-//		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-//		mousePos.z = 0;
-//
-//		// Run through all circle colliders and check 
-//
-//		for (int i = 0; i < circCols.Length; i++) {
-//			if (circCols[i].bounds.Contains (mousePos)) {
-//				destin = circCols [i].transform;
-//				line.SetPosition (1, new Vector3 (
-//					destin.position.x - (destin.GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
-//					destin.position.y,
-//					destin.position.z));
-//
-//				if (circCols [i].CompareTag ("inputA")) {
-//					destinBlockScript = circCols [i].GetComponentInParent<FunctionBlock> ();
-//					destinBlockScript.setInputA ();
-//				} else if (circCols [i].CompareTag ("inputB")) {
-//					destinBlockScript = circCols [i].GetComponentInParent<FunctionBlock> ();
-//					destinBlockScript.setInputB ();
-//				}
-////				originCircle.GetComponentInParent<FunctionBlock> ().setOutput ();					// originCircle is null(Why?)
-//			}
-//		}
-		#endregion deprecated
 	}
 
 	void ScanInput () {
