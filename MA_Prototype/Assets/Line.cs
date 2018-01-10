@@ -17,15 +17,12 @@ public class Line : MonoBehaviour, IConductable {
 
 	private Transform origin, destin;
 
-	/* old Circle variant
-	public OutputCircle originCircle;
-	public InputCircle destinCircle;
-	*/
-
 	public GameObject originObject;
 	public GameObject destinObject;
 
 	private FunctionBlock originBlockScript, destinBlockScript;
+
+	public int[] inputs, outputs;
 
 	void Awake () {
 		#region deprecated
@@ -111,5 +108,6 @@ public class Line : MonoBehaviour, IConductable {
 	}
 
 	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
+		
 	}
 }

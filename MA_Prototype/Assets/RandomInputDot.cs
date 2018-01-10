@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomInputDot : MonoBehaviour {
 
-	public bool isOn = true;
+	public int value = 1;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
@@ -14,7 +14,7 @@ public class RandomInputDot : MonoBehaviour {
 	public GameObject newLineObj;
 	public Transform origin;
 
-	public int[] inputs, outputs;
+	public int[] outputs;
 
 
 	void Awake () {
@@ -23,6 +23,8 @@ public class RandomInputDot : MonoBehaviour {
 		sprite_dot_on = Resources.Load ("connecting_dot_active", typeof(Sprite)) as Sprite;
 
 		origin = GetComponent<Transform> ();
+
+		outputs = new int[1];
 	}
 
 	// Use this for initialization
@@ -32,15 +34,25 @@ public class RandomInputDot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isOn) {
+		if (value == 1) {
 			spritRend.sprite = sprite_dot_off;
-		} else {
+		} else if (value == 0) {
 			spritRend.sprite = sprite_dot_on;
 		}
+			
+		forwardInput (value, outputs);
+
+		Debug.Log (outputs [0]);
 	}
 
 	private void SwitchDot () {
-		isOn = !isOn;
+//		isOn = !isOn;
+
+		if (value == 1) {
+			value = 0;
+		} else if (value == 0) {
+			value = 1;
+		}
 	}
 
 	void OnMouseDrag () {
@@ -76,9 +88,9 @@ public class RandomInputDot : MonoBehaviour {
 		}
 	}
 
-	public void forwardInput (GameObject[] inputs, GameObject[] output) {
-		for (int i = 0; i <= output.Length; i++) {
-			output [i] = inputs [0];
-		}
+	public void forwardInput (int input, int[] outputs) {
+//		for (int i = 0; i <= outputs.Length; i++) {
+			outputs[0] = value;
+//		}
 	}
 }

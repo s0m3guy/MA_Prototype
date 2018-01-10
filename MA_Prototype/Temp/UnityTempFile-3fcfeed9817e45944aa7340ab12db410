@@ -106,7 +106,7 @@ Assets/Manager.cs
 Assets/Output.cs
 Assets/OutputCircle.cs
 Assets/OutputDot.cs
-Assets/RandomDotScript.cs
+Assets/RandomInputDot.cs
 Assets/RandomLEDScript.cs
 Assets/RaycastController.cs
 Assets/TouchTest.cs

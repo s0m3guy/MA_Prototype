@@ -70,6 +70,7 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 
 	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
 
+		/*
 		int[] inputValues = new int[inputs.Length];
 		int[] outputValues = new int[outputs.Length];
 		int result = 0;
@@ -94,6 +95,7 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 		} else if (logicGate == "OR" && isNegated) {
 			logicGate = "NOR";
 		}
+		*/
 
 		/*
 		for(int i = 0; i <= inputs.Length; i++) {
@@ -125,6 +127,6 @@ public class FunctionBlock : MonoBehaviour, IConductable {
 
 
 		*/
-		Debug.Log (isNegated);
+//		Debug.Log (isNegated);
 	}
 }

@@ -84,14 +84,6 @@ public class InputCircle : MonoBehaviour {
 //		}
 		*/
 
-		/* old Circle variant
-		if (Manager.MouseLineScript != null) {
-			Manager.MouseLineScript.destinCircle = this;
-
-			Debug.Log (Manager.MouseLineScript.destinCircle.name);
-		}
-		*/
-
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinObject = this.gameObject;
 
