@@ -9,14 +9,15 @@ public class FunctionBlock : MonoBehaviour {
 	public int speed;
 	private bool isClone = false;
 
-	private bool inputAset = false;
-	private bool inputBset = false;
-	bool outputSet = false;
-
 	public string logicGate;
 
 	public int[] inputs;
 	public int output;
+
+	void Awake () {
+
+		inputs = new int[transform.childCount - 2];
+	}
 
 	// Use this for initialization
 	void Start () {
