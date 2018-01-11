@@ -6,6 +6,8 @@ public class OutputDot : MonoBehaviour {
 
 	private CircleCollider2D circCol, newCircCol;
 
+	public int input;
+
 	void Awake () {
 
 		circCol = GetComponent<CircleCollider2D> ();

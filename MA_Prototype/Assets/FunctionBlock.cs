@@ -15,7 +15,8 @@ public class FunctionBlock : MonoBehaviour {
 
 	public string logicGate;
 
-	public int[] inputs, outputs;
+	public int[] inputs;
+	public int output;
 
 	// Use this for initialization
 	void Start () {

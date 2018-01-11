@@ -475,9 +475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039dc89c315a06e4aa2b84dbf9d59417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 1
+  value: 1
   newLineObj: {fileID: 0}
   origin: {fileID: 0}
+  outputs: 
 --- !u!212 &365147934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1694,7 +1695,7 @@ GameObject:
   - component: {fileID: 1983709780}
   - component: {fileID: 1983709779}
   m_Layer: 0
-  m_Name: Input 2A
+  m_Name: Input 1A
   m_TagString: inputB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,8 +1839,8 @@ MonoBehaviour:
   clone: {fileID: 0}
   speed: 0
   logicGate: 
-  inputs: []
-  outputs: []
+  inputs: 
+  output: 0
 --- !u!61 &2079150871
 BoxCollider2D:
   m_ObjectHideFlags: 0

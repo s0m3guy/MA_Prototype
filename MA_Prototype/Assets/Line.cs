@@ -24,6 +24,7 @@ public class Line : MonoBehaviour {
 	private InputCircle inputCircleScript;
 	private OutputCircle outputCircleScript;
 	private OutputDot outputDotScript;
+	private FunctionBlock functionBlockScript;
 
 	public int input, output;
 
@@ -72,20 +73,36 @@ public class Line : MonoBehaviour {
 	}
 
 	public void forwardInput (int input, int output) {
-		string nameOfOriginObject;
+		string typeOfOriginObject, typeOfDestinObject;
 
 		if (originObject != null) {
-			nameOfOriginObject = originObject.gameObject.name;
-
-			if (nameOfOriginObject.Contains ("Dot")) {
-				Debug.Log ("Dot detected");
-
+			typeOfOriginObject = originObject.gameObject.name;
+			if (typeOfOriginObject.Contains ("Dot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
+				output = randomInputDotScript.value;
 
-			} else if(nameOfOriginObject.Contains ("Output")) {
-				Debug.Log ("Function Block detected");
+			} else if(typeOfOriginObject.Contains ("Output")) {
+				functionBlockScript = originObject.GetComponent<FunctionBlock> ();
+				output = functionBlockScript.output;
+				Debug.Log (output);
 			}
 		}
 
+		if (destinObject != null) {
+			typeOfDestinObject = destinObject.gameObject.name;
+
+			if (typeOfDestinObject.Contains ("Input")) {
+				inputCircleScript = destinObject.GetComponent<InputCircle> ();
+				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
+				if (typeOfDestinObject.Contains ("Input1")) {
+					functionBlockScript.inputs [0] = input;
+				} else if (typeOfDestinObject.Contains ("Input2")) {
+					functionBlockScript.inputs [1] = input;
+				}
+			} else if (typeOfDestinObject.Contains ("output_dot")) {
+				outputDotScript = destinObject.GetComponent<OutputDot> ();
+				outputDotScript.input = output;
+			}
+		}
 	}
 }
