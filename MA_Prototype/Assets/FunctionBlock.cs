@@ -16,7 +16,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void Awake () {
 
-		inputs = new int[transform.childCount - 2];
+		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 	}
 
 	// Use this for initialization
@@ -60,6 +60,7 @@ public class FunctionBlock : MonoBehaviour {
 //		}
 	}
 
+	/* Unused setters
 	public void setInputA() {
 		inputAset = true;
 	}
@@ -69,6 +70,7 @@ public class FunctionBlock : MonoBehaviour {
 	public void setOutput() {
 		outputSet = true;
 	}
+	*/
 
 	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
 
