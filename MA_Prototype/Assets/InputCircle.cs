@@ -64,7 +64,6 @@ public class InputCircle : MonoBehaviour {
 	void OnMouseDown () {
 
 		// instantiate Line after clicking circle
-		Debug.Log ("hellooooo");
 	
 		newLine = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 		newLineRend = newLine.GetComponent<LineRenderer> ();
@@ -73,21 +72,10 @@ public class InputCircle : MonoBehaviour {
 		
 	void OnMouseEnter() {
 
-		/* deprecated
-		// Contains the logic for creating lines
-
-		// For testing purposes
-//		Debug.Log ("Touched circle");
-//		set = true;
-//		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
-//			Debug.Log ("Line detected");
-//		}
-		*/
-
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinObject = this.gameObject;
 
-			Debug.Log (Manager.MouseLineScript.destinObject.name);
+//			Debug.Log (Manager.MouseLineScript.destinObject.name);
 		}
 	}
 }

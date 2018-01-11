@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Line : MonoBehaviour, IConductable {
+public class Line : MonoBehaviour {
 
 	// (As of right now) This script draws the line following the mouse and checks if the mouse
 	// collides with the bounding box of the input of another block
@@ -14,8 +14,6 @@ public class Line : MonoBehaviour, IConductable {
 	private GameObject[] goalInputs2;
 	private CircleCollider2D circCol;
 	private CircleCollider2D[] circCols;
-
-	private Transform origin, destin;
 
 	public GameObject originObject;
 	public GameObject destinObject;
@@ -42,7 +40,7 @@ public class Line : MonoBehaviour, IConductable {
 	
 	// Update is called once per frame
 	void Update () {
-
+		forwardInput (input, output);
 	}
 
 	void ScanInput () {
@@ -73,11 +71,21 @@ public class Line : MonoBehaviour, IConductable {
 		return hit.transform;
 	}
 
-	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
-		if(origin) {
-			script = origin.gameObject.GetComponent<Script> ();
-			input = script.
+	public void forwardInput (int input, int output) {
+		string nameOfOriginObject;
 
+		if (originObject != null) {
+			nameOfOriginObject = originObject.gameObject.name;
+
+			if (nameOfOriginObject.Contains ("Dot")) {
+				Debug.Log ("Dot detected");
+
+				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
+
+			} else if(nameOfOriginObject.Contains ("Output")) {
+				Debug.Log ("Function Block detected");
+			}
+		}
 
 	}
 }

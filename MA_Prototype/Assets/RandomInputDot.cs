@@ -41,7 +41,7 @@ public class RandomInputDot : MonoBehaviour {
 			
 		forwardInput (value, outputs);
 
-		Debug.Log (outputs [0]);
+//		Debug.Log (outputs [0]);
 	}
 
 	private void SwitchDot () {
