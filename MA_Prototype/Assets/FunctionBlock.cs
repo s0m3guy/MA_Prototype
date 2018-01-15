@@ -33,27 +33,29 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		forwardInput (null, null);		// Testing
+		forwardInput ();		// Testing
 
-		GameObject input1 = this.transform.Find ("Input 1A").gameObject;
-		GameObject input2 = this.transform.Find ("Input 2A").gameObject;
-		GameObject output = this.transform.Find ("OutputA").gameObject;
+		GameObject input1GO = this.transform.Find ("Input 1A").gameObject;
+		GameObject input2GO = this.transform.Find ("Input 2A").gameObject;
+		GameObject outputGO = this.transform.Find ("OutputA").gameObject;
 
-//		input1.GetComponent<SpriteRenderer> ().color = Color.green;
-
-//		for(int i = 1; i <= inputs.Length-1; i++) {
-			if (inputs [0] == 0) {
-				input1.GetComponent<SpriteRenderer> ().color = Color.white;
+		if (inputs [0] == 0) {
+				input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
 		} else if (inputs[0] == 1) {
-				input1.GetComponent<SpriteRenderer> ().color = Color.green;
+				input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
 			}
 
 		if (inputs [1] == 0) {
-			input2.GetComponent<SpriteRenderer> ().color = Color.white;
+			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
 		} else if (inputs[1] == 1) {
-			input2.GetComponent<SpriteRenderer> ().color = Color.green;
+			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
-//		}
+
+		if (output == 0) {
+			outputGO.GetComponent<SpriteRenderer> ().color = Color.white;
+		} else if (output == 1) {
+			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
+		}
 	}
 
 	private Vector3 screenPoint;
@@ -94,7 +96,7 @@ public class FunctionBlock : MonoBehaviour {
 	}
 	*/
 
-	public void forwardInput (GameObject[] inputs, GameObject[] outputs) {
+	public void forwardInput () {
 
 		/*
 		int[] inputValues = new int[inputs.Length];
@@ -144,15 +146,15 @@ public class FunctionBlock : MonoBehaviour {
 				}
 			}
 		} else if (LogicGate == "XOR")
-
-
-
-
-
-
-
-
 		*/
+
+		// For Testing, no logic
+
+		if (inputs [0] == 0 || inputs [1] == 0) {
+			output = 0;
+		} else if (inputs [0] == 1 && inputs [1] == 1) {
+			output = 1;
+		}
 //		Debug.Log (isNegated);
 	}
 }
