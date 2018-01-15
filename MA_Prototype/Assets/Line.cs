@@ -99,6 +99,7 @@ public class Line : MonoBehaviour {
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
 					functionBlockScript.inputs [0] = output;
+					Debug.Log(destinObject.GetComponent<SpriteRenderer>().color);
 					Debug.Log ("Connected Input 1");			// works
 					Debug.Log (functionBlockScript.inputs[0]);	// works
 				} else if (typeOfDestinObject.Contains ("Input 2")) {

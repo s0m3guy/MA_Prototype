@@ -14,6 +14,8 @@ public class FunctionBlock : MonoBehaviour {
 	public int[] inputs;
 	public int output;
 
+	public Component[] comps;
+
 	void Awake () {
 
 		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
@@ -32,6 +34,26 @@ public class FunctionBlock : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		forwardInput (null, null);		// Testing
+
+		GameObject input1 = this.transform.Find ("Input 1A").gameObject;
+		GameObject input2 = this.transform.Find ("Input 2A").gameObject;
+		GameObject output = this.transform.Find ("OutputA").gameObject;
+
+//		input1.GetComponent<SpriteRenderer> ().color = Color.green;
+
+//		for(int i = 1; i <= inputs.Length-1; i++) {
+			if (inputs [0] == 0) {
+				input1.GetComponent<SpriteRenderer> ().color = Color.white;
+		} else if (inputs[0] == 1) {
+				input1.GetComponent<SpriteRenderer> ().color = Color.green;
+			}
+
+		if (inputs [1] == 0) {
+			input2.GetComponent<SpriteRenderer> ().color = Color.white;
+		} else if (inputs[1] == 1) {
+			input2.GetComponent<SpriteRenderer> ().color = Color.green;
+		}
+//		}
 	}
 
 	private Vector3 screenPoint;

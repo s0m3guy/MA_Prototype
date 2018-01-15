@@ -34,9 +34,9 @@ public class RandomInputDot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (value == 1) {
-			spritRend.sprite = sprite_dot_off;
-		} else if (value == 0) {
 			spritRend.sprite = sprite_dot_on;
+		} else if (value == 0) {
+			spritRend.sprite = sprite_dot_off;
 		}
 			
 		forwardInput (value, outputs);
