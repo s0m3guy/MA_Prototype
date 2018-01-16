@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FunctionBlock : MonoBehaviour {
 
-	public Transform block, clone;
+	public Transform block, block2, clone;
 	public int speed;
 	private bool isClone = false;
 
@@ -28,12 +28,15 @@ public class FunctionBlock : MonoBehaviour {
 			isClone = true;
 		}
 			
-		block = GetComponent<Transform> ();
+		block = transform.parent.gameObject.transform;
+		block2 = this.GetComponentInParent<Transform>();
+
+		Debug.Log (transform.parent.name);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		forwardInput ();		// Testing
+		forwardInput ();
 
 		GameObject input1GO = this.transform.Find ("Input 1A").gameObject;
 		GameObject input2GO = this.transform.Find ("Input 2A").gameObject;
@@ -56,6 +59,9 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (output == 1) {
 			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
+
+		Debug.Log ("inputs[0]: " + inputs[0]);
+		Debug.Log ("inputs[1]: " + inputs [1]);
 	}
 
 	private Vector3 screenPoint;
@@ -83,18 +89,7 @@ public class FunctionBlock : MonoBehaviour {
 			clone.position = curPosition;																				// Move clone to this position
 //		}
 	}
-
-	/* Unused setters
-	public void setInputA() {
-		inputAset = true;
-	}
-	public void setInputB() {
-		inputBset = true;
-	}
-	public void setOutput() {
-		outputSet = true;
-	}
-	*/
+		
 
 	public void forwardInput () {
 
@@ -150,11 +145,15 @@ public class FunctionBlock : MonoBehaviour {
 
 		// For Testing, no logic
 
+//		if(transform.parent.name.Contains("_AND")) {
+
 		if (inputs [0] == 0 || inputs [1] == 0) {
 			output = 0;
 		} else if (inputs [0] == 1 && inputs [1] == 1) {
 			output = 1;
 		}
+
+//		}
 //		Debug.Log (isNegated);
 	}
 }
