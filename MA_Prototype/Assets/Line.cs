@@ -72,6 +72,7 @@ public class Line : MonoBehaviour {
 		return hit.transform;
 	}
 
+	// forwardInput() in Line.cs takes input value and copies value to target object
 	public void forwardInput (int input, int output) {
 		string typeOfOriginObject, typeOfDestinObject;
 
@@ -79,10 +80,10 @@ public class Line : MonoBehaviour {
 			typeOfOriginObject = originObject.gameObject.name;
 			if (typeOfOriginObject.Contains ("Dot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
-				output = randomInputDotScript.value;
+				this.output = randomInputDotScript.value;
 			} else if(typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponent<FunctionBlock> ();
-				output = functionBlockScript.output;
+				this.output = functionBlockScript.output;
 			}
 		}
 
