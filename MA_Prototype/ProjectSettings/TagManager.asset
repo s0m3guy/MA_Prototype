@@ -18,6 +18,8 @@ TagManager:
   - NAND
   - output
   - input
+  - inputB
+  - inputA
   layers:
   - Default
   - TransparentFX
@@ -27,9 +29,9 @@ TagManager:
   - UI
   - 
   - 
-  - Block Panel
+  - Rectangular UI Shapes
+  - Function Block
   - Line
-  - 
   - 
   - 
   - 
