@@ -76,25 +76,25 @@ public class Line : MonoBehaviour {
 	public void forwardInput (int input, int output) {
 		string typeOfOriginObject, typeOfDestinObject;
 
+		// Checking the type of origin
 		if (originObject != null) {
 			typeOfOriginObject = originObject.gameObject.name;
 			if (typeOfOriginObject.Contains ("Dot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
 				this.output = randomInputDotScript.value;
 			} else if(typeOfOriginObject.Contains ("Output")) {
-				functionBlockScript = originObject.GetComponent<FunctionBlock> ();
+				functionBlockScript = originObject.GetComponentInParent<FunctionBlock> ();
 				this.output = functionBlockScript.output;
 			}
 		}
 
 		if (destinObject != null) {
 			typeOfDestinObject = destinObject.gameObject.name;
-
 			if (typeOfDestinObject.Contains ("Input")) {
-				inputCircleScript = destinObject.GetComponent<InputCircle> ();
+//				inputCircleScript = destinObject.GetComponent<InputCircle> ();
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
-					functionBlockScript.inputs [0] = output;
+					functionBlockScript.inputs [0] = this.output;
 				} else if (typeOfDestinObject.Contains ("Input 2")) {
 					functionBlockScript.inputs [1] = output;
 				}
