@@ -78,16 +78,11 @@ public class Line : MonoBehaviour {
 		if (originObject != null) {
 			typeOfOriginObject = originObject.gameObject.name;
 			if (typeOfOriginObject.Contains ("Dot")) {
-				Debug.Log ("Dot detected as Source");			// works
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
-				Debug.Log ("Dot value = " + randomInputDotScript.value);
 				output = randomInputDotScript.value;
-				Debug.Log ("output of line: " + output);		// works
-
 			} else if(typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponent<FunctionBlock> ();
 				output = functionBlockScript.output;
-				Debug.Log (output);
 			}
 		}
 
@@ -95,19 +90,12 @@ public class Line : MonoBehaviour {
 			typeOfDestinObject = destinObject.gameObject.name;
 
 			if (typeOfDestinObject.Contains ("Input")) {
-//				Debug.Log ("Connected to input");
 				inputCircleScript = destinObject.GetComponent<InputCircle> ();
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
-					Debug.Log ("Connected to Input 1");
 					functionBlockScript.inputs [0] = output;
-					Debug.Log ("New value of inputs[0]: " + functionBlockScript.inputs [0]);
-//					Debug.Log(destinObject.GetComponent<SpriteRenderer>().color);
-//					Debug.Log ("Connected Input 1");			// works
-//					Debug.Log (functionBlockScript.inputs[0]);	// works
 				} else if (typeOfDestinObject.Contains ("Input 2")) {
 					functionBlockScript.inputs [1] = output;
-//					Debug.Log ("Connected to Input 2");		// works
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
