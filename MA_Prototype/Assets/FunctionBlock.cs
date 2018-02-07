@@ -14,7 +14,8 @@ public class FunctionBlock : MonoBehaviour {
 	public int[] inputs;
 	public int output;
 
-	public Component[] comps;
+	private Vector3 screenPoint;
+	private Vector3 offset;
 
 	void Awake () {
 
@@ -24,14 +25,12 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (gameObject.name.Contains ("(Clone)")) {
-			isClone = true;
-		}
+//		if (gameObject.transform.parent.name.Contains ("(Clone)")) {
+//			isClone = true;
+//		}
 			
 		block = transform.parent.gameObject.transform;
 		block2 = this.GetComponentInParent<Transform>();
-
-		Debug.Log (transform.parent.name);
 	}
 	
 	// Update is called once per frame
@@ -59,35 +58,29 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (output == 1) {
 			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
-
-		Debug.Log ("inputs[0]: " + inputs[0]);
-		Debug.Log ("inputs[1]: " + inputs [1]);
 	}
 
-	private Vector3 screenPoint;
-	private Vector3 offset;
-
 	void OnMouseDown() {
-
+		Debug.Log (isClone +" "+name);
 		if (!isClone) {
+			
 			clone = Instantiate (block);
+			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		}
-//		if (isClone) {
-			screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
+		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
 
 			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-//		}
 	}
 
 	void OnMouseDrag() {
+		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
 
-//		if (isClone) {
-			Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
-
-			Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
-
+		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
+		if (!isClone) {
 			clone.position = curPosition;																				// Move clone to this position
-//		}
+		} else {
+			transform.position = curPosition;
+		}
 	}
 		
 
@@ -145,15 +138,25 @@ public class FunctionBlock : MonoBehaviour {
 
 		// For Testing, no logic
 
-//		if(transform.parent.name.Contains("_AND")) {
-
-		if (inputs [0] == 0 || inputs [1] == 0) {
-			output = 0;
-		} else if (inputs [0] == 1 && inputs [1] == 1) {
-			output = 1;
+		if (transform.parent.name.Contains ("_AND")) {
+			if (inputs [0] == 0 || inputs [1] == 0) {
+				output = 0;
+			} else if (inputs [0] == 1 && inputs [1] == 1) {
+				output = 1;
+			}
+		} else if (transform.parent.name.Contains ("_OR")) {
+			if (inputs [0] == 1 || inputs [1] == 1) {
+				output = 1;
+			} else if (inputs [0] == 0 && inputs [1] == 0) {
+				output = 0;
+			}
+		} else if (transform.parent.name.Contains ("_XOR")) {
+			if ((inputs [0] == 1 && inputs [1] == 0) || (inputs [0] == 0 && inputs [1] == 1)) {
+				output = 1;
+			} else if ((inputs [0] == 0 && inputs [1] == 0) || (inputs [0] == 1 && inputs [1] == 1)) {
+				output = 0;
+			}
 		}
-
-//		}
 //		Debug.Log (isNegated);
 	}
 }

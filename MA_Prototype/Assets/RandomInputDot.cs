@@ -68,7 +68,7 @@ public class RandomInputDot : MonoBehaviour {
 			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
 				origin.position.y,
 				origin.position.z));
-		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
 		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
 		Manager.MouseLineRenderer = newLineRend;
