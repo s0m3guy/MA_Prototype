@@ -91,16 +91,15 @@ public class Line : MonoBehaviour {
 		if (destinObject != null) {
 			typeOfDestinObject = destinObject.gameObject.name;
 			if (typeOfDestinObject.Contains ("Input")) {
-//				inputCircleScript = destinObject.GetComponent<InputCircle> ();
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
 					functionBlockScript.inputs [0] = this.output;
 				} else if (typeOfDestinObject.Contains ("Input 2")) {
-					functionBlockScript.inputs [1] = output;
+					functionBlockScript.inputs [1] = this.output;
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
-				outputDotScript.input = output;
+				outputDotScript.input = this.output;
 			}
 		}
 	}

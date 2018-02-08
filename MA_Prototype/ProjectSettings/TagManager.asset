@@ -7,7 +7,6 @@ TagManager:
   - falling_object
   - funcBlock
   - outputA
-  - inputB1
   - inputB2
   - line
   - dummy
@@ -20,6 +19,7 @@ TagManager:
   - input
   - inputB
   - inputA
+  - testingLED
   layers:
   - Default
   - TransparentFX
