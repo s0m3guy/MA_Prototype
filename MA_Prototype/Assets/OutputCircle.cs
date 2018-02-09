@@ -66,24 +66,7 @@ public class OutputCircle : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
-
-		Debug.Log ("Dragging ended");
 		Manager.MouseLineRenderer = null;
 		Manager.MouseLineScript = null;
-
-	}
-		
-	void OnMouseEnter() {
-
-		#region deprecated
-		// Contains the logic for creating lines
-
-		// For testing purposes
-//		Debug.Log ("Touched circle");
-//		set = true;
-//		if (circCol.bounds.Contains (newLineRend.GetPosition(1))) {
-//			Debug.Log ("Line detected");
-//		}
-		#endregion deprecated
 	}
 }

@@ -91,4 +91,9 @@ public class RandomInputDot : MonoBehaviour {
 			outputs[i] = value;
 		}
 	}
+
+	void OnMouseUp () {
+		Manager.MouseLineRenderer = null;
+		Manager.MouseLineScript = null;
+	}
 }
