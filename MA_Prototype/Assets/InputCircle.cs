@@ -35,7 +35,9 @@ public class InputCircle : MonoBehaviour {
 		mousePos.z = 0;
 
 		if(circCol.bounds.Contains(mousePos)) {
-			Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+			if (Manager.MouseLineRenderer) {
+				Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+			}
 		}
 	}
 			

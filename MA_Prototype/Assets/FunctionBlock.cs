@@ -17,9 +17,17 @@ public class FunctionBlock : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
+	GameObject input1GO; 
+	GameObject input2GO;
+	GameObject outputGO;
+
 	void Awake () {
 
 		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
+
+		input1GO = transform.Find ("Input 1A").gameObject;
+		input2GO = transform.Find ("Input 2A").gameObject;
+		outputGO = transform.Find ("OutputA").gameObject;
 	}
 
 	// Use this for initialization
@@ -37,9 +45,9 @@ public class FunctionBlock : MonoBehaviour {
 	void Update () {
 		forwardInput ();
 
-		GameObject input1GO = this.transform.Find ("Input 1A").gameObject;
-		GameObject input2GO = this.transform.Find ("Input 2A").gameObject;
-		GameObject outputGO = this.transform.Find ("OutputA").gameObject;
+//		GameObject input1GO = this.transform.Find ("Input 1A").gameObject;
+//		GameObject input2GO = this.transform.Find ("Input 2A").gameObject;
+//		GameObject outputGO = this.transform.Find ("OutputA").gameObject;
 
 		if (inputs [0] == 0) {
 				input1GO.GetComponent<SpriteRenderer> ().color = Color.white;

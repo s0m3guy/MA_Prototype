@@ -64,6 +64,14 @@ public class OutputCircle : MonoBehaviour {
 			newLineScript = newLineObj.GetComponent<Line> ();
 		}
 	}
+
+	void OnMouseUp () {
+
+		Debug.Log ("Dragging ended");
+		Manager.MouseLineRenderer = null;
+		Manager.MouseLineScript = null;
+
+	}
 		
 	void OnMouseEnter() {
 
