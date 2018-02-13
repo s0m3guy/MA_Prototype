@@ -14,11 +14,15 @@ public class OutputCircle : MonoBehaviour {
 	private Line line, newLineScript;
 	private CircleCollider2D circCol, newCircCol;
 
+	private FunctionBlock parentFunctionBlock;
+
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
 
 		circCol = GetComponent<CircleCollider2D> ();
+
+		parentFunctionBlock = GetComponentInParent<FunctionBlock> ();
 	}
 
 	// Use this for initialization
@@ -31,11 +35,26 @@ public class OutputCircle : MonoBehaviour {
 
 	}
 
+	void OnMouseDown () {
+		
+		// instantiate Line after clicking circle
+		
+		
+		if (parentFunctionBlock.checkClone()) {
+			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+			if (newLineObj) {
+				newLineRend = newLineObj.GetComponent<LineRenderer> ();
+				newLineScript = newLineObj.GetComponent<Line> ();
+			}
+		}
+	}
+	
 	void OnMouseDrag () {
 
-		line = newLineObj.GetComponent<Line>();
+		if (newLineObj) {
+			line = newLineObj.GetComponent<Line> ();
+		}
 
-//		line.originCircle = this;
 		line.originObject = this.gameObject;
 
 		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
@@ -51,18 +70,6 @@ public class OutputCircle : MonoBehaviour {
 
 		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
 		Manager.MouseLineRenderer = newLineRend;
-	}
-
-	void OnMouseDown () {
-
-		// instantiate Line after clicking circle
-	
-		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
-
-		if (newLineObj) {
-			newLineRend = newLineObj.GetComponent<LineRenderer> ();
-			newLineScript = newLineObj.GetComponent<Line> ();
-		}
 	}
 
 	void OnMouseUp () {

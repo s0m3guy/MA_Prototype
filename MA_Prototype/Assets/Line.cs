@@ -44,34 +44,6 @@ public class Line : MonoBehaviour {
 		forwardInput (input, output);
 	}
 
-	void ScanInput () {
-		goalInputs = FindGameObjectsWithDifferentTags(new string[] {"inputA", "inputB"});
-
-		circCols = new CircleCollider2D[goalInputs.Length];
-
-		for (int i = 0; i < goalInputs.Length; i++) {
-			circCols [i] = goalInputs [i].GetComponent<CircleCollider2D> ();
-		}
-	}
-
-	public static GameObject[] FindGameObjectsWithDifferentTags(string[] tags) {
-		List<GameObject> list = new List<GameObject> ();
-		foreach (string tag in tags) {
-			GameObject[] objs = GameObject.FindGameObjectsWithTag (tag);
-			list.AddRange (objs);
-		}
-		return list.ToArray ();
-	}
-
-	Transform getGameObjectAtPosition()
-	{
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit))
-					Debug.Log("found " + hit.transform.name + " at distance: " + hit.distance);
-		return hit.transform;
-	}
-
 	// forwardInput() in Line.cs takes input value and copies value to target object
 	public void forwardInput (int input, int output) {
 		string typeOfOriginObject, typeOfDestinObject;

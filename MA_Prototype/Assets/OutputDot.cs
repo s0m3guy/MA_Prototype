@@ -51,8 +51,6 @@ public class OutputDot : MonoBehaviour {
 
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinObject = this.gameObject;
-
-			Debug.Log (Manager.MouseLineScript.destinObject.name);
 		}
 	}
 }

@@ -69,7 +69,6 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		Debug.Log (isClone +" "+name);
 		if (!isClone) {
 			
 			clone = Instantiate (block);
@@ -85,7 +84,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 		if (!isClone) {
-			clone.position = curPosition;																				// Move clone to this position
+			clone.position = curPosition;																			// Move clone to this position
 		} else {
 			transform.position = curPosition;
 		}
@@ -93,56 +92,6 @@ public class FunctionBlock : MonoBehaviour {
 		
 
 	public void forwardInput () {
-
-		/*
-		int[] inputValues = new int[inputs.Length];
-		int[] outputValues = new int[outputs.Length];
-		int result = 0;
-		string logicGate;
-		bool isNegated = false;
-		string blockLabel = GetComponentInChildren<Canvas> ().GetComponentInChildren<Text>().text;
-
-		if (blockLabel == "=1") {
-			logicGate = "XOR";
-		} else if (blockLabel == "&") {
-			logicGate = "AND";
-		} else {
-			logicGate = "OR";
-		}
-
-		if (GetComponentInChildren<Canvas> ().GetComponentInChildren <SpriteRenderer> () != null) {
-			isNegated = true;
-		}
-			
-		if (logicGate == "AND" && isNegated) {
-			logicGate = "NAND";
-		} else if (logicGate == "OR" && isNegated) {
-			logicGate = "NOR";
-		}
-		*/
-
-		/*
-		for(int i = 0; i <= inputs.Length; i++) {
-			inputValues[i] = inputs[i].GetComponent<Pin?>().value;
-		}
-
-		/*
-		if(logicGate == "AND") {
-			if(inputValues.Contains(0)) {
-				result = 0;
-				if (isNegative) {
-					result = 0;
-				}
-			}
-		} else if (LogicGate == "OR") {
-			if(inputValues.Contains(1) {
-				result = 1;
-				if (isNegative) {
-					result = 0;
-				}
-			}
-		} else if (LogicGate == "XOR")
-		*/
 
 		// For Testing, no logic
 
@@ -165,6 +114,13 @@ public class FunctionBlock : MonoBehaviour {
 				output = 0;
 			}
 		}
-//		Debug.Log (isNegated);
+	}
+
+	public bool checkClone () {
+		return isClone;
+	}
+
+	public void setCloneStatus (bool cloneStatus) {
+		isClone = cloneStatus;
 	}
 }
