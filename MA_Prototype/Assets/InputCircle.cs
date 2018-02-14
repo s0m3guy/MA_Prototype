@@ -13,14 +13,15 @@ public class InputCircle : MonoBehaviour {
 	private GameObject newLine;
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
+	private Vector2[] tempEdgeColliderPoints;
 
 	private OutputCircle outputCircle = new OutputCircle ();
 
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
-
 		circCol = GetComponent<CircleCollider2D> ();
+		tempEdgeColliderPoints = new Vector2[2];
 	}
 
 	// Use this for initialization
@@ -38,7 +39,9 @@ public class InputCircle : MonoBehaviour {
 			if (Manager.MouseLineRenderer) {
 				Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
 				// Also set end point of Edge Collider
-				Manager.MouseLineEdgeCollider.points[1] = new Vector2(this.transform.position.x+7, this.transform.position.y-3);
+				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
+				tempEdgeColliderPoints [1] = transform.position;
+				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;			
 			}
 		}
 	}

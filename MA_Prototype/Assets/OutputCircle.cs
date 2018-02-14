@@ -16,7 +16,7 @@ public class OutputCircle : MonoBehaviour {
 
 	private FunctionBlock parentFunctionBlock;
 
-	public Vector2[] tempEdgeColliderPoints;
+	private Vector2[] tempEdgeColliderPoints;
 
 	void Awake () {
 
