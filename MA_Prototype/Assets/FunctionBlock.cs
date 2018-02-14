@@ -93,8 +93,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	public void forwardInput () {
 
-		// For Testing, no logic
-
 		if (transform.parent.name.Contains ("_AND")) {
 			if (inputs [0] == 0 || inputs [1] == 0) {
 				output = 0;

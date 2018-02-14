@@ -37,6 +37,8 @@ public class InputCircle : MonoBehaviour {
 		if(circCol.bounds.Contains(mousePos)) {
 			if (Manager.MouseLineRenderer) {
 				Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+				// Also set end point of Edge Collider
+				Manager.MouseLineEdgeCollider.points[1] = new Vector2(this.transform.position.x+7, this.transform.position.y-3);
 			}
 		}
 	}
@@ -76,8 +78,6 @@ public class InputCircle : MonoBehaviour {
 
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinObject = this.gameObject;
-
-//			Debug.Log (Manager.MouseLineScript.destinObject.name);
 		}
 	}
 }

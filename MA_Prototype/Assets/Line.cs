@@ -26,11 +26,17 @@ public class Line : MonoBehaviour {
 	private OutputDot outputDotScript;
 	private FunctionBlock functionBlockScript;
 
+	private Vector3 screenPoint;
+	private Vector3 offset;
+
+	private EdgeCollider2D lineCollider;
+
 	public int input, output;
 
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
+		lineCollider = GetComponent<EdgeCollider2D> ();
 	}
 
 
@@ -42,6 +48,20 @@ public class Line : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		forwardInput (input, output);
+	}
+
+	void OnMouseDown() {
+		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
+
+		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+	}
+
+	void OnMouseDrag() {
+		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
+
+		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
+
+		transform.position = curPosition;
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object

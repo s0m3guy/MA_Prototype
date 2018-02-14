@@ -70,8 +70,7 @@ public class RandomInputDot : MonoBehaviour {
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
-		Manager.MouseLineRenderer = newLineRend;
+		Manager.MouseLineEdgeCollider.points [0] = transform.position;
 	}
 
 	void OnMouseDown () {
@@ -84,6 +83,14 @@ public class RandomInputDot : MonoBehaviour {
 			newLineRend = newLineObj.GetComponent<LineRenderer> ();
 			newLineScript = newLineObj.GetComponent<Line> ();
 		}
+
+		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
+		Manager.MouseLineRenderer = newLineRend;
+		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
+		Debug.Log (
+			"Position of dot: "+ transform.position + 
+			"\nPosition of Edge Collider start: "+Manager.MouseLineEdgeCollider.points [0]
+		);
 	}
 
 	public void forwardInput (int input, int[] outputs) {

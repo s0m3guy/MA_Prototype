@@ -16,13 +16,15 @@ public class OutputCircle : MonoBehaviour {
 
 	private FunctionBlock parentFunctionBlock;
 
+	public Vector2[] tempEdgeColliderPoints;
+
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
-
 		circCol = GetComponent<CircleCollider2D> ();
-
 		parentFunctionBlock = GetComponentInParent<FunctionBlock> ();
+		tempEdgeColliderPoints = new Vector2[2];
+
 	}
 
 	// Use this for initialization
@@ -38,7 +40,6 @@ public class OutputCircle : MonoBehaviour {
 	void OnMouseDown () {
 		
 		// instantiate Line after clicking circle
-		
 		
 		if (parentFunctionBlock.checkClone()) {
 			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
@@ -70,10 +71,17 @@ public class OutputCircle : MonoBehaviour {
 
 		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
 		Manager.MouseLineRenderer = newLineRend;
+		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
+
+		// Sets the starting point of the line to this circle
+		tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
+		tempEdgeColliderPoints [0] = transform.position;
+		Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
 	}
 
 	void OnMouseUp () {
 		Manager.MouseLineRenderer = null;
 		Manager.MouseLineScript = null;
+		Manager.MouseLineEdgeCollider = null;
 	}
 }
