@@ -98,6 +98,7 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_HAS_GOOGLEVR
+Assets/DraggingScript.cs
 Assets/FunctionBlock.cs
 Assets/InputCircle.cs
 Assets/Line.cs

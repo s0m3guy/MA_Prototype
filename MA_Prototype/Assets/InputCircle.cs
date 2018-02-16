@@ -45,37 +45,6 @@ public class InputCircle : MonoBehaviour {
 			}
 		}
 	}
-			
-			
-
-	void OnMouseDrag () {
-
-		#region currently deprecated
-//		line = newLine.GetComponent<Line>();
-//
-////		line.originCircle = this;		// needs fix
-//
-//		lineRenderer = newLine.gameObject.GetComponent<LineRenderer> ();
-//
-//		Vector2 screenPos = new Vector2();
-//		Camera.main.ScreenToWorldPoint (screenPos);
-//
-//		lineRenderer.SetPosition (0,
-//			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
-//				origin.position.y,
-//				origin.position.z));
-//		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-		#endregion currently deprecated
-	}
-
-	void OnMouseDown () {
-
-		// instantiate Line after clicking circle
-	
-		newLine = Instantiate (Resources.Load("LinePrefab")) as GameObject;
-		newLineRend = newLine.GetComponent<LineRenderer> ();
-
-	}
 		
 	void OnMouseEnter() {
 

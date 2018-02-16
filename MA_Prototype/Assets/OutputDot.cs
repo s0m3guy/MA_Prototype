@@ -11,6 +11,8 @@ public class OutputDot : MonoBehaviour {
 	private SpriteRenderer spritRend;
 	private Sprite sprite_LED_off, sprite_LED_on;
 	public int input;
+	private Vector2[] tempEdgeColliderPoints;
+
 
 	void Awake () {
 
@@ -36,6 +38,10 @@ public class OutputDot : MonoBehaviour {
 		if(circCol.bounds.Contains(mousePos)) {
 			if (Manager.MouseLineRenderer) {
 				Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+				// Also set end point of Edge Collider
+				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
+				tempEdgeColliderPoints [1] = transform.position;
+				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;	
 			}
 		}
 
