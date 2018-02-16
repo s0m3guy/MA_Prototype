@@ -41,7 +41,8 @@ public class InputCircle : MonoBehaviour {
 				// Also set end point of Edge Collider
 				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
 				tempEdgeColliderPoints [1] = transform.position;
-				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;			
+				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;	
+				Manager.MouseLineScript.isSnapped = true;
 			}
 		}
 	}

@@ -33,6 +33,8 @@ public class Line : MonoBehaviour {
 
 	public int input, output;
 
+	public bool isSnapped = false;
+
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
