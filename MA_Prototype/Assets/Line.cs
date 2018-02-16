@@ -74,7 +74,10 @@ public class Line : MonoBehaviour {
 		// Checking the type of origin
 		if (originObject != null) {
 			typeOfOriginObject = originObject.gameObject.name;
-			if (typeOfOriginObject.Contains ("Dot")) {
+//			if (typeOfOriginObject.Contains ("Dot")) {
+//				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
+//				this.output = randomInputDotScript.value;
+			if (originObject.CompareTag("inputDot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
 				this.output = randomInputDotScript.value;
 			} else if(typeOfOriginObject.Contains ("Output")) {
