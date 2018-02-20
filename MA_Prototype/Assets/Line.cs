@@ -86,6 +86,7 @@ public class Line : MonoBehaviour {
 			}
 		}
 
+		// Checking the type of destination
 		if (destinObject != null) {
 			typeOfDestinObject = destinObject.gameObject.name;
 			if (typeOfDestinObject.Contains ("Input")) {
