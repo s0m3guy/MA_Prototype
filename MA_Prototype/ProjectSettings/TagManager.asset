@@ -21,6 +21,7 @@ TagManager:
   - inputA
   - testingLED
   - inputDot
+  - funcBlockPanel
   layers:
   - Default
   - TransparentFX

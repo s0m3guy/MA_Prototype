@@ -21,6 +21,10 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject input2GO;
 	GameObject outputGO;
 
+	public GameObject removalOverlay;
+
+	private bool isFBbeingDragged = false;
+
 	void Awake () {
 
 		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
@@ -28,6 +32,9 @@ public class FunctionBlock : MonoBehaviour {
 		input1GO = transform.Find ("Input 1A").gameObject;
 		input2GO = transform.Find ("Input 2A").gameObject;
 		outputGO = transform.Find ("OutputA").gameObject;
+
+//		removalOverlay = GameObject.FindGameObjectWithTag ("removalOverlay");
+		Debug.Log (removalOverlay.name);
 	}
 
 	// Use this for initialization
@@ -66,11 +73,16 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (output == 1) {
 			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
+
+		if (isFBbeingDragged) {
+			removalOverlay.SetActive (true);
+		} else if (!isFBbeingDragged) {
+			removalOverlay.SetActive (false);
+		}
 	}
 
 	void OnMouseDown() {
 		if (!isClone) {
-			
 			clone = Instantiate (block);
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		}
@@ -87,10 +99,14 @@ public class FunctionBlock : MonoBehaviour {
 			clone.position = curPosition;																			// Move clone to this position
 		} else {
 			transform.position = curPosition;
+			isFBbeingDragged = true;
 		}
 	}
-		
 
+	void OnMouseUp() {
+		isFBbeingDragged = false;
+	}
+		
 	public void forwardInput () {
 
 		if (transform.parent.name.Contains ("_AND")) {

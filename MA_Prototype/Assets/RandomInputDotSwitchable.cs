@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomInputDot : MonoBehaviour {
+public class RandomInputDotSwitchable : MonoBehaviour {
 
-	public int value = 1;
+	public int value = 0;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
@@ -28,9 +28,9 @@ public class RandomInputDot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("SwitchDot", 2.0f, 2.0f);
+//		InvokeRepeating("SwitchDot", 2.0f, 2.0f);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (value == 1) {
@@ -38,10 +38,8 @@ public class RandomInputDot : MonoBehaviour {
 		} else if (value == 0) {
 			spritRend.sprite = sprite_dot_off;
 		}
-			
-		forwardInput (value, outputs);
 
-//		Debug.Log (outputs [0]);
+		forwardInput (value, outputs);
 	}
 
 	private void SwitchDot () {
@@ -75,8 +73,13 @@ public class RandomInputDot : MonoBehaviour {
 
 	void OnMouseDown () {
 
-		// instantiate Line after clicking circle
+		if (value == 0) {
+			value = 1;
+		} else if (value == 1) {
+			value = 0;
+		}
 
+		// Instantiate Line after clicking circle
 		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 
 		if (newLineObj) {
@@ -84,13 +87,10 @@ public class RandomInputDot : MonoBehaviour {
 			newLineScript = newLineObj.GetComponent<Line> ();
 		}
 
-		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
+		// Set references to current drawn line in manager
+		Manager.MouseLineScript = newLineScript; 	
 		Manager.MouseLineRenderer = newLineRend;
 		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
-		Debug.Log (
-			"Position of dot: "+ transform.position + 
-			"\nPosition of Edge Collider start: "+Manager.MouseLineEdgeCollider.points [0]
-		);
 	}
 
 	public void forwardInput (int input, int[] outputs) {

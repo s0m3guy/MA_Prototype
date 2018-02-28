@@ -189,7 +189,7 @@ Assets/Output.cs
 Assets/OutputCircle.cs
 Assets/OutputDot.cs
 Assets/RandomInputDot.cs
-Assets/RandomInputDot1.cs
+Assets/RandomInputDotSwitchable.cs
 Assets/RandomLEDScript.cs
 Assets/RaycastController.cs
 Assets/TouchTest.cs
