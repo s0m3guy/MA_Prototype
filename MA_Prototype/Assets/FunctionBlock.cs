@@ -21,7 +21,7 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject input2GO;
 	GameObject outputGO;
 
-	public GameObject removalOverlay;
+	public GameObject removalOverlay, wasteBin;
 
 	private bool isFBbeingDragged = false;
 
@@ -32,9 +32,6 @@ public class FunctionBlock : MonoBehaviour {
 		input1GO = transform.Find ("Input 1A").gameObject;
 		input2GO = transform.Find ("Input 2A").gameObject;
 		outputGO = transform.Find ("OutputA").gameObject;
-
-//		removalOverlay = GameObject.FindGameObjectWithTag ("removalOverlay");
-		Debug.Log (removalOverlay.name);
 	}
 
 	// Use this for initialization
