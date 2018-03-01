@@ -82,16 +82,24 @@ public class FunctionBlock : MonoBehaviour {
 			}
 		} else if (!isFBbeingDragged) {
 			removalOverlay.SetActive (false);
-			Debug.Log (GetComponent<SpriteRenderer> ().sortingLayerName);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
 			this.GetComponentInChildren<Canvas>().sortingLayerName = "FB Label";
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.gameObject.tag == "wastebin") {
-			Destroy(this.transform.parent.gameObject); }
-	} 
+	void OnCollisionEnter2D() {
+		Debug.Log ("Enter");
+	}
+
+	void OnCollisionStay2D() {
+		Debug.Log ("Staying");
+//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+	}
+
+	void OnCollisionExit2D() {
+		Debug.Log ("Exited");
+//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+	}
 
 	void OnMouseDown() {
 		if (!isClone) {

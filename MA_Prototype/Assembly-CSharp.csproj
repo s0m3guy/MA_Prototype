@@ -64,6 +64,7 @@
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />
      <Compile Include="Assets\TouchTest.cs" />
+     <Compile Include="Assets\Wastebin.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
