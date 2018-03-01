@@ -23,7 +23,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	public GameObject removalOverlay, wasteBin;
 
-	private bool isFBbeingDragged = false;
+	public bool isFBbeingDragged = false;
 
 	void Awake () {
 
@@ -73,10 +73,25 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (isFBbeingDragged) {
 			removalOverlay.SetActive (true);
+			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
+			this.GetComponentInChildren<Canvas>().sortingLayerName = "Waste Bin On Overlay";
+			this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
+
+			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
+				spriteRend.sortingLayerName = "Waste Bin On Overlay";
+			}
 		} else if (!isFBbeingDragged) {
 			removalOverlay.SetActive (false);
+			Debug.Log (GetComponent<SpriteRenderer> ().sortingLayerName);
+			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
+			this.GetComponentInChildren<Canvas>().sortingLayerName = "FB Label";
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.tag == "wastebin") {
+			Destroy(this.transform.parent.gameObject); }
+	} 
 
 	void OnMouseDown() {
 		if (!isClone) {

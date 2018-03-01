@@ -68,6 +68,9 @@ TagManager:
   - name: Functional Blocks
     uniqueID: 2276785175
     locked: 0
+  - name: FB Label
+    uniqueID: 1411331893
+    locked: 0
   - name: Removal Overlay
     uniqueID: 1945576783
     locked: 0

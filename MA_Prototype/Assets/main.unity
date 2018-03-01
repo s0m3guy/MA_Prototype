@@ -203,7 +203,7 @@ Prefab:
     - target: {fileID: 223580952795080368, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
       propertyPath: m_SortingLayerID
-      value: 1945576783
+      value: 1411331893
       objectReference: {fileID: 0}
     - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
@@ -660,7 +660,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1649777539
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f57cf0420d2e364b83f28c3654d7834, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -871,7 +871,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1649777539
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6f023171d6cea3947ae7fe4139b6943f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1223,7 +1223,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1649777539
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f57cf0420d2e364b83f28c3654d7834, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -1328,7 +1328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1042743127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1945576783
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 28826db61be358143a3b6bfec506a957, type: 3}
   m_Color: {r: 0.878, g: 0.03676468, b: 0.03676468, a: 1}
@@ -1643,7 +1643,7 @@ Prefab:
     - target: {fileID: 223580952795080368, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
       propertyPath: m_SortingLayerID
-      value: 1945576783
+      value: 1411331893
       objectReference: {fileID: 0}
     - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
@@ -1743,7 +1743,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1649777539
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cac2433c111928a4e9fa7801cad25ee3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1983,7 +1983,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1493740377
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd8afef9820a45346a0a414e75bd40fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2271,6 +2271,7 @@ MonoBehaviour:
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
+  isFBbeingDragged: 0
 --- !u!61 &2079150871
 BoxCollider2D:
   m_ObjectHideFlags: 0
