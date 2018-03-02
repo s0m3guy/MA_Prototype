@@ -44,7 +44,7 @@ public class OutputDot : MonoBehaviour {
 				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
 				tempEdgeColliderPoints [1] = transform.position;
 				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;	
-				Manager.MouseLineScript.isSnapped = true;
+				Manager.MouseLineScript.isEndingPointSnapped = true;
 			}
 		}
 
