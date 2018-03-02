@@ -100,7 +100,7 @@ public class RandomInputDotSwitchable : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
-		if (!newLineScript.isSnapped) {
+		if (!newLineScript.isEndingPointSnapped) {
 			Destroy (Manager.MouseLineScript.gameObject);
 		}
 		Manager.MouseLineRenderer = null;

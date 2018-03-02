@@ -33,7 +33,7 @@ public class Line : MonoBehaviour {
 
 	public int input, output;
 
-	public bool isSnapped = false;	// if line is snapped to a target
+	public bool isEndingPointSnapped = false;	// if line is snapped to a target
 
 	private Vector2[] tempEdgeColliderPoints;
 
@@ -55,8 +55,9 @@ public class Line : MonoBehaviour {
 	void Update () {
 		forwardInput (input, output);
 
-		if (isSnapped) {
+		if (isEndingPointSnapped) {
 			GetComponent<LineRenderer> ().SetPosition (1, destinObject.transform.position);		// Line stays connected when moving destin object
+			GetComponent<LineRenderer> ().SetPosition (0, originObject.transform.position);
 		}
 	}
 

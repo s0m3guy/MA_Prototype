@@ -81,7 +81,7 @@ public class OutputCircle : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
-		if (!newLineScript.isSnapped) {
+		if (!newLineScript.isEndingPointSnapped) {
 			Destroy (Manager.MouseLineScript.gameObject);
 		}
 		Manager.MouseLineRenderer = null;
