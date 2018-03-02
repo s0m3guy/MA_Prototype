@@ -33,12 +33,16 @@ public class Line : MonoBehaviour {
 
 	public int input, output;
 
-	public bool isSnapped = false;
+	public bool isSnapped = false;	// if line is snapped to a target
+
+	private Vector2[] tempEdgeColliderPoints;
 
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
 		lineCollider = GetComponent<EdgeCollider2D> ();
+
+		tempEdgeColliderPoints = new Vector2[2];
 	}
 
 
@@ -50,6 +54,10 @@ public class Line : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		forwardInput (input, output);
+
+		if (isSnapped) {
+			GetComponent<LineRenderer> ().SetPosition (1, destinObject.transform.position);		// Line stays connected when moving destin object
+		}
 	}
 
 	void OnMouseDown() {

@@ -87,17 +87,17 @@ public class FunctionBlock : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D() {
-		Debug.Log ("Enter");
+	void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log ("Enter "+coll.gameObject.name);
 	}
 
-	void OnCollisionStay2D() {
-		Debug.Log ("Staying");
+	void OnCollisionStay2D(Collision2D coll) {
+		Debug.Log ("Staying"+coll.gameObject.name);
 //		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 	}
 
-	void OnCollisionExit2D() {
-		Debug.Log ("Exited");
+	void OnCollisionExit2D(Collision2D coll) {
+		Debug.Log ("Exited"+coll.gameObject.name);
 //		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 	}
 
