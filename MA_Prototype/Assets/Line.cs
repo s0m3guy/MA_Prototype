@@ -116,4 +116,8 @@ public class Line : MonoBehaviour {
 			}
 		}
 	}
+
+	public void unSnap() {
+		isEndingPointSnapped = false;
+	}
 }

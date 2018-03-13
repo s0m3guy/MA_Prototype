@@ -17,6 +17,9 @@ public class InputCircle : MonoBehaviour {
 
 	public GameObject connectedLine;
 
+	private Vector3 screenPoint;
+	private Vector3 offset;
+
 	private OutputCircle outputCircle = new OutputCircle ();
 
 	void Awake () {
@@ -59,6 +62,24 @@ public class InputCircle : MonoBehaviour {
 
 	void OnMouseDown() {
 
+//		if (connectedLine != null) {
+//			screenPoint = Camera.main.WorldToScreenPoint(connectedLine.transform.position);
+//			offset = connectedLine.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+//		}
+		connectedLine.GetComponent<Line>().unSnap();
+	}
 
+	void OnMouseDrag() {
+
+//		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
+//		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
+//		connectedLine.transform.position = curPosition;
+//
+//		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+
+		Vector2 screenPos = new Vector2 ();
+		Camera.main.ScreenToWorldPoint (screenPos);
+
+		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 	}
 }
