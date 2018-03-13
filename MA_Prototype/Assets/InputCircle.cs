@@ -73,5 +73,16 @@ public class InputCircle : MonoBehaviour {
 		Camera.main.ScreenToWorldPoint (screenPos);
 
 		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+
+		Manager.MouseLineScript = connectedLine.GetComponent<Line>(); // Set reference to current drawn line
+		Manager.MouseLineRenderer = connectedLine.GetComponent<LineRenderer>();
+		Manager.MouseLineEdgeCollider = connectedLine.GetComponent<EdgeCollider2D> ();
+	}
+
+	void OnMouseUp() {
+
+		if (!connectedLine.GetComponent<Line> ().isEndingPointSnapped) {
+			Destroy (connectedLine.gameObject);
+		}
 	}
 }
