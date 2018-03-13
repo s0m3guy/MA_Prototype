@@ -87,10 +87,6 @@ public class RandomInputDot : MonoBehaviour {
 		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
 		Manager.MouseLineRenderer = newLineRend;
 		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
-		Debug.Log (
-			"Position of dot: "+ transform.position + 
-			"\nPosition of Edge Collider start: "+Manager.MouseLineEdgeCollider.points [0]
-		);
 	}
 
 	public void forwardInput (int input, int[] outputs) {
