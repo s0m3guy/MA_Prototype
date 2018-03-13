@@ -41,22 +41,26 @@ public class InputCircle : MonoBehaviour {
 		mousePos.z = 0;
 
 		if(circCol.bounds.Contains(mousePos)) {
-			if (Manager.MouseLineRenderer) {
-				Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+			if (Manager.currentlyDrawnLine) {
+//			if(Manager.MouseLineScript) {
+				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);
+//				Manager.MouseLineScript.gameObject.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 				// Also set end point of Edge Collider
-				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
-				tempEdgeColliderPoints [1] = transform.position;
-				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;	
-				Manager.MouseLineScript.isEndingPointSnapped = true;
+				#region optional collider shit
+//				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
+//				tempEdgeColliderPoints [1] = transform.position;
+//				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
+				#endregion optional collider shit
+				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
 			}
 		}
 	}
 		
 	void OnMouseEnter() {
 
-		if (Manager.MouseLineScript != null) {
-			Manager.MouseLineScript.destinObject = this.gameObject;
-			connectedLine = Manager.MouseLineRenderer.gameObject;
+		if (Manager.currentlyDrawnLine != null) {
+			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+			connectedLine = Manager.currentlyDrawnLine;
 		}
 	}
 
@@ -74,9 +78,7 @@ public class InputCircle : MonoBehaviour {
 
 		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-		Manager.MouseLineScript = connectedLine.GetComponent<Line>(); // Set reference to current drawn line
-//		Manager.MouseLineRenderer = connectedLine.GetComponent<LineRenderer>();
-//		Manager.MouseLineEdgeCollider = connectedLine.GetComponent<EdgeCollider2D> ();
+		Manager.currentlyDrawnLine = connectedLine; // Set reference to current drawn line
 	}
 
 	void OnMouseUp() {
@@ -85,8 +87,6 @@ public class InputCircle : MonoBehaviour {
 			Destroy (connectedLine.gameObject);
 		}
 
-		Manager.MouseLineRenderer = null;
-		Manager.MouseLineScript = null;
-		Manager.MouseLineEdgeCollider = null;
+		Manager.currentlyDrawnLine = null;
 	}
 }

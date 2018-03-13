@@ -10,7 +10,8 @@ public class Output : MonoBehaviour {
 		mousePos.z = 0;
 
 		if (circCol.bounds.Contains (mousePos)) {
-			Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+//			Manager.MouseLineRenderer.SetPosition (1, this.transform.position);
+			Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 		}
 	}
 
