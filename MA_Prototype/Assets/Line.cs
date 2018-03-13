@@ -60,20 +60,25 @@ public class Line : MonoBehaviour {
 			GetComponent<LineRenderer> ().SetPosition (0, originObject.transform.position);
 		}
 	}
-
+		
 	void OnMouseDown() {
 
-		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
-
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		#region deprecated
+//		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
+//
+//		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		#endregion deprecated 
 	}
 
 	void OnMouseDrag() {
-		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
 
-		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
-
-		transform.position = curPosition;
+		#region deprecated
+//		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);			// Current touch point
+//
+//		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
+//
+//		transform.position = curPosition;
+		#endregion deprecated 
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object

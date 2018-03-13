@@ -69,7 +69,6 @@ public class OutputCircle : MonoBehaviour {
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-
 		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
 		Manager.MouseLineRenderer = newLineRend;
 		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();

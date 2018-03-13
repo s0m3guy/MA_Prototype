@@ -15,6 +15,8 @@ public class InputCircle : MonoBehaviour {
 	private CircleCollider2D circCol, newCircCol;
 	private Vector2[] tempEdgeColliderPoints;
 
+	public GameObject connectedLine;
+
 	private OutputCircle outputCircle = new OutputCircle ();
 
 	void Awake () {
@@ -51,6 +53,12 @@ public class InputCircle : MonoBehaviour {
 
 		if (Manager.MouseLineScript != null) {
 			Manager.MouseLineScript.destinObject = this.gameObject;
+			connectedLine = Manager.MouseLineRenderer.gameObject;
 		}
+	}
+
+	void OnMouseDown() {
+
+
 	}
 }
