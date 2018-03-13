@@ -69,22 +69,26 @@ public class OutputCircle : MonoBehaviour {
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-		Manager.MouseLineScript = newLineScript; // Set reference to current drawn line
-		Manager.MouseLineRenderer = newLineRend;
-		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
+//		Manager.currentlyDrawnLine = newLineScript; // Set reference to current drawn line
+//		Manager.MouseLineRenderer = newLineRend;
+//		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
+
+		Manager.currentlyDrawnLine = newLineObj;
 
 		// Sets the starting point of the line to this circle
-		tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
-		tempEdgeColliderPoints [0] = transform.position;
-		Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
+//		tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
+//		tempEdgeColliderPoints [0] = transform.position;
+//		Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
 	}
 
 	void OnMouseUp () {
 		if (!newLineScript.isEndingPointSnapped) {
-			Destroy (Manager.MouseLineScript.gameObject);
+			Destroy (Manager.currentlyDrawnLine.gameObject);
 		}
-		Manager.MouseLineRenderer = null;
-		Manager.MouseLineScript = null;
-		Manager.MouseLineEdgeCollider = null;
+//		Manager.MouseLineRenderer = null;
+//		Manager.currentlyDrawnLine = null;
+//		Manager.MouseLineEdgeCollider = null;
+
+		Manager.currentlyDrawnLine = null;
 	}
 }
