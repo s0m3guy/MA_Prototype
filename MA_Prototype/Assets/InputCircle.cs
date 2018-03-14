@@ -40,13 +40,12 @@ public class InputCircle : MonoBehaviour {
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePos.z = 0;
 
+		// If mouse enters bounds and there is a line being drawn, snap end point of line to this
 		if(circCol.bounds.Contains(mousePos)) {
 			if (Manager.currentlyDrawnLine) {
-//			if(Manager.MouseLineScript) {
 				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);
-//				Manager.MouseLineScript.gameObject.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+				#region unused collider shit
 				// Also set end point of Edge Collider
-				#region optional collider shit
 //				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
 //				tempEdgeColliderPoints [1] = transform.position;
 //				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
@@ -58,6 +57,7 @@ public class InputCircle : MonoBehaviour {
 		
 	void OnMouseEnter() {
 
+		// Set this input circle as destin object in line
 		if (Manager.currentlyDrawnLine != null) {
 			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
 			connectedLine = Manager.currentlyDrawnLine;
@@ -66,6 +66,7 @@ public class InputCircle : MonoBehaviour {
 
 	void OnMouseDown() {
 
+		// Let go of the line in case there is one
 		if (connectedLine != null) {
 			connectedLine.GetComponent<Line> ().unSnap ();
 		}
@@ -73,10 +74,14 @@ public class InputCircle : MonoBehaviour {
 
 	void OnMouseDrag() {
 
+		// Have the now semi-loose line follow the mouse
+
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
 		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+
+		Debug.Log (connectedLine.GetComponent<LineRenderer>().GetPosition(1));
 
 		Manager.currentlyDrawnLine = connectedLine; // Set reference to current drawn line
 	}
@@ -85,6 +90,7 @@ public class InputCircle : MonoBehaviour {
 
 		if (!connectedLine.GetComponent<Line> ().isEndingPointSnapped) {
 			Destroy (connectedLine.gameObject);
+			connectedLine = null;
 		}
 
 		Manager.currentlyDrawnLine = null;

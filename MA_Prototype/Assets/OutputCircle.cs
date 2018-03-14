@@ -69,10 +69,6 @@ public class OutputCircle : MonoBehaviour {
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-//		Manager.currentlyDrawnLine = newLineScript; // Set reference to current drawn line
-//		Manager.MouseLineRenderer = newLineRend;
-//		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
-
 		Manager.currentlyDrawnLine = newLineObj;
 
 		// Sets the starting point of the line to this circle
@@ -84,10 +80,9 @@ public class OutputCircle : MonoBehaviour {
 	void OnMouseUp () {
 		if (!newLineScript.isEndingPointSnapped) {
 			Destroy (Manager.currentlyDrawnLine.gameObject);
+			Manager.currentlyDrawnLine = null;
+			newLineObj = null;
 		}
-//		Manager.MouseLineRenderer = null;
-//		Manager.currentlyDrawnLine = null;
-//		Manager.MouseLineEdgeCollider = null;
 
 		Manager.currentlyDrawnLine = null;
 	}
