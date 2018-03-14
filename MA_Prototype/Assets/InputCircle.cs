@@ -59,7 +59,7 @@ public class InputCircle : MonoBehaviour {
 
 		// Set this input circle as destin object in line
 		if (Manager.currentlyDrawnLine != null) {
-			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+			Manager.currentlyDrawnLine.GetComponent<Line> ().destinObject = this.gameObject;
 			connectedLine = Manager.currentlyDrawnLine;
 		}
 	}
@@ -75,13 +75,15 @@ public class InputCircle : MonoBehaviour {
 	void OnMouseDrag() {
 
 		// Have the now semi-loose line follow the mouse
+		if (connectedLine) {
 
-		Vector2 screenPos = new Vector2 ();
-		Camera.main.ScreenToWorldPoint (screenPos);
+			connectedLine.GetComponent<Line> ().unSnap ();
 
-		connectedLine.GetComponent<LineRenderer>().SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+			Vector2 screenPos = new Vector2 ();
+			Camera.main.ScreenToWorldPoint (screenPos);
 
-		Debug.Log (connectedLine.GetComponent<LineRenderer>().GetPosition(1));
+			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+		}
 
 		Manager.currentlyDrawnLine = connectedLine; // Set reference to current drawn line
 	}
