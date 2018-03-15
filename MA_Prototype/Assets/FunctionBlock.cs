@@ -49,10 +49,6 @@ public class FunctionBlock : MonoBehaviour {
 	void Update () {
 		forwardInput ();
 
-//		GameObject input1GO = this.transform.Find ("Input 1A").gameObject;
-//		GameObject input2GO = this.transform.Find ("Input 2A").gameObject;
-//		GameObject outputGO = this.transform.Find ("OutputA").gameObject;
-
 		if (inputs [0] == 0) {
 				input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
 		} else if (inputs[0] == 1) {
@@ -84,6 +80,20 @@ public class FunctionBlock : MonoBehaviour {
 			removalOverlay.SetActive (false);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
 			this.GetComponentInChildren<Canvas>().sortingLayerName = "FB Label";
+		}
+
+		if (GetComponentInChildren<InputCircle> ().connectedLine) {
+			Debug.Log ("Line connected");
+		} else if (GetComponentInChildren<InputCircle> ().connectedLine == null) {
+			Debug.Log ("No Line connected");
+		}
+
+		// In case no line is connected to the inputs, reset input values
+		if (!GetComponentInChildren<InputCircle> ().connectedLine) {
+			foreach (int element in inputs) {
+				inputs [element] = 0;
+			}
+			output = 0;
 		}
 	}
 
