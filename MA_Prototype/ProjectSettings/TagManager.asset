@@ -25,6 +25,9 @@ TagManager:
   - funcBlockPanelOverlay
   - removalOverlay
   - wastebin
+  - inputDotDigital
+  - testDot
+  - inputDotAnalog
   layers:
   - Default
   - TransparentFX

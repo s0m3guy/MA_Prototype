@@ -23,6 +23,10 @@ public class FunctionBlock : MonoBehaviour {
 
 	public GameObject removalOverlay, wasteBin;
 
+	private double x = 0;
+
+	bool up = true;
+
 	public bool isFBbeingDragged = false;
 
 	void Awake () {
@@ -50,14 +54,14 @@ public class FunctionBlock : MonoBehaviour {
 		forwardInput ();
 
 		if (inputs [0] == 0) {
-				input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (inputs[0] == 1) {
-				input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
-			}
+			input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
+		} else if (inputs [0] == 1) {
+			input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
+		}
 
 		if (inputs [1] == 0) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (inputs[1] == 1) {
+		} else if (inputs [1] == 1) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
@@ -70,7 +74,7 @@ public class FunctionBlock : MonoBehaviour {
 		if (isFBbeingDragged) {
 			removalOverlay.SetActive (true);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
-			this.GetComponentInChildren<Canvas>().sortingLayerName = "Waste Bin On Overlay";
+			this.GetComponentInChildren<Canvas> ().sortingLayerName = "Waste Bin On Overlay";
 			this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
 
 			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
@@ -79,13 +83,7 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (!isFBbeingDragged) {
 			removalOverlay.SetActive (false);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
-			this.GetComponentInChildren<Canvas>().sortingLayerName = "FB Label";
-		}
-
-		if (GetComponentInChildren<InputCircle> ().connectedLine) {
-			Debug.Log ("Line connected");
-		} else if (GetComponentInChildren<InputCircle> ().connectedLine == null) {
-			Debug.Log ("No Line connected");
+			this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
 		}
 
 		// In case no line is connected to the inputs, reset input values
@@ -96,6 +94,7 @@ public class FunctionBlock : MonoBehaviour {
 			output = 0;
 		}
 	}
+		
 
 	void OnCollisionEnter2D(Collision2D coll) {
 //		Debug.Log ("Enter "+coll.gameObject.name);
