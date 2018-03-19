@@ -8,7 +8,6 @@ public class OutputCircle : MonoBehaviour {
 
 	private bool set;
 	private LineRenderer lineRenderer = new LineRenderer ();
-	private LineRenderer newLineRend = new LineRenderer();
 	public Transform origin;
 	public GameObject newLineObj;
 	private Line line, newLineScript;
@@ -46,7 +45,7 @@ public class OutputCircle : MonoBehaviour {
 		if (parentFunctionBlock.checkClone()) {
 			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
 			if (newLineObj) {
-				newLineRend = newLineObj.GetComponent<LineRenderer> ();
+				LineRenderer newLineRend = newLineObj.GetComponent<LineRenderer> ();
 				newLineScript = newLineObj.GetComponent<Line> ();
 			}
 		}
