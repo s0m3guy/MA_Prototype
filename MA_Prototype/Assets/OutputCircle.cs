@@ -7,8 +7,8 @@ public class OutputCircle : MonoBehaviour {
 	// (As of right now) This class 
 
 	private bool set;
-	private LineRenderer lineRenderer;
 	public Transform origin;
+	private LineRenderer newLineRend = new LineRenderer();
 	public GameObject newLineObj;
 	private Line line, newLineScript;
 	private CircleCollider2D circCol, newCircCol;
@@ -30,7 +30,6 @@ public class OutputCircle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		lineRenderer = gameObject.AddComponent<LineRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +44,7 @@ public class OutputCircle : MonoBehaviour {
 		if (parentFunctionBlock.checkClone()) {
 			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
 			if (newLineObj) {
-				LineRenderer newLineRend = newLineObj.GetComponent<LineRenderer> ();
+				newLineRend = newLineObj.GetComponent<LineRenderer> ();
 				newLineScript = newLineObj.GetComponent<Line> ();
 			}
 		}
