@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 1287982705}
   m_Layer: 0
   m_Name: LED_off_raw
-  m_TagString: testingLED
+  m_TagString: outputLED
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

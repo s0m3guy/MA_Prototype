@@ -139,6 +139,8 @@ public class FunctionBlock : MonoBehaviour {
 		isFBbeingDragged = false;
 
 		if (elementAboveWasteBin) {
+			this.GetComponentInChildren<InputCircle> ().connectedLine = null;
+			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
 			Destroy (this.transform.parent.gameObject);
 		}
 	}

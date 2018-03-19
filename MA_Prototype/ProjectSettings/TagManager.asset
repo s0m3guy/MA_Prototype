@@ -28,6 +28,7 @@ TagManager:
   - inputDotDigital
   - testDot
   - inputDotAnalog
+  - outputLED
   layers:
   - Default
   - TransparentFX
