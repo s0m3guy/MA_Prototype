@@ -7,7 +7,7 @@ public class OutputCircle : MonoBehaviour {
 	// (As of right now) This class 
 
 	private bool set;
-	private LineRenderer lineRenderer = new LineRenderer ();
+	private LineRenderer lineRenderer;
 	public Transform origin;
 	public GameObject newLineObj;
 	private Line line, newLineScript;
@@ -30,7 +30,7 @@ public class OutputCircle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		lineRenderer = gameObject.AddComponent<LineRenderer> ();
 	}
 	
 	// Update is called once per frame
