@@ -56,7 +56,9 @@ public class Line : MonoBehaviour {
 		forwardInput (input, output);
 
 		if (isEndingPointSnapped) {
-			GetComponent<LineRenderer> ().SetPosition (1, destinObject.transform.position);		// Line stays connected when moving destin object
+			if(destinObject) {
+				GetComponent<LineRenderer> ().SetPosition (1, destinObject.transform.position);		// Line stays connected when moving destin object
+			}
 			GetComponent<LineRenderer> ().SetPosition (0, originObject.transform.position);
 		}
 	}

@@ -94,19 +94,15 @@ public class FunctionBlock : MonoBehaviour {
 			output = 0;
 		}
 	}
-		
-	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log ("Enter "+coll.gameObject.name);
-	}
 
 	void OnCollisionStay2D(Collision2D coll) {
-		Debug.Log ("Staying"+coll.gameObject.name);
-		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+		if (removalOverlay.activeSelf) {
+			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+		}
 		elementAboveWasteBin = true;
 	}
 
 	void OnCollisionExit2D(Collision2D coll) {
-		Debug.Log ("Exited"+coll.gameObject.name);
 		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		elementAboveWasteBin = false;
 	}
@@ -139,9 +135,12 @@ public class FunctionBlock : MonoBehaviour {
 		isFBbeingDragged = false;
 
 		if (elementAboveWasteBin) {
-			this.GetComponentInChildren<InputCircle> ().connectedLine = null;
+			Debug.Log (this.GetComponentInChildren<InputCircle> ().connectedLine.name);
 			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
 			Destroy (this.transform.parent.gameObject);
+//			this.GetComponentInChildren<InputCircle> ().connectedLine = null;
+//			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
+//			Destroy (this.transform.parent.gameObject);
 		}
 	}
 		
