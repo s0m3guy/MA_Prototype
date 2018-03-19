@@ -18,6 +18,8 @@ public class OutputCircle : MonoBehaviour {
 
 	private Vector2[] tempEdgeColliderPoints;
 
+	public GameObject connectedLine;
+
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
@@ -70,6 +72,7 @@ public class OutputCircle : MonoBehaviour {
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
 		Manager.currentlyDrawnLine = newLineObj;
+		connectedLine = newLineObj;
 
 		// Sets the starting point of the line to this circle
 //		tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
@@ -82,6 +85,7 @@ public class OutputCircle : MonoBehaviour {
 			Destroy (Manager.currentlyDrawnLine.gameObject);
 			Manager.currentlyDrawnLine = null;
 			newLineObj = null;
+			connectedLine = null;
 		}
 
 		Manager.currentlyDrawnLine = null;
