@@ -23,7 +23,7 @@ public class OutputDot : MonoBehaviour {
 		sprite_LED_off = Resources.Load ("LED_off_raw", typeof (Sprite)) as Sprite;
 		sprite_LED_on = Resources.Load ("LED_on_raw", typeof(Sprite)) as Sprite;
 
-		spritRend = GameObject.FindGameObjectWithTag ("testingLED").GetComponent<SpriteRenderer> ();
+		spritRend = GameObject.FindGameObjectWithTag ("outputLED").GetComponent<SpriteRenderer> ();
 	}
 
 	// Use this for initialization

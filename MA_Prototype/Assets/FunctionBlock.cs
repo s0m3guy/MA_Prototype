@@ -23,11 +23,9 @@ public class FunctionBlock : MonoBehaviour {
 
 	public GameObject removalOverlay, wasteBin;
 
-	private double x = 0;
-
-	bool up = true;
-
 	public bool isFBbeingDragged = false;
+
+	bool elementAboveWasteBin = false;
 
 	void Awake () {
 
@@ -71,8 +69,8 @@ public class FunctionBlock : MonoBehaviour {
 			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
-		if (isFBbeingDragged) {
-			removalOverlay.SetActive (true);
+		// in case removal overlay is active
+		if (removalOverlay.activeSelf) {
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
 			this.GetComponentInChildren<Canvas> ().sortingLayerName = "Waste Bin On Overlay";
 			this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
@@ -80,7 +78,9 @@ public class FunctionBlock : MonoBehaviour {
 			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
 				spriteRend.sortingLayerName = "Waste Bin On Overlay";
 			}
-		} else if (!isFBbeingDragged) {
+
+		// in case it's not active
+		} else if (!removalOverlay.activeSelf) {
 			removalOverlay.SetActive (false);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
 			this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
@@ -95,29 +95,33 @@ public class FunctionBlock : MonoBehaviour {
 		}
 	}
 		
-
 	void OnCollisionEnter2D(Collision2D coll) {
-//		Debug.Log ("Enter "+coll.gameObject.name);
+		Debug.Log ("Enter "+coll.gameObject.name);
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
-//		Debug.Log ("Staying"+coll.gameObject.name);
-//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+		Debug.Log ("Staying"+coll.gameObject.name);
+		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+		elementAboveWasteBin = true;
 	}
 
 	void OnCollisionExit2D(Collision2D coll) {
-//		Debug.Log ("Exited"+coll.gameObject.name);
-//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+		Debug.Log ("Exited"+coll.gameObject.name);
+		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+		elementAboveWasteBin = false;
 	}
 
 	void OnMouseDown() {
 		if (!isClone) {
 			clone = Instantiate (block);
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
+		} else {
+			// Enable the removal overlay in order to remove function blocks
+			removalOverlay.SetActive (true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
 
-			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 	}
 
 	void OnMouseDrag() {
@@ -128,12 +132,15 @@ public class FunctionBlock : MonoBehaviour {
 			clone.position = curPosition;																			// Move clone to this position
 		} else {
 			transform.position = curPosition;
-			isFBbeingDragged = true;
 		}
 	}
 
 	void OnMouseUp() {
 		isFBbeingDragged = false;
+
+		if (elementAboveWasteBin) {
+			Destroy (this.transform.parent.gameObject);
+		}
 	}
 		
 	public void forwardInput () {
