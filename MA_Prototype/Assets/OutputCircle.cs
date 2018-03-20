@@ -25,8 +25,6 @@ public class OutputCircle : MonoBehaviour {
 		origin = GetComponent<Transform> ();
 		circCol = GetComponent<CircleCollider2D> ();
 		parentFunctionBlock = GetComponentInParent<FunctionBlock> ();
-		tempEdgeColliderPoints = new Vector2[2];
-
 	}
 
 	// Use this for initialization
@@ -73,11 +71,6 @@ public class OutputCircle : MonoBehaviour {
 
 		Manager.currentlyDrawnLine = newLineObj;
 		connectedLine = newLineObj;
-
-		// Sets the starting point of the line to this circle
-//		tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
-//		tempEdgeColliderPoints [0] = transform.position;
-//		Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
 	}
 
 	void OnMouseUp () {

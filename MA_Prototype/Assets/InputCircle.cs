@@ -13,7 +13,6 @@ public class InputCircle : MonoBehaviour {
 	private GameObject newLine;
 	private Line line;
 	private CircleCollider2D circCol, newCircCol;
-	private Vector2[] tempEdgeColliderPoints;
 
 	public GameObject connectedLine;
 
@@ -26,7 +25,6 @@ public class InputCircle : MonoBehaviour {
 
 		origin = GetComponent<Transform> ();
 		circCol = GetComponent<CircleCollider2D> ();
-		tempEdgeColliderPoints = new Vector2[2];
 	}
 
 	// Use this for initialization
@@ -44,12 +42,6 @@ public class InputCircle : MonoBehaviour {
 		if(circCol.bounds.Contains(mousePos)) {
 			if (Manager.currentlyDrawnLine) {
 				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);
-				#region unused collider shit
-				// Also set end point of Edge Collider
-//				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
-//				tempEdgeColliderPoints [1] = transform.position;
-//				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;
-				#endregion optional collider shit
 				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
 			}
 		}
@@ -78,6 +70,12 @@ public class InputCircle : MonoBehaviour {
 		if (connectedLine) {
 
 			connectedLine.GetComponent<Line> ().unSnap ();
+
+			if (transform.name.Contains ("Input 1")) {
+				transform.parent.GetComponent<FunctionBlock> ().inputs [0] = 0;
+			} else if (transform.name.Contains ("Input 2")) {
+				transform.parent.GetComponent<FunctionBlock> ().inputs [1] = 0;
+			}
 
 			Vector2 screenPos = new Vector2 ();
 			Camera.main.ScreenToWorldPoint (screenPos);

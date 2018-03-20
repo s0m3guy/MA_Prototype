@@ -35,14 +35,10 @@ public class Line : MonoBehaviour {
 
 	public bool isEndingPointSnapped = false;	// if line is snapped to a target
 
-	private Vector2[] tempEdgeColliderPoints;
-
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
 		lineCollider = GetComponent<EdgeCollider2D> ();
-
-		tempEdgeColliderPoints = new Vector2[2];
 	}
 
 
