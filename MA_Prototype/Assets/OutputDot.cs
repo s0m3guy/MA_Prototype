@@ -11,10 +11,13 @@ public class OutputDot : MonoBehaviour {
 	private SpriteRenderer spritRend;
 	private Sprite sprite_LED_off, sprite_LED_on;
 	public int input;
-	private Vector2[] tempEdgeColliderPoints;
 
 	private Line line;
 
+	public GameObject connectedLine;
+
+	private Vector3 screenPoint;
+	private Vector3 offset;
 
 	void Awake () {
 
@@ -44,7 +47,6 @@ public class OutputDot : MonoBehaviour {
 			}
 		}
 
-
 		if (input == 1) {
 			spritRend.sprite = sprite_LED_on;
 		} else if (input == 0) {
@@ -52,10 +54,34 @@ public class OutputDot : MonoBehaviour {
 		}
 	}
 
+	void OnMouseDown() {
+
+		if (connectedLine != null) {
+			connectedLine.GetComponent<Line> ().unSnap ();
+		}
+	}
+
+	void OnMouseDrag() {
+
+		if (connectedLine) {
+			connectedLine.GetComponent<Line> ().unSnap ();
+
+			input = 0;
+
+			Vector2 screenPos = new Vector2 ();
+			Camera.main.ScreenToWorldPoint (screenPos);
+
+			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+		}
+
+		Manager.currentlyDrawnLine = connectedLine; // Set reference to current drawn line
+	}
+
 	void OnMouseEnter() {
 
 		if (Manager.currentlyDrawnLine != null) {
 			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+			connectedLine = Manager.currentlyDrawnLine;
 		}
 	}
 }
