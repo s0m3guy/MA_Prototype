@@ -52,6 +52,10 @@ public class OutputDot : MonoBehaviour {
 		} else if (input == 0) {
 			spritRend.sprite = sprite_LED_off;
 		}
+
+		if (connectedLine == null) {
+			input = 0;
+		}
 	}
 
 	void OnMouseDown() {

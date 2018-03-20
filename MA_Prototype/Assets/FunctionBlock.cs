@@ -135,6 +135,11 @@ public class FunctionBlock : MonoBehaviour {
 		isFBbeingDragged = false;
 
 		if (elementAboveWasteBin) {
+			if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
+				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputCircle> ().connectedLine = null;
+			} else if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("output")) {
+				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputDot> ().connectedLine = null;
+			}
 
 			// Destruction of input is looped because of several inputs
 			foreach (InputCircle ic in this.GetComponentsInChildren(typeof(InputCircle)))
