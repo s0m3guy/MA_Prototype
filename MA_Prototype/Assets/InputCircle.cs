@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ public class InputCircle : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
-	private OutputCircle outputCircle;
+	private OutputCircle outputCircle = new OutputCircle ();
 
 	void Awake () {
 
@@ -31,9 +31,7 @@ public class InputCircle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		outputCircle = gameObject.AddComponent<OutputCircle> ();
-
+		
 	}
 	
 	// Update is called once per frame

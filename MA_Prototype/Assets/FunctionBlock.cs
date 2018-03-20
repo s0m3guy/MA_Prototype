@@ -135,8 +135,12 @@ public class FunctionBlock : MonoBehaviour {
 		isFBbeingDragged = false;
 
 		if (elementAboveWasteBin) {
-			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
-			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
+
+			// Destruction of input is looped because of several inputs
+			foreach (InputCircle ic in this.GetComponentsInChildren(typeof(InputCircle)))
+				Destroy (ic.connectedLine.gameObject);
+
+			// Destruction of output is not because there is only one
 			Destroy (this.GetComponentInChildren<OutputCircle> ().connectedLine.gameObject);
 			Destroy (this.transform.parent.gameObject);
 		}

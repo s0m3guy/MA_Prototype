@@ -85,7 +85,6 @@ public class OutputCircle : MonoBehaviour {
 			newLineObj = null;
 			connectedLine = null;
 		}
-
 		Manager.currentlyDrawnLine = null;
 	}
 }
