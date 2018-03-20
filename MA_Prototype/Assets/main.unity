@@ -738,7 +738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4430112561882284, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1872573395692652, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_TagString
@@ -929,7 +929,7 @@ Transform:
   m_LocalScale: {x: 0.67577845, y: 0.67577845, z: 0.67577845}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &538676305
 Prefab:
@@ -1729,40 +1729,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4333225314109120, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1316978096785976, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
-      propertyPath: m_Name
-      value: FunctionBlock_OR
-      objectReference: {fileID: 0}
-    - target: {fileID: 114656104896074130, guid: e8b7ef71905cc7f44ae9d860492cfe05,
-        type: 2}
-      propertyPath: m_Text
-      value: "\u22651"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114656104896074130, guid: e8b7ef71905cc7f44ae9d860492cfe05,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794191890691696, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794191890691696, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 223580952795080368, guid: e8b7ef71905cc7f44ae9d860492cfe05,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1411331893
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
       propertyPath: removalOverlay
       value: 
       objectReference: {fileID: 1042743126}
+    - target: {fileID: 1316978096785976, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
+      propertyPath: m_Name
+      value: FunctionBlock_OR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
