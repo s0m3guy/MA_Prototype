@@ -9,6 +9,7 @@ public class OutputCircle : MonoBehaviour {
 	private bool set;
 	public Transform origin;
 	private LineRenderer newLineRend = new LineRenderer();
+	private LineRenderer lineRenderer = new LineRenderer();
 	public GameObject newLineObj;
 	private Line line, newLineScript;
 	private CircleCollider2D circCol, newCircCol;
@@ -40,7 +41,6 @@ public class OutputCircle : MonoBehaviour {
 	void OnMouseDown () {
 		
 		// instantiate Line after clicking circle
-		
 		if (parentFunctionBlock.checkClone()) {
 			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
 			if (newLineObj) {

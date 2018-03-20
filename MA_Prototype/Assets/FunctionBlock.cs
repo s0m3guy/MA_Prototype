@@ -135,13 +135,14 @@ public class FunctionBlock : MonoBehaviour {
 		isFBbeingDragged = false;
 
 		if (elementAboveWasteBin) {
-			Debug.Log (this.GetComponentInChildren<InputCircle> ().connectedLine.name);
+			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
 			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
 			Destroy (this.GetComponentInChildren<OutputCircle> ().connectedLine.gameObject);
 			Destroy (this.transform.parent.gameObject);
-//			this.GetComponentInChildren<InputCircle> ().connectedLine = null;
-//			Destroy (this.GetComponentInChildren<InputCircle> ().connectedLine.gameObject);
-//			Destroy (this.transform.parent.gameObject);
+		}
+
+		if (removalOverlay.activeSelf) {
+			removalOverlay.SetActive (false);
 		}
 	}
 		
