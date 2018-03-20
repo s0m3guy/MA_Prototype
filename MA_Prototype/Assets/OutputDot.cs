@@ -77,6 +77,16 @@ public class OutputDot : MonoBehaviour {
 		Manager.currentlyDrawnLine = connectedLine; // Set reference to current drawn line
 	}
 
+	void OnMouseUp() {
+
+		if (!connectedLine.GetComponent<Line> ().isEndingPointSnapped) {
+			Destroy (connectedLine.gameObject);
+			connectedLine = null;
+		}
+
+		Manager.currentlyDrawnLine = null;
+	}
+
 	void OnMouseEnter() {
 
 		if (Manager.currentlyDrawnLine != null) {
