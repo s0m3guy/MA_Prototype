@@ -136,7 +136,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (elementAboveWasteBin) {
 			if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
-				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputCircle> ().connectedLine = null;
+				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<InputCircle> ().connectedLine = null;
 			} else if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("output")) {
 				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputDot> ().connectedLine = null;
 			}
