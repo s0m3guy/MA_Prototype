@@ -41,7 +41,6 @@ public class RandomInputDot : MonoBehaviour {
 			
 		forwardInput (value, outputs);
 
-//		Debug.Log (outputs [0]);
 	}
 
 	private void SwitchDot () {
@@ -69,8 +68,6 @@ public class RandomInputDot : MonoBehaviour {
 				origin.position.y,
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
-
-//		Manager.MouseLineEdgeCollider.points [0] = transform.position;
 	}
 
 	void OnMouseDown () {
@@ -83,10 +80,6 @@ public class RandomInputDot : MonoBehaviour {
 			newLineRend = newLineObj.GetComponent<LineRenderer> ();
 			newLineScript = newLineObj.GetComponent<Line> ();
 		}
-
-//		Manager.currentlyDrawnLine = newLineScript; // Set reference to current drawn line
-//		Manager.MouseLineRenderer = newLineRend;
-//		Manager.MouseLineEdgeCollider = newLineScript.gameObject.GetComponent<EdgeCollider2D> ();
 
 		Manager.currentlyDrawnLine = newLineObj;
 	}
@@ -101,9 +94,6 @@ public class RandomInputDot : MonoBehaviour {
 		if (!newLineScript.isEndingPointSnapped) {
 			Destroy (Manager.currentlyDrawnLine.gameObject);
 		}
-//		Manager.MouseLineRenderer = null;
-//		Manager.currentlyDrawnLine = null;
-//		Manager.MouseLineEdgeCollider = null;
 
 		Manager.currentlyDrawnLine = null;
 	}

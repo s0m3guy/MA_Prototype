@@ -39,11 +39,7 @@ public class OutputDot : MonoBehaviour {
 
 		if(circCol.bounds.Contains(mousePos)) {
 			if (Manager.currentlyDrawnLine) {
-				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);
-				// Also set end point of Edge Collider
-//				tempEdgeColliderPoints = Manager.MouseLineEdgeCollider.points;
-//				tempEdgeColliderPoints [1] = transform.position;
-//				Manager.MouseLineEdgeCollider.points = tempEdgeColliderPoints;	
+				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);	
 				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
 			}
 		}
