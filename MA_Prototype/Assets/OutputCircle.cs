@@ -42,10 +42,12 @@ public class OutputCircle : MonoBehaviour {
 		
 		// instantiate Line after clicking circle
 		if (parentFunctionBlock.checkClone()) {
+			if(connectedLine == null) {
 			newLineObj = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-			if (newLineObj) {
-				newLineRend = newLineObj.GetComponent<LineRenderer> ();
-				newLineScript = newLineObj.GetComponent<Line> ();
+				if (newLineObj) {
+					newLineRend = newLineObj.GetComponent<LineRenderer> ();
+					newLineScript = newLineObj.GetComponent<Line> ();
+				}
 			}
 		}
 	}
