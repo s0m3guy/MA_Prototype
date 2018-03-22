@@ -7,10 +7,11 @@ public class AnalogInputDot : MonoBehaviour {
 
 	float value = 0;
 	bool up = true;
-	float limit = 5;
-	float increment = 0.1f;
+	float limit = 2*Mathf.PI;
+	float increment = 0.01f;
 	public Color lerpedColor = Color.white;
 	private float voltProportion;
+	float x = 0;
 
 
 	// Use this for initialization
@@ -22,7 +23,7 @@ public class AnalogInputDot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lerpedColor = Color.Lerp (Color.white, Color.red, value / limit);
+		lerpedColor = Color.Lerp (Color.white, Color.red, value / 5);
 
 		GameObject.FindGameObjectWithTag ("inputDotAnalog").GetComponent<SpriteRenderer> ().color = lerpedColor;
 		GameObject.FindGameObjectWithTag ("testingLED").GetComponent<Text> ().text = value.ToString() + "V";
@@ -30,19 +31,15 @@ public class AnalogInputDot : MonoBehaviour {
 
 	void voltAmplitude(){
 
-		if (up == true && value <= limit) {
-			value += increment;
+		value = Mathf.Abs(Mathf.Sin (x)*2.505f + 2.5f);
+		x += increment;
 
-			if (value == limit) {
-				up = false;
-			}
-		} else {
-			up = false;
-			value -= increment;
-
-			if (value <= 0.0) {
-				up = true;
-			}
+		if (value <= 5.00f) {
+			Debug.Log (Mathf.Sin (Mathf.PI/2)*2.5f + 2.5f);
 		}
+
+//		if (x > limit) {
+//			x = 0;
+//		}
 	}
 }
