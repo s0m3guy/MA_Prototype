@@ -95,14 +95,16 @@ public class FunctionBlock : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionStay2D(Collision2D coll) {
+	void OnTriggerStay2D() {
+		Debug.Log ("Staying");
 		if (removalOverlay.activeSelf) {
 			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 		}
 		elementAboveWasteBin = true;
 	}
 
-	void OnCollisionExit2D(Collision2D coll) {
+	void OnTriggerExit2D() {
+		Debug.Log ("Exiting");
 		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		elementAboveWasteBin = false;
 	}
