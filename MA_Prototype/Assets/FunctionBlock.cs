@@ -21,7 +21,7 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject input2GO;
 	GameObject outputGO;
 
-	public GameObject removalOverlay, wasteBin, testSquare;
+	public GameObject removalOverlay, wasteBin;
 
 	public bool isFBbeingDragged = false;
 
@@ -97,19 +97,16 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D() {
 		Debug.Log ("Staying");
-//		if (removalOverlay.activeSelf) {
-//			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
-//		}
-//		elementAboveWasteBin = true;
-		GameObject.FindGameObjectWithTag("testOverlay").GetComponent<SpriteRenderer>().color = Color.red;
-		GameObject.FindGameObjectWithTag ("testSquare").GetComponent<SpriteRenderer> ().color = Color.black;
+		if (removalOverlay.activeSelf) {
+			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+		}
+		elementAboveWasteBin = true;
 	}
 
 	void OnTriggerExit2D() {
 		Debug.Log ("Exiting");
-//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
-//		elementAboveWasteBin = false;
-		GameObject.FindGameObjectWithTag("testOverlay").GetComponent<SpriteRenderer>().color = Color.white;
+		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+		elementAboveWasteBin = false;
 	}
 
 	void OnMouseDown() {
@@ -119,7 +116,6 @@ public class FunctionBlock : MonoBehaviour {
 		} else {
 			// Enable the removal overlay in order to remove function blocks
 			removalOverlay.SetActive (true);
-			testSquare.SetActive (true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
 
@@ -158,7 +154,6 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (removalOverlay.activeSelf) {
 			removalOverlay.SetActive (false);
-			testSquare.SetActive (false);
 		}
 	}
 		
