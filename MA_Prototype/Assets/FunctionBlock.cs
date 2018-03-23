@@ -97,9 +97,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D() {
 		Debug.Log ("Staying");
-		if (removalOverlay.activeSelf) {
-//			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
-//			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().color = Color.grey;
+		if (testSquare.activeSelf) {
 			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 		}
 		elementAboveWasteBin = true;
@@ -107,8 +105,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerExit2D() {
 		Debug.Log ("Exiting");
-//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
-//		GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().color = Color.blue;
 		GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		elementAboveWasteBin = false;
 	}
@@ -119,7 +115,7 @@ public class FunctionBlock : MonoBehaviour {
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-			removalOverlay.SetActive (true);
+//			removalOverlay.SetActive (true);
 			testSquare.SetActive (true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
@@ -158,7 +154,7 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (removalOverlay.activeSelf) {
-			removalOverlay.SetActive (false);
+//			removalOverlay.SetActive (false);
 			testSquare.SetActive (false);
 		}
 	}
