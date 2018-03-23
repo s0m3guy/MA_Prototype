@@ -70,7 +70,7 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		// in case removal overlay is active
-		if (removalOverlay.activeSelf) {
+		if (testSquare != null && testSquare.activeSelf) {
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
 			this.GetComponentInChildren<Canvas> ().sortingLayerName = "Waste Bin On Overlay";
 			this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
@@ -80,8 +80,8 @@ public class FunctionBlock : MonoBehaviour {
 			}
 
 		// in case it's not active
-		} else if (!removalOverlay.activeSelf) {
-			removalOverlay.SetActive (false);
+		} else if (!testSquare.activeSelf) {
+			testSquare.SetActive (false);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
 			this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
 		}
@@ -115,7 +115,6 @@ public class FunctionBlock : MonoBehaviour {
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-//			removalOverlay.SetActive (true);
 			testSquare.SetActive (true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
@@ -137,10 +136,23 @@ public class FunctionBlock : MonoBehaviour {
 	void OnMouseUp() {
 		isFBbeingDragged = false;
 
-		if (elementAboveWasteBin) {
+		bool hasOutputLines = (this.GetComponentInChildren<OutputCircle> ().connectedLine != null) ? true : false;
+		string typeOfDestin = "";
+
+		// Determine type which line is connected to
+		if (hasOutputLines) {
 			if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
+				typeOfDestin = "FB";
+			} else {
+				typeOfDestin = "outputPin";
+			}
+		}
+
+		// Depending on type, reset connection
+		if (elementAboveWasteBin) {
+			if (hasOutputLines && typeOfDestin == "FB") {
 				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<InputCircle> ().connectedLine = null;
-			} else if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("output")) {
+			} else if (hasOutputLines && typeOfDestin == "outputPin") {
 				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputDot> ().connectedLine = null;
 			}
 
@@ -153,8 +165,7 @@ public class FunctionBlock : MonoBehaviour {
 			Destroy (this.transform.parent.gameObject);
 		}
 
-		if (removalOverlay.activeSelf) {
-//			removalOverlay.SetActive (false);
+		if (testSquare.activeSelf) {
 			testSquare.SetActive (false);
 		}
 	}
