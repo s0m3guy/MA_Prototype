@@ -80,7 +80,7 @@ public class FunctionBlock : MonoBehaviour {
 			}
 
 		// in case it's not active
-		} else if (!testSquare.activeSelf) {
+		} else if (testSquare != null && !testSquare.activeSelf) {
 			testSquare.SetActive (false);
 			this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
 			this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
@@ -95,17 +95,21 @@ public class FunctionBlock : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay2D() {
-		Debug.Log ("Staying");
-		if (testSquare.activeSelf) {
-			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+	void OnTriggerStay2D(Collider2D other) {
+		Debug.Log ("Staying " + other.name);
+		if (other.name == "Square") {
+			if (testSquare != null && testSquare.activeSelf) {
+				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+			}
 		}
 		elementAboveWasteBin = true;
 	}
 
-	void OnTriggerExit2D() {
-		Debug.Log ("Exiting");
-		GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+	void OnTriggerExit2D(Collider2D other) {
+		Debug.Log ("Exiting " + other.name);
+		if (other.name == "Square") {
+			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+		}
 		elementAboveWasteBin = false;
 	}
 
