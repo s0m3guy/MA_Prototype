@@ -21,7 +21,7 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject input2GO;
 	GameObject outputGO;
 
-	public GameObject removalOverlay, wasteBin;
+	public GameObject removalOverlay, wasteBin, testSquare;
 
 	public bool isFBbeingDragged = false;
 
@@ -120,6 +120,7 @@ public class FunctionBlock : MonoBehaviour {
 		} else {
 			// Enable the removal overlay in order to remove function blocks
 			removalOverlay.SetActive (true);
+			testSquare.SetActive (true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
 
@@ -158,6 +159,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (removalOverlay.activeSelf) {
 			removalOverlay.SetActive (false);
+			testSquare.SetActive (false);
 		}
 	}
 		

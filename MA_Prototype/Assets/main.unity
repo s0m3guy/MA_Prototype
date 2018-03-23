@@ -1740,6 +1740,11 @@ Prefab:
       propertyPath: m_Name
       value: FunctionBlock_OR
       objectReference: {fileID: 0}
+    - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: testSquare
+      value: 
+      objectReference: {fileID: 1598562307}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
@@ -2189,7 +2194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1598562308
 Rigidbody2D:
   serializedVersion: 4
@@ -2776,6 +2781,7 @@ MonoBehaviour:
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
+  testSquare: {fileID: 0}
   isFBbeingDragged: 0
 --- !u!61 &2079150871
 BoxCollider2D:
