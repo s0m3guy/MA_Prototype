@@ -98,14 +98,18 @@ public class FunctionBlock : MonoBehaviour {
 	void OnTriggerStay2D() {
 		Debug.Log ("Staying");
 		if (removalOverlay.activeSelf) {
-			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+//			GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+//			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().color = Color.grey;
+			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 		}
 		elementAboveWasteBin = true;
 	}
 
 	void OnTriggerExit2D() {
 		Debug.Log ("Exiting");
-		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+//		GameObject.FindGameObjectWithTag ("wastebin").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+//		GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().color = Color.blue;
+		GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		elementAboveWasteBin = false;
 	}
 
