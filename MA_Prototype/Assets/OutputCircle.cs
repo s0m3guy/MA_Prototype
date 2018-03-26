@@ -8,11 +8,12 @@ public class OutputCircle : MonoBehaviour {
 
 	private bool set;
 	public Transform origin;
-	private LineRenderer newLineRend = new LineRenderer();
-	private LineRenderer lineRenderer = new LineRenderer();
+	private LineRenderer newLineRend;
+	private LineRenderer lineRenderer;
 	public GameObject newLineObj;
 	private Line line, newLineScript;
-	private CircleCollider2D circCol, newCircCol;
+	private CircleCollider2D circCol;
+	private CircleCollider2D newCircCol;
 
 	private FunctionBlock parentFunctionBlock;
 

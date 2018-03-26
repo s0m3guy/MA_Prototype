@@ -10,7 +10,7 @@ public class RandomInputDotSwitchable : MonoBehaviour {
 
 	private Line line, newLineScript;
 	private LineRenderer lineRenderer = new LineRenderer ();
-	private LineRenderer newLineRend = new LineRenderer();
+	private LineRenderer newLineRend;
 	public GameObject newLineObj;
 	public Transform origin;
 

@@ -10,13 +10,11 @@ public class AnalogInputDot : MonoBehaviour {
 	float limit = 2*Mathf.PI;
 	float increment = 0.01f;
 	public Color lerpedColor = Color.white;
-	private float voltProportion;
 	float x = 0;
 
 
 	// Use this for initialization
 	void Start () {
-		voltProportion = value / limit;
 
 		InvokeRepeating("voltAmplitude", 0.07f, .07f);
 	}
@@ -26,7 +24,7 @@ public class AnalogInputDot : MonoBehaviour {
 		lerpedColor = Color.Lerp (Color.white, Color.red, value / 5);
 
 		GameObject.FindGameObjectWithTag ("inputDotAnalog").GetComponent<SpriteRenderer> ().color = lerpedColor;
-		GameObject.FindGameObjectWithTag ("testingLED").GetComponent<Text> ().text = value.ToString() + "V";
+//		GameObject.FindGameObjectWithTag ("testingLED").GetComponent<Text> ().text = value.ToString() + "V";
 	}
 
 	void voltAmplitude(){

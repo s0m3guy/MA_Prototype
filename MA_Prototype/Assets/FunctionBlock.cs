@@ -57,7 +57,7 @@ public class FunctionBlock : MonoBehaviour {
 			input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
-		if (inputs [1] == 0) {
+		if (inputs.Length == 2 && inputs [1] == 0) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
 		} else if (inputs [1] == 1) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
@@ -96,8 +96,8 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		Debug.Log ("Staying " + other.name);
 		if (other.name == "Square") {
+		Debug.Log ("Staying " + other.name);
 			if (testSquare != null && testSquare.activeSelf) {
 				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 			}
@@ -106,8 +106,8 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		Debug.Log ("Exiting " + other.name);
 		if (other.name == "Square") {
+		Debug.Log ("Exiting " + other.name);
 			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		}
 		elementAboveWasteBin = false;

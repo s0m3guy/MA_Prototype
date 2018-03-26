@@ -19,7 +19,7 @@ public class InputCircle : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
-	private OutputCircle outputCircle = new OutputCircle ();
+	private OutputCircle outputCircle;
 
 	void Awake () {
 
