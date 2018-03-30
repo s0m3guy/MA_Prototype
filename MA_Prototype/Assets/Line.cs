@@ -59,6 +59,8 @@ public class Line : MonoBehaviour {
 		}
 	}
 		
+	#region non used
+	/*
 	void OnMouseDown() {
 
 		#region deprecated
@@ -78,6 +80,8 @@ public class Line : MonoBehaviour {
 //		transform.position = curPosition;
 		#endregion deprecated 
 	}
+	*/
+	#endregion non used
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
 	public void forwardInput (int input, int output) {
