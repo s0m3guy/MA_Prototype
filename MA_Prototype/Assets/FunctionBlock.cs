@@ -32,7 +32,9 @@ public class FunctionBlock : MonoBehaviour {
 		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 
 		input1GO = transform.Find ("Input 1A").gameObject;
-		input2GO = transform.Find ("Input 2A").gameObject;
+		if (transform.parent.name.Contains ("AND") || transform.parent.name.Contains ("OR")) {
+			input2GO = transform.Find ("Input 2A").gameObject;
+		}
 		outputGO = transform.Find ("OutputA").gameObject;
 	}
 
@@ -59,7 +61,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (inputs.Length == 2 && inputs [1] == 0) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (inputs [1] == 1) {
+		} else if (inputs.Length == 2 && inputs [1] == 1) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
@@ -97,7 +99,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.name == "Square") {
-		Debug.Log ("Staying " + other.name);
+//		Debug.Log ("Staying " + other.name);
 			if (testSquare != null && testSquare.activeSelf) {
 				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
 			}
@@ -107,7 +109,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.name == "Square") {
-		Debug.Log ("Exiting " + other.name);
+//		Debug.Log ("Exiting " + other.name);
 			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
 		}
 		elementAboveWasteBin = false;
@@ -116,6 +118,19 @@ public class FunctionBlock : MonoBehaviour {
 	void OnMouseDown() {
 		if (!isClone) {
 			clone = Instantiate (block);
+//			if(transform.parent.name.Contains("AND")) {
+//
+//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+//
+//			} else if (transform.parent.name.Contains("OR")) {
+//
+//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+//
+//			} else if (transform.parent.name.Contains("VALUE")) {
+//
+//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+//
+//			}
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		} else {
 			// Enable the removal overlay in order to remove function blocks

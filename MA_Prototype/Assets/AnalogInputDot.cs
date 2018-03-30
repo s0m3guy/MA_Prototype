@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AnalogInputDot : MonoBehaviour {
 
 	float value = 0;
-	bool up = true;
-	float limit = 2*Mathf.PI;
+//	bool up = true;
+//	float limit = 2*Mathf.PI;
 	float increment = 0.01f;
 	public Color lerpedColor = Color.white;
 	float x = 0;
