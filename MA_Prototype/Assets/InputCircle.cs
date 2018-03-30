@@ -7,8 +7,8 @@ public class InputCircle : MonoBehaviour {
 	// (As of right now) This class controls the behaviour of the input circles in the function blocks
 
 	private bool set;
-//	private LineRenderer lineRenderer = new LineRenderer ();
-//	private LineRenderer newLineRend = new LineRenderer();
+	private LineRenderer lineRenderer = new LineRenderer ();
+	private LineRenderer newLineRend = new LineRenderer();
 	public Transform origin;
 	private GameObject newLine;
 	private Line line;
