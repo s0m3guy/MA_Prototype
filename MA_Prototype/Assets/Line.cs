@@ -25,13 +25,14 @@ public class Line : MonoBehaviour {
 	private OutputCircle outputCircleScript;
 	private OutputDot outputDotScript;
 	private FunctionBlock functionBlockScript;
+	private AnalogInputDot analogInputScript;
 
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
 	private EdgeCollider2D lineCollider;
 
-	public int input, output;
+	public float input, output;
 
 	public bool isEndingPointSnapped = false;	// if line is snapped to a target
 
@@ -84,7 +85,7 @@ public class Line : MonoBehaviour {
 	#endregion non used
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
-	public void forwardInput (int input, int output) {
+	public void forwardInput (float input, float output) {
 		string typeOfOriginObject, typeOfDestinObject;
 
 		// Checking the type of origin
@@ -93,12 +94,15 @@ public class Line : MonoBehaviour {
 //			if (typeOfOriginObject.Contains ("Dot")) {
 //				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
 //				this.output = randomInputDotScript.value;
-			if (originObject.CompareTag("inputDot")) {
+			if (originObject.CompareTag ("inputDot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
 				this.output = randomInputDotScript.value;
-			} else if(typeOfOriginObject.Contains ("Output")) {
+			} else if (typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponentInParent<FunctionBlock> ();
 				this.output = functionBlockScript.output;
+			} else if (originObject.CompareTag ("inputDotAnalog")) {
+				this.output = originObject.GetComponent<AnalogInputDot> ().value;
+//				this.output = analogInputScript.
 			}
 		}
 
@@ -108,13 +112,19 @@ public class Line : MonoBehaviour {
 			if (typeOfDestinObject.Contains ("Input")) {
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
-					functionBlockScript.inputs [0] = this.output;
+					if (destinObject.transform.parent.gameObject.transform.parent.name.Contains ("VALUE")) {
+						functionBlockScript.inputs [0] = this.output;
+					} else {
+						functionBlockScript.inputs [0] = (int)this.output;
+					}
 				} else if (typeOfDestinObject.Contains ("Input 2")) {
-					functionBlockScript.inputs [1] = this.output;
+					functionBlockScript.inputs [1] = (int)this.output;
+				} else if (destinObject.transform.parent.name.Contains ("VALUE")) {
+					functionBlockScript.inputs [0] = this.output;
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
-				outputDotScript.input = this.output;
+				outputDotScript.input = (int)this.output;
 			}
 		}
 	}

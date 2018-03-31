@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class FunctionBlock : MonoBehaviour {
 
-	public Transform block, clone;
+	public Transform block;
+	public Transform clone;
 	public int speed;
 	private bool isClone = false;
 
 	public string logicGate;
 
-	public int[] inputs;
-	public int output;
+	public float[] inputs;
+	public float output;
 
 	private Vector3 screenPoint;
 	private Vector3 offset;
@@ -29,7 +30,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void Awake () {
 
-		inputs = new int[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
+		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 
 		input1GO = transform.Find ("Input 1A").gameObject;
 		if (transform.parent.name.Contains ("AND") || transform.parent.name.Contains ("OR")) {
@@ -117,19 +118,28 @@ public class FunctionBlock : MonoBehaviour {
 	void OnMouseDown() {
 		if (!isClone) {
 			clone = Instantiate (block);
-//			if(transform.parent.name.Contains("AND")) {
-//
-//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-//
-//			} else if (transform.parent.name.Contains("OR")) {
-//
-//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-//
-//			} else if (transform.parent.name.Contains("VALUE")) {
-//
-//				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-//
-//			}
+
+			/* Experimental code for when using prefab clone instead of transform clone
+			if (transform.parent.name.Contains ("AND")) {
+				Debug.Log ("Successfully checked for AND block");
+				clone = Instantiate (Resources.Load ("FunctionBlock_AND")) as GameObject;
+				Debug.Log ("Successfully instantiated prefab of FB_AND");
+			}
+			if(transform.parent.name.Contains("AND")) {
+
+				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+
+			} else if (transform.parent.name.Contains("OR")) {
+
+				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+
+			} else if (transform.parent.name.Contains("VALUE")) {
+
+				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
+
+			}
+			*/
+
 			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		} else {
 			// Enable the removal overlay in order to remove function blocks
@@ -208,6 +218,9 @@ public class FunctionBlock : MonoBehaviour {
 			} else if ((inputs [0] == 0 && inputs [1] == 0) || (inputs [0] == 1 && inputs [1] == 1)) {
 				output = 0;
 			}
+		} else if (transform.parent.name.Contains ("VALUE")) {
+			this.GetComponentInChildren<Text> ().text = inputs [0].ToString ("0.0") + "V";
+			output = inputs [0];
 		}
 	}
 

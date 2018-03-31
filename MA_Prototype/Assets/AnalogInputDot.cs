@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AnalogInputDot : MonoBehaviour {
 
-	float value = 0;
+	public float value = 0;
 //	bool up = true;
 //	float limit = 2*Mathf.PI;
 	float increment = 0.01f;
