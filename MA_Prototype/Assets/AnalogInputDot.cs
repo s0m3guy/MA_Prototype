@@ -8,7 +8,7 @@ public class AnalogInputDot : MonoBehaviour {
 	public float value = 0;
 //	bool up = true;
 //	float limit = 2*Mathf.PI;
-	float increment = 0.01f;
+	float increment = 0.07f;
 	public Color lerpedColor = Color.white;
 	float x = 0;
 
@@ -21,7 +21,7 @@ public class AnalogInputDot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lerpedColor = Color.Lerp (Color.white, Color.red, value / 5);
+		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
 
 		GameObject.FindGameObjectWithTag ("inputDotAnalog").GetComponent<SpriteRenderer> ().color = lerpedColor;
 //		GameObject.FindGameObjectWithTag ("testingLED").GetComponent<Text> ().text = value.ToString() + "V";
