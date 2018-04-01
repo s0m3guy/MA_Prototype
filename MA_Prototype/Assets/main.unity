@@ -947,7 +947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Wert eingeben...
 --- !u!222 &501058886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: Gleich
 --- !u!222 &541500936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4408,11 +4408,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Gleich
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Kleiner
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: "Gr\xF6\xDFer"
+      m_Image: {fileID: 0}
+    - m_Text: Kleiner Gleich
+      m_Image: {fileID: 0}
+    - m_Text: "Gr\xF6\xDFer Gleich"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
