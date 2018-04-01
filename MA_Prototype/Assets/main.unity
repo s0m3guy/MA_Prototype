@@ -239,7 +239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4333225314109120, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1316978096785976, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_Name
@@ -468,7 +468,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4891207924742478, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1922247906137968, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_Name
@@ -734,7 +734,7 @@ Transform:
   m_Children:
   - {fileID: 694350390}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &464362386
 Prefab:
@@ -773,7 +773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4203000525472748, guid: 930b93aec437e114ba2a5504086cc5e3, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 930b93aec437e114ba2a5504086cc5e3, type: 2}
@@ -815,7 +815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4430112561882284, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1872573395692652, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_TagString
@@ -1006,7 +1006,7 @@ Transform:
   m_LocalScale: {x: 0.67577845, y: 0.67577845, z: 0.67577845}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &538676305
 Prefab:
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   clone: {fileID: 0}
   speed: 0
   logicGate: 
-  inputs: 
+  inputs: []
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
@@ -1314,7 +1314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4891207924742478, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1922247906137968, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_Name
@@ -1959,7 +1959,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4162295125858814, guid: 7a4c69cce822412498d15dfd14773614, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114886624774885238, guid: 7a4c69cce822412498d15dfd14773614,
         type: 2}
@@ -2131,7 +2131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4333225314109120, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1316978096785976, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
       propertyPath: m_Name
@@ -2200,6 +2200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6555ba88a8f0584980ff42610f20aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 0
   lerpedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1382480402
 GameObject:
@@ -2497,7 +2498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4891207924742478, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1922247906137968, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
       propertyPath: m_Name
@@ -3078,7 +3079,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4203000525472748, guid: 930b93aec437e114ba2a5504086cc5e3, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1801986583474644, guid: 930b93aec437e114ba2a5504086cc5e3, type: 2}
       propertyPath: m_Name
@@ -3144,7 +3145,7 @@ MonoBehaviour:
   clone: {fileID: 0}
   speed: 0
   logicGate: 
-  inputs: 
+  inputs: []
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
@@ -3258,7 +3259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4430112561882284, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1872573395692652, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_Name
