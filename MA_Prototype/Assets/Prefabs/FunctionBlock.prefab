@@ -319,14 +319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 0}
-  block2: {fileID: 0}
   clone: {fileID: 0}
   speed: 0
   logicGate: 
-  inputs: 
+  inputs: []
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
+  testSquare: {fileID: 0}
   isFBbeingDragged: 0
 --- !u!114 &114369066023186964
 MonoBehaviour:
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
-  m_Color: {r: 0.8235294, g: 0.19982699, b: 0.19982699, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -548,7 +548,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
-  m_Color: {r: 0.8235294, g: 0.19982699, b: 0.19982699, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -592,7 +592,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
-  m_Color: {r: 0.8235294, g: 0.19982699, b: 0.19982699, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

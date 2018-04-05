@@ -30,6 +30,12 @@ public class FunctionBlock : MonoBehaviour {
 
 	Color lerpedColor;
 
+	// Variables for short click detection
+	float levelTimer = 0.0f;
+	bool pressed = false;
+	[SerializeField]
+	Canvas UIcanvas;
+
 	void Awake () {
 
 		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
@@ -53,6 +59,11 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (pressed) {
+			levelTimer += Time.deltaTime;
+		}
+
 		forwardInput ();
 
 		if (transform.parent.name.Contains ("VALUE")) {
@@ -125,6 +136,9 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
+
+		pressed = true;
+
 		if (!isClone) {
 			clone = Instantiate (block);
 
@@ -154,7 +168,7 @@ public class FunctionBlock : MonoBehaviour {
 			// Enable the removal overlay in order to remove function blocks
 			testSquare.SetActive (true);
 		}
-		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.parent.position);
+		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 	}
@@ -171,6 +185,14 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
+
+		if (isClone && levelTimer < 0.25) {
+			UIcanvas.enabled = true;
+		}
+
+		levelTimer = 0;
+		pressed = false;
+
 		isFBbeingDragged = false;
 
 		bool hasOutputLines = (this.GetComponentInChildren<OutputCircle> ().connectedLine != null) ? true : false;
