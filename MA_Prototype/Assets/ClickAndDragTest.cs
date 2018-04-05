@@ -11,6 +11,9 @@ public class ClickAndDragTest : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
+	[SerializeField]
+	Canvas UIcanvas;
+
 	// Use this for initialization
 	void Start () {
 		levelTimer = 0.0f;
@@ -42,6 +45,12 @@ public class ClickAndDragTest : MonoBehaviour {
 	void OnMouseUp() {
 		Debug.Log ("Mouse Up");
 		Debug.Log (levelTimer + " seconds");
+
+		if (levelTimer < 0.25) {
+			Debug.Log("Short click detected");
+			UIcanvas.enabled = true;
+		}
+
 		levelTimer = 0;
 		pressed = false;
 	}
