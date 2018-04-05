@@ -91,3 +91,6 @@ TagManager:
   - name: Waste Bin On Overlay
     uniqueID: 1493740377
     locked: 0
+  - name: UI Canvas
+    uniqueID: 3793854391
+    locked: 0

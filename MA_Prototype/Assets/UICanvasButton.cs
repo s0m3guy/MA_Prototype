@@ -20,5 +20,6 @@ public class UICanvasButton : MonoBehaviour {
 		Debug.Log("You have clicked the button!");
 		Debug.Log(chosenDropdownEntry.GetComponent<Text>().text);
 		Debug.Log(userInputValue.GetComponent<Text>().text);
+		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 	}
 }
