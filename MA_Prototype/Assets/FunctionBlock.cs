@@ -188,6 +188,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (isClone && levelTimer < 0.25) {
 			UIcanvas.enabled = true;
+			Manager.currentIFblock = transform.parent.gameObject;
 		}
 
 		levelTimer = 0;

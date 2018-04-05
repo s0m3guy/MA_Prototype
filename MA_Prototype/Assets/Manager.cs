@@ -9,4 +9,6 @@ public static class Manager {
 //	public static EdgeCollider2D MouseLineEdgeCollider;
 
 	public static Vector2[] edgeColliderPoints;
+
+	public static GameObject currentIFblock;
 }
