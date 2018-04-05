@@ -32,6 +32,10 @@ TagManager:
   - outputPin
   - testSquare
   - testInnerSquare
+  - UIcanvas
+  - UIcanvasButton
+  - UIcanvasDropdown
+  - UIcanvasInput
   layers:
   - Default
   - TransparentFX
