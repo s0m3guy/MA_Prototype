@@ -265,20 +265,11 @@ public class FunctionBlock : MonoBehaviour {
 			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0") + "V";
 			output = inputs[0];
 		} else if (transform.parent.name.Contains("_IF")) {
-//			if (GetComponentInChildren<Text>().text.Contains("<")) {
-//				Debug.Log("Kleiner detected");
-//			} else if (GetComponentInChildren<Text>().text.Contains(">")) {
-//				Debug.Log("Größer detected");
-//			} else if (GetComponentInChildren<Text>().text.Contains("≤")) {
-//				Debug.Log("Kleiner gleich detected");
-//			} else if (GetComponentInChildren<Text>().text.Contains("≥")) {
-////				Debug.Log("Größer gleich detected");
-//			} else if (GetComponentInChildren<Text>().text.Contains("=")) {
-////				Debug.Log("Gleich detected");
-//			}
 			if (comparator == "=") {
 				if (inputs[0] == comparatorValue) {
 					output = 1;
+				} else {
+					output = 0;
 				}
 			}
 		}
