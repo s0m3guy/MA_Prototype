@@ -36,6 +36,11 @@ public class FunctionBlock : MonoBehaviour {
 	[SerializeField]
 	Canvas UIcanvas;
 
+	// Variables for IF block (gained from UI canvas)
+
+	public string comparator;
+	public float comparatorValue;
+
 	void Awake () {
 
 		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
@@ -79,6 +84,12 @@ public class FunctionBlock : MonoBehaviour {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
 		} else if (inputs.Length == 2 && inputs [1] == 1) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
+		}
+
+		if (output == 0) {
+			outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+		} else if (output == 1) {
+			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
 		if (transform.parent.name.Contains ("VALUE")) {
@@ -232,27 +243,44 @@ public class FunctionBlock : MonoBehaviour {
 		
 	public void forwardInput () {
 
-		if (transform.parent.name.Contains ("_AND")) {
-			if (inputs [0] == 0 || inputs [1] == 0) {
+		if (transform.parent.name.Contains("_AND")) {
+			if (inputs[0] == 0 || inputs[1] == 0) {
 				output = 0;
-			} else if (inputs [0] == 1 && inputs [1] == 1) {
+			} else if (inputs[0] == 1 && inputs[1] == 1) {
 				output = 1;
 			}
-		} else if (transform.parent.name.Contains ("_OR")) {
-			if (inputs [0] == 1 || inputs [1] == 1) {
+		} else if (transform.parent.name.Contains("_OR")) {
+			if (inputs[0] == 1 || inputs[1] == 1) {
 				output = 1;
-			} else if (inputs [0] == 0 && inputs [1] == 0) {
+			} else if (inputs[0] == 0 && inputs[1] == 0) {
 				output = 0;
 			}
-		} else if (transform.parent.name.Contains ("_XOR")) {
-			if ((inputs [0] == 1 && inputs [1] == 0) || (inputs [0] == 0 && inputs [1] == 1)) {
+		} else if (transform.parent.name.Contains("_XOR")) {
+			if ((inputs[0] == 1 && inputs[1] == 0) || (inputs[0] == 0 && inputs[1] == 1)) {
 				output = 1;
-			} else if ((inputs [0] == 0 && inputs [1] == 0) || (inputs [0] == 1 && inputs [1] == 1)) {
+			} else if ((inputs[0] == 0 && inputs[1] == 0) || (inputs[0] == 1 && inputs[1] == 1)) {
 				output = 0;
 			}
-		} else if (transform.parent.name.Contains ("VALUE")) {
-			this.GetComponentInChildren<Text> ().text = inputs [0].ToString ("0.0") + "V";
-			output = inputs [0];
+		} else if (transform.parent.name.Contains("VALUE")) {
+			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0") + "V";
+			output = inputs[0];
+		} else if (transform.parent.name.Contains("_IF")) {
+//			if (GetComponentInChildren<Text>().text.Contains("<")) {
+//				Debug.Log("Kleiner detected");
+//			} else if (GetComponentInChildren<Text>().text.Contains(">")) {
+//				Debug.Log("Größer detected");
+//			} else if (GetComponentInChildren<Text>().text.Contains("≤")) {
+//				Debug.Log("Kleiner gleich detected");
+//			} else if (GetComponentInChildren<Text>().text.Contains("≥")) {
+////				Debug.Log("Größer gleich detected");
+//			} else if (GetComponentInChildren<Text>().text.Contains("=")) {
+////				Debug.Log("Gleich detected");
+//			}
+			if (comparator == "=") {
+				if (inputs[0] == comparatorValue) {
+					output = 1;
+				}
+			}
 		}
 	}
 

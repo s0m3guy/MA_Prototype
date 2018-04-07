@@ -10,6 +10,7 @@ public class UICanvasButton : MonoBehaviour {
 	public GameObject userInputValue;
 
 	string comparator, value;
+	float floatValue;
 
 	void Start()
 	{
@@ -40,10 +41,14 @@ public class UICanvasButton : MonoBehaviour {
 		}
 
 		value = userInputValue.GetComponent<Text>().text;
-		Debug.Log("You have clicked the button!");
+		floatValue = float.Parse(userInputValue.GetComponent<Text>().text);
+//		Debug.Log(value + " and " + floatValue);
+//		Debug.Log("You have clicked the button!");
 		Debug.Log(chosenDropdownEntry.GetComponent<Text>().text);
 		Debug.Log(userInputValue.GetComponent<Text>().text);
 		Manager.currentIFblock.GetComponentInChildren<Text>().text = comparator + value + "V";
+		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparator = comparator;
+		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparatorValue = floatValue;
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		Manager.currentIFblock = null;
 	}

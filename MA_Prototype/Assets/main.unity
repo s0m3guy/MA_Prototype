@@ -4415,6 +4415,7 @@ GameObject:
   - component: {fileID: 1739374850}
   - component: {fileID: 1739374849}
   - component: {fileID: 1739374848}
+  - component: {fileID: 1739374851}
   m_Layer: 0
   m_Name: Template
   m_TagString: Untagged
@@ -4506,6 +4507,26 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739374846}
+--- !u!223 &1739374851
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1739374846}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: -501112905
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1787917049
 GameObject:
   m_ObjectHideFlags: 0
