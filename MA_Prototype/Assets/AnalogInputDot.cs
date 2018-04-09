@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class AnalogInputDot : MonoBehaviour {
 
 	public float value = 0;
+//	public float value = Random.Range(0,4);
 //	bool up = true;
 //	float limit = 2*Mathf.PI;
 	float increment = 0.07f;
 	public Color lerpedColor = Color.white;
-	float x = 0;
-//	float x = Random.Range(0,4);
+//	float x = 0;
+	float x = Random.Range(0,10);
 
 
 	// Use this for initialization
@@ -23,9 +24,7 @@ public class AnalogInputDot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
-
-		GameObject.FindGameObjectWithTag ("inputDotAnalog").GetComponent<SpriteRenderer> ().color = lerpedColor;
-//		GameObject.FindGameObjectWithTag ("testingLED").GetComponent<Text> ().text = value.ToString() + "V";
+		GetComponent<SpriteRenderer>().color = lerpedColor;
 	}
 
 	void voltAmplitude(){
