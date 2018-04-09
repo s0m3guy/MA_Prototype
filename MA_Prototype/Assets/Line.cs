@@ -112,8 +112,10 @@ public class Line : MonoBehaviour {
 			if (typeOfDestinObject.Contains ("Input")) {
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
-					if (destinObject.transform.parent.gameObject.transform.parent.name.Contains ("VALUE")) {
-						functionBlockScript.inputs [0] = this.output;
+					if (destinObject.transform.parent.gameObject.transform.parent.name.Contains("VALUE")
+						|| destinObject.transform.parent.gameObject.transform.parent.name.Contains ("_IF"))
+					{
+						functionBlockScript.inputs[0] = this.output;
 					} else {
 						functionBlockScript.inputs [0] = (int)this.output;
 					}
