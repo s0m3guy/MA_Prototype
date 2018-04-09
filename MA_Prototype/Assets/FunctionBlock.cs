@@ -277,6 +277,24 @@ public class FunctionBlock : MonoBehaviour {
 				} else {
 					output = 0;
 				}
+			} else if (comparator == ">") {
+				if (inputs[0] > comparatorValue) {
+					output = 1;
+				} else {
+					output = 0;
+				}
+			} else if (comparator == "≤") {
+				if (inputs[0] <= comparatorValue) {
+					output = 1;
+				} else {
+					output = 0;
+				}
+			} else if (comparator == "≥") {
+				if (inputs[0] >= comparatorValue) {
+					output = 1;
+				} else {
+					output = 0;
+				}
 			}
 		}
 	}

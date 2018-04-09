@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114493922001927316}
   - component: {fileID: 58806702980731486}
   m_Layer: 0
-  m_Name: input_dot
+  m_Name: digital_input_dot
   m_TagString: inputDot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039dc89c315a06e4aa2b84dbf9d59417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0
   newLineObj: {fileID: 0}
   origin: {fileID: 0}
   outputs: 
