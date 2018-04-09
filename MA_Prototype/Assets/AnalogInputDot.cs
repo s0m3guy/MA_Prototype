@@ -6,18 +6,15 @@ using UnityEngine.UI;
 public class AnalogInputDot : MonoBehaviour {
 
 	public float value = 0;
-//	public float value = Random.Range(0,4);
-//	bool up = true;
-//	float limit = 2*Mathf.PI;
 	float increment = 0.07f;
 	public Color lerpedColor = Color.white;
-//	float x = 0;
-	float x = Random.Range(0,10);
+	float x;
 
 
 	// Use this for initialization
 	void Start () {
 
+		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 		InvokeRepeating("voltAmplitude", 0.07f, .07f);
 	}
 	
