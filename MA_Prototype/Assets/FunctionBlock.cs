@@ -36,6 +36,9 @@ public class FunctionBlock : MonoBehaviour {
 	[SerializeField]
 	Canvas UIcanvas;
 
+	[SerializeField]
+	InputCircle[] inputPins;
+
 	// Variables for IF block (gained from UI canvas)
 
 	public string comparator;
@@ -55,6 +58,8 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
+
 //		if (gameObject.transform.parent.name.Contains ("(Clone)")) {
 //			isClone = true;
 //		}
@@ -64,6 +69,13 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (inputPins[0].connectedLine == null) {
+			inputs[0] = 0;
+		}
+		if (inputs.Length == 2 && inputPins[1].connectedLine == null) {
+			inputs[1] = 0;
+		}
 
 		if (pressed) {
 			levelTimer += Time.deltaTime;
@@ -119,12 +131,20 @@ public class FunctionBlock : MonoBehaviour {
 			}
 
 			// In case no line is connected to the inputs, reset input values
-			if (!GetComponentInChildren<InputCircle> ().connectedLine) {
-				foreach (int element in inputs) {
-					inputs [element] = 0;
-				}
-				output = 0;
-			}
+//			if (!GetComponentInChildren<InputCircle> ().connectedLine) {
+//				foreach (int element in inputs) {
+//					inputs [element] = 0;
+//				}
+//				output = 0;
+//			}
+
+//			foreach (InputCircle inpCircle in inputPins) {
+//				if(inpCircle.connectedLine == null) {
+//					inputs[
+//			}
+
+
+
 		}
 	}
 
