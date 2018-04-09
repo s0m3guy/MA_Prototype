@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomInputDot : MonoBehaviour {
 
-	public int value = 1;
+	public int value = 0;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
@@ -15,6 +15,10 @@ public class RandomInputDot : MonoBehaviour {
 	public Transform origin;
 
 	public int[] outputs;
+
+	// Variables for short click detection
+	float levelTimer = 0.0f;
+	bool pressed = false;
 
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
@@ -28,11 +32,16 @@ public class RandomInputDot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("SwitchDot", 2.0f, 2.0f);
+//		InvokeRepeating("SwitchDot", 2.0f, 2.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (pressed) {
+			levelTimer += Time.deltaTime;
+		}
+
 		if (value == 1) {
 			spritRend.sprite = sprite_dot_on;
 		} else if (value == 0) {
@@ -72,8 +81,9 @@ public class RandomInputDot : MonoBehaviour {
 
 	void OnMouseDown () {
 
-		// instantiate Line after clicking circle
+		pressed = true;
 
+		// instantiate Line after clicking circle
 		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 
 		if (newLineObj) {
@@ -91,6 +101,14 @@ public class RandomInputDot : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
+
+		if (levelTimer < 0.25) {
+			SwitchDot();
+		}
+
+		levelTimer = 0;
+		pressed = false;
+
 		if (!newLineScript.isEndingPointSnapped) {
 			Destroy (Manager.currentlyDrawnLine.gameObject);
 		}
