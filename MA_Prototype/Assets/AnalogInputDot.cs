@@ -11,6 +11,7 @@ public class AnalogInputDot : MonoBehaviour {
 	float increment = 0.07f;
 	public Color lerpedColor = Color.white;
 	float x = 0;
+//	float x = Random.Range(0,4);
 
 
 	// Use this for initialization
