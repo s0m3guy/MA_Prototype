@@ -178,7 +178,7 @@
 -define:UNITY_IPHONE
 -define:UNITY_IPHONE_API
 -define:SUPPORT_MULTIPLE_DISPLAYS
--define:ENABLE_IL2CPP
+-define:ENABLE_MONO
 -define:NET_2_0_SUBSET
 -define:ENABLE_PROFILER
 -define:DEBUG
@@ -206,6 +206,7 @@ Assets/RandomInputDot.cs
 Assets/RandomInputDotSwitchable.cs
 Assets/RandomLEDScript.cs
 Assets/RaycastController.cs
+Assets/RotateGear.cs
 Assets/TouchTest.cs
 Assets/UICanvasButton.cs
 Assets/Wastebin.cs

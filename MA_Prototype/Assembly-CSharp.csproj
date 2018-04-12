@@ -65,6 +65,7 @@
      <Compile Include="Assets\RandomInputDotSwitchable.cs" />
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />
+     <Compile Include="Assets\RotateGear.cs" />
      <Compile Include="Assets\TouchTest.cs" />
      <Compile Include="Assets\UICanvasButton.cs" />
      <Compile Include="Assets\Wastebin.cs" />

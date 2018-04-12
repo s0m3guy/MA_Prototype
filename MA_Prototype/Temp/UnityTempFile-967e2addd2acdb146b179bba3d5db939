@@ -206,6 +206,7 @@ Assets/RandomInputDot.cs
 Assets/RandomInputDotSwitchable.cs
 Assets/RandomLEDScript.cs
 Assets/RaycastController.cs
+Assets/RotateGear.cs
 Assets/TouchTest.cs
 Assets/UICanvasButton.cs
 Assets/Wastebin.cs

@@ -36,6 +36,8 @@ TagManager:
   - UIcanvasButton
   - UIcanvasDropdown
   - UIcanvasInput
+  - gear1
+  - gear2
   layers:
   - Default
   - TransparentFX
