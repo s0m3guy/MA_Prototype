@@ -23,8 +23,8 @@ public class OutputDot : MonoBehaviour {
 
 		circCol = GetComponent<CircleCollider2D> ();
 
-		sprite_LED_off = Resources.Load ("led/LED_off", typeof (Sprite)) as Sprite;
-		sprite_LED_on = Resources.Load ("led/LED_on", typeof(Sprite)) as Sprite;
+		sprite_LED_off = Resources.Load ("led/LED_off2", typeof (Sprite)) as Sprite;
+		sprite_LED_on = Resources.Load ("led/LED_on2", typeof(Sprite)) as Sprite;
 
 		spritRend = GameObject.FindGameObjectWithTag ("outputLED").GetComponent<SpriteRenderer> ();
 	}
