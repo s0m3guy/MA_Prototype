@@ -6,7 +6,7 @@ public class RotateGear : MonoBehaviour {
 
 	public GameObject gear1;
 	public GameObject gear2;
-	public int speed;
+	public float speed;
 
 	// Use this for initialization
 	void Start () {

@@ -38,6 +38,7 @@ TagManager:
   - UIcanvasInput
   - gear1
   - gear2
+  - Gears
   layers:
   - Default
   - TransparentFX

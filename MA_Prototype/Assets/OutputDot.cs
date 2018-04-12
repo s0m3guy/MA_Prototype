@@ -10,7 +10,7 @@ public class OutputDot : MonoBehaviour {
 	private CircleCollider2D circCol, newCircCol;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_LED_off, sprite_LED_on;
-	public int input;
+	public float input;
 
 	private Line line;
 
@@ -57,9 +57,11 @@ public class OutputDot : MonoBehaviour {
 
 		} else if (transform.parent.name.Contains("Gears")) {
 
-			if (input == 1) {
-				transform.parent.GetComponent<RotateGear>().speed = 2;
-			} else if (input == 0) {
+			if (input != 0) {
+				transform.parent.GetComponent<RotateGear>().speed = input + 2.5f;
+			}
+
+			if (connectedLine == null) {
 				transform.parent.GetComponent<RotateGear>().speed = 0;
 			}
 		}

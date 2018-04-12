@@ -5193,7 +5193,7 @@ GameObject:
   - component: {fileID: 1762532922}
   m_Layer: 0
   m_Name: Output_Gears
-  m_TagString: Untagged
+  m_TagString: Gears
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -126,7 +126,7 @@ public class Line : MonoBehaviour {
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
-				outputDotScript.input = (int)this.output;
+				outputDotScript.input = this.output;
 			}
 		}
 	}
