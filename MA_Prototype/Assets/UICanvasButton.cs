@@ -46,7 +46,7 @@ public class UICanvasButton : MonoBehaviour {
 //		Debug.Log("You have clicked the button!");
 //		Debug.Log(chosenDropdownEntry.GetComponent<Text>().text);
 //		Debug.Log(userInputValue.GetComponent<Text>().text);
-		Manager.currentIFblock.GetComponentInChildren<Text>().text = comparator + value + "V?";
+		Manager.currentIFblock.GetComponentInChildren<Text>().text = "WENN \n" + comparator + value + "V?";
 		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparator = comparator;
 		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparatorValue = floatValue;
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;

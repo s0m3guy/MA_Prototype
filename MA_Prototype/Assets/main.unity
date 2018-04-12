@@ -239,7 +239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4430112561882284, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1872573395692652, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
       propertyPath: m_Name
@@ -833,10 +833,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277112192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.005355637, y: -0.54256856, z: 0}
-  m_LocalScale: {x: 0.017442262, y: 0.29913315, z: 1}
+  m_LocalPosition: {x: 0.3140216, y: -0.7931409, z: 0}
+  m_LocalScale: {x: 0.029340759, y: 0.40795705, z: 1.0854534}
   m_Children: []
-  m_Father: {fileID: 879490381}
+  m_Father: {fileID: 1762532921}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281115720
@@ -1221,7 +1221,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5.5V
+  m_Text: 0.0
 --- !u!222 &389918235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3053,7 +3053,7 @@ GameObject:
   - component: {fileID: 879490381}
   - component: {fileID: 879490380}
   m_Layer: 0
-  m_Name: Assets
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3112,12 +3112,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.30501252, y: -0.053187206, z: 0}
   m_LocalScale: {x: 1.6821647, y: 1.3637974, z: 1.0854533}
-  m_Children:
-  - {fileID: 1151310108}
-  - {fileID: 1309630996}
-  - {fileID: 277112194}
+  m_Children: []
   m_Father: {fileID: 1762532921}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891989214
 GameObject:
@@ -3607,10 +3604,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1151310105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18132144, y: 0.038999345, z: 0}
-  m_LocalScale: {x: 0.59447217, y: 0.7332468, z: 0.9212742}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 879490381}
+  m_Father: {fileID: 1762532921}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1154697352
@@ -3991,7 +3988,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u22650.00V\n?"
+  m_Text: 'WENN
+
+    ?'
 --- !u!222 &1298012208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4233,10 +4232,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1309630993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15486506, y: -0.06732145, z: 0}
-  m_LocalScale: {x: 0.6452719, y: 0.79590523, z: 1}
+  m_LocalPosition: {x: 0.56552106, y: -0.14500003, z: 0}
+  m_LocalScale: {x: 1.0854536, y: 1.0854536, z: 1.0854534}
   m_Children: []
-  m_Father: {fileID: 879490381}
+  m_Father: {fileID: 1762532921}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1341146816
@@ -5209,6 +5208,9 @@ Transform:
   m_LocalPosition: {x: 5.62, y: 0.46, z: 0}
   m_LocalScale: {x: 0.9212742, y: 0.9212742, z: 0.9212742}
   m_Children:
+  - {fileID: 1151310108}
+  - {fileID: 1309630996}
+  - {fileID: 277112194}
   - {fileID: 879490381}
   - {fileID: 62980473}
   m_Father: {fileID: 0}
