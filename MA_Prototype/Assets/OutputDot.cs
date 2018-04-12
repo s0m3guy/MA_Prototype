@@ -47,10 +47,21 @@ public class OutputDot : MonoBehaviour {
 			}
 		}
 
-		if (input == 1) {
-			spritRend.sprite = sprite_LED_on;
-		} else if (input == 0) {
-			spritRend.sprite = sprite_LED_off;
+		if (transform.parent.name.Contains("LED")) {
+			
+			if (input == 1) {
+				spritRend.sprite = sprite_LED_on;
+			} else if (input == 0) {
+				spritRend.sprite = sprite_LED_off;
+			}
+
+		} else if (transform.parent.name.Contains("Gears")) {
+
+			if (input == 1) {
+				transform.parent.GetComponent<RotateGear>().speed = 2;
+			} else if (input == 0) {
+				transform.parent.GetComponent<RotateGear>().speed = 0;
+			}
 		}
 
 		if (connectedLine == null) {
