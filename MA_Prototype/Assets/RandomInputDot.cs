@@ -16,9 +16,14 @@ public class RandomInputDot : MonoBehaviour {
 
 	public int[] outputs;
 
+	[SerializeField]
+	Canvas UIcanvas;
+
 	// Variables for short click detection
 	float levelTimer = 0.0f;
 	bool pressed = false;
+
+	public string inputType;
 
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
@@ -103,7 +108,8 @@ public class RandomInputDot : MonoBehaviour {
 	void OnMouseUp () {
 
 		if (levelTimer < 0.25) {
-			SwitchDot();
+//			SwitchDot();
+
 		}
 
 		levelTimer = 0;
