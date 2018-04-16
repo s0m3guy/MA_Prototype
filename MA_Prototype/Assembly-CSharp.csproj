@@ -66,9 +66,12 @@
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />
      <Compile Include="Assets\RotateGear.cs" />
+     <Compile Include="Assets\Switch\Resources\Scripts\Switch.cs" />
+     <Compile Include="Assets\Switch\Resources\Scripts\Tweening.cs" />
      <Compile Include="Assets\TouchTest.cs" />
      <Compile Include="Assets\UICanvasButton.cs" />
      <Compile Include="Assets\Wastebin.cs" />
+     <None Include="Assets\Switch\Resources\Textures\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

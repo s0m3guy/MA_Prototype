@@ -59,6 +59,8 @@ public class OutputDot : MonoBehaviour {
 
 			if (input != 0) {
 				transform.parent.GetComponent<RotateGear>().speed = input + 2.5f;
+			} else {
+				transform.parent.GetComponent<RotateGear>().speed = 0;
 			}
 
 			if (connectedLine == null) {
