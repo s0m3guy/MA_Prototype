@@ -11,4 +11,6 @@ public static class Manager {
 	public static Vector2[] edgeColliderPoints;
 
 	public static GameObject currentIFblock;
+
+	public static GameObject currentInputPin;
 }
