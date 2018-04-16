@@ -2384,7 +2384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.09, y: -23.15}
+  m_AnchoredPosition: {x: -90, y: -34}
   m_SizeDelta: {x: 210.19, y: 46.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639549263
@@ -3061,8 +3061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -440, y: 93.6}
-  m_SizeDelta: {x: -1426.5, y: -1243.5}
+  m_AnchoredPosition: {x: -440, y: 105.4}
+  m_SizeDelta: {x: -1426.5, y: -1267}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735857266
 MonoBehaviour:
@@ -5762,7 +5762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 128.71727, y: -23.15}
+  m_AnchoredPosition: {x: 106, y: -34}
   m_SizeDelta: {x: 139.3, y: 46.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1711092834
@@ -5773,12 +5773,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1711092832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f541e4fe56996904281c84a35133d5ba, type: 3}
+  m_Script: {fileID: 11500000, guid: dd753eae17835a849a5ef6a59d0041fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 1711092835}
-  chosenDropdownEntry: {fileID: 0}
-  userInputValue: {fileID: 0}
 --- !u!114 &1711092835
 MonoBehaviour:
   m_ObjectHideFlags: 0

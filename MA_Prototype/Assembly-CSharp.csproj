@@ -68,6 +68,7 @@
      <Compile Include="Assets\RotateGear.cs" />
      <Compile Include="Assets\Switch\Resources\Scripts\Switch.cs" />
      <Compile Include="Assets\Switch\Resources\Scripts\Tweening.cs" />
+     <Compile Include="Assets\ToggleDigitalAnalogButton.cs" />
      <Compile Include="Assets\TouchTest.cs" />
      <Compile Include="Assets\UICanvasButton.cs" />
      <Compile Include="Assets\Wastebin.cs" />
