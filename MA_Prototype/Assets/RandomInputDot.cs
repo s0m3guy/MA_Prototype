@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RandomInputDot : MonoBehaviour {
 
-	public int inputValue = 0;
+	public float inputValue = 0;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
@@ -15,7 +15,7 @@ public class RandomInputDot : MonoBehaviour {
 	public GameObject newLineObj;
 	public Transform origin;
 
-	public int[] outputs;
+	public float[] outputs;
 
 	[SerializeField]
 	Canvas UIcanvas;
@@ -48,7 +48,7 @@ public class RandomInputDot : MonoBehaviour {
 
 		origin = GetComponent<Transform> ();
 
-		outputs = new int[1];
+		outputs = new float[1];
 	}
 
 	// Use this for initialization
@@ -71,7 +71,7 @@ public class RandomInputDot : MonoBehaviour {
 			
 		forwardInput (inputValue, outputs);
 
-		lerpedColor = Color.Lerp (Color.white, Color.green, sineValue / 5);
+		lerpedColor = Color.Lerp (Color.white, Color.green, inputValue / 5);
 		GetComponent<SpriteRenderer>().color = lerpedColor;
 	}
 
@@ -81,7 +81,7 @@ public class RandomInputDot : MonoBehaviour {
 
 	void voltAmplitude(){
 
-		sineValue = Mathf.Abs(Mathf.Sin (x)*2.505f + 2.5f);
+		inputValue = Mathf.Abs(Mathf.Sin (x)*2.505f + 2.5f);
 		x += increment;
 	}
 
@@ -127,7 +127,7 @@ public class RandomInputDot : MonoBehaviour {
 		Manager.currentlyDrawnLine = newLineObj;
 	}
 
-	public void forwardInput (int input, int[] outputs) {
+	public void forwardInput (float input, float[] outputs) {
 		for (int i = 0; i <= outputs.Length-1; i++) {
 			outputs[i] = inputValue;
 		}
