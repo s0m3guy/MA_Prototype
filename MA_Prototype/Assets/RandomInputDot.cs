@@ -117,9 +117,12 @@ public class RandomInputDot : MonoBehaviour {
 
 	void OnMouseUp () {
 
-		if (levelTimer < 0.25 && inputType == "") {
+		if (levelTimer < 0.25) {
+//			SwitchDot();
+
+			// insert transform code here to make it appear close to pin
 			ADPanel.transform.position = switchUIspawnPosition;
-	
+
 			UIcanvas.enabled = true;
 			Manager.currentInputPin = this.gameObject;
 
