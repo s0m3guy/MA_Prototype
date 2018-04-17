@@ -768,6 +768,11 @@ Prefab:
       propertyPath: UIcanvas
       value: 
       objectReference: {fileID: 1258962252}
+    - target: {fileID: 114493922001927316, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8,
+        type: 2}
+      propertyPath: ADPanel
+      value: 
+      objectReference: {fileID: 735857264}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
   m_IsPrefabParent: 0
@@ -5166,6 +5171,11 @@ Prefab:
       propertyPath: UIcanvas
       value: 
       objectReference: {fileID: 1258962252}
+    - target: {fileID: 114493922001927316, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8,
+        type: 2}
+      propertyPath: ADPanel
+      value: 
+      objectReference: {fileID: 735857264}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
   m_IsPrefabParent: 0
@@ -5446,6 +5456,11 @@ Prefab:
       propertyPath: UIcanvas
       value: 
       objectReference: {fileID: 1258962252}
+    - target: {fileID: 114493922001927316, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8,
+        type: 2}
+      propertyPath: ADPanel
+      value: 
+      objectReference: {fileID: 735857264}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0783d9bab4fb41b43930bc6ce2ffa9c8, type: 2}
   m_IsPrefabParent: 0

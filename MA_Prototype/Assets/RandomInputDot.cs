@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RandomInputDot : MonoBehaviour {
 
-	public int value = 0;
+	public int inputValue = 0;
 	private SpriteRenderer spritRend;
 	private Sprite sprite_dot_off, sprite_dot_on;
 
@@ -33,6 +33,12 @@ public class RandomInputDot : MonoBehaviour {
 
 	Vector3 switchUIspawnPosition;
 
+	// Needed for analog input
+	public float sineValue = 0;
+	float increment = 0.07f;
+	public Color lerpedColor = Color.white;
+	float x;
+
 	void Awake () {
 		switchUIspawnPosition = new Vector3 (transform.position.x+2.6f, transform.position.y-1, transform.position.z);
 
@@ -47,7 +53,7 @@ public class RandomInputDot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		InvokeRepeating("SwitchDot", 2.0f, 2.0f);
+		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 	}
 	
 	// Update is called once per frame
@@ -57,22 +63,34 @@ public class RandomInputDot : MonoBehaviour {
 			levelTimer += Time.deltaTime;
 		}
 
-		if (value == 1) {
+		if (inputValue == 1) {
 			spritRend.sprite = sprite_dot_on;
-		} else if (value == 0) {
+		} else if (inputValue == 0) {
 			spritRend.sprite = sprite_dot_off;
 		}
 			
-		forwardInput (value, outputs);
+		forwardInput (inputValue, outputs);
 
+		lerpedColor = Color.Lerp (Color.white, Color.green, sineValue / 5);
+		GetComponent<SpriteRenderer>().color = lerpedColor;
+	}
+
+	public void startSine() {
+		InvokeRepeating("voltAmplitude", 0.07f, .07f);
+	}
+
+	void voltAmplitude(){
+
+		sineValue = Mathf.Abs(Mathf.Sin (x)*2.505f + 2.5f);
+		x += increment;
 	}
 
 	private void SwitchDot () {
 
-		if (value == 1) {
-			value = 0;
-		} else if (value == 0) {
-			value = 1;
+		if (inputValue == 1) {
+			inputValue = 0;
+		} else if (inputValue == 0) {
+			inputValue = 1;
 		}
 	}
 
@@ -111,14 +129,13 @@ public class RandomInputDot : MonoBehaviour {
 
 	public void forwardInput (int input, int[] outputs) {
 		for (int i = 0; i <= outputs.Length-1; i++) {
-			outputs[i] = value;
+			outputs[i] = inputValue;
 		}
 	}
 
 	void OnMouseUp () {
 
-		if (levelTimer < 0.25) {
-//			SwitchDot();
+		if (levelTimer < 0.25 && inputType == "") {
 
 			// insert transform code here to make it appear close to pin
 			ADPanel.transform.position = switchUIspawnPosition;

@@ -96,7 +96,7 @@ public class Line : MonoBehaviour {
 //				this.output = randomInputDotScript.value;
 			if (originObject.CompareTag ("inputDot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
-				this.output = randomInputDotScript.value;
+				this.output = randomInputDotScript.inputValue;
 			} else if (typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponentInParent<FunctionBlock> ();
 				this.output = functionBlockScript.output;

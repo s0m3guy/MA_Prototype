@@ -33,6 +33,9 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 	public void TaskOnClick()
 	{
 		Manager.currentInputPin.GetComponent<RandomInputDot>().inputType = status;
+		if (status == "analog") {
+			Manager.currentInputPin.GetComponent<RandomInputDot>().startSine();
+		}
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		Manager.currentInputPin = null;
 	}
