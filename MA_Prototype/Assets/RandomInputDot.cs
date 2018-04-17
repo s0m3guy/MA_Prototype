@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomInputDot : MonoBehaviour {
 
@@ -18,6 +19,11 @@ public class RandomInputDot : MonoBehaviour {
 
 	[SerializeField]
 	Canvas UIcanvas;
+	[SerializeField]
+	GameObject ADPanel;
+
+	[SerializeField]
+	float variable;
 
 	// Variables for short click detection
 	float levelTimer = 0.0f;
@@ -25,7 +31,11 @@ public class RandomInputDot : MonoBehaviour {
 
 	public string inputType;
 
+	Vector3 switchUIspawnPosition;
+
 	void Awake () {
+		switchUIspawnPosition = new Vector3 (transform.position.x+2.6f, transform.position.y-1, transform.position.z);
+
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
 		sprite_dot_off = Resources.Load ("connecting_dot_inactive", typeof (Sprite)) as Sprite;
 		sprite_dot_on = Resources.Load ("connecting_dot_active", typeof(Sprite)) as Sprite;
@@ -107,10 +117,16 @@ public class RandomInputDot : MonoBehaviour {
 
 	void OnMouseUp () {
 
-		if (levelTimer < 0.25) {
-//			SwitchDot();
+		if (levelTimer < 0.25 && inputType == "") {
+			ADPanel.transform.position = switchUIspawnPosition;
+	
 			UIcanvas.enabled = true;
 			Manager.currentInputPin = this.gameObject;
+
+		} else if (levelTimer < 0.25 && inputType == "digital") {
+			SwitchDot();
+		} else if (levelTimer < 0.25 && inputType == "analog") {
+
 		}
 
 		levelTimer = 0;

@@ -10,7 +10,6 @@ public class AnalogInputDot : MonoBehaviour {
 	public Color lerpedColor = Color.white;
 	float x;
 
-
 	// Use this for initialization
 	void Start () {
 
@@ -28,13 +27,5 @@ public class AnalogInputDot : MonoBehaviour {
 
 		value = Mathf.Abs(Mathf.Sin (x)*2.505f + 2.5f);
 		x += increment;
-
-//		if (value <= 5.00f) {
-//			Debug.Log (Mathf.Sin (Mathf.PI/2)*2.5f + 2.5f);
-//		}
-
-//		if (x > limit) {
-//			x = 0;
-//		}
 	}
 }
