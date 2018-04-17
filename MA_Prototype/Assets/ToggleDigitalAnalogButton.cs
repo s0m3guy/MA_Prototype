@@ -1,21 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class ToggleDigitalAnalogButton : MonoBehaviour {
 
 	public bool isOn;
+	[SerializeField]
 	string status;
-
-	void Awake() {
-
-		// Better readability than "isOn"
-		if (isOn) {
-			status = "digital";
-		} else {
-			status = "analog";
-		}
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +16,13 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// Better readability than "isOn"
+		if (isOn) {
+			status = "digital";
+		} else {
+			status = "analog";
+		}
 		
 	}
 
@@ -31,9 +30,18 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 		isOn = status;
 	}
 
-	void TaskOnClick()
+	public void TaskOnClick()
 	{
 		Manager.currentInputPin.GetComponent<RandomInputDot>().inputType = status;
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
+		Manager.currentInputPin = null;
 	}
+
+
+//	public void TaskOnClick()
+//	{
+//		Debug.Log("You have clicked the button!");
+//	}
+
+
 }

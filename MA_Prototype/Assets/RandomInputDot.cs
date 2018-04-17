@@ -109,7 +109,8 @@ public class RandomInputDot : MonoBehaviour {
 
 		if (levelTimer < 0.25) {
 //			SwitchDot();
-
+			UIcanvas.enabled = true;
+			Manager.currentInputPin = this.gameObject;
 		}
 
 		levelTimer = 0;
