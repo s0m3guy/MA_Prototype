@@ -16,6 +16,6 @@ public class RotateGear : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		gear1.transform.Rotate(0, 0, speed);
-		gear2.transform.Rotate(0, 0, speed*-1);
+		gear2.transform.Rotate(0, 0, -speed);
 	}
 }

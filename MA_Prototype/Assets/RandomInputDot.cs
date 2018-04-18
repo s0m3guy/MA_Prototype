@@ -21,6 +21,8 @@ public class RandomInputDot : MonoBehaviour {
 	Canvas UIcanvas;
 	[SerializeField]
 	GameObject ADPanel;
+	[SerializeField]
+	SpriteRenderer triangle;
 
 	[SerializeField]
 	float variable;
@@ -40,7 +42,7 @@ public class RandomInputDot : MonoBehaviour {
 	float x;
 
 	void Awake () {
-		switchUIspawnPosition = new Vector3 (transform.position.x+2.6f, transform.position.y-1, transform.position.z);
+//		switchUIspawnPosition = new Vector3 (transform.position.x+2.6f, transform.position.y-1, transform.position.z);
 
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
 		sprite_dot_off = Resources.Load ("connecting_dot_inactive", typeof (Sprite)) as Sprite;
@@ -138,9 +140,19 @@ public class RandomInputDot : MonoBehaviour {
 		if (levelTimer < 0.25 && inputType == "") {
 
 			// insert transform code here to make it appear close to pin
-			ADPanel.transform.position = switchUIspawnPosition;
+//			ADPanel.transform.position = new Vector3 (ADPanel.transform.position.x, ADPanel.transform.position.y, ADPanel.transform.position.z);
+
+
+//			Debug.Log("Triangle at: " + triangle.transform.position + "\n Dot at: " + transform.position);
+			triangle.transform.position = new Vector3(transform.position.x+0.59f, transform.position.y-0.33f, transform.position.z);
+//			Debug.Log("Triangle at: " + triangle.transform.position + "\n Dot at: " + transform.position);
+
+			Debug.Log("Panel at: " + ADPanel.transform.position + "\n Dot at: " + transform.position);
+			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
+
 
 			UIcanvas.enabled = true;
+			triangle.enabled = true;
 			Manager.currentInputPin = this.gameObject;
 
 		} else if (levelTimer < 0.25 && inputType == "digital") {

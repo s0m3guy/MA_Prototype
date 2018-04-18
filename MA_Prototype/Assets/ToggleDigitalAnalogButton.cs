@@ -9,6 +9,9 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 	[SerializeField]
 	string status;
 
+	[SerializeField]
+	SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
 
@@ -37,6 +40,7 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 			Manager.currentInputPin.GetComponent<RandomInputDot>().startSine();
 		}
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
+		sr.enabled = false;
 		Manager.currentInputPin = null;
 	}
 
