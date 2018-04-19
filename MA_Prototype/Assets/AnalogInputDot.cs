@@ -10,8 +10,15 @@ public class AnalogInputDot : MonoBehaviour {
 	public Color lerpedColor = Color.white;
 	float x;
 
+	[SerializeField]
+	SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
+
+		Debug.Log(sr.color);
+
+//		sr.color = new Color(1, 0.302f, 0.208f, 1.000f);
 
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 		InvokeRepeating("voltAmplitude", 0.07f, .07f);
@@ -19,7 +26,8 @@ public class AnalogInputDot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
+//		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
+		lerpedColor = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), value / 5f);	
 		GetComponent<SpriteRenderer>().color = lerpedColor;
 	}
 
