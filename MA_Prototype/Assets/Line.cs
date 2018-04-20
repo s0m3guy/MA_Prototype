@@ -99,7 +99,15 @@ public class Line : MonoBehaviour {
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
-				outputDotScript.input = this.output;
+
+//				if (output == 1) {
+//					Debug.Log("Output is: " + output);
+//					outputDotScript.input = 5;
+//				} else if (output == 0) {
+//					Debug.Log("Output is: " + output);
+//					outputDotScript.input = 0;
+//				}
+				 outputDotScript.input = this.output;
 			}
 		}
 	}

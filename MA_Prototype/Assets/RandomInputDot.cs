@@ -65,7 +65,7 @@ public class RandomInputDot : MonoBehaviour {
 			levelTimer += Time.deltaTime;
 		}
 
-		if (inputValue == 1) {
+		if (inputValue == 5) {
 			spritRend.sprite = sprite_dot_on;
 		} else if (inputValue == 0) {
 			spritRend.sprite = sprite_dot_off;
@@ -89,10 +89,10 @@ public class RandomInputDot : MonoBehaviour {
 
 	private void SwitchDot () {
 
-		if (inputValue == 1) {
+		if (inputValue == 0) {
+			inputValue = 5;
+		} else if (inputValue == 5) {
 			inputValue = 0;
-		} else if (inputValue == 0) {
-			inputValue = 1;
 		}
 	}
 

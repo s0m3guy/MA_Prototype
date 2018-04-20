@@ -88,19 +88,19 @@ public class FunctionBlock : MonoBehaviour {
 			input1GO.GetComponent<SpriteRenderer> ().color = lerpedColor;
 		} else if (!transform.parent.name.Contains("VALUE") && inputs [0] == 0) {
 			input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (!transform.parent.name.Contains("VALUE") && inputs [0] == 1) {
+		} else if (!transform.parent.name.Contains("VALUE") && inputs [0] == 5) {
 			input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
 		if (inputs.Length == 2 && inputs [1] == 0) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (inputs.Length == 2 && inputs [1] == 1) {
+		} else if (inputs.Length == 2 && inputs [1] == 5) {
 			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
 		if (output == 0) {
 			outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-		} else if (output == 1) {
+		} else if (output == 5) {
 			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 
@@ -266,12 +266,12 @@ public class FunctionBlock : MonoBehaviour {
 		if (transform.parent.name.Contains("_AND")) {
 			if (inputs[0] == 0 || inputs[1] == 0) {
 				output = 0;
-			} else if (inputs[0] == 1 && inputs[1] == 1) {
-				output = 1;
+			} else if (inputs[0] == 1 && inputs[1] == 5) {
+				output = 5;
 			}
 		} else if (transform.parent.name.Contains("_OR")) {
-			if (inputs[0] == 1 || inputs[1] == 1) {
-				output = 1;
+			if (inputs[0] == 5 || inputs[1] == 5) {
+				output = 5;
 			} else if (inputs[0] == 0 && inputs[1] == 0) {
 				output = 0;
 			}
@@ -287,31 +287,31 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (transform.parent.name.Contains("_IF")) {
 			if (comparator == "=") {
 				if (inputs[0] == comparatorValue) {
-					output = 1;
+					output = 5;
 				} else {
 					output = 0;
 				}
 			} else if (comparator == "<") {
 				if (inputs[0] < comparatorValue) {
-					output = 1;
+					output = 5;
 				} else {
 					output = 0;
 				}
 			} else if (comparator == ">") {
 				if (inputs[0] > comparatorValue) {
-					output = 1;
+					output = 5;
 				} else {
 					output = 0;
 				}
 			} else if (comparator == "≤") {
 				if (inputs[0] <= comparatorValue) {
-					output = 1;
+					output = 5;
 				} else {
 					output = 0;
 				}
 			} else if (comparator == "≥") {
 				if (inputs[0] >= comparatorValue) {
-					output = 1;
+					output = 5;
 				} else {
 					output = 0;
 				}
