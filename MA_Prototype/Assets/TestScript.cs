@@ -11,7 +11,7 @@ public class TestScript : MonoBehaviour {
 	[SerializeField]
 	SpriteRenderer sr;
 
-	Color32 clr = new Color32(0x7E, 0x7E, 0x7E, 0xDA);
+	Color32 clr = new Color32(0x71, 0x82, 0x9D, 0xFF);
 
 	// Use this for initialization
 	void Start () {
