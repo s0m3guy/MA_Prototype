@@ -7,7 +7,7 @@ public class RandomInputDot : MonoBehaviour {
 
 	public float inputValue = 0;
 	private SpriteRenderer spritRend;
-	private Sprite sprite_dot_off, sprite_dot_on;
+//	private Sprite sprite_dot_off, sprite_dot_on;
 
 	private Line line, newLineScript;
 	private LineRenderer lineRenderer = new LineRenderer ();
@@ -33,20 +33,14 @@ public class RandomInputDot : MonoBehaviour {
 
 	public string inputType;
 
-	Vector3 switchUIspawnPosition;
-
 	// Needed for analog input
 	public float sineValue = 0;
 	float increment = 0.07f;
-	public Color lerpedColor = Color.white;
+	public Color lerpedColor;
 	float x;
 
 	void Awake () {
-//		switchUIspawnPosition = new Vector3 (transform.position.x+2.6f, transform.position.y-1, transform.position.z);
-
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
-		sprite_dot_off = Resources.Load ("connecting_dot_inactive", typeof (Sprite)) as Sprite;
-		sprite_dot_on = Resources.Load ("connecting_dot_active", typeof(Sprite)) as Sprite;
 
 		origin = GetComponent<Transform> ();
 
@@ -65,16 +59,18 @@ public class RandomInputDot : MonoBehaviour {
 			levelTimer += Time.deltaTime;
 		}
 
-		if (inputValue == 5) {
-			spritRend.sprite = sprite_dot_on;
-		} else if (inputValue == 0) {
-			spritRend.sprite = sprite_dot_off;
+		if (inputType == "analog") {
+			lerpedColor = Color.Lerp(Color.white, Color.green, inputValue / 5);
+			spritRend.color = lerpedColor;
+		} else if (inputType == "digital") {
+			if (inputValue == 5) {
+				spritRend.color = Color.green;			
+			} else if (inputValue == 0) {
+				spritRend.color = Color.white;			
+			}
 		}
 			
 		forwardInput (inputValue, outputs);
-
-		lerpedColor = Color.Lerp (Color.white, Color.green, inputValue / 5);
-		GetComponent<SpriteRenderer>().color = lerpedColor;
 	}
 
 	public void startSine() {
@@ -140,16 +136,8 @@ public class RandomInputDot : MonoBehaviour {
 		if (levelTimer < 0.25 && inputType == "") {
 
 			// insert transform code here to make it appear close to pin
-//			ADPanel.transform.position = new Vector3 (ADPanel.transform.position.x, ADPanel.transform.position.y, ADPanel.transform.position.z);
-
-
-//			Debug.Log("Triangle at: " + triangle.transform.position + "\n Dot at: " + transform.position);
 			triangle.transform.position = new Vector3(transform.position.x+0.59f, transform.position.y-0.33f, transform.position.z);
-//			Debug.Log("Triangle at: " + triangle.transform.position + "\n Dot at: " + transform.position);
-
-			Debug.Log("Panel at: " + ADPanel.transform.position + "\n Dot at: " + transform.position);
 			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
-
 
 			UIcanvas.enabled = true;
 			triangle.enabled = true;
