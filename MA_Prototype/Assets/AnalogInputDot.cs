@@ -10,8 +10,7 @@ public class AnalogInputDot : MonoBehaviour {
 	public Color lerpedColor = Color.white;
 	float x;
 
-	[SerializeField]
-	SpriteRenderer sr;
+	public SpriteRenderer sr;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +25,9 @@ public class AnalogInputDot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
-		lerpedColor = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), value / 5f);	
+		lerpedColor = Color.Lerp (Color.white, Color.green, value / 5);
+//		lerpedColor = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), value / 5f);
+//		sr.color = lerpedColor;
 		GetComponent<SpriteRenderer>().color = lerpedColor;
 	}
 

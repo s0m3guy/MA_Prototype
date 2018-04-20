@@ -271,6 +271,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7335259
       objectReference: {fileID: 0}
+    - target: {fileID: 114981358710999984, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
   m_IsPrefabParent: 0
@@ -2027,6 +2032,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7335259
       objectReference: {fileID: 0}
+    - target: {fileID: 114981358710999984, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: spritRend
+      value: 
+      objectReference: {fileID: 901829340}
+    - target: {fileID: 114981358710999984, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
   m_IsPrefabParent: 0
@@ -2266,6 +2281,7 @@ Transform:
   m_Children:
   - {fileID: 1109457582}
   - {fileID: 611427887}
+  - {fileID: 901829341}
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3587,8 +3603,8 @@ GameObject:
   - component: {fileID: 901829341}
   - component: {fileID: 901829340}
   m_Layer: 0
-  m_Name: white_led_content
-  m_TagString: Untagged
+  m_Name: LED_inner
+  m_TagString: testInnerLED
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3643,12 +3659,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901829339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7767217, y: 0.45787656, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32, y: 2.429, z: 0}
+  m_LocalScale: {x: 1.0854533, y: 1.0854533, z: 1.0854533}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_Father: {fileID: 575564554}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942984745
 GameObject:
@@ -4255,6 +4271,10 @@ Prefab:
     - target: {fileID: 1787222284128940, guid: 1c85ccd2b64f4f44998620541bc1147a, type: 2}
       propertyPath: m_Name
       value: analog_input_dot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787222284128940, guid: 1c85ccd2b64f4f44998620541bc1147a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c85ccd2b64f4f44998620541bc1147a, type: 2}

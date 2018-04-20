@@ -39,6 +39,7 @@ TagManager:
   - gear1
   - gear2
   - Gears
+  - testInnerLED
   layers:
   - Default
   - TransparentFX

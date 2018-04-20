@@ -8,6 +8,7 @@ public class OutputDot : MonoBehaviour {
 	// connected to a testing LED
 
 	private CircleCollider2D circCol, newCircCol;
+	[SerializeField]
 	private SpriteRenderer spritRend;
 	private Sprite sprite_LED_off, sprite_LED_on;
 	public float input;
@@ -19,6 +20,8 @@ public class OutputDot : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
+	Color lerpedColor;
+
 	void Awake () {
 
 		circCol = GetComponent<CircleCollider2D> ();
@@ -26,7 +29,7 @@ public class OutputDot : MonoBehaviour {
 		sprite_LED_off = Resources.Load ("led/LED_off2", typeof (Sprite)) as Sprite;
 		sprite_LED_on = Resources.Load ("led/LED_on2", typeof(Sprite)) as Sprite;
 
-		spritRend = GameObject.FindGameObjectWithTag ("outputLED").GetComponent<SpriteRenderer> ();
+//		spritRend = GameObject.FindGameObjectWithTag ("outputLED").GetComponent<SpriteRenderer> ();
 	}
 
 	// Use this for initialization
@@ -48,12 +51,14 @@ public class OutputDot : MonoBehaviour {
 		}
 
 		if (transform.parent.name.Contains("LED")) {
-			
-			if (input == 1) {
-				spritRend.sprite = sprite_LED_on;
-			} else if (input == 0) {
-				spritRend.sprite = sprite_LED_off;
-			}
+
+			spritRend.color = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), input / 5f);
+
+//			if (input == 1) {
+//				spritRend.sprite = sprite_LED_on;
+//			} else if (input == 0) {
+//				spritRend.sprite = sprite_LED_off;
+//			}
 
 		} else if (transform.parent.name.Contains("Gears")) {
 
