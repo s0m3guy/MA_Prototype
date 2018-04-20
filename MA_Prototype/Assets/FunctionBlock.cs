@@ -274,36 +274,40 @@ public class FunctionBlock : MonoBehaviour {
 			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0");
 			output = inputs[0];
 		} else if (transform.parent.name.Contains("_IF")) {
-			if (comparator == "=") {
-				if (inputs[0] == comparatorValue) {
-					output = 5;
-				} else {
-					output = 0;
+			if (inputPins[0].connectedLine) {
+				if (comparator == "=") {
+					if (inputs[0] == comparatorValue) {
+						output = 5;
+					} else {
+						output = 0;
+					}
+				} else if (comparator == "<") {
+					if (inputs[0] < comparatorValue) {
+						output = 5;
+					} else {
+						output = 0;
+					}
+				} else if (comparator == ">") {
+					if (inputs[0] > comparatorValue) {
+						output = 5;
+					} else {
+						output = 0;
+					}
+				} else if (comparator == "≤") {
+					if (inputs[0] <= comparatorValue) {
+						output = 5;
+					} else {
+						output = 0;
+					}
+				} else if (comparator == "≥") {
+					if (inputs[0] >= comparatorValue) {
+						output = 5;
+					} else {
+						output = 0;
+					}
 				}
-			} else if (comparator == "<") {
-				if (inputs[0] < comparatorValue) {
-					output = 5;
-				} else {
-					output = 0;
-				}
-			} else if (comparator == ">") {
-				if (inputs[0] > comparatorValue) {
-					output = 5;
-				} else {
-					output = 0;
-				}
-			} else if (comparator == "≤") {
-				if (inputs[0] <= comparatorValue) {
-					output = 5;
-				} else {
-					output = 0;
-				}
-			} else if (comparator == "≥") {
-				if (inputs[0] >= comparatorValue) {
-					output = 5;
-				} else {
-					output = 0;
-				}
+			} else {
+				output = 0;
 			}
 		}
 	}
