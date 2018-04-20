@@ -7,7 +7,6 @@ public class RandomInputDot : MonoBehaviour {
 
 	public float inputValue = 0;
 	private SpriteRenderer spritRend;
-//	private Sprite sprite_dot_off, sprite_dot_on;
 
 	private Line line, newLineScript;
 	private LineRenderer lineRenderer = new LineRenderer ();
