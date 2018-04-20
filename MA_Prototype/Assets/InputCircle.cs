@@ -50,9 +50,17 @@ public class InputCircle : MonoBehaviour {
 	void OnMouseEnter() {
 
 		// Set this input circle as destin object in line
-		if (Manager.currentlyDrawnLine != null) {
-			Manager.currentlyDrawnLine.GetComponent<Line> ().destinObject = this.gameObject;
-			connectedLine = Manager.currentlyDrawnLine;
+		if (!connectedLine) {
+			if (Manager.currentlyDrawnLine != null) {
+				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+				connectedLine = Manager.currentlyDrawnLine;
+			}
+		} else {
+			Destroy (connectedLine.gameObject);
+			if (Manager.currentlyDrawnLine != null) {
+				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+				connectedLine = Manager.currentlyDrawnLine;
+			}
 		}
 	}
 
