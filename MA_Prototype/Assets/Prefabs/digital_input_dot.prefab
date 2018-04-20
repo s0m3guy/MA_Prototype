@@ -68,12 +68,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039dc89c315a06e4aa2b84dbf9d59417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  inputValue: 0
   newLineObj: {fileID: 0}
   origin: {fileID: 0}
-  outputs: 
+  outputs: []
   UIcanvas: {fileID: 0}
+  ADPanel: {fileID: 0}
+  triangle: {fileID: 0}
+  variable: 0
   inputType: 
+  sineValue: 0
+  lerpedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &212152838875619608
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -109,7 +114,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6f023171d6cea3947ae7fe4139b6943f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

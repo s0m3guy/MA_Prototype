@@ -201,12 +201,12 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnMouseUp() {
 
-		if (!isClone) {
+		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
 			Manager.currentIFblock = clone.gameObject;
 		}
 
-		if (isClone && levelTimer < 0.25) {
+		if (isClone && levelTimer < 0.25 && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
 			Manager.currentIFblock = transform.parent.gameObject;
 		}
