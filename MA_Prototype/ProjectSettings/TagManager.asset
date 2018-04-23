@@ -40,6 +40,8 @@ TagManager:
   - gear2
   - Gears
   - testInnerLED
+  - funcBlockOriginal
+  - funcBlockClone
   layers:
   - Default
   - TransparentFX

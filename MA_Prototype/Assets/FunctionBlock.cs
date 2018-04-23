@@ -156,6 +156,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (!isClone) {
 			clone = Instantiate (block);
+			clone.tag = "funcBlockClone";
 
 			/* Experimental code for when using prefab clone instead of transform clone
 			if (transform.parent.name.Contains ("AND")) {
