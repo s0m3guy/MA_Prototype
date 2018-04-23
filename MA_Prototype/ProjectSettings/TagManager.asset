@@ -42,6 +42,7 @@ TagManager:
   - testInnerLED
   - funcBlockOriginal
   - funcBlockClone
+  - breadboard
   layers:
   - Default
   - TransparentFX
@@ -53,12 +54,12 @@ TagManager:
   - 
   - Rectangular UI Shapes
   - Function Block
-  - Line
+  - Function Block Clones
+  - LineLine
   - UI Canvas
   - UI Canvas Text
   - UI Switch Popup
-  - 
-  - 
+  - Removal Overlay
   - 
   - 
   - 

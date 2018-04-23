@@ -1210,12 +1210,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 328676825}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.187, y: -0.78, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.0294952, y: -3.8757346, z: 0.9628906}
   m_LocalScale: {x: 0.9381189, y: 8.35919, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 1315251544}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &363811915
 Prefab:
@@ -2283,7 +2283,7 @@ Transform:
   - {fileID: 611427887}
   - {fileID: 901829341}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577206191
 GameObject:
@@ -2747,9 +2747,11 @@ GameObject:
   m_Component:
   - component: {fileID: 668841572}
   - component: {fileID: 668841571}
+  - component: {fileID: 668841574}
+  - component: {fileID: 668841573}
   m_Layer: 0
   m_Name: Breadboard Output
-  m_TagString: Untagged
+  m_TagString: breadboard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2804,13 +2806,58 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 668841570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.918, y: -0.78, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.075504, y: -3.8757346, z: 0.9628906}
   m_LocalScale: {x: 1.495643, y: 8.35919, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 1315251544}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &668841573
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668841570}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &668841574
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668841570}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &694350389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,8 +2917,11 @@ MonoBehaviour:
   isFBbeingDragged: 0
   UIcanvas: {fileID: 0}
   inputPins: []
+  breadboardLeft: {fileID: 328676825}
+  breadboardRight: {fileID: 668841570}
   comparator: 
   comparatorValue: 0
+  currentDraggingPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &694350392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4266,7 +4316,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4620353652806198, guid: 1c85ccd2b64f4f44998620541bc1147a, type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1787222284128940, guid: 1c85ccd2b64f4f44998620541bc1147a, type: 2}
       propertyPath: m_Name
@@ -4339,7 +4389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1209328085
 Prefab:
@@ -4408,6 +4458,16 @@ Prefab:
       propertyPath: m_TagString
       value: funcBlockOriginal
       objectReference: {fileID: 0}
+    - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: breadboardLeft
+      value: 
+      objectReference: {fileID: 328676825}
+    - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: breadboardRight
+      value: 
+      objectReference: {fileID: 668841570}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
@@ -4633,7 +4693,7 @@ RectTransform:
   - {fileID: 1656962419}
   - {fileID: 735857265}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4960,6 +5020,36 @@ Transform:
   m_Father: {fileID: 1762532921}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1315251543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1315251544}
+  m_Layer: 0
+  m_Name: Breadboards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315251544
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315251543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1575046, y: 3.0957346, z: 0.037109375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 328676827}
+  - {fileID: 668841572}
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1341146816
 Prefab:
   m_ObjectHideFlags: 0
@@ -5107,6 +5197,16 @@ Prefab:
       propertyPath: m_TagString
       value: funcBlockOriginal
       objectReference: {fileID: 0}
+    - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: breadboardLeft
+      value: 
+      objectReference: {fileID: 328676825}
+    - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
+        type: 2}
+      propertyPath: breadboardRight
+      value: 
+      objectReference: {fileID: 668841570}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
@@ -5321,8 +5421,8 @@ GameObject:
   - component: {fileID: 1412953405}
   - component: {fileID: 1412953404}
   - component: {fileID: 1412953403}
-  m_Layer: 0
-  m_Name: Square (1)
+  m_Layer: 15
+  m_Name: Wastebin
   m_TagString: testInnerSquare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5424,8 +5524,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1412953402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1685, y: -0.01, z: 0}
-  m_LocalScale: {x: 0.08422914, y: 0.13508172, z: 0.1870413}
+  m_LocalPosition: {x: 0.0036, y: -0.01, z: 0}
+  m_LocalScale: {x: 0.019817669, y: 0.13508172, z: 0.1870413}
   m_Children: []
   m_Father: {fileID: 1598562311}
   m_RootOrder: 0
@@ -5720,8 +5820,8 @@ GameObject:
   - component: {fileID: 1598562310}
   - component: {fileID: 1598562309}
   - component: {fileID: 1598562308}
-  m_Layer: 0
-  m_Name: Square
+  m_Layer: 15
+  m_Name: Removal Overlay
   m_TagString: testSquare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5823,12 +5923,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1598562307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.386, y: 4.21, z: 0}
-  m_LocalScale: {x: 2.5068514, y: 1.4769354, z: 1}
+  m_LocalPosition: {x: 4.746, y: 4.21, z: 0}
+  m_LocalScale: {x: 3.7876139, y: 1.4769354, z: 1}
   m_Children:
   - {fileID: 1412953406}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605312620
 GameObject:
@@ -6180,7 +6280,7 @@ Transform:
   - {fileID: 879490381}
   - {fileID: 62980473}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1762532922
 MonoBehaviour:
@@ -6574,8 +6674,11 @@ MonoBehaviour:
   isFBbeingDragged: 0
   UIcanvas: {fileID: 1299694211}
   inputPins: []
+  breadboardLeft: {fileID: 328676825}
+  breadboardRight: {fileID: 668841570}
   comparator: 
   comparatorValue: 0
+  currentDraggingPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &1966884952
 BoxCollider2D:
   m_ObjectHideFlags: 0

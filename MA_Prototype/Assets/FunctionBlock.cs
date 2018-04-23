@@ -39,10 +39,16 @@ public class FunctionBlock : MonoBehaviour {
 	[SerializeField]
 	InputCircle[] inputPins;
 
+	[SerializeField]
+	GameObject breadboardLeft, breadboardRight;
+
 	// Variables for IF block (gained from UI canvas)
 
 	public string comparator;
 	public float comparatorValue;
+
+	[SerializeField]
+	Vector3 currentDraggingPosition;
 
 	void Awake () {
 
@@ -58,6 +64,8 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+//		Physics2D.IgnoreLayerCollision(15, 9);
+
 		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
 
 //		if (gameObject.transform.parent.name.Contains ("(Clone)")) {
@@ -69,6 +77,10 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (isClone && isFBbeingDragged) {
+			currentDraggingPosition = transform.position;
+		}
 
 		if (inputPins[0].connectedLine == null) {
 			inputs[0] = 0;
@@ -132,31 +144,51 @@ public class FunctionBlock : MonoBehaviour {
 			}
 	}
 
-	void OnTriggerStay2D(Collider2D other) {
-		if (other.name == "Square") {
-//		Debug.Log ("Staying " + other.name);
-			if (testSquare != null && testSquare.activeSelf) {
-				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
-			}
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.gameObject.tag == "breadboard") {
+			transform.parent.transform.position = currentDraggingPosition;
 		}
-		elementAboveWasteBin = true;
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
+		/* Temporary out
+//		if (other.name == "Square") {
+//		Debug.Log ("Staying " + other.name);
+//			if (testSquare != null && testSquare.activeSelf) {
+//				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
+//			}
+//		}
+//		elementAboveWasteBin = true;
+		*/
+//		if (other.gameObject.tag == "testSquare") {
+			Debug.Log("Staying in removal overlay");
+			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
+//		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		if (other.name == "Square") {
-//		Debug.Log ("Exiting " + other.name);
-			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
-		}
-		elementAboveWasteBin = false;
+//		if (other.name == "Square") {
+////		Debug.Log ("Exiting " + other.name);
+//			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
+//		}
+//		elementAboveWasteBin = false;
+		Debug.Log("Exiting removal overlay");
+		GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.grey;
 	}
 
 	void OnMouseDown() {
 
 		pressed = true;
 
+//		if (!isClone) {
+//			currentDraggingPosition = transform.parent.position;
+//			isFBbeingDragged = true;
+//		}
+
 		if (!isClone) {
 			clone = Instantiate (block);
 			clone.tag = "funcBlockClone";
+			clone.gameObject.layer = 10;
 
 			/* Experimental code for when using prefab clone instead of transform clone
 			if (transform.parent.name.Contains ("AND")) {
@@ -194,13 +226,16 @@ public class FunctionBlock : MonoBehaviour {
 
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 		if (!isClone) {
-			clone.position = curPosition;																			// Move clone to this position
+//			clone.position = curPosition;																			// Move clone to this position
+			clone.position = new Vector3 (Mathf.Clamp(curPosition.x, clone.position.x-3, clone.position.x+5), curPosition.y, curPosition.z);
 		} else {
 			transform.position = curPosition;
 		}
 	}
 
 	void OnMouseUp() {
+
+		isFBbeingDragged = false;
 
 		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
@@ -214,8 +249,6 @@ public class FunctionBlock : MonoBehaviour {
 
 		levelTimer = 0;
 		pressed = false;
-
-		isFBbeingDragged = false;
 
 		bool hasOutputLines = (this.GetComponentInChildren<OutputCircle> ().connectedLine != null) ? true : false;
 		string typeOfDestin = "";
