@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class FunctionBlock : MonoBehaviour {
 
 	public Transform block;
-	public Transform clone;
+	public GameObject clone;
 	public int speed;
-	private bool isClone = false;
+	public bool isClone = false;
 
 	public string logicGate;
 
@@ -179,32 +179,23 @@ public class FunctionBlock : MonoBehaviour {
 		pressed = true;
 
 		if (!isClone) {
-			clone = Instantiate (block);
+//			clone = Instantiate (block);
+
+			// Experimental code for when using prefab clone instead of transform clone
+			if (transform.parent.name.Contains("AND")) {
+				clone = Instantiate(Resources.Load("FB/FunctionBlock_AND")) as GameObject;
+			} else if (transform.parent.name.Contains("OR")) {
+				clone = Instantiate(Resources.Load("FB/FunctionBlock_OR")) as GameObject;
+			} else if (transform.parent.name.Contains("VALUE")) {
+				clone = Instantiate(Resources.Load("FB/FunctionBlock_VALUE")) as GameObject;
+			} else if (transform.parent.name.Contains("IF")) {
+				clone = Instantiate(Resources.Load("FB/FunctionBlock_IF")) as GameObject;
+			}
+
+			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 			clone.tag = "funcBlockClone";
 			clone.gameObject.layer = 10;
 
-			/* Experimental code for when using prefab clone instead of transform clone
-			if (transform.parent.name.Contains ("AND")) {
-				Debug.Log ("Successfully checked for AND block");
-				clone = Instantiate (Resources.Load ("FunctionBlock_AND")) as GameObject;
-				Debug.Log ("Successfully instantiated prefab of FB_AND");
-			}
-			if(transform.parent.name.Contains("AND")) {
-
-				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-
-			} else if (transform.parent.name.Contains("OR")) {
-
-				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-
-			} else if (transform.parent.name.Contains("VALUE")) {
-
-				clone = Instantiate (Resources.Load ("LinePrefab")) as GameObject;
-
-			}
-			*/
-
-			clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		} else {
 			// Enable the removal overlay in order to remove function blocks
 			testSquare.SetActive (true);
@@ -219,7 +210,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 		if (!isClone) {
-			clone.position = curPosition;																			// Move clone to this position
+			clone.transform.position = curPosition;																			// Move clone to this position
 		} else {
 //			transform.position = curPosition;		// non clamped version
 			// Mathf.Clamp() restricts the movement of the dragged FB to the working area
