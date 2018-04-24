@@ -50,10 +50,10 @@ public class InputCircle : MonoBehaviour {
 				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
 				connectedLine = Manager.currentlyDrawnLine;
 			}
-		} else {
-			Destroy (connectedLine.gameObject);
+		} else if (connectedLine) {
 			if (Manager.currentlyDrawnLine != null) {
 				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+				Destroy (connectedLine.gameObject);
 				connectedLine = Manager.currentlyDrawnLine;
 			}
 		}

@@ -64,7 +64,7 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-//		Physics2D.IgnoreLayerCollision(15, 9);
+		Physics2D.IgnoreLayerCollision(15, 9);
 
 		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
 
@@ -145,9 +145,7 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject.tag == "breadboard") {
-			transform.parent.transform.position = currentDraggingPosition;
-		}
+		
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
@@ -160,10 +158,10 @@ public class FunctionBlock : MonoBehaviour {
 //		}
 //		elementAboveWasteBin = true;
 		*/
-//		if (other.gameObject.tag == "testSquare") {
+		if (other.gameObject.tag == "testSquare") {
 			Debug.Log("Staying in removal overlay");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
-//		}
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
@@ -224,6 +222,7 @@ public class FunctionBlock : MonoBehaviour {
 			clone.position = curPosition;																			// Move clone to this position
 		} else {
 //			transform.position = curPosition;		// non clamped version
+			// Mathf.Clamp() restricts the movement of the dragged FB to the working area
 			transform.position = new Vector3 (
 				Mathf.Clamp (curPosition.x,
 					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
