@@ -4,17 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - falling_object
   - funcBlock
-  - outputA
-  - inputB2
   - line
-  - dummy
-  - AND
-  - OR
-  - NOT
-  - XOR
-  - NAND
   - output
   - input
   - inputB
@@ -42,7 +33,8 @@ TagManager:
   - testInnerLED
   - funcBlockOriginal
   - funcBlockClone
-  - breadboard
+  - breadboardLeft
+  - breadboardRight
   layers:
   - Default
   - TransparentFX

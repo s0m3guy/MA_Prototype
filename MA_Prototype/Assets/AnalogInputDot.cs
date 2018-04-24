@@ -15,8 +15,6 @@ public class AnalogInputDot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log(sr.color);
-
 //		sr.color = new Color(1, 0.302f, 0.208f, 1.000f);
 
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs

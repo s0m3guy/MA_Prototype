@@ -52,6 +52,10 @@ public class FunctionBlock : MonoBehaviour {
 
 	void Awake () {
 
+		testSquare = GameObject.FindGameObjectWithTag("testSquare");
+		breadboardLeft = GameObject.FindGameObjectWithTag("breadboardLeft").GetComponent<Transform>();
+		breadboardRight = GameObject.FindGameObjectWithTag("breadboardRight").GetComponent<Transform>();
+
 		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 
 		input1GO = transform.Find ("Input 1A").gameObject;
@@ -64,7 +68,9 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Physics2D.IgnoreLayerCollision(15, 9);
+
+
+//		Physics2D.IgnoreLayerCollision(15, 9);
 
 		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
 
@@ -198,7 +204,10 @@ public class FunctionBlock : MonoBehaviour {
 
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-			testSquare.SetActive (true);
+//			testSquare.SetActive (true);
+			testSquare.GetComponent<SpriteRenderer>().enabled = true;
+			testSquare.GetComponent<BoxCollider2D>().enabled = true;
+			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
@@ -214,7 +223,7 @@ public class FunctionBlock : MonoBehaviour {
 		} else {
 //			transform.position = curPosition;		// non clamped version
 			// Mathf.Clamp() restricts the movement of the dragged FB to the working area
-			transform.position = new Vector3 (
+			transform.parent.position = new Vector3 (
 				Mathf.Clamp (curPosition.x,
 					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
 					breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
@@ -270,7 +279,10 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (testSquare.activeSelf) {
-			testSquare.SetActive (false);
+//			testSquare.SetActive (false);
+			testSquare.GetComponent<SpriteRenderer>().enabled = false;
+			testSquare.GetComponent<BoxCollider2D>().enabled = false;
+			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
 		}
 	}
 		
