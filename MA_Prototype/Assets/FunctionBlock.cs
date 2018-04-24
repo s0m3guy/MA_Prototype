@@ -40,7 +40,7 @@ public class FunctionBlock : MonoBehaviour {
 	InputCircle[] inputPins;
 
 	[SerializeField]
-	GameObject breadboardLeft, breadboardRight;
+	Transform breadboardLeft, breadboardRight;
 
 	// Variables for IF block (gained from UI canvas)
 
@@ -180,11 +180,6 @@ public class FunctionBlock : MonoBehaviour {
 
 		pressed = true;
 
-//		if (!isClone) {
-//			currentDraggingPosition = transform.parent.position;
-//			isFBbeingDragged = true;
-//		}
-
 		if (!isClone) {
 			clone = Instantiate (block);
 			clone.tag = "funcBlockClone";
@@ -226,10 +221,15 @@ public class FunctionBlock : MonoBehaviour {
 
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;								// Current touch point converted to point in scene
 		if (!isClone) {
-//			clone.position = curPosition;																			// Move clone to this position
-			clone.position = new Vector3 (Mathf.Clamp(curPosition.x, clone.position.x-3, clone.position.x+5), curPosition.y, curPosition.z);
+			clone.position = curPosition;																			// Move clone to this position
 		} else {
-			transform.position = curPosition;
+//			transform.position = curPosition;		// non clamped version
+			transform.position = new Vector3 (
+				Mathf.Clamp (curPosition.x,
+					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
+					breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
+				curPosition.y,
+				curPosition.z);
 		}
 	}
 
@@ -289,7 +289,7 @@ public class FunctionBlock : MonoBehaviour {
 		if (transform.parent.name.Contains("_AND")) {
 			if (inputs[0] == 0 || inputs[1] == 0) {
 				output = 0;
-			} else if (inputs[0] == 1 && inputs[1] == 5) {
+			} else if (inputs[0] == 5 && inputs[1] == 5) {
 				output = 5;
 			}
 		} else if (transform.parent.name.Contains("_OR")) {

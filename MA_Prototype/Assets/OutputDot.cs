@@ -31,11 +31,6 @@ public class OutputDot : MonoBehaviour {
 
 //		spritRend = GameObject.FindGameObjectWithTag ("outputLED").GetComponent<SpriteRenderer> ();
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

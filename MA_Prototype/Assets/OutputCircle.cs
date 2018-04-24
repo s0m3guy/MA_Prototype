@@ -28,15 +28,6 @@ public class OutputCircle : MonoBehaviour {
 		parentFunctionBlock = GetComponentInParent<FunctionBlock> ();
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	void OnMouseDown () {
 		
 		// instantiate Line after clicking circle

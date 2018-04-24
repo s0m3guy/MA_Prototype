@@ -26,11 +26,6 @@ public class InputCircle : MonoBehaviour {
 		origin = GetComponent<Transform> ();
 		circCol = GetComponent<CircleCollider2D> ();
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

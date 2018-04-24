@@ -1153,6 +1153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328676827}
   - component: {fileID: 328676826}
+  - component: {fileID: 328676828}
   m_Layer: 0
   m_Name: Breadboard Input
   m_TagString: Untagged
@@ -1217,6 +1218,31 @@ Transform:
   m_Father: {fileID: 1315251544}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &328676828
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328676825}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &363811915
 Prefab:
   m_ObjectHideFlags: 0
@@ -2747,7 +2773,6 @@ GameObject:
   m_Component:
   - component: {fileID: 668841572}
   - component: {fileID: 668841571}
-  - component: {fileID: 668841574}
   - component: {fileID: 668841573}
   m_Layer: 0
   m_Name: Breadboard Output
@@ -2813,27 +2838,7 @@ Transform:
   m_Father: {fileID: 1315251544}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &668841573
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 668841570}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &668841574
+--- !u!61 &668841573
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2917,8 +2922,8 @@ MonoBehaviour:
   isFBbeingDragged: 0
   UIcanvas: {fileID: 0}
   inputPins: []
-  breadboardLeft: {fileID: 328676825}
-  breadboardRight: {fileID: 668841570}
+  breadboardLeft: {fileID: 328676827}
+  breadboardRight: {fileID: 668841572}
   comparator: 
   comparatorValue: 0
   currentDraggingPosition: {x: 0, y: 0, z: 0}
@@ -4462,12 +4467,12 @@ Prefab:
         type: 2}
       propertyPath: breadboardLeft
       value: 
-      objectReference: {fileID: 328676825}
+      objectReference: {fileID: 328676827}
     - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
       propertyPath: breadboardRight
       value: 
-      objectReference: {fileID: 668841570}
+      objectReference: {fileID: 668841572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
@@ -5201,12 +5206,12 @@ Prefab:
         type: 2}
       propertyPath: breadboardLeft
       value: 
-      objectReference: {fileID: 328676825}
+      objectReference: {fileID: 328676827}
     - target: {fileID: 114183679919226790, guid: e8b7ef71905cc7f44ae9d860492cfe05,
         type: 2}
       propertyPath: breadboardRight
       value: 
-      objectReference: {fileID: 668841570}
+      objectReference: {fileID: 668841572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b7ef71905cc7f44ae9d860492cfe05, type: 2}
   m_IsPrefabParent: 0
@@ -6674,8 +6679,8 @@ MonoBehaviour:
   isFBbeingDragged: 0
   UIcanvas: {fileID: 1299694211}
   inputPins: []
-  breadboardLeft: {fileID: 328676825}
-  breadboardRight: {fileID: 668841570}
+  breadboardLeft: {fileID: 328676827}
+  breadboardRight: {fileID: 668841572}
   comparator: 
   comparatorValue: 0
   currentDraggingPosition: {x: 0, y: 0, z: 0}
