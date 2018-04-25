@@ -197,6 +197,7 @@ Assets/archive/RandomInputDotSwitchable.cs
 Assets/ClickAndDragTest.cs
 Assets/DraggingScript.cs
 Assets/FunctionBlock.cs
+Assets/FunctionBlockSpawner.cs
 Assets/InputCircle.cs
 Assets/Line.cs
 Assets/Manager.cs

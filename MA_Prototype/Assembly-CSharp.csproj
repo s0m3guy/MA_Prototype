@@ -56,6 +56,7 @@
      <Compile Include="Assets\ClickAndDragTest.cs" />
      <Compile Include="Assets\DraggingScript.cs" />
      <Compile Include="Assets\FunctionBlock.cs" />
+     <Compile Include="Assets\FunctionBlockSpawner.cs" />
      <Compile Include="Assets\InputCircle.cs" />
      <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\Manager.cs" />
