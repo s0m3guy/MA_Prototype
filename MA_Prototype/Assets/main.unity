@@ -4724,6 +4724,16 @@ Prefab:
       propertyPath: m_Text
       value: ODER
       objectReference: {fileID: 0}
+    - target: {fileID: 114220386041671886, guid: 8a974f54072fb0a4595887604812a90b,
+        type: 2}
+      propertyPath: breadboardLeft
+      value: 
+      objectReference: {fileID: 328676827}
+    - target: {fileID: 114220386041671886, guid: 8a974f54072fb0a4595887604812a90b,
+        type: 2}
+      propertyPath: breadboardRight
+      value: 
+      objectReference: {fileID: 668841572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a974f54072fb0a4595887604812a90b, type: 2}
   m_IsPrefabParent: 0
@@ -4770,6 +4780,16 @@ Prefab:
       propertyPath: m_Name
       value: Top_FunctionBlock_IF
       objectReference: {fileID: 0}
+    - target: {fileID: 114217992060409262, guid: 3607f1f86f88b0e40a37d5ca53fbb17b,
+        type: 2}
+      propertyPath: breadboardLeft
+      value: 
+      objectReference: {fileID: 328676827}
+    - target: {fileID: 114217992060409262, guid: 3607f1f86f88b0e40a37d5ca53fbb17b,
+        type: 2}
+      propertyPath: breadboardRight
+      value: 
+      objectReference: {fileID: 668841572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3607f1f86f88b0e40a37d5ca53fbb17b, type: 2}
   m_IsPrefabParent: 0
@@ -5826,6 +5846,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114870718599219320, guid: de49d953ab748e24b8d132bfbf3cbdfb,
+        type: 2}
+      propertyPath: breadboardLeft
+      value: 
+      objectReference: {fileID: 328676827}
+    - target: {fileID: 114870718599219320, guid: de49d953ab748e24b8d132bfbf3cbdfb,
+        type: 2}
+      propertyPath: breadboardRight
+      value: 
+      objectReference: {fileID: 668841572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de49d953ab748e24b8d132bfbf3cbdfb, type: 2}
   m_IsPrefabParent: 0

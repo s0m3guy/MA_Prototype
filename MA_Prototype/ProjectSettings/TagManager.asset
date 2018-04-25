@@ -93,3 +93,6 @@ TagManager:
   - name: UI Canvas
     uniqueID: 3793854391
     locked: 0
+  - name: Above Removal Overlay
+    uniqueID: 3873867479
+    locked: 0

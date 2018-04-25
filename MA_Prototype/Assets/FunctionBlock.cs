@@ -50,6 +50,9 @@ public class FunctionBlock : MonoBehaviour {
 	[SerializeField]
 	Vector3 currentDraggingPosition;
 
+	// Components for currently dragged FB
+
+
 	void Awake () {
 
 		testSquare = GameObject.FindGameObjectWithTag("testSquare");
@@ -134,21 +137,21 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 			// in case removal overlay is active
-		if (testSquare != null && testSquare.activeSelf) {
-				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
-				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-				this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
-
-			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
-				spriteRend.sortingLayerName = "Functional Blocks";
-			}
-
-				// in case it's not active
-			} else if (testSquare != null && !testSquare.activeSelf) {
-				testSquare.SetActive (false);
-				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
-				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-			}
+//		if (testSquare != null && testSquare.activeSelf) {
+//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
+//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
+//				this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
+//
+//			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
+//				spriteRend.sortingLayerName = "Functional Blocks";
+//			}
+//
+//				// in case it's not active
+//			} else if (testSquare != null && !testSquare.activeSelf) {
+//				testSquare.SetActive (false);
+//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
+//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
+//			}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
@@ -157,8 +160,17 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag == "testSquare") {
+			Debug.Log("A");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
 			elementAboveWasteBin = true;
+
+			this.GetComponent<SpriteRenderer>().sortingLayerName = "Above Removal Overlay";
+			this.GetComponentInChildren<Canvas>().sortingLayerName = "Above Removal Overlay";
+			foreach (SpriteRenderer sr in this.GetComponentsInChildren(typeof(SpriteRenderer))) {
+				sr.sortingLayerName = "Above Removal Overlay";
+			}
+
+			this.GetComponent<SpriteRenderer>().sortingOrder = 1;
 		}
 	}
 
