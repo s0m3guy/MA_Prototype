@@ -208,14 +208,14 @@ public class FunctionBlock : MonoBehaviour {
 		if (!isClone) {
 			clone.transform.position = curPosition;																			// Move clone to this position
 		} else {
-			transform.position = curPosition;		// non clamped version
+//			transform.position = curPosition;		// non clamped version
 			// Mathf.Clamp() restricts the movement of the dragged FB to the working area
-//			transform.parent.position = new Vector3 (
-//				Mathf.Clamp (curPosition.x,
-//					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
-//					breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
-//				curPosition.y,
-//				curPosition.z);
+			transform.parent.position = new Vector3 (
+				Mathf.Clamp (curPosition.x,
+					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
+					breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
+				curPosition.y,
+				curPosition.z);
 		}
 	}
 

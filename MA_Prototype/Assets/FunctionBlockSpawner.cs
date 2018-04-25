@@ -43,12 +43,12 @@ public class FunctionBlockSpawner : MonoBehaviour {
 		
 		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
-//		clone.transform.position = new Vector3 (
-//			Mathf.Clamp (cursorPosition.x,
-//				(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
-//				breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
-//			cursorPosition.y,
-//			cursorPosition.z);
-		clone.transform.position = cursorPosition;
+		clone.transform.position = new Vector3 (
+			Mathf.Clamp (cursorPosition.x,
+				(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
+				breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
+			cursorPosition.y,
+			cursorPosition.z);
+//		clone.transform.position = cursorPosition;
 	}
 }
