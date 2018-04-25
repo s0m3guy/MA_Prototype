@@ -191,7 +191,6 @@ public class FunctionBlock : MonoBehaviour {
 
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-//			testSquare.SetActive (true);
 			testSquare.GetComponent<SpriteRenderer>().enabled = true;
 			testSquare.GetComponent<BoxCollider2D>().enabled = true;
 			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
@@ -265,7 +264,6 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (testSquare.activeSelf) {
-//			testSquare.SetActive (false);
 			testSquare.GetComponent<SpriteRenderer>().enabled = false;
 			testSquare.GetComponent<BoxCollider2D>().enabled = false;
 			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
