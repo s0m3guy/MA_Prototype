@@ -47,7 +47,8 @@ public class OutputDot : MonoBehaviour {
 
 		if (transform.parent.name.Contains("LED")) {
 
-			spritRend.color = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), input / 5f);
+//			spritRend.color = Color.Lerp(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), input / 5f);
+			spritRend.color = Color.Lerp(new Color(186 / 255f, 180 / 255f, 180 / 255f, 255 / 255f), new Color(1, 0.302f, 0.208f, 1.000f), input / 5f);
 
 //			if (input == 1) {
 //				spritRend.sprite = sprite_LED_on;

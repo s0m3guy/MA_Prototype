@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4429240962782784}
   m_Layer: 9
-  m_Name: Top_FunctionBlock_Popup
+  m_Name: Top_FunctionBlock_UI
   m_TagString: funcBlockOriginal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

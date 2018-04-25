@@ -157,20 +157,14 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag == "testSquare") {
-			Debug.Log("Staying in removal overlay");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
 			elementAboveWasteBin = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-//		if (other.name == "Square") {
-////		Debug.Log ("Exiting " + other.name);
-//			GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-grey", typeof(Sprite)) as Sprite;
-//		}
-//		elementAboveWasteBin = false;
-		Debug.Log("Exiting removal overlay");
 		GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.grey;
+		elementAboveWasteBin = false;
 	}
 
 	void OnMouseDown() {

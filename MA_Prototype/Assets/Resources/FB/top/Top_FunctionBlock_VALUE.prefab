@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119023687541642}
   m_Layer: 9
-  m_Name: Top_FunctionBlock_DISPLAY
+  m_Name: Top_FunctionBlock_VALUE
   m_TagString: funcBlockOriginal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
