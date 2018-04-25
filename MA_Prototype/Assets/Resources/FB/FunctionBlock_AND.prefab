@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775825604255226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.704, y: 4.21, z: 0}
+  m_LocalPosition: {x: -8.478452, y: 4.325243, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4390596478313142}
@@ -418,12 +418,14 @@ MonoBehaviour:
   block: {fileID: 0}
   clone: {fileID: 0}
   speed: 0
+  isClone: 0
   logicGate: 
   inputs: []
   output: 0
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
   testSquare: {fileID: 0}
+  testInnerSquare: {fileID: 0}
   isFBbeingDragged: 0
   UIcanvas: {fileID: 0}
   inputPins: []
@@ -465,7 +467,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2018182121
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -553,7 +555,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2018182121
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -597,7 +599,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2018182121
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d336d1184f5c6c5428d7e5fea0f2ce02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
