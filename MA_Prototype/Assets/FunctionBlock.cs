@@ -22,7 +22,7 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject input2GO;
 	GameObject outputGO;
 
-	public GameObject removalOverlay, wasteBin, testSquare;
+	public GameObject removalOverlay, wasteBin, testSquare, testInnerSquare;
 
 	public bool isFBbeingDragged = false;
 
@@ -53,6 +53,7 @@ public class FunctionBlock : MonoBehaviour {
 	void Awake () {
 
 		testSquare = GameObject.FindGameObjectWithTag("testSquare");
+		testInnerSquare = GameObject.FindGameObjectWithTag("testInnerSquare");
 		breadboardLeft = GameObject.FindGameObjectWithTag("breadboardLeft").GetComponent<Transform>();
 		breadboardRight = GameObject.FindGameObjectWithTag("breadboardRight").GetComponent<Transform>();
 
@@ -155,18 +156,10 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		/* Temporary out
-//		if (other.name == "Square") {
-//		Debug.Log ("Staying " + other.name);
-//			if (testSquare != null && testSquare.activeSelf) {
-//				GameObject.FindGameObjectWithTag ("testInnerSquare").GetComponent<SpriteRenderer> ().sprite = Resources.Load ("waste-bin-red", typeof(Sprite)) as Sprite;
-//			}
-//		}
-//		elementAboveWasteBin = true;
-		*/
 		if (other.gameObject.tag == "testSquare") {
 			Debug.Log("Staying in removal overlay");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
+			elementAboveWasteBin = true;
 		}
 	}
 
@@ -207,6 +200,7 @@ public class FunctionBlock : MonoBehaviour {
 //			testSquare.SetActive (true);
 			testSquare.GetComponent<SpriteRenderer>().enabled = true;
 			testSquare.GetComponent<BoxCollider2D>().enabled = true;
+			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
 			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
@@ -233,8 +227,6 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
-
-		isFBbeingDragged = false;
 
 		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
@@ -282,6 +274,7 @@ public class FunctionBlock : MonoBehaviour {
 //			testSquare.SetActive (false);
 			testSquare.GetComponent<SpriteRenderer>().enabled = false;
 			testSquare.GetComponent<BoxCollider2D>().enabled = false;
+			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
 			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
 		}
 	}
