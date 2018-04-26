@@ -12,20 +12,40 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	[SerializeField]
 	BoxCollider2D boxCollider;
 
+	GameObject testSquare, testInnerSquare;
+
+	bool isAboveWasteBin;
+
+	enum E
+	{
+		neutral,
+		aboveWasteBin,
+		notAboveWasteBin,
+		dropped,
+	};
+
+	[SerializeField]
+	E foo = E.neutral;
+
 	// Use this for initialization
 	void Start () {
-		
+		testSquare = GameObject.FindGameObjectWithTag("testSquare");
+		testInnerSquare = GameObject.FindGameObjectWithTag("testInnerSquare");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!boxCollider.bounds.Contains(clone.transform.position)) {
-			Debug.Log("A");
-		}
-	}
+		if (clone) {
+			if (!boxCollider.bounds.Contains(clone.transform.position) && foo == E.aboveWasteBin) {
+				Debug.Log("Not inside");
+				Manager.toggleOverlay(true);
+				foo = E.notAboveWasteBin;
 
-	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log(LayerMask.LayerToName(gameObject.layer) + " collided with " + LayerMask.LayerToName(other.gameObject.layer));
+			} else if (boxCollider.bounds.Contains(clone.transform.position)) {
+				Debug.Log("Inside");
+				foo = E.aboveWasteBin;
+			}
+		}
 	}
 
 	void OnMouseDown() {
@@ -58,5 +78,16 @@ public class FunctionBlockSpawner : MonoBehaviour {
 			cursorPosition.y,
 			cursorPosition.z);
 //		clone.transform.position = cursorPosition;
+	}
+
+	void OnMouseUp() {
+//		if (isAboveWasteBin = true) {
+		if(foo == E.aboveWasteBin) {
+			Destroy(clone.gameObject);
+		}
+		testSquare.GetComponent<SpriteRenderer>().enabled = false;
+		testSquare.GetComponent<BoxCollider2D>().enabled = false;
+		testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
+		testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;	
 	}
 }

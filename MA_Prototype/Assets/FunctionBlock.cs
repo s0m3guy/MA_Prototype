@@ -275,10 +275,10 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (testSquare.activeSelf) {
-//			testSquare.GetComponent<SpriteRenderer>().enabled = false;
-//			testSquare.GetComponent<BoxCollider2D>().enabled = false;
-//			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
-//			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
+			testSquare.GetComponent<SpriteRenderer>().enabled = false;
+			testSquare.GetComponent<BoxCollider2D>().enabled = false;
+			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
+			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
 			Manager.toggleOverlay(false);
 		}
 	}
