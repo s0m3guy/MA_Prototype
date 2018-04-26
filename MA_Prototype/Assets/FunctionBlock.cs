@@ -201,10 +201,11 @@ public class FunctionBlock : MonoBehaviour {
 
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-			testSquare.GetComponent<SpriteRenderer>().enabled = true;
-			testSquare.GetComponent<BoxCollider2D>().enabled = true;
-			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
-			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
+//			testSquare.GetComponent<SpriteRenderer>().enabled = true;
+//			testSquare.GetComponent<BoxCollider2D>().enabled = true;
+//			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
+//			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
+			Manager.toggleOverlay(true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
@@ -274,10 +275,11 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (testSquare.activeSelf) {
-			testSquare.GetComponent<SpriteRenderer>().enabled = false;
-			testSquare.GetComponent<BoxCollider2D>().enabled = false;
-			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
-			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
+//			testSquare.GetComponent<SpriteRenderer>().enabled = false;
+//			testSquare.GetComponent<BoxCollider2D>().enabled = false;
+//			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
+//			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
+			Manager.toggleOverlay(false);
 		}
 	}
 		
