@@ -9,6 +9,8 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	Transform breadboardLeft, breadboardRight;
 	[SerializeField]
 	GameObject clone;
+	[SerializeField]
+	BoxCollider2D boxCollider;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +19,13 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!boxCollider.bounds.Contains(clone.transform.position)) {
+			Debug.Log("A");
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log(LayerMask.LayerToName(gameObject.layer) + " collided with " + LayerMask.LayerToName(other.gameObject.layer));
 	}
 
 	void OnMouseDown() {

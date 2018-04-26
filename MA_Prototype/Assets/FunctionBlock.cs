@@ -160,7 +160,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag == "testSquare") {
-			Debug.Log("A");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
 			elementAboveWasteBin = true;
 
@@ -169,7 +168,6 @@ public class FunctionBlock : MonoBehaviour {
 			foreach (SpriteRenderer sr in this.GetComponentsInChildren(typeof(SpriteRenderer))) {
 				sr.sortingLayerName = "Above Removal Overlay";
 			}
-
 			this.GetComponent<SpriteRenderer>().sortingOrder = 1;
 		}
 	}
