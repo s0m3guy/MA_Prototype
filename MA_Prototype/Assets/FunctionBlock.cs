@@ -43,15 +43,11 @@ public class FunctionBlock : MonoBehaviour {
 	Transform breadboardLeft, breadboardRight;
 
 	// Variables for IF block (gained from UI canvas)
-
 	public string comparator;
 	public float comparatorValue;
 
 	[SerializeField]
 	Vector3 currentDraggingPosition;
-
-	// Components for currently dragged FB
-
 
 	void Awake () {
 
@@ -72,15 +68,7 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
-
-//		Physics2D.IgnoreLayerCollision(15, 9);
-
 		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
-
-//		if (gameObject.transform.parent.name.Contains ("(Clone)")) {
-//			isClone = true;
-//		}
 			
 		block = transform.parent.gameObject.transform;
 	}
@@ -135,23 +123,6 @@ public class FunctionBlock : MonoBehaviour {
 				outputGO.GetComponent<SpriteRenderer>().color = Color.green;
 			}
 		}
-
-			// in case removal overlay is active
-//		if (testSquare != null && testSquare.activeSelf) {
-//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
-//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-//				this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
-//
-//			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
-//				spriteRend.sortingLayerName = "Functional Blocks";
-//			}
-//
-//				// in case it's not active
-//			} else if (testSquare != null && !testSquare.activeSelf) {
-//				testSquare.SetActive (false);
-//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
-//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-//			}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
@@ -201,10 +172,6 @@ public class FunctionBlock : MonoBehaviour {
 
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-//			testSquare.GetComponent<SpriteRenderer>().enabled = true;
-//			testSquare.GetComponent<BoxCollider2D>().enabled = true;
-//			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
-//			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
 			Manager.toggleOverlay(true);
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
@@ -275,10 +242,6 @@ public class FunctionBlock : MonoBehaviour {
 		}
 
 		if (testSquare.activeSelf) {
-			testSquare.GetComponent<SpriteRenderer>().enabled = false;
-			testSquare.GetComponent<BoxCollider2D>().enabled = false;
-			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
-			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
 			Manager.toggleOverlay(false);
 		}
 	}
