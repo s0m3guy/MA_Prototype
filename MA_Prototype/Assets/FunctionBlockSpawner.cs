@@ -81,6 +81,7 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
+//		if (isAboveWasteBin = true) {
 		if(foo == E.aboveWasteBin) {
 			Destroy(clone.gameObject);
 		}
