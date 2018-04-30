@@ -21,11 +21,26 @@ public class OutputCircle : MonoBehaviour {
 
 	public GameObject connectedLine;
 
+	Vector3 clampVector;
+
+	Transform funcBlockPanel;
+
+	Vector3 stageDimensions;
+
+	BoxCollider2D splitter;
+
 	void Awake () {
 
 		origin = GetComponent<Transform> ();
 		circCol = GetComponent<CircleCollider2D> ();
 		parentFunctionBlock = GetComponentInParent<FunctionBlock> ();
+
+		GameObject.FindGameObjectWithTag("funcBlockPanel");
+		splitter = GameObject.FindGameObjectWithTag("splitter").GetComponent<BoxCollider2D>();
+	}
+
+	void Start () {
+		Debug.Log("Screen Height : " + Screen.height);
 	}
 
 	void OnMouseDown () {
@@ -55,11 +70,18 @@ public class OutputCircle : MonoBehaviour {
 		Vector2 screenPos = new Vector2();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
+//		clampVector = new Vector3((Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).x,
+//			Mathf.Clamp((Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).y,
+//				this.transform.position.y-2,
+//				this.transform.position.y+2),
+//			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).z);
+
 		lineRenderer.SetPosition (0,
 			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
 				origin.position.y,
 				origin.position.z));
-		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10); // unclamped
+//		lineRenderer.SetPosition (1, clampVector);
 
 		Manager.currentlyDrawnLine = newLineObj;
 		connectedLine = newLineObj;

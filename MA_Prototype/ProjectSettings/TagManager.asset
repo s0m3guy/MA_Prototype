@@ -35,7 +35,7 @@ TagManager:
   - funcBlockClone
   - breadboardLeft
   - breadboardRight
-  - workarea
+  - splitter
   layers:
   - Default
   - TransparentFX

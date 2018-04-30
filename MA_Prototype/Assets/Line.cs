@@ -45,12 +45,26 @@ public class Line : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log(GetComponent<LineRenderer>().material);
+		Debug.Log(GetComponent<Renderer>().material);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		forwardInput (input, output);
+
+		if (isEndingPointSnapped) {
+			if (output == 0) {
+				this.GetComponent<LineRenderer>().startColor = Color.white;
+				this.GetComponent<LineRenderer>().endColor = Color.white;
+			} else if (output == 5) {
+				this.GetComponent<LineRenderer>().startColor = Color.green;
+				this.GetComponent<LineRenderer>().endColor = Color.green;
+			}
+		} else {
+			this.GetComponent<LineRenderer>().startColor = Color.white;
+			this.GetComponent<LineRenderer>().endColor = Color.white;
+		}
 
 		if (isEndingPointSnapped) {
 			if(destinObject) {
@@ -71,6 +85,7 @@ public class Line : MonoBehaviour {
 			if (originObject.CompareTag ("inputDot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
 				this.output = randomInputDotScript.inputValue;
+				this.input = randomInputDotScript.inputValue;
 			} else if (typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponentInParent<FunctionBlock> ();
 				this.output = functionBlockScript.output;

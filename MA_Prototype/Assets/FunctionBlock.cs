@@ -160,6 +160,7 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag == "testSquare") {
+			Debug.Log("A");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
 			elementAboveWasteBin = true;
 
@@ -168,6 +169,7 @@ public class FunctionBlock : MonoBehaviour {
 			foreach (SpriteRenderer sr in this.GetComponentsInChildren(typeof(SpriteRenderer))) {
 				sr.sortingLayerName = "Above Removal Overlay";
 			}
+
 			this.GetComponent<SpriteRenderer>().sortingOrder = 1;
 		}
 	}
@@ -201,11 +203,10 @@ public class FunctionBlock : MonoBehaviour {
 
 		} else {
 			// Enable the removal overlay in order to remove function blocks
-//			testSquare.GetComponent<SpriteRenderer>().enabled = true;
-//			testSquare.GetComponent<BoxCollider2D>().enabled = true;
-//			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
-//			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
-			Manager.toggleOverlay(true);
+			testSquare.GetComponent<SpriteRenderer>().enabled = true;
+			testSquare.GetComponent<BoxCollider2D>().enabled = true;
+			testInnerSquare.GetComponent<SpriteRenderer>().enabled = true;
+			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = true;
 		}
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
@@ -279,7 +280,6 @@ public class FunctionBlock : MonoBehaviour {
 			testSquare.GetComponent<BoxCollider2D>().enabled = false;
 			testInnerSquare.GetComponent<SpriteRenderer>().enabled = false;
 			testSquare.GetComponentInChildren<SpriteRenderer>().enabled = false;
-			Manager.toggleOverlay(false);
 		}
 	}
 		

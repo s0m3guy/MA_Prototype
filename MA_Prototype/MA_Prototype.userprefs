@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FunctionBlockSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Line.cs">
     <Files>
-      <File FileName="Assets\FunctionBlockSpawner.cs" Line="19" Column="2" />
-      <File FileName="Assets\FunctionBlock.cs" Line="277" Column="1" />
-      <File FileName="Assets\Manager.cs" Line="23" Column="1" NotebookId="1" />
+      <File FileName="Assets\FunctionBlockSpawner.cs" Line="51" Column="22" />
+      <File FileName="Assets\RotateGear.cs" Line="1" Column="1" />
+      <File FileName="Assets\TestScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Line.cs" Line="67" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\ilja\Documents\uni\thesis\MA_Prototype\MA_Prototype\Assets\LineScript.cs" line="28" column="1" />
-      <Breakpoint file="C:\Users\ilja\coding\MA_Prototype\MA_Prototype\Assets\FunctionBlockSpawner.cs" line="74" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
