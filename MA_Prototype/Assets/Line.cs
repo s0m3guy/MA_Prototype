@@ -36,41 +36,45 @@ public class Line : MonoBehaviour {
 
 	public bool isEndingPointSnapped = false;	// if line is snapped to a target
 
+	Color lerpedColor;
+
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
 		lineCollider = GetComponent<EdgeCollider2D> ();
 	}
 
-
-	// Use this for initialization
-	void Start () {
-		Debug.Log(GetComponent<LineRenderer>().material);
-		Debug.Log(GetComponent<Renderer>().material);
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		forwardInput (input, output);
+		forwardInput(input, output);
 
 		if (isEndingPointSnapped) {
-			if (output == 0) {
+			if (originObject.CompareTag("inputDot")) {
+				randomInputDotScript = originObject.GetComponent<RandomInputDot>();
+				if (randomInputDotScript.inputType == "analog") {
+					lerpedColor = Color.Lerp(Color.white, Color.green, output / 5);
+					this.GetComponent<LineRenderer>().startColor = lerpedColor;
+					this.GetComponent<LineRenderer>().endColor = lerpedColor;
+				} else if (randomInputDotScript.inputType == "digital") {
+					if (output == 0) {
+						this.GetComponent<LineRenderer>().startColor = Color.white;
+						this.GetComponent<LineRenderer>().endColor = Color.white;
+					} else if (output == 5) {
+						this.GetComponent<LineRenderer>().startColor = Color.green;
+						this.GetComponent<LineRenderer>().endColor = Color.green;
+					}
+				}
+			} else {
 				this.GetComponent<LineRenderer>().startColor = Color.white;
 				this.GetComponent<LineRenderer>().endColor = Color.white;
-			} else if (output == 5) {
-				this.GetComponent<LineRenderer>().startColor = Color.green;
-				this.GetComponent<LineRenderer>().endColor = Color.green;
 			}
-		} else {
-			this.GetComponent<LineRenderer>().startColor = Color.white;
-			this.GetComponent<LineRenderer>().endColor = Color.white;
-		}
 
-		if (isEndingPointSnapped) {
-			if(destinObject) {
-				GetComponent<LineRenderer> ().SetPosition (1, destinObject.transform.position);		// Line stays connected when moving destin object
+			if (isEndingPointSnapped) {
+				if (destinObject) {
+					GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);		// Line stays connected when moving destin object
+				}
+				GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			}
-			GetComponent<LineRenderer> ().SetPosition (0, originObject.transform.position);
 		}
 	}
 
