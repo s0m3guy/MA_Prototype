@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Line.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RandomInputDot.cs">
     <Files>
-      <File FileName="Assets\FunctionBlockSpawner.cs" Line="51" Column="22" />
-      <File FileName="Assets\RotateGear.cs" Line="1" Column="1" />
-      <File FileName="Assets\TestScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Line.cs" Line="67" Column="4" />
+      <File FileName="Assets\InputCircle.cs" Line="1" Column="1" />
+      <File FileName="Assets\SliderValue.cs" Line="1" Column="1" />
+      <File FileName="Assets\RandomInputDot.cs" Line="138" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
