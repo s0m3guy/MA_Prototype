@@ -34,11 +34,13 @@ public class InputCircle : MonoBehaviour {
 		mousePos.z = 0;
 
 		// If mouse enters bounds and there is a line being drawn, snap end point of line to this
-		if(circCol.bounds.Contains(mousePos)) {
+		if (circCol.bounds.Contains(mousePos)) {
 			if (Manager.currentlyDrawnLine) {
-				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);
+				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
 			}
+		} else if (!circCol.bounds.Contains(mousePos)) {
+			Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = false;
 		}
 	}
 		
@@ -57,6 +59,14 @@ public class InputCircle : MonoBehaviour {
 				connectedLine = Manager.currentlyDrawnLine;
 			}
 		}
+	}
+
+	void OnMouseExit() {
+
+		Vector2 screenPos = new Vector2 ();
+		Camera.main.ScreenToWorldPoint (screenPos);
+
+		Manager.currentlyDrawnLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
 	}
 
 	void OnMouseDown() {
