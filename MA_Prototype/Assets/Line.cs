@@ -64,6 +64,14 @@ public class Line : MonoBehaviour {
 						this.GetComponent<LineRenderer>().endColor = Color.green;
 					}
 				}
+			} else if (originObject.CompareTag("output")) {
+				if(output == 0) {
+					this.GetComponent<LineRenderer>().startColor = Color.white;
+					this.GetComponent<LineRenderer>().endColor = Color.white;
+				} else if (output == 5) {
+					this.GetComponent<LineRenderer>().startColor = Color.green;
+					this.GetComponent<LineRenderer>().endColor = Color.green;
+				}
 			} else {
 				this.GetComponent<LineRenderer>().startColor = Color.white;
 				this.GetComponent<LineRenderer>().endColor = Color.white;

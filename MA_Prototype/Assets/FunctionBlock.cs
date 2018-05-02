@@ -59,6 +59,7 @@ public class FunctionBlock : MonoBehaviour {
 		testInnerSquare = GameObject.FindGameObjectWithTag("testInnerSquare");
 		breadboardLeft = GameObject.FindGameObjectWithTag("breadboardLeft").GetComponent<Transform>();
 		breadboardRight = GameObject.FindGameObjectWithTag("breadboardRight").GetComponent<Transform>();
+		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
 
 		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 
@@ -71,8 +72,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-
 
 //		Physics2D.IgnoreLayerCollision(15, 9);
 

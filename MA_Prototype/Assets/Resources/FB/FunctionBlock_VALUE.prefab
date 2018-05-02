@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114288424333713406}
   m_Layer: 9
   m_Name: OutputA
-  m_TagString: inputA
+  m_TagString: output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522332112598214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 4.21, z: 0}
+  m_LocalPosition: {x: -3.674219, y: -1.1235559, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4125665858770380}
@@ -247,6 +247,7 @@ MonoBehaviour:
   removalOverlay: {fileID: 0}
   wasteBin: {fileID: 0}
   testSquare: {fileID: 0}
+  testInnerSquare: {fileID: 0}
   isFBbeingDragged: 0
   UIcanvas: {fileID: 0}
   inputPins: []

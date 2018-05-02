@@ -2219,8 +2219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 655879123}
-  chosenDropdownEntry: {fileID: 0}
-  userInputValue: {fileID: 0}
+  chosenDropdownEntry: {fileID: 1605312620}
+  userInputValue: {fileID: 577206191}
 --- !u!1 &668841570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3680,7 +3680,7 @@ GameObject:
   - component: {fileID: 1299694209}
   m_Layer: 11
   m_Name: UI Canvas
-  m_TagString: Untagged
+  m_TagString: UIcanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

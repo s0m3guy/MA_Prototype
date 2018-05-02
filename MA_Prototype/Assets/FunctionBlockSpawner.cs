@@ -10,6 +10,12 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	[SerializeField]
 	GameObject clone;
 
+	Canvas UIcanvas;
+
+	void Awake() {
+		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
+	}
+
 	// Use this for initialization
 	void Start () {
 		
@@ -33,6 +39,7 @@ public class FunctionBlockSpawner : MonoBehaviour {
 		}
 
 		clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
+		clone.tag = "funcBlockClone";
 
 		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
 
@@ -50,5 +57,12 @@ public class FunctionBlockSpawner : MonoBehaviour {
 			cursorPosition.y,
 			cursorPosition.z);
 //		clone.transform.position = cursorPosition;
+	}
+
+	void OnMouseUp() {
+		if (transform.parent.name.Contains("_IF")) {
+			UIcanvas.enabled = true;
+			Manager.currentIFblock = clone.gameObject;
+		}
 	}
 }
