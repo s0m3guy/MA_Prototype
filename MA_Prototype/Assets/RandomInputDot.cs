@@ -91,6 +91,21 @@ public class RandomInputDot : MonoBehaviour {
 		}
 	}
 
+	void OnMouseDown () {
+
+		pressed = true;
+
+		// instantiate Line after clicking circle
+		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
+
+		if (newLineObj) {
+			newLineRend = newLineObj.GetComponent<LineRenderer> ();
+			newLineScript = newLineObj.GetComponent<Line> ();
+		}
+
+		Manager.currentlyDrawnLine = newLineObj;
+	}
+
 	void OnMouseDrag () {
 
 		line = newLineObj.GetComponent<Line>();
@@ -107,21 +122,6 @@ public class RandomInputDot : MonoBehaviour {
 				origin.position.y,
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
-	}
-
-	void OnMouseDown () {
-
-		pressed = true;
-
-		// instantiate Line after clicking circle
-		newLineObj = Instantiate (Resources.Load("LinePrefab")) as GameObject;
-
-		if (newLineObj) {
-			newLineRend = newLineObj.GetComponent<LineRenderer> ();
-			newLineScript = newLineObj.GetComponent<Line> ();
-		}
-
-		Manager.currentlyDrawnLine = newLineObj;
 	}
 
 	public void forwardInput (float input, float[] outputs) {
