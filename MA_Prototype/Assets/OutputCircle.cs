@@ -40,7 +40,6 @@ public class OutputCircle : MonoBehaviour {
 	}
 
 	void Start () {
-		Debug.Log("Screen Height : " + Screen.height);
 	}
 
 	void OnMouseDown () {

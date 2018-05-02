@@ -67,6 +67,7 @@
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />
      <Compile Include="Assets\RotateGear.cs" />
+     <Compile Include="Assets\SliderValue.cs" />
      <Compile Include="Assets\Switch\Resources\Scripts\Switch.cs" />
      <Compile Include="Assets\Switch\Resources\Scripts\Tweening.cs" />
      <Compile Include="Assets\TestScript.cs" />
