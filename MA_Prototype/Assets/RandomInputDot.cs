@@ -38,6 +38,8 @@ public class RandomInputDot : MonoBehaviour {
 	public Color lerpedColor;
 	float x;
 
+	Vector2[] tempEdges;
+
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
 
@@ -122,6 +124,23 @@ public class RandomInputDot : MonoBehaviour {
 				origin.position.y,
 				origin.position.z));
 		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
+
+		tempEdges = lineRenderer.GetComponent<EdgeCollider2D>().points;
+//		tempEdges[0] = new Vector2(this.transform.position.x, this.transform.position.y);
+//		tempEdges[1] = new Vector2(
+//			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).x,
+//			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).y);
+
+		tempEdges [0] = new Vector2 (
+			transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
+			transform.position.y);
+		tempEdges [1] = new Vector2 (
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x+0.214532f,
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y+0.1161786f);
+
+		lineRenderer.GetComponent<EdgeCollider2D>().offset = new Vector2(-0.93f, -0.08f);
+
+		lineRenderer.GetComponent<EdgeCollider2D>().points = tempEdges;
 	}
 
 	public void forwardInput (float input, float[] outputs) {
@@ -131,6 +150,8 @@ public class RandomInputDot : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
+
+		Debug.Log("Input Pin at: " + transform.position + " and EdgeCollider[0] at: " + tempEdges[0]);
 
 		if (levelTimer < 0.25 && inputType == "") {
 

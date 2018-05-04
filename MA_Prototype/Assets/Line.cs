@@ -30,8 +30,6 @@ public class Line : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
-	private EdgeCollider2D lineCollider;
-
 	public float input, output;
 
 	public bool isEndingPointSnapped = false;	// if line is snapped to a target
@@ -41,7 +39,6 @@ public class Line : MonoBehaviour {
 	void Awake () {
 
 		line = GetComponent<LineRenderer> ();
-		lineCollider = GetComponent<EdgeCollider2D> ();
 	}
 
 	// Update is called once per frame

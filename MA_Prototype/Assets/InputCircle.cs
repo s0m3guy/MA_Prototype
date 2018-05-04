@@ -33,40 +33,47 @@ public class InputCircle : MonoBehaviour {
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePos.z = 0;
 
-		// If mouse enters bounds and there is a line being drawn, snap end point of line to this
-		if (circCol.bounds.Contains(mousePos)) {
-			if (Manager.currentlyDrawnLine) {
-				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
-				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
-			}
-		} else if (!circCol.bounds.Contains(mousePos)) {
-			Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = false;
-		}
+//		// If mouse enters bounds and there is a line being drawn, snap end point of line to this
+//		if (circCol.bounds.Contains(mousePos)) {																		// if mouse is inside collider bounds
+//			if (Manager.currentlyDrawnLine) {																			// if there is a line being drawn
+//				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);		// 
+//				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
+//			}
+//		} else if (!circCol.bounds.Contains(mousePos)) {
+//			Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = false;
+//		}
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
+	
+		Debug.Log("Staying inside collider");
+
 	}
 		
 	void OnMouseEnter() {
 
-		// Set this input circle as destin object in line
-		if (!connectedLine) {
-			if (Manager.currentlyDrawnLine != null) {
-				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
-				connectedLine = Manager.currentlyDrawnLine;
-			}
-		} else if (connectedLine) {
-			if (Manager.currentlyDrawnLine != null) {
-				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
-				Destroy (connectedLine.gameObject);
-				connectedLine = Manager.currentlyDrawnLine;
-			}
-		}
+//		// Set this input circle as destin object in line
+//		if (!connectedLine) {
+//			if (Manager.currentlyDrawnLine != null) {
+//				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+//				connectedLine = Manager.currentlyDrawnLine;
+//			}
+//		} else if (connectedLine) {
+//			if (Manager.currentlyDrawnLine != null) {
+//				Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+//				Destroy (connectedLine.gameObject);
+//				connectedLine = Manager.currentlyDrawnLine;
+//			}
+//		}
+
 	}
 
 	void OnMouseExit() {
 
-		Vector2 screenPos = new Vector2 ();
-		Camera.main.ScreenToWorldPoint (screenPos);
-
-		Manager.currentlyDrawnLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+//		Vector2 screenPos = new Vector2 ();
+//		Camera.main.ScreenToWorldPoint (screenPos);
+//
+//		Manager.currentlyDrawnLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
 	}
 
 	void OnMouseDown() {
@@ -101,11 +108,11 @@ public class InputCircle : MonoBehaviour {
 
 	void OnMouseUp() {
 
-		if (!connectedLine.GetComponent<Line> ().isEndingPointSnapped) {
-			Destroy (connectedLine.gameObject);
-			connectedLine = null;
-		}
-
-		Manager.currentlyDrawnLine = null;
+//		if (!connectedLine.GetComponent<Line> ().isEndingPointSnapped) {
+//			Destroy (connectedLine.gameObject);
+//			connectedLine = null;
+//		}
+//
+//		Manager.currentlyDrawnLine = null;
 	}
 }
