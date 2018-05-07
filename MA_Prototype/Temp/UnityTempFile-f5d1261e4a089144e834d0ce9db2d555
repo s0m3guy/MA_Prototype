@@ -193,6 +193,7 @@
 -define:ENABLE_IOS_APP_SLICING
 -define:UNITY_HAS_GOOGLEVR
 Assets/AnalogInputDot.cs
+Assets/archive/InputCircle_Old.cs
 Assets/archive/RandomInputDotSwitchable.cs
 Assets/ClickAndDragTest.cs
 Assets/DraggingScript.cs

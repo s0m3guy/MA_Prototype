@@ -13,4 +13,6 @@ public static class Manager {
 	public static GameObject currentIFblock;
 
 	public static GameObject currentInputPin;
+
+	public static bool collisionDetected = false;
 }

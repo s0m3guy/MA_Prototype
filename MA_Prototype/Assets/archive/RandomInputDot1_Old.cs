@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RandomInputDot : MonoBehaviour {
+public class RandomInputDot_Old : MonoBehaviour {
 
 	public float inputValue = 0;
 	private SpriteRenderer spritRend;
@@ -116,33 +116,31 @@ public class RandomInputDot : MonoBehaviour {
 
 		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
 
-		if (!Manager.collisionDetected) {
-			Vector2 screenPos = new Vector2();
-			Camera.main.ScreenToWorldPoint(screenPos);
+		Vector2 screenPos = new Vector2();
+		Camera.main.ScreenToWorldPoint (screenPos);
 
-			lineRenderer.SetPosition(0,
-				new Vector3(origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) / 2,
-					origin.position.y,
-					origin.position.z));
-			lineRenderer.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10);
+		lineRenderer.SetPosition (0,
+			new Vector3 (origin.position.x + (GetComponent<SpriteRenderer>().bounds.size.x)/2,
+				origin.position.y,
+				origin.position.z));
+		lineRenderer.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*10);
 
-			tempEdges = lineRenderer.GetComponent<EdgeCollider2D>().points;
+		tempEdges = lineRenderer.GetComponent<EdgeCollider2D>().points;
 //		tempEdges[0] = new Vector2(this.transform.position.x, this.transform.position.y);
 //		tempEdges[1] = new Vector2(
 //			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).x,
 //			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).y);
 
-			tempEdges[0] = new Vector2(
-				transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) / 2,
-				transform.position.y);
-			tempEdges[1] = new Vector2(
-				(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).x + 0.214532f,
-				(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).y + 0.1161786f);
+		tempEdges [0] = new Vector2 (
+			transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
+			transform.position.y);
+		tempEdges [1] = new Vector2 (
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x+0.214532f,
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y+0.1161786f);
 
-			lineRenderer.GetComponent<EdgeCollider2D>().offset = new Vector2(-0.93f, -0.08f);
+		lineRenderer.GetComponent<EdgeCollider2D>().offset = new Vector2(-0.93f, -0.08f);
 
-			lineRenderer.GetComponent<EdgeCollider2D>().points = tempEdges;
-		}
+		lineRenderer.GetComponent<EdgeCollider2D>().points = tempEdges;
 	}
 
 	public void forwardInput (float input, float[] outputs) {

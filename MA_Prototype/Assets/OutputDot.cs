@@ -35,12 +35,12 @@ public class OutputDot : MonoBehaviour {
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePos.z = 0;
 
-		if(circCol.bounds.Contains(mousePos)) {
-			if (Manager.currentlyDrawnLine) {
-				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);	
-				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
-			}
-		}
+//		if(circCol.bounds.Contains(mousePos)) {
+//			if (Manager.currentlyDrawnLine) {
+//				Manager.currentlyDrawnLine.GetComponent<LineRenderer>().SetPosition (1, this.transform.position);	
+//				Manager.currentlyDrawnLine.GetComponent<Line>().isEndingPointSnapped = true;
+//			}
+//		}
 
 		if (transform.parent.name.Contains("LED")) {
 
