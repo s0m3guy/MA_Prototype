@@ -27,19 +27,33 @@ public class InputCircle : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePos.z = 0;
 
+		// Check if is in bounds of input circle
 		if (GetComponent<CircleCollider2D> ().bounds.Contains (mousePos)) {
-			Debug.Log ("mouse inside collider");
 			Manager.collisionDetected = true;
 		} else if (!GetComponent<CircleCollider2D> ().bounds.Contains (mousePos)) {
-			Debug.Log ("mouse not inside collider");
 			Manager.collisionDetected = false;
 		}
 
-		if (Manager.collisionDetected) {
+
+
+
+
+		// Inside the collision bounds
+		if (Manager.collisionDetected && Manager.currentlyDrawnLine) { 
 			Manager.currentlyDrawnLine.GetComponent<LineRenderer> ().SetPosition (1, this.transform.position);
+
+			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = this.gameObject;
+			connectedLine = Manager.currentlyDrawnLine;		// works
+
+		// Outside the collision bounds
+		} else if (!Manager.collisionDetected && Manager.currentlyDrawnLine) {
+
+			Manager.currentlyDrawnLine.GetComponent<Line>().destinObject = null;
+			connectedLine = null;							// works
 		}
 	}
 		

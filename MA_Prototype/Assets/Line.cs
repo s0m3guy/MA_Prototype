@@ -45,6 +45,11 @@ public class Line : MonoBehaviour {
 	void Update () {
 		forwardInput(input, output);
 
+		if (destinObject) {
+			Debug.Log(destinObject.name);
+		}
+
+		/*
 		if (isEndingPointSnapped) {
 			if (originObject.CompareTag("inputDot")) {
 				randomInputDotScript = originObject.GetComponent<RandomInputDot>();
@@ -73,6 +78,7 @@ public class Line : MonoBehaviour {
 				this.GetComponent<LineRenderer>().startColor = Color.white;
 				this.GetComponent<LineRenderer>().endColor = Color.white;
 			}
+	
 
 			if (isEndingPointSnapped) {
 				if (destinObject) {
@@ -81,6 +87,7 @@ public class Line : MonoBehaviour {
 				GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			}
 		}
+		*/
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
@@ -104,12 +111,13 @@ public class Line : MonoBehaviour {
 		}
 
 		// Checking the type of destination
+		/*
 		if (destinObject != null) {
 			typeOfDestinObject = destinObject.gameObject.name;
 			if (typeOfDestinObject.Contains ("Input")) {
 				functionBlockScript = destinObject.GetComponentInParent<FunctionBlock> ();
 				if (typeOfDestinObject.Contains ("Input 1")) {
-					if (destinObject.transform.parent.gameObject.transform.parent.name.Contains("VALUE")
+					if (destinObject.transform.parent.gameObject.transform.parent.name.Contains("_VALUE")
 						|| destinObject.transform.parent.gameObject.transform.parent.name.Contains ("_IF"))
 					{
 						functionBlockScript.inputs[0] = this.output;
@@ -123,17 +131,10 @@ public class Line : MonoBehaviour {
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
 				outputDotScript = destinObject.GetComponent<OutputDot> ();
-
-//				if (output == 1) {
-//					Debug.Log("Output is: " + output);
-//					outputDotScript.input = 5;
-//				} else if (output == 0) {
-//					Debug.Log("Output is: " + output);
-//					outputDotScript.input = 0;
-//				}
 				 outputDotScript.input = this.output;
 			}
 		}
+		*/
 	}
 
 	public void unSnap() {

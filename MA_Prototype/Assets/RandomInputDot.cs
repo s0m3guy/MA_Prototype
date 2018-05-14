@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RandomInputDot : MonoBehaviour {
 
-	public float inputValue = 0;
+	public float inputValue = 5;
 	private SpriteRenderer spritRend;
 
 	private Line line, newLineScript;
@@ -30,7 +30,7 @@ public class RandomInputDot : MonoBehaviour {
 	float levelTimer = 0.0f;
 	bool pressed = false;
 
-	public string inputType;
+	public string inputType = "digital";
 
 	// Needed for analog input
 	public float sineValue = 0;
@@ -116,6 +116,7 @@ public class RandomInputDot : MonoBehaviour {
 
 		lineRenderer = newLineObj.gameObject.GetComponent<LineRenderer> ();
 
+		// In case mouse (together with line) is NOT in bounds of input circle, keep drawing line
 		if (!Manager.collisionDetected) {
 			Vector2 screenPos = new Vector2();
 			Camera.main.ScreenToWorldPoint(screenPos);
@@ -127,11 +128,7 @@ public class RandomInputDot : MonoBehaviour {
 			lineRenderer.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10);
 
 			tempEdges = lineRenderer.GetComponent<EdgeCollider2D>().points;
-//		tempEdges[0] = new Vector2(this.transform.position.x, this.transform.position.y);
-//		tempEdges[1] = new Vector2(
-//			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).x,
-//			(Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 10).y);
-
+	
 			tempEdges[0] = new Vector2(
 				transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) / 2,
 				transform.position.y);
@@ -153,8 +150,6 @@ public class RandomInputDot : MonoBehaviour {
 
 	void OnMouseUp () {
 
-		Debug.Log("Input Pin at: " + transform.position + " and EdgeCollider[0] at: " + tempEdges[0]);
-
 		if (levelTimer < 0.25 && inputType == "") {
 
 			// insert transform code here to make it appear close to pin
@@ -174,9 +169,9 @@ public class RandomInputDot : MonoBehaviour {
 		levelTimer = 0;
 		pressed = false;
 
-		if (!newLineScript.isEndingPointSnapped) {
-			Destroy (Manager.currentlyDrawnLine.gameObject);
-		}
+//		if (!newLineScript.isEndingPointSnapped) {
+//			Destroy (Manager.currentlyDrawnLine.gameObject);
+//		}
 
 		Manager.currentlyDrawnLine = null;
 	}
