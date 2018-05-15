@@ -703,6 +703,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a6f9aa1d995a4ab489a271eacac76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputValue: 0
+  outputs: []
+  inputType: 
+  sineValue: 0
+  lerpedColor: {r: 0, g: 0, b: 0, a: 0}
+  UIcanvas: {fileID: 0}
+  ADPanel: {fileID: 0}
+  triangle: {fileID: 0}
 --- !u!1 &277112192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,6 +4488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a6f9aa1d995a4ab489a271eacac76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputValue: 0
+  outputs: []
+  inputType: 
+  sineValue: 0
+  lerpedColor: {r: 0, g: 0, b: 0, a: 0}
+  UIcanvas: {fileID: 0}
+  ADPanel: {fileID: 0}
+  triangle: {fileID: 0}
 --- !u!1001 &1407962593
 Prefab:
   m_ObjectHideFlags: 0
@@ -4910,6 +4926,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a6f9aa1d995a4ab489a271eacac76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputValue: 0
+  outputs: []
+  inputType: 
+  sineValue: 0
+  lerpedColor: {r: 0, g: 0, b: 0, a: 0}
+  UIcanvas: {fileID: 1258962252}
+  ADPanel: {fileID: 735857264}
+  triangle: {fileID: 1656962418}
 --- !u!1 &1598562307
 GameObject:
   m_ObjectHideFlags: 0
