@@ -2,8 +2,9 @@
 -target:library
 -nowarn:0169
 -langversion:4
--out:Temp/Assembly-CSharp.dll
+-out:Temp/Assembly-CSharp-Editor.dll
 -unsafe
+-r:Library/ScriptAssemblies/Assembly-CSharp.dll
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll"
@@ -192,36 +193,11 @@
 -define:ENABLE_IOS_ON_DEMAND_RESOURCES
 -define:ENABLE_IOS_APP_SLICING
 -define:UNITY_HAS_GOOGLEVR
-Assets/AnalogInputDot.cs
-Assets/archive/InputCircle_Old.cs
-Assets/archive/RandomInputDot1_Old.cs
-Assets/archive/RandomInputDotSwitchable.cs
-Assets/BreadBoardInputPin.cs
-Assets/ClickAndDragTest.cs
-Assets/DraggingScript.cs
-Assets/FunctionBlock.cs
-Assets/FunctionBlockSpawner.cs
-Assets/InputCircle.cs
-Assets/Line.cs
-Assets/Manager.cs
-Assets/Output.cs
-Assets/OutputCircle.cs
-Assets/OutputDot.cs
-Assets/RandomInputDot.cs
-Assets/RandomLEDScript.cs
-Assets/RaycastController.cs
-Assets/RotateGear.cs
-Assets/SliderValue.cs
-Assets/Switch/Resources/Scripts/Switch.cs
-Assets/Switch/Resources/Scripts/Tweening.cs
-Assets/TestScript.cs
-Assets/ToggleDigitalAnalogButton.cs
-Assets/TouchTest.cs
-Assets/UICanvasButton.cs
-Assets/Wastebin.cs
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.Lang.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\Boo.Lang.dll"
--sdk:unity
+Assets/Switch/Editor/CreateSwtich.cs
+Assets/Switch/Editor/SwitchEditor.cs
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\Boo.Lang.dll"
+-sdk:2.0
