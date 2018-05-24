@@ -135,7 +135,6 @@ public class BreadBoardInputPin : MonoBehaviour {
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
 		if (overlappedCollider && overlappedCollider.CompareTag ("inputPin")) {
-			//			Debug.Log ("hit input pin");
 			line.GetComponent<LineRenderer> ().SetPosition (1, overlappedCollider.transform.position);
 		}
 	}

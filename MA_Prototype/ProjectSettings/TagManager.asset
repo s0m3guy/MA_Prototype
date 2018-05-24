@@ -36,6 +36,7 @@ TagManager:
   - breadboardLeft
   - breadboardRight
   - splitter
+  - inputPin
   layers:
   - Default
   - TransparentFX
