@@ -37,7 +37,7 @@ public class FunctionBlock : MonoBehaviour {
 	Canvas UIcanvas;
 
 	[SerializeField]
-	InputCircle[] inputPins;
+	FuncBlockInputPin[] inputPins;
 
 	[SerializeField]
 	Transform breadboardLeft, breadboardRight;
@@ -63,9 +63,9 @@ public class FunctionBlock : MonoBehaviour {
 
 		inputs = new float[transform.childCount - 2];		// Total amount minus canvas+output equals the amount of inputs
 
-		input1GO = transform.Find ("Input 1A").gameObject;
+		input1GO = transform.Find ("Input 1").gameObject;
 		if (transform.parent.name.Contains ("AND") || transform.parent.name.Contains ("OR")) {
-			input2GO = transform.Find ("Input 2A").gameObject;
+			input2GO = transform.Find ("Input 2").gameObject;
 		}
 		outputGO = transform.Find ("OutputA").gameObject;
 	}
@@ -73,13 +73,7 @@ public class FunctionBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-//		Physics2D.IgnoreLayerCollision(15, 9);
-
-		inputPins = GetComponentsInChildren<InputCircle>() as InputCircle[];
-
-//		if (gameObject.transform.parent.name.Contains ("(Clone)")) {
-//			isClone = true;
-//		}
+		inputPins = GetComponentsInChildren<FuncBlockInputPin>() as FuncBlockInputPin[];
 			
 		block = transform.parent.gameObject.transform;
 	}

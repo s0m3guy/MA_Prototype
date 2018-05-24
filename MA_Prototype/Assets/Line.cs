@@ -4,90 +4,25 @@ using UnityEngine;
 
 public class Line : MonoBehaviour {
 
-	// (As of right now) This script draws the line following the mouse and checks if the mouse
-	// collides with the bounding box of the input of another block
-
-	private LineRenderer line = new LineRenderer();
-
-	private GameObject goalInput;
-	private GameObject[] goalInputs;
-	private GameObject[] goalInputs2;
-	private CircleCollider2D circCol;
-	private CircleCollider2D[] circCols;
-
 	public GameObject originObject;
 	public GameObject destinObject;
 
-	private FunctionBlock originBlock, destinBlock;
-
-	private RandomInputDot randomInputDotScript;
-	private InputCircle inputCircleScript;
-	private OutputCircle outputCircleScript;
-	private OutputDot outputDotScript;
+	private BreadBoardInputPin breadboardInputPinScript;
 	private FunctionBlock functionBlockScript;
-	private AnalogInputDot analogInputScript;
-
-	private Vector3 screenPoint;
-	private Vector3 offset;
+	private OutputDot outputDotScript;
 
 	public float input, output;
 
-	public bool isEndingPointSnapped = false;	// if line is snapped to a target
+	public bool isEndingPointSnapped = false;
 
-	Color lerpedColor;
-
-	void Awake () {
-
-		line = GetComponent<LineRenderer> ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-		forwardInput(input, output);
+	void Update() {
 
 		if (destinObject) {
-			Debug.Log(destinObject.name);
+			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}
 
-		/*
-		if (isEndingPointSnapped) {
-			if (originObject.CompareTag("inputDot")) {
-				randomInputDotScript = originObject.GetComponent<RandomInputDot>();
-				if (randomInputDotScript.inputType == "analog") {
-					lerpedColor = Color.Lerp(Color.white, Color.green, output / 5);
-					this.GetComponent<LineRenderer>().startColor = lerpedColor;
-					this.GetComponent<LineRenderer>().endColor = lerpedColor;
-				} else if (randomInputDotScript.inputType == "digital") {
-					if (output == 0) {
-						this.GetComponent<LineRenderer>().startColor = Color.white;
-						this.GetComponent<LineRenderer>().endColor = Color.white;
-					} else if (output == 5) {
-						this.GetComponent<LineRenderer>().startColor = Color.green;
-						this.GetComponent<LineRenderer>().endColor = Color.green;
-					}
-				}
-			} else if (originObject.CompareTag("output")) {
-				if(output == 0) {
-					this.GetComponent<LineRenderer>().startColor = Color.white;
-					this.GetComponent<LineRenderer>().endColor = Color.white;
-				} else if (output == 5) {
-					this.GetComponent<LineRenderer>().startColor = Color.green;
-					this.GetComponent<LineRenderer>().endColor = Color.green;
-				}
-			} else {
-				this.GetComponent<LineRenderer>().startColor = Color.white;
-				this.GetComponent<LineRenderer>().endColor = Color.white;
-			}
-	
+		forwardInput(input, output);
 
-			if (isEndingPointSnapped) {
-				if (destinObject) {
-					GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);		// Line stays connected when moving destin object
-				}
-				GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
-			}
-		}
-		*/
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
@@ -99,9 +34,9 @@ public class Line : MonoBehaviour {
 			typeOfOriginObject = originObject.gameObject.name;
 
 			if (originObject.CompareTag ("inputDot")) {
-				randomInputDotScript = originObject.GetComponent<RandomInputDot> ();
-				this.output = randomInputDotScript.inputValue;
-				this.input = randomInputDotScript.inputValue;
+				breadboardInputPinScript = originObject.GetComponent<BreadBoardInputPin> ();
+				this.output = breadboardInputPinScript.inputValue;
+				this.input = breadboardInputPinScript.inputValue;
 			} else if (typeOfOriginObject.Contains ("Output")) {
 				functionBlockScript = originObject.GetComponentInParent<FunctionBlock> ();
 				this.output = functionBlockScript.output;
@@ -111,7 +46,6 @@ public class Line : MonoBehaviour {
 		}
 
 		// Checking the type of destination
-		/*
 		if (destinObject != null) {
 			typeOfDestinObject = destinObject.gameObject.name;
 			if (typeOfDestinObject.Contains ("Input")) {
@@ -134,10 +68,9 @@ public class Line : MonoBehaviour {
 				 outputDotScript.input = this.output;
 			}
 		}
-		*/
 	}
 
 	public void unSnap() {
-		isEndingPointSnapped = false;
+
 	}
 }

@@ -38,10 +38,11 @@ GameObject:
   - component: {fileID: 4516285663582880}
   - component: {fileID: 212461751938933344}
   - component: {fileID: 58615609884768950}
-  - component: {fileID: 114146029976385382}
+  - component: {fileID: 50368229537375420}
+  - component: {fileID: 114779219457764380}
   m_Layer: 9
-  m_Name: Input 1A
-  m_TagString: inputA
+  m_Name: Input 1
+  m_TagString: inputPin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,10 +76,11 @@ GameObject:
   - component: {fileID: 4764141056700756}
   - component: {fileID: 212207306556245302}
   - component: {fileID: 58939597400562814}
-  - component: {fileID: 114894630426252226}
+  - component: {fileID: 50754585649644906}
+  - component: {fileID: 114614570412174194}
   m_Layer: 9
-  m_Name: Input 2A
-  m_TagString: inputB
+  m_Name: Input 2
+  m_TagString: inputPin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775825604255226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1532013, y: -0.019019127, z: 0}
+  m_LocalPosition: {x: -1.8723035, y: 1.051045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4390596478313142}
@@ -224,6 +226,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!50 &50368229537375420
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152866261426760}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50754585649644906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344583568600858}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58615609884768950
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -294,19 +336,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114146029976385382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1152866261426760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec9dfca84cc2d749967cf6ff29d0ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  origin: {fileID: 0}
-  connectedLine: {fileID: 0}
 --- !u!114 &114191749036307386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +383,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: UND
+--- !u!114 &114614570412174194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344583568600858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1593c653e153624589c3e48564bd5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedLine: {fileID: 0}
 --- !u!114 &114616421973182564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,18 +432,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114894630426252226
+--- !u!114 &114779219457764380
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1344583568600858}
+  m_GameObject: {fileID: 1152866261426760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec9dfca84cc2d749967cf6ff29d0ffd, type: 3}
+  m_Script: {fileID: 11500000, guid: e1593c653e153624589c3e48564bd5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 0}
   connectedLine: {fileID: 0}
 --- !u!114 &114899485403181436
 MonoBehaviour:

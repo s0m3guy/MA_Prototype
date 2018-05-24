@@ -194,6 +194,7 @@
 -define:UNITY_HAS_GOOGLEVR
 Assets/AnalogInputDot.cs
 Assets/archive/InputCircle_Old.cs
+Assets/archive/Line_old.cs
 Assets/archive/RandomInputDot1_Old.cs
 Assets/archive/RandomInputDotSwitchable.cs
 Assets/BreadBoardInputPin.cs
