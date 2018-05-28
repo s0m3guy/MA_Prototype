@@ -44,18 +44,30 @@ public class FuncBlockOutputPin : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
-		if (overlappedCollider && overlappedCollider.CompareTag ("inputPin")) {
-			if (overlappedCollider.GetComponent<FuncBlockInputPin> ().connectedLine) {
+		if (overlappedCollider && overlappedCollider.CompareTag("inputPin")) {
+			if (overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine) {
 				// Line is already connected
 				Destroy(overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
-				line.GetComponent<Line> ().destinObject = overlappedCollider.gameObject;
-				line.GetComponent<Line> ().originObject = this.gameObject;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
 			} else {
 				// No line connected
-				overlappedCollider.GetComponent<FuncBlockInputPin> ().connectedLine = line;
-				line.GetComponent<Line> ().destinObject = overlappedCollider.gameObject;
-				line.GetComponent<Line> ().originObject = this.gameObject;
+				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
+			}
+		} else if (overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
+
+			if(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine) {
+				Destroy(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
+				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
+			} else {
+				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
 			}
 		} else if (!overlappedCollider) {
 			Destroy (line);

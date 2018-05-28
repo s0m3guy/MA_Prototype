@@ -718,9 +718,9 @@ MonoBehaviour:
   newLineObj: {fileID: 0}
   origin: {fileID: 0}
   outputs: []
-  UIcanvas: {fileID: 0}
-  ADPanel: {fileID: 0}
-  triangle: {fileID: 0}
+  UIcanvas: {fileID: 1258962252}
+  ADPanel: {fileID: 735857264}
+  triangle: {fileID: 1656962418}
   variable: 0
   inputType: 
   sineValue: 0
@@ -3988,9 +3988,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1262197853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce2bd04ce293d647985382622e36586, type: 3}
+  m_Script: {fileID: 11500000, guid: 298466f1fdc58c84ea76f85d1e617cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectedLine: {fileID: 0}
+  spritRend: {fileID: 0}
+  input: 0
 --- !u!1 &1298665659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,9 +4351,9 @@ MonoBehaviour:
   newLineObj: {fileID: 0}
   origin: {fileID: 0}
   outputs: []
-  UIcanvas: {fileID: 0}
-  ADPanel: {fileID: 0}
-  triangle: {fileID: 0}
+  UIcanvas: {fileID: 1258962252}
+  ADPanel: {fileID: 735857264}
+  triangle: {fileID: 1656962418}
   variable: 0
   inputType: 
   sineValue: 0
@@ -4673,9 +4676,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1458401691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce2bd04ce293d647985382622e36586, type: 3}
+  m_Script: {fileID: 11500000, guid: 298466f1fdc58c84ea76f85d1e617cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectedLine: {fileID: 0}
+  spritRend: {fileID: 901829340}
+  input: 0
 --- !u!1 &1458531968
 GameObject:
   m_ObjectHideFlags: 0

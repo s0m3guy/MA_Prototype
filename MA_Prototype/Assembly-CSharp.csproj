@@ -54,6 +54,7 @@
      <Compile Include="Assets\AnalogInputDot.cs" />
      <Compile Include="Assets\archive\InputCircle_Old.cs" />
      <Compile Include="Assets\archive\Line_old.cs" />
+     <Compile Include="Assets\archive\OutputDot_old.cs" />
      <Compile Include="Assets\archive\RandomInputDot1_Old.cs" />
      <Compile Include="Assets\archive\RandomInputDotSwitchable.cs" />
      <Compile Include="Assets\BreadBoardInputPin.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets\Manager.cs" />
      <Compile Include="Assets\Output.cs" />
      <Compile Include="Assets\OutputCircle.cs" />
-     <Compile Include="Assets\OutputDot.cs" />
      <Compile Include="Assets\RandomInputDot.cs" />
      <Compile Include="Assets\RandomLEDScript.cs" />
      <Compile Include="Assets\RaycastController.cs" />

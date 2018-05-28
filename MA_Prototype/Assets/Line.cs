@@ -9,7 +9,7 @@ public class Line : MonoBehaviour {
 
 	private BreadBoardInputPin breadboardInputPinScript;
 	private FunctionBlock functionBlockScript;
-	private OutputDot outputDotScript;
+	private BreadBoardOutputPin breadboardOutputPinScript;
 
 	public float input, output;
 
@@ -17,7 +17,8 @@ public class Line : MonoBehaviour {
 
 	void Update() {
 
-		if (destinObject) {
+		if (destinObject  && originObject) {
+			GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}
 
@@ -64,8 +65,8 @@ public class Line : MonoBehaviour {
 					functionBlockScript.inputs [0] = this.output;
 				}
 			} else if (typeOfDestinObject.Contains ("output_dot")) {
-				outputDotScript = destinObject.GetComponent<OutputDot> ();
-				 outputDotScript.input = this.output;
+				breadboardOutputPinScript = destinObject.GetComponent<BreadBoardOutputPin> ();
+				 breadboardOutputPinScript.input = this.output;
 			}
 		}
 	}

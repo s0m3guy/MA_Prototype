@@ -195,12 +195,15 @@
 Assets/AnalogInputDot.cs
 Assets/archive/InputCircle_Old.cs
 Assets/archive/Line_old.cs
+Assets/archive/OutputDot_old.cs
 Assets/archive/RandomInputDot1_Old.cs
 Assets/archive/RandomInputDotSwitchable.cs
 Assets/BreadBoardInputPin.cs
+Assets/BreadBoardOutputPin.cs
 Assets/ClickAndDragTest.cs
 Assets/DraggingScript.cs
 Assets/FuncBlockInputPin.cs
+Assets/FuncBlockOutputPin.cs
 Assets/FunctionBlock.cs
 Assets/FunctionBlockSpawner.cs
 Assets/InputCircle.cs
@@ -208,7 +211,6 @@ Assets/Line.cs
 Assets/Manager.cs
 Assets/Output.cs
 Assets/OutputCircle.cs
-Assets/OutputDot.cs
 Assets/RandomInputDot.cs
 Assets/RandomLEDScript.cs
 Assets/RaycastController.cs
