@@ -7,10 +7,14 @@ public class FuncBlockOutputPin : MonoBehaviour {
 	GameObject line;
 	public GameObject connectedLine;
 	Collider2D overlappedCollider;
+	Vector3 clampVector;
+
+	BoxCollider2D upperBound, lowerBound;
 
 	// Use this for initialization
 	void Start () {
-		
+		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
+		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
@@ -31,11 +35,18 @@ public class FuncBlockOutputPin : MonoBehaviour {
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
+		clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				lowerBound.bounds.max.y,
+				upperBound.bounds.min.y),
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
 		line.GetComponent<LineRenderer> ().SetPosition (0,
 			new Vector3 (transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
 				transform.position.y,
 				transform.position.z));
-		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+//		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
