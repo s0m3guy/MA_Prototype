@@ -5,6 +5,7 @@ using UnityEngine;
 public class FuncBlockOutputPin : MonoBehaviour {
 
 	GameObject line;
+	public GameObject connectedLine;
 	Collider2D overlappedCollider;
 
 	// Use this for initialization
@@ -38,7 +39,8 @@ public class FuncBlockOutputPin : MonoBehaviour {
 
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
-		if (overlappedCollider && overlappedCollider.CompareTag ("outputPin")) {
+		if (overlappedCollider && (overlappedCollider.CompareTag ("outputPin")
+			|| overlappedCollider.CompareTag ("inputPin"))){
 			line.GetComponent<LineRenderer> ().SetPosition (1, overlappedCollider.transform.position);
 		}
 	}
@@ -51,11 +53,13 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
 				line.GetComponent<Line>().originObject = this.gameObject;
+				connectedLine = line;
 			} else {
 				// No line connected
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
 				line.GetComponent<Line>().originObject = this.gameObject;
+				connectedLine = line;
 			}
 		} else if (overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
 
@@ -64,10 +68,12 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
 				line.GetComponent<Line>().originObject = this.gameObject;
+				connectedLine = line;
 			} else {
 				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
 				line.GetComponent<Line>().originObject = this.gameObject;
+				connectedLine = line;
 			}
 		} else if (!overlappedCollider) {
 			Destroy (line);

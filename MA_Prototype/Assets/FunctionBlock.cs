@@ -239,7 +239,7 @@ public class FunctionBlock : MonoBehaviour {
 		levelTimer = 0;
 		pressed = false;
 
-		bool hasOutputLines = (this.GetComponentInChildren<OutputCircle> ().connectedLine != null) ? true : false;
+		bool hasOutputLines = (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine != null) ? true : false;
 		string typeOfDestin = "";
 
 		// Determine type which line is connected to
