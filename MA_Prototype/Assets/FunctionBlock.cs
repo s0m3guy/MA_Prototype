@@ -244,7 +244,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		// Determine type which line is connected to
 		if (hasOutputLines) {
-			if (this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
+			if (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
 				typeOfDestin = "FB";
 			} else {
 				typeOfDestin = "outputPin";
@@ -254,17 +254,17 @@ public class FunctionBlock : MonoBehaviour {
 		// Depending on type, reset connection
 		if (elementAboveWasteBin) {
 			if (hasOutputLines && typeOfDestin == "FB") {
-				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<InputCircle> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<FuncBlockInputPin> ().connectedLine = null;
 			} else if (hasOutputLines && typeOfDestin == "outputPin") {
-				this.GetComponentInChildren<OutputCircle> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<OutputDot> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<BreadBoardOutputPin> ().connectedLine = null;
 			}
 
 			// Destruction of input is looped because of several inputs
-			foreach (InputCircle ic in this.GetComponentsInChildren(typeof(InputCircle)))
+			foreach (FuncBlockInputPin ic in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
 				Destroy (ic.connectedLine.gameObject);
 
 			// Destruction of output is not because there is only one
-			Destroy (this.GetComponentInChildren<OutputCircle> ().connectedLine.gameObject);
+			Destroy (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.gameObject);
 			Destroy (this.transform.parent.gameObject);
 		}
 
