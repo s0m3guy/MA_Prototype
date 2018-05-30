@@ -485,8 +485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29.8, y: -8.6}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 80.7, y: -8.6}
+  m_SizeDelta: {x: 48.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &167182103
 GameObject:
@@ -1486,8 +1486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 22.809002, y: -8.599998}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 70.3, y: -8.599998}
+  m_SizeDelta: {x: 48.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &458216266
 GameObject:
@@ -4519,10 +4519,6 @@ Prefab:
       propertyPath: m_Name
       value: Top_FunctionBlock_AND
       objectReference: {fileID: 0}
-    - target: {fileID: 1133623051329114, guid: 8a974f54072fb0a4595887604812a90b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a974f54072fb0a4595887604812a90b, type: 2}
   m_IsPrefabParent: 0
@@ -4750,10 +4746,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1579082112500532, guid: 3607f1f86f88b0e40a37d5ca53fbb17b, type: 2}
-      propertyPath: m_Name
-      value: Top_FunctionBlock_IF
-      objectReference: {fileID: 0}
     - target: {fileID: 114217992060409262, guid: 3607f1f86f88b0e40a37d5ca53fbb17b,
         type: 2}
       propertyPath: breadboardLeft
@@ -4765,8 +4757,8 @@ Prefab:
       value: 
       objectReference: {fileID: 668841572}
     - target: {fileID: 1579082112500532, guid: 3607f1f86f88b0e40a37d5ca53fbb17b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: Top_FunctionBlock_IF
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3607f1f86f88b0e40a37d5ca53fbb17b, type: 2}
@@ -6009,10 +6001,6 @@ Prefab:
       propertyPath: breadboardRight
       value: 
       objectReference: {fileID: 668841572}
-    - target: {fileID: 1700916540017278, guid: de49d953ab748e24b8d132bfbf3cbdfb, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de49d953ab748e24b8d132bfbf3cbdfb, type: 2}
   m_IsPrefabParent: 0
