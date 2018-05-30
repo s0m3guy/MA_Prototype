@@ -18,7 +18,7 @@ public class Line : MonoBehaviour {
 
 	void Update() {
 
-		if (destinObject && originObject) {
+		if (destinObject && originObject && isEndingPointSnapped) {
 			GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}

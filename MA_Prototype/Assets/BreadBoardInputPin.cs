@@ -122,16 +122,6 @@ public class BreadBoardInputPin : MonoBehaviour {
 				transform.position.z));
 		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
 
-		tempEdges = line.GetComponent<EdgeCollider2D> ().points;
-		tempEdges [0] = new Vector2 (
-			transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2 - 0.7f,
-			transform.position.y - 0.217f);
-		tempEdges [1] = new Vector2 (
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 0.7f,
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y - 0.217f);
-
-		line.GetComponent<EdgeCollider2D> ().points = tempEdges;
-
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
 		if (overlappedCollider && overlappedCollider.CompareTag ("inputPin")) {
@@ -180,6 +170,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 				overlappedCollider.GetComponent<FuncBlockInputPin> ().connectedLine = line;
 				line.GetComponent<Line> ().destinObject = overlappedCollider.gameObject;
 				line.GetComponent<Line> ().originObject = this.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
 			}
 		} else if (!overlappedCollider) {
 			Destroy (line);

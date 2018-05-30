@@ -20,6 +20,8 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 		if (connectedLine) {
 
+			connectedLine.GetComponent<Line>().isEndingPointSnapped = false;
+
 			Vector2 screenPos = new Vector2 ();
 			Camera.main.ScreenToWorldPoint (screenPos);
 
@@ -42,15 +44,17 @@ public class FuncBlockInputPin : MonoBehaviour {
 		if (collisionObject && collisionObject.CompareTag ("inputPin")) {
 			if (collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine) {
 				// Line is already connected
-				Destroy(connectedLine.gameObject);
+				Destroy(collisionObject.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
 				collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine = connectedLine;
 				connectedLine.GetComponent<Line> ().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 
 			} else {
 				// No line connected
 				collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine = connectedLine;
 				connectedLine.GetComponent<Line> ().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 			}
 		} else if (!collisionObject) {
