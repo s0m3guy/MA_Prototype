@@ -10,6 +10,7 @@ public class Line : MonoBehaviour {
 	private BreadBoardInputPin breadboardInputPinScript;
 	private FunctionBlock functionBlockScript;
 	private BreadBoardOutputPin breadboardOutputPinScript;
+	BreadBoardInputPin tempBreadBoardInput;
 
 	public float input, output;
 
@@ -17,13 +18,25 @@ public class Line : MonoBehaviour {
 
 	void Update() {
 
-		if (destinObject  && originObject) {
+		if (destinObject && originObject) {
 			GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}
 
 		forwardInput(input, output);
 
+		if (originObject) {
+			if (originObject.CompareTag("inputDot")) {
+				tempBreadBoardInput = originObject.GetComponent<BreadBoardInputPin>();
+				if (tempBreadBoardInput.inputType != "") {
+					GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
+					GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
+				}
+			} else if (originObject.CompareTag("output")) {
+				GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
+				GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
+			}
+		}
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
