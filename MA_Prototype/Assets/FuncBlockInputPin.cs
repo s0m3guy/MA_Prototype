@@ -33,7 +33,8 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 			collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
-			if (collisionObject && collisionObject.CompareTag ("inputPin")) {
+			if (collisionObject && (collisionObject.CompareTag ("inputPin")) ||
+				collisionObject && collisionObject.CompareTag("outputPin")) {
 				connectedLine.GetComponent<LineRenderer> ().SetPosition (1, collisionObject.transform.position);
 			}
 		}
@@ -41,19 +42,34 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 	void OnMouseUp() {
 
-		if (collisionObject && collisionObject.CompareTag ("inputPin")) {
-			if (collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine) {
+		if (collisionObject && (collisionObject.CompareTag("inputPin"))) {
+			if (collisionObject.GetComponent<FuncBlockInputPin>().connectedLine) {
 				// Line is already connected
 				Destroy(collisionObject.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
-				collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line> ().destinObject = collisionObject.gameObject;
+				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = connectedLine;
+				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
 				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 
 			} else {
 				// No line connected
-				collisionObject.GetComponent<FuncBlockInputPin> ().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line> ().destinObject = collisionObject.gameObject;
+				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = connectedLine;
+				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
+				this.connectedLine = null;
+			}
+		} else if (collisionObject && (collisionObject.CompareTag("outputPin"))) {
+			if (collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine) {
+				// Line is already connected
+				Destroy(collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
+				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = connectedLine;
+				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
+				this.connectedLine = null;
+			} else {
+				// No line connected
+				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = connectedLine;
+				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
 				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 			}
