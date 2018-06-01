@@ -19,10 +19,11 @@ public class Line : MonoBehaviour {
 	void Update() {
 
 		if (destinObject && originObject && isEndingPointSnapped) {
-			GetComponent<LineRenderer>().SetPosition(0,
-				new Vector3 (originObject.transform.position.x + (originObject.GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
-					originObject.transform.position.y,
-					originObject.transform.position.z));
+//			GetComponent<LineRenderer>().SetPosition(0,
+//				new Vector3 (originObject.transform.position.x + (originObject.GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
+//					originObject.transform.position.y,
+//					originObject.transform.position.z));
+			GetComponent<LineRenderer>().SetPosition(0, originObject.transform.position);
 			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}
 

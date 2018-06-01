@@ -41,10 +41,11 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				upperBound.bounds.min.y),
 			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
 
-		line.GetComponent<LineRenderer> ().SetPosition (0,
-			new Vector3 (transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
-				transform.position.y,
-				transform.position.z));
+//		line.GetComponent<LineRenderer> ().SetPosition (0,
+//			new Vector3 (transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
+//				transform.position.y,
+//				transform.position.z));
+		line.GetComponent<LineRenderer>().SetPosition(0, transform.position);
 //		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
 		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 

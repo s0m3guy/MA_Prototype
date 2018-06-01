@@ -29,6 +29,7 @@ public class FuncBlockInputPin : MonoBehaviour {
 				new Vector3 (connectedLine.GetComponent<Line> ().originObject.transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
 					connectedLine.GetComponent<Line> ().originObject.transform.position.y,
 					connectedLine.GetComponent<Line> ().originObject.transform.position.z));
+//			connectedLine.GetComponent<LineRenderer>().SetPosition(0, transform.position);
 			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
 
 			collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
