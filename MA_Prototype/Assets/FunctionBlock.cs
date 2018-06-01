@@ -153,7 +153,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag == "testSquare") {
-			Debug.Log("A");
 			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.red;
 			elementAboveWasteBin = true;
 
