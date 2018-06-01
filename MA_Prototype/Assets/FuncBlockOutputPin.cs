@@ -7,8 +7,8 @@ public class FuncBlockOutputPin : MonoBehaviour {
 	GameObject line;
 	public GameObject connectedLine;
 	Collider2D overlappedCollider;
-	Vector3 clampVector;
 
+	Vector3 clampVector;
 	BoxCollider2D upperBound, lowerBound;
 
 	// Use this for initialization
@@ -50,6 +50,7 @@ public class FuncBlockOutputPin : MonoBehaviour {
 		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
+		Debug.Log(overlappedCollider);
 
 		if (overlappedCollider && (overlappedCollider.CompareTag ("outputPin")
 			|| overlappedCollider.CompareTag ("inputPin"))){
@@ -76,8 +77,7 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				connectedLine = line;
 			}
 		} else if (overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
-
-			if(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine) {
+			if (overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine) {
 				Destroy(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
 				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
@@ -91,9 +91,12 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				line.GetComponent<Line>().originObject = this.gameObject;
 				connectedLine = line;
 			}
-		} else if (!overlappedCollider) {
-			Destroy (line);
-			Debug.Log ("Destroyed " + line);
+		} else if (!overlappedCollider
+		           || !overlappedCollider.CompareTag("outputPin")
+		           || !overlappedCollider.CompareTag("inputPin")
+		           || !overlappedCollider.CompareTag("output")) {
+			Destroy(line);
+			Debug.Log("Destroyed " + line);
 		}
 	}
 

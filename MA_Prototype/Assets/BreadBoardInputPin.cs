@@ -32,16 +32,18 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	public string inputType = "digital";
 
-	// Needed for analog input
+	// For analog input
 	public float sineValue = 0;
 	float increment = 0.07f;
 	public Color lerpedColor;
 	float x;
 
-	Vector2[] tempEdges;
-
 	GameObject line;
 	Collider2D overlappedCollider;
+
+	Vector3 clampVector;
+	BoxCollider2D upperBound, lowerBound;
+
 
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
@@ -53,6 +55,9 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
+		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
+
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 	}
 
@@ -116,16 +121,25 @@ public class BreadBoardInputPin : MonoBehaviour {
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
+		clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				lowerBound.bounds.max.y,
+				upperBound.bounds.min.y),
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
 //		line.GetComponent<LineRenderer> ().SetPosition (0,
 //			new Vector3 (transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
 //				transform.position.y,
 //				transform.position.z));
 		line.GetComponent<LineRenderer>().SetPosition(0, transform.position);
-		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+//		line.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
+
 
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
-		if (overlappedCollider && overlappedCollider.CompareTag ("inputPin")) {
+		if (overlappedCollider && (overlappedCollider.CompareTag ("inputPin")) 
+			|| overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
 			line.GetComponent<LineRenderer> ().SetPosition (1, overlappedCollider.transform.position);
 		}
 	}
@@ -141,7 +155,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		if (levelTimer < 0.25 && inputType == "") {
 
 			// insert transform code here to make it appear close to pin
-			triangle.transform.position = new Vector3(transform.position.x+0.59f, transform.position.y-0.33f, transform.position.z);
+			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
 			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
 
 			UIcanvas.enabled = true;
@@ -159,23 +173,38 @@ public class BreadBoardInputPin : MonoBehaviour {
 		levelTimer = 0;
 		pressed = false;
 
-		if (overlappedCollider && overlappedCollider.CompareTag ("inputPin")) {
-			if (overlappedCollider.GetComponent<FuncBlockInputPin> ().connectedLine) {
+		if (overlappedCollider && overlappedCollider.CompareTag("inputPin")) {
+			if (overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine) {
 				// Line is already connected
 				Destroy(overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
-				line.GetComponent<Line> ().destinObject = overlappedCollider.gameObject;
-				line.GetComponent<Line> ().originObject = this.gameObject;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
 			} else {
 				// No line connected
-				overlappedCollider.GetComponent<FuncBlockInputPin> ().connectedLine = line;
-				line.GetComponent<Line> ().destinObject = overlappedCollider.gameObject;
-				line.GetComponent<Line> ().originObject = this.gameObject;
+				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
 				line.GetComponent<Line>().isEndingPointSnapped = true;
 			}
-		} else if (!overlappedCollider) {
-			Destroy (line);
-			Debug.Log ("Destroyed " + line);
+		} else if (overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
+			if (overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine) {
+				Destroy(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
+				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
+			} else {
+				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().originObject = this.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
+			}
+		} else if (!overlappedCollider
+		          || !overlappedCollider.CompareTag("outputPin")
+		          || !overlappedCollider.CompareTag("inputPin")
+		          || !overlappedCollider.CompareTag("output")) {
+			Destroy(line);
+			Debug.Log("Destroyed " + line);
 		}
 
 		Manager.currentlyDrawnLine = null;

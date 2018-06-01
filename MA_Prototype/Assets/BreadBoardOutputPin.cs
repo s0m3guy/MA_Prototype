@@ -14,6 +14,14 @@ public class BreadBoardOutputPin : MonoBehaviour {
 
 	public float input;
 
+	Vector3 clampVector;
+	BoxCollider2D upperBound, lowerBound;
+
+	void Start() {
+		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
+		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
+	}
+
 	void Awake() {
 
 		circCol = GetComponent<CircleCollider2D>();
@@ -59,11 +67,18 @@ public class BreadBoardOutputPin : MonoBehaviour {
 			Vector2 screenPos = new Vector2 ();
 			Camera.main.ScreenToWorldPoint (screenPos);
 
+			clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+				Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+					lowerBound.bounds.max.y,
+					upperBound.bounds.min.y),
+				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
 			connectedLine.GetComponent<LineRenderer> ().SetPosition (0,
 				new Vector3 (connectedLine.GetComponent<Line> ().originObject.transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
 					connectedLine.GetComponent<Line> ().originObject.transform.position.y,
 					connectedLine.GetComponent<Line> ().originObject.transform.position.z));
-			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+//			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
 			collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
