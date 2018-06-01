@@ -44,6 +44,10 @@ public class BreadBoardOutputPin : MonoBehaviour {
 		if (connectedLine == null) {
 			input = 0;
 		}
+
+		if (connectedLine) {
+			GetComponent<SpriteRenderer>().color = connectedLine.GetComponent<LineRenderer>().endColor;
+		}
 	}
 
 	void OnMouseDrag() {
