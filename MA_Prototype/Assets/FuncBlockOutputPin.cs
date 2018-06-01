@@ -63,12 +63,14 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				Destroy(overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
 				line.GetComponent<Line>().originObject = this.gameObject;
 				connectedLine = line;
 			} else {
 				// No line connected
 				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
 				line.GetComponent<Line>().originObject = this.gameObject;
 				connectedLine = line;
 			}
@@ -78,11 +80,13 @@ public class FuncBlockOutputPin : MonoBehaviour {
 				Destroy(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
 				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
 				line.GetComponent<Line>().originObject = this.gameObject;
 				connectedLine = line;
 			} else {
 				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Line>().destinObject = overlappedCollider.gameObject;
+				line.GetComponent<Line>().isEndingPointSnapped = true;
 				line.GetComponent<Line>().originObject = this.gameObject;
 				connectedLine = line;
 			}

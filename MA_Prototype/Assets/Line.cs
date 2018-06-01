@@ -18,18 +18,13 @@ public class Line : MonoBehaviour {
 
 	void Update() {
 
-		Debug.Log("Start position at: " + GetComponent<LineRenderer>().GetPosition(0));
-
-		if (originObject && isEndingPointSnapped) {
+		if (destinObject && originObject && isEndingPointSnapped) {
 			GetComponent<LineRenderer>().SetPosition(0,
 				new Vector3 (originObject.transform.position.x + (originObject.GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
 					originObject.transform.position.y,
 					originObject.transform.position.z));
-		}
-		if (destinObject) {
 			GetComponent<LineRenderer>().SetPosition(1, destinObject.transform.position);
 		}
-
 
 		forwardInput(input, output);
 
