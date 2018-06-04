@@ -204,7 +204,6 @@ public class BreadBoardInputPin : MonoBehaviour {
 		          || !overlappedCollider.CompareTag("inputPin")
 		          || !overlappedCollider.CompareTag("output")) {
 			Destroy(line);
-			Debug.Log("Destroyed " + line);
 		}
 
 		Manager.currentlyDrawnLine = null;

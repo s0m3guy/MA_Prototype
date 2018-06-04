@@ -50,7 +50,6 @@ public class FuncBlockOutputPin : MonoBehaviour {
 		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
 		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
-		Debug.Log(overlappedCollider);
 
 		if (overlappedCollider && (overlappedCollider.CompareTag ("outputPin")
 			|| overlappedCollider.CompareTag ("inputPin"))){

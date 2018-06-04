@@ -74,10 +74,11 @@ public class FuncBlockInputPin : MonoBehaviour {
 				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 			}
-		} else if (!collisionObject) {
-			Destroy (connectedLine);
-			connectedLine = null;
-			Debug.Log ("Destroyed " + connectedLine);
+		} else if (!collisionObject
+			|| !collisionObject.CompareTag("outputPin")
+			|| !collisionObject.CompareTag("inputPin")
+			|| !collisionObject.CompareTag("output")) {
+			Destroy(connectedLine);
 		}
 	}
 }

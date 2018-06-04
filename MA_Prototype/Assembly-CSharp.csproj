@@ -57,6 +57,7 @@
      <Compile Include="Assets\archive\OutputDot_old.cs" />
      <Compile Include="Assets\archive\RandomInputDot1_Old.cs" />
      <Compile Include="Assets\archive\RandomInputDotSwitchable.cs" />
+     <Compile Include="Assets\Bezier_Spline.cs" />
      <Compile Include="Assets\BreadBoardInputPin.cs" />
      <Compile Include="Assets\BreadBoardOutputPin.cs" />
      <Compile Include="Assets\ClickAndDragTest.cs" />
