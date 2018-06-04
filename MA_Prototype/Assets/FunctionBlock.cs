@@ -51,7 +51,7 @@ public class FunctionBlock : MonoBehaviour {
 	Vector3 currentDraggingPosition;
 
 	GameObject temporaryChildParentContainer;
-	string[] lineNames = new string[2];
+	string[] lineNames = new string[3];
 
 
 	void Awake () {
@@ -187,6 +187,11 @@ public class FunctionBlock : MonoBehaviour {
 			if (fip.connectedLine) {
 				fip.connectedLine.GetComponent<Bezier_Spline>().tangent2.transform.parent = this.transform;
 			}
+		
+		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+			lineNames[2] = this.transform.Find("OutputA").GetComponent<FuncBlockOutputPin>().connectedLine.name;
+			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = this.transform;
+		}
 
 //		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
 //			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = this.transform;
@@ -245,15 +250,19 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnMouseUp() {
 		
-		Debug.Log(lineNames[0]);
-		transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[0]).transform;
-		Debug.Log(lineNames[1]);
-		transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[1]).transform;
-
-		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
-			if (fip.connectedLine) {
-
-			}
+		if (transform.Find("tangent2")) {
+			transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[0]).transform;
+		}
+		if (transform.Find("tangent2")) {
+			transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[1]).transform;
+		}
+		if (transform.Find("tangent1")) {
+			transform.Find("tangent1").transform.parent = GameObject.Find(lineNames[2]).transform;
+		}
+//		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
+//			if (fip.connectedLine) {
+//
+//			}
 				
 //		gameObject.transform.Find("Tangent(Clone)").transform.parent = 
 

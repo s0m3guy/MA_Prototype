@@ -26,6 +26,7 @@ public class FuncBlockOutputPin : MonoBehaviour {
 
 		// instantiate Line after clicking circle
 		line = Instantiate (Resources.Load("LinePrefab")) as GameObject;
+		line.name = "Line_(" + line.GetHashCode() + ")";
 		line.GetComponent<Bezier_Spline> ().originObject = this.gameObject;
 
 //		Manager.currentlyDrawnLine = newLineObj;
