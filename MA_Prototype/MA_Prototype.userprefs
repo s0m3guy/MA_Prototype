@@ -1,12 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OutputCircle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FunctionBlock.cs">
     <Files>
-      <File FileName="Assets\FuncBlockOutputPin.cs" Line="53" Column="1" />
-      <File FileName="Assets\BreadBoardOutputPin.cs" Line="128" Column="1" />
-      <File FileName="Assets\FuncBlockInputPin.cs" Line="82" Column="1" />
-      <File FileName="Assets\OutputCircle.cs" Line="48" Column="1" />
-      <File FileName="Assets\BreadBoardInputPin.cs" Line="207" Column="1" NotebookId="1" />
+      <File FileName="..\..\MA_Sandbox\Assets\MovingScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\FunctionBlock.cs" Line="154" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 120926039092245938}
   - component: {fileID: 68690871084156080}
   - component: {fileID: 50273554781515170}
-  - component: {fileID: 114206566060934030}
   - component: {fileID: 212636527047079304}
+  - component: {fileID: 114780768970383302}
   m_Layer: 10
   m_Name: LinePrefab
   m_TagString: line
@@ -81,7 +81,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.24831367, y: -0.116818994}
   - {x: 1.5023584, y: 1.372374}
---- !u!114 &114206566060934030
+--- !u!114 &114780768970383302
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505091889807642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9fe66913927b9e4c81cf4eadfbe27ec, type: 3}
+  m_Script: {fileID: 11500000, guid: cb8dce74dd01c3d45821334c3125be05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originObject: {fileID: 0}
@@ -97,6 +97,13 @@ MonoBehaviour:
   input: 0
   output: 0
   isEndingPointSnapped: 0
+  controlPoints: []
+  color: {r: 1, g: 0, b: 0, a: 1}
+  width: 0.2
+  numberOfPoints: 20
+  tangent1: {fileID: 0}
+  tangent2: {fileID: 0}
+  mouseFollower: {fileID: 0}
 --- !u!120 &120926039092245938
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -136,13 +143,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.9
+    widthMultiplier: 0.36
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0.0689106
-        value: 0.103191376
+        time: 0.12540627
+        value: 0.54961777
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -220,7 +227,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

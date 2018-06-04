@@ -50,7 +50,8 @@ public class FunctionBlock : MonoBehaviour {
 	[SerializeField]
 	Vector3 currentDraggingPosition;
 
-	// Components for currently dragged FB
+	GameObject temporaryChildParentContainer;
+	string[] lineNames = new string[2];
 
 
 	void Awake () {
@@ -80,6 +81,8 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+//		Debug.Log(lineHashes);
 
 		if (isClone && isFBbeingDragged) {
 			currentDraggingPosition = transform.position;
@@ -173,6 +176,23 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnMouseDown() {
 
+		if (this.transform.Find("Input 1").GetComponent<FuncBlockInputPin>().connectedLine) {
+			lineNames[0] = this.transform.Find("Input 1").GetComponent<FuncBlockInputPin>().connectedLine.name;
+		}
+		if (this.transform.Find("Input 2") && this.transform.Find("Input 2").GetComponent<FuncBlockInputPin>().connectedLine) {
+			lineNames[1] = this.transform.Find("Input 2").GetComponent<FuncBlockInputPin>().connectedLine.name;
+		}
+
+		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
+			if (fip.connectedLine) {
+				fip.connectedLine.GetComponent<Bezier_Spline>().tangent2.transform.parent = this.transform;
+			}
+
+//		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+//			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = this.transform;
+//		}
+//		this.transform.parent.parent = temporaryChildParentContainer.transform;
+
 		pressed = true;
 
 		if (!isClone) {
@@ -224,6 +244,24 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
+		
+		Debug.Log(lineNames[0]);
+		transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[0]).transform;
+		Debug.Log(lineNames[1]);
+		transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[1]).transform;
+
+		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
+			if (fip.connectedLine) {
+
+			}
+				
+//		gameObject.transform.Find("Tangent(Clone)").transform.parent = 
+
+//		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+//			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = null;
+//		}
+
+//		Destroy(temporaryChildParentContainer);
 
 		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
@@ -243,7 +281,7 @@ public class FunctionBlock : MonoBehaviour {
 
 		// Determine type which line is connected to
 		if (hasOutputLines) {
-			if (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.name.Contains ("Input")) {
+			if (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Bezier_Spline> ().destinObject.name.Contains ("Input")) {
 				typeOfDestin = "FB";
 			} else {
 				typeOfDestin = "outputPin";
@@ -253,9 +291,9 @@ public class FunctionBlock : MonoBehaviour {
 		// Depending on type, reset connection
 		if (elementAboveWasteBin) {
 			if (hasOutputLines && typeOfDestin == "FB") {
-				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<FuncBlockInputPin> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Bezier_Spline> ().destinObject.GetComponent<FuncBlockInputPin> ().connectedLine = null;
 			} else if (hasOutputLines && typeOfDestin == "outputPin") {
-				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Line> ().destinObject.GetComponent<BreadBoardOutputPin> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Bezier_Spline> ().destinObject.GetComponent<BreadBoardOutputPin> ().connectedLine = null;
 			}
 
 			// Destruction of input is looped because of several inputs
