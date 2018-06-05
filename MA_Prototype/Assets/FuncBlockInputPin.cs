@@ -7,6 +7,13 @@ public class FuncBlockInputPin : MonoBehaviour {
 	public GameObject connectedLine;
 	Collider2D collisionObject;
 
+	BoxCollider2D upperBound, lowerBound;
+
+	void Start() {
+		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
+		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
+	}
+
 	void Update() {
 
 //		if (connectedLine) {
@@ -37,8 +44,10 @@ public class FuncBlockInputPin : MonoBehaviour {
 			connectedLine.GetComponent<Bezier_Spline>().tangent2.transform.position = new Vector3 (
 				//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 2,
 				//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - GetComponent<CircleCollider2D>().bounds.size.x,
-				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1,
-				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1),
+				Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+					lowerBound.bounds.max.y,
+					upperBound.bounds.min.y),
 				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
 
 			connectedLine.GetComponent<Bezier_Spline>().controlPoints[4] = connectedLine.GetComponent<Bezier_Spline>().mouseFollower;

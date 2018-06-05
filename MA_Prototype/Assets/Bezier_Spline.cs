@@ -24,7 +24,13 @@ public class Bezier_Spline : MonoBehaviour {
 	LineRenderer lineRenderer;
 	public GameObject tangent1, tangent2, mouseFollower;
 
+	Vector3 clampVector;
+	BoxCollider2D upperBound, lowerBound;
+
 	void Start() {
+
+		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
+		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
 
 		lineRenderer = GetComponent<LineRenderer> ();
 		lineRenderer.useWorldSpace = true;
@@ -129,10 +135,24 @@ public class Bezier_Spline : MonoBehaviour {
 	}
 
 	void generateBezierSpline() {
-		mouseFollower.transform.position = new Vector3 (
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+
+		clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				lowerBound.bounds.max.y,
+				upperBound.bounds.min.y),
 			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
+		mouseFollower.transform.position = new Vector3 (
+			((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x),
+			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				lowerBound.bounds.max.y,
+				upperBound.bounds.min.y),
+			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
+//		mouseFollower.transform.position = new Vector3 (
+//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
 
 		if (null == lineRenderer || controlPoints == null || controlPoints.Count < 3)
 		{

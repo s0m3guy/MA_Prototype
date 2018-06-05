@@ -137,8 +137,10 @@ public class BreadBoardInputPin : MonoBehaviour {
 		line.GetComponent<Bezier_Spline>().tangent2.transform.position = new Vector3 (
 			//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 2,
 //			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - GetComponent<CircleCollider2D>().bounds.size.x,
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1,
-			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+			((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1),
+			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				lowerBound.bounds.max.y,
+				upperBound.bounds.min.y),
 			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
 
 //		if (overlappedCollider && (overlappedCollider.CompareTag ("inputPin")) 
