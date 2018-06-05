@@ -39,7 +39,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 	float x;
 
 	GameObject line;
-	Collider2D overlappedCollider;
+	Collider2D collisionObject;
 
 	Vector3 clampVector;
 	BoxCollider2D upperBound, lowerBound;
@@ -132,7 +132,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		line.GetComponent<LineRenderer>().SetPosition(0, transform.position);
 		line.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
-		overlappedCollider = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
+		collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
 		line.GetComponent<Bezier_Spline>().tangent2.transform.position = new Vector3 (
 			//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 2,
@@ -146,11 +146,11 @@ public class BreadBoardInputPin : MonoBehaviour {
 //			line.GetComponent<LineRenderer> ().SetPosition (1, overlappedCollider.transform.position);
 //		}
 
-		if ((overlappedCollider && overlappedCollider.CompareTag("inputPin")) ||
-			overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
-			line.GetComponent<Bezier_Spline>().controlPoints[4] = overlappedCollider.gameObject;
-			line.GetComponent<Bezier_Spline>().controlPoints[5] = overlappedCollider.gameObject;
-		} else if (!overlappedCollider) {
+		if ((collisionObject && collisionObject.CompareTag("inputPin")) ||
+			collisionObject && collisionObject.CompareTag("outputPin")) {
+			line.GetComponent<Bezier_Spline>().controlPoints[4] = collisionObject.gameObject;
+			line.GetComponent<Bezier_Spline>().controlPoints[5] = collisionObject.gameObject;
+		} else if (!collisionObject) {
 			line.GetComponent<Bezier_Spline>().controlPoints[4] = line.GetComponent<Bezier_Spline>().mouseFollower;
 			line.GetComponent<Bezier_Spline>().controlPoints[5] = line.GetComponent<Bezier_Spline>().mouseFollower;
 		}
@@ -185,36 +185,36 @@ public class BreadBoardInputPin : MonoBehaviour {
 		levelTimer = 0;
 		pressed = false;
 
-		if (overlappedCollider && overlappedCollider.CompareTag("inputPin")) {
-			if (overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine) {
+		if (collisionObject && collisionObject.CompareTag("inputPin")) {
+			if (collisionObject.GetComponent<FuncBlockInputPin>().connectedLine) {
 				// Line is already connected
-				Destroy(overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
-				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
-				line.GetComponent<Bezier_Spline>().destinObject = overlappedCollider.gameObject;
+				Destroy(collisionObject.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
+				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = line;
+				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 			} else {
 				// No line connected
-				overlappedCollider.GetComponent<FuncBlockInputPin>().connectedLine = line;
-				line.GetComponent<Bezier_Spline>().destinObject = overlappedCollider.gameObject;
+				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = line;
+				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 				line.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
 			}
-		} else if (overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
-			if (overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine) {
-				Destroy(overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
-				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
-				line.GetComponent<Bezier_Spline>().destinObject = overlappedCollider.gameObject;
+		} else if (collisionObject && collisionObject.CompareTag("outputPin")) {
+			if (collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine) {
+				Destroy(collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
+				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 			} else {
-				overlappedCollider.GetComponent<BreadBoardOutputPin>().connectedLine = line;
-				line.GetComponent<Bezier_Spline>().destinObject = overlappedCollider.gameObject;
+				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = line;
+				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 				line.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
 			}
-		} else if (!overlappedCollider
-		          || !overlappedCollider.CompareTag("outputPin")
-		          || !overlappedCollider.CompareTag("inputPin")
-		          || !overlappedCollider.CompareTag("output")) {
+		} else if (!collisionObject
+		          || !collisionObject.CompareTag("outputPin")
+		          || !collisionObject.CompareTag("inputPin")
+		          || !collisionObject.CompareTag("output")) {
 			Destroy(line);
 		}
 

@@ -43,7 +43,6 @@ public class FunctionBlock : MonoBehaviour {
 	Transform breadboardLeft, breadboardRight;
 
 	// Variables for IF block (gained from UI canvas)
-
 	public string comparator;
 	public float comparatorValue;
 
@@ -81,8 +80,6 @@ public class FunctionBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-//		Debug.Log(lineHashes);
 
 		if (isClone && isFBbeingDragged) {
 			currentDraggingPosition = transform.position;
@@ -193,15 +190,9 @@ public class FunctionBlock : MonoBehaviour {
 			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = this.transform;
 		}
 
-//		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
-//			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = this.transform;
-//		}
-//		this.transform.parent.parent = temporaryChildParentContainer.transform;
-
 		pressed = true;
 
 		if (!isClone) {
-//			clone = Instantiate (block);
 
 			// Experimental code for when using prefab clone instead of transform clone
 			if (transform.parent.name.Contains("AND")) {
@@ -259,18 +250,6 @@ public class FunctionBlock : MonoBehaviour {
 		if (transform.Find("tangent1")) {
 			transform.Find("tangent1").transform.parent = GameObject.Find(lineNames[2]).transform;
 		}
-//		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
-//			if (fip.connectedLine) {
-//
-//			}
-				
-//		gameObject.transform.Find("Tangent(Clone)").transform.parent = 
-
-//		if (GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
-//			GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().tangent1.transform.parent = null;
-//		}
-
-//		Destroy(temporaryChildParentContainer);
 
 		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
