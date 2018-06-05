@@ -62,29 +62,43 @@ public class BreadBoardOutputPin : MonoBehaviour {
 
 		if (connectedLine) {
 
-			connectedLine.GetComponent<Line>().isEndingPointSnapped = false;
+			connectedLine.GetComponent<Bezier_Spline>().isEndingPointSnapped = false;
 
 			Vector2 screenPos = new Vector2 ();
 			Camera.main.ScreenToWorldPoint (screenPos);
 
-			clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
-				Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
-					lowerBound.bounds.max.y,
-					upperBound.bounds.min.y),
-				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+//			clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
+//				Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+//					lowerBound.bounds.max.y,
+//					upperBound.bounds.min.y),
+//				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
 
-			connectedLine.GetComponent<LineRenderer> ().SetPosition (0,
-				new Vector3 (connectedLine.GetComponent<Line> ().originObject.transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
-					connectedLine.GetComponent<Line> ().originObject.transform.position.y,
-					connectedLine.GetComponent<Line> ().originObject.transform.position.z));
-//			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
-			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
+//			connectedLine.GetComponent<LineRenderer> ().SetPosition (0,
+//				new Vector3 (connectedLine.GetComponent<Line> ().originObject.transform.position.x + (GetComponent<SpriteRenderer> ().bounds.size.x) / 2,
+//					connectedLine.GetComponent<Bezier_Spline> ().originObject.transform.position.y,
+//					connectedLine.GetComponent<Bezier_Spline> ().originObject.transform.position.z));
+////			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10);
+//			connectedLine.GetComponent<LineRenderer> ().SetPosition (1, clampVector);
 
 			collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
+			connectedLine.GetComponent<Bezier_Spline>().tangent2.transform.position = new Vector3 (
+				//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 2,
+				//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - GetComponent<CircleCollider2D>().bounds.size.x,
+				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1,
+				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
+				(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
+
+			connectedLine.GetComponent<Bezier_Spline>().controlPoints[4] = connectedLine.GetComponent<Bezier_Spline>().mouseFollower;
+			connectedLine.GetComponent<Bezier_Spline>().controlPoints[5] = connectedLine.GetComponent<Bezier_Spline>().mouseFollower;
+
 			if (collisionObject && (collisionObject.CompareTag ("inputPin")) ||
 				collisionObject && collisionObject.CompareTag("outputPin")) {
-				connectedLine.GetComponent<LineRenderer> ().SetPosition (1, collisionObject.transform.position);
+				connectedLine.GetComponent<Bezier_Spline>().controlPoints[4] = collisionObject.gameObject;
+				connectedLine.GetComponent<Bezier_Spline>().controlPoints[5] = collisionObject.gameObject;
+			} else if (!collisionObject) {
+				connectedLine.GetComponent<Bezier_Spline>().controlPoints[4] = connectedLine.GetComponent<Bezier_Spline>().mouseFollower;
+				connectedLine.GetComponent<Bezier_Spline>().controlPoints[5] = connectedLine.GetComponent<Bezier_Spline>().mouseFollower;
 			}
 		}
 	}
@@ -96,13 +110,13 @@ public class BreadBoardOutputPin : MonoBehaviour {
 				// Line is already connected
 				Destroy(connectedLine.gameObject);
 				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				this.connectedLine = null;
 
 			} else {
 				// No line connected
 				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				this.connectedLine = null;
 			}
 		} else if (collisionObject && (collisionObject.CompareTag("outputPin"))) {
@@ -110,14 +124,14 @@ public class BreadBoardOutputPin : MonoBehaviour {
 				// Line is already connected
 				Destroy(collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
 				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
-				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
+				connectedLine.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 			} else {
 				// No line connected
 				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = connectedLine;
-				connectedLine.GetComponent<Line>().destinObject = collisionObject.gameObject;
-				connectedLine.GetComponent<Line>().isEndingPointSnapped = true;
+				connectedLine.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
+				connectedLine.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
 				this.connectedLine = null;
 			}
 		} else if (!collisionObject
