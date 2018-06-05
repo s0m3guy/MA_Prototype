@@ -279,18 +279,22 @@ public class FunctionBlock : MonoBehaviour {
 		// Depending on type, reset connection
 		if (elementAboveWasteBin) {
 			if (hasOutputLines && typeOfDestin == "FB") {
-				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Bezier_Spline> ().destinObject.GetComponent<FuncBlockInputPin> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().destinObject.GetComponent<FuncBlockInputPin>().connectedLine = null;
 			} else if (hasOutputLines && typeOfDestin == "outputPin") {
-				this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.GetComponent<Bezier_Spline> ().destinObject.GetComponent<BreadBoardOutputPin> ().connectedLine = null;
+				this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<Bezier_Spline>().destinObject.GetComponent<BreadBoardOutputPin>().connectedLine = null;
 			}
 
 			// Destruction of input is looped because of several inputs
 			foreach (FuncBlockInputPin ic in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
-				Destroy (ic.connectedLine.gameObject);
-
+				if (ic.connectedLine) {
+					Destroy(ic.connectedLine.gameObject);
+				}
+			
 			// Destruction of output is not because there is only one
-			Destroy (this.GetComponentInChildren<FuncBlockOutputPin> ().connectedLine.gameObject);
-			Destroy (this.transform.parent.gameObject);
+			if (this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+				Destroy(this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine.gameObject);
+			}
+			Destroy(this.transform.parent.gameObject);
 		}
 
 		if (testSquare.activeSelf) {
