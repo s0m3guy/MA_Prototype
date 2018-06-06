@@ -34,7 +34,7 @@ public class Bezier_Spline : MonoBehaviour {
 
 		lineRenderer = GetComponent<LineRenderer> ();
 		lineRenderer.useWorldSpace = true;
-		lineRenderer.material = new Material (Shader.Find ("Particles/Additive"));
+//		lineRenderer.material = new Material (Shader.Find ("Particles/Additive"));
 
 		tangent1 = Instantiate (Resources.Load ("Tangent")) as GameObject;
 		tangent2 = Instantiate (Resources.Load ("Tangent")) as GameObject;
@@ -75,18 +75,18 @@ public class Bezier_Spline : MonoBehaviour {
 
 		forwardInput(input, output);
 
-//		if (originObject) {
-//			if (originObject.CompareTag("inputDot")) {
-//				tempBreadBoardInput = originObject.GetComponent<BreadBoardInputPin>();
-//				if (tempBreadBoardInput.inputType != "") {
-//					GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
-//					GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
-//				}
-//			} else if (originObject.CompareTag("output")) {
-//				GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
-//				GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
-//			}
-//		}
+		if (originObject) {
+			if (originObject.CompareTag("inputDot")) {
+				tempBreadBoardInput = originObject.GetComponent<BreadBoardInputPin>();
+				if (tempBreadBoardInput.inputType != "") {
+					GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
+					GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
+				}
+			} else if (originObject.CompareTag("output")) {
+				GetComponent<LineRenderer>().startColor = originObject.GetComponent<SpriteRenderer>().color;
+				GetComponent<LineRenderer>().endColor = originObject.GetComponent<SpriteRenderer>().color;
+			}
+		}
 	}
 
 	// forwardInput() in Line.cs takes input value and copies value to target object
