@@ -78,9 +78,6 @@ public class FuncBlockInputPin : MonoBehaviour {
 			} else {
 				// No line connected
 				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = connectedLine;
-				Debug.Log(connectedLine);
-				Debug.Log(connectedLine.GetComponent<Bezier_Spline>().destinObject);
-				Debug.Log(collisionObject);
 				connectedLine.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				connectedLine.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
 				this.connectedLine = null;

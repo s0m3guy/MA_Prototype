@@ -173,13 +173,13 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnMouseDown() {
 
-		if (this.transform.Find("Input 1").GetComponent<FuncBlockInputPin>().connectedLine) {
+		if (this.transform.Find("Input 1") && this.transform.Find("Input 1").GetComponent<FuncBlockInputPin>().connectedLine) {
 			lineNames[0] = this.transform.Find("Input 1").GetComponent<FuncBlockInputPin>().connectedLine.name;
 		}
 		if (this.transform.Find("Input 2") && this.transform.Find("Input 2").GetComponent<FuncBlockInputPin>().connectedLine) {
 			lineNames[1] = this.transform.Find("Input 2").GetComponent<FuncBlockInputPin>().connectedLine.name;
 		}
-
+			
 		foreach (FuncBlockInputPin fip in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
 			if (fip.connectedLine) {
 				fip.connectedLine.GetComponent<Bezier_Spline>().tangent2.transform.parent = this.transform;
@@ -240,14 +240,15 @@ public class FunctionBlock : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
-		
-		if (transform.Find("tangent2")) {
+
+		Debug.Log(lineNames[0]);
+		if (transform.Find("tangent2") && lineNames[0] != null) {
 			transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[0]).transform;
 		}
-		if (transform.Find("tangent2")) {
+		if (transform.Find("tangent2") && lineNames[1] != null){
 			transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[1]).transform;
 		}
-		if (transform.Find("tangent1")) {
+		if (transform.Find("tangent1") && lineNames[2] != null){
 			transform.Find("tangent1").transform.parent = GameObject.Find(lineNames[2]).transform;
 		}
 
