@@ -72,8 +72,9 @@ public class FunctionBlock : MonoBehaviour {
 
 		outputSpriteRenderer = outputGO.GetComponent<SpriteRenderer>();
 		input1SpriteRenderer = input1GO.GetComponent<SpriteRenderer>();
-		input2SpriteRenderer = input2GO.GetComponent<SpriteRenderer>();
-
+		if (input2GO) {
+			input2SpriteRenderer = input2GO.GetComponent<SpriteRenderer>();
+		}
 	}
 
 	// Use this for initialization
@@ -107,9 +108,10 @@ public class FunctionBlock : MonoBehaviour {
 		input1GO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
 		input1GO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 
-		input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
-		input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
-
+		if (input2GO) {
+			input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+			input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+		}
 
 
 		/* Possibly deprecated coloring of inputs and ouputs
@@ -361,42 +363,34 @@ public class FunctionBlock : MonoBehaviour {
 				} else if (comparator == "<") {
 					if (inputs[0] < comparatorValue) {
 						output = 5;
-						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
-						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+						setSpriteRendererColor("output", Color.green);
 					} else {
 						output = 0;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						setSpriteRendererColor("output", Color.white);
 					}
 				} else if (comparator == ">") {
 					if (inputs[0] > comparatorValue) {
 						output = 5;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
+						setSpriteRendererColor("output", Color.green);
 					} else {
 						output = 0;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						setSpriteRendererColor("output", Color.white);
 					}
 				} else if (comparator == "≤") {
 					if (inputs[0] <= comparatorValue) {
 						output = 5;
-						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
+						setSpriteRendererColor("output", Color.green);
 					} else {
 						output = 0;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						setSpriteRendererColor("output", Color.white);
 					}
 				} else if (comparator == "≥") {
 					if (inputs[0] >= comparatorValue) {
 						output = 5;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
+						setSpriteRendererColor("output", Color.green);
 					} else {
 						output = 0;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						setSpriteRendererColor("output", Color.white);
 					}
 				}
 			} else {
