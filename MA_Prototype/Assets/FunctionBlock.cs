@@ -52,6 +52,7 @@ public class FunctionBlock : MonoBehaviour {
 	GameObject temporaryChildParentContainer;
 	string[] lineNames = new string[3];
 
+	SpriteRenderer outputSpriteRenderer, input1SpriteRenderer, input2SpriteRenderer;
 
 	void Awake () {
 
@@ -68,6 +69,11 @@ public class FunctionBlock : MonoBehaviour {
 			input2GO = transform.Find ("Input 2").gameObject;
 		}
 		outputGO = transform.Find ("OutputA").gameObject;
+
+		outputSpriteRenderer = outputGO.GetComponent<SpriteRenderer>();
+		input1SpriteRenderer = input1GO.GetComponent<SpriteRenderer>();
+		input2SpriteRenderer = input2GO.GetComponent<SpriteRenderer>();
+
 	}
 
 	// Use this for initialization
@@ -345,38 +351,70 @@ public class FunctionBlock : MonoBehaviour {
 				if (comparator == "=") {
 					if (inputs[0] == comparatorValue) {
 						output = 5;
+						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 					} else {
 						output = 0;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
 					}
 				} else if (comparator == "<") {
 					if (inputs[0] < comparatorValue) {
 						output = 5;
+						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 					} else {
 						output = 0;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
 					}
 				} else if (comparator == ">") {
 					if (inputs[0] > comparatorValue) {
 						output = 5;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
 					} else {
 						output = 0;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
 					}
 				} else if (comparator == "≤") {
 					if (inputs[0] <= comparatorValue) {
 						output = 5;
+						outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
 					} else {
 						output = 0;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
 					}
 				} else if (comparator == "≥") {
 					if (inputs[0] >= comparatorValue) {
 						output = 5;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.green;
 					} else {
 						output = 0;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
+						outputGO.GetComponent<SpriteRenderer>().color = Color.white;
 					}
 				}
 			} else {
 				output = 0;
 			}
 		}
+	}
+
+	void setSpriteRendererColor (string type, Color color) {
+
+		if (type == "input1") {
+			input1SpriteRenderer.color = color;
+		} else if (type == "input2") {
+			input2SpriteRenderer.color = color;
+		} else if (type == "output") {
+			outputSpriteRenderer.color = color;
+		}
+
 	}
 
 	public bool checkClone () {
