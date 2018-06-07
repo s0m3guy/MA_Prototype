@@ -98,6 +98,16 @@ public class FunctionBlock : MonoBehaviour {
 
 		forwardInput ();
 
+		input1GO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+		input1GO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+
+		input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+		input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+
+
+
+		/* Possibly deprecated coloring of inputs and ouputs
+		 * 
 		if (transform.parent.name.Contains ("VALUE")) {
 			lerpedColor = Color.Lerp (Color.white, Color.green, inputs [0] / 5);
 			input1GO.GetComponent<SpriteRenderer> ().color = lerpedColor;
@@ -128,6 +138,7 @@ public class FunctionBlock : MonoBehaviour {
 				outputGO.GetComponent<SpriteRenderer>().color = Color.green;
 			}
 		}
+		*/
 
 			// in case removal overlay is active
 //		if (testSquare != null && testSquare.activeSelf) {
@@ -311,24 +322,24 @@ public class FunctionBlock : MonoBehaviour {
 		if (transform.parent.name.Contains("_AND")) {
 			if (inputs[0] == 0 || inputs[1] == 0) {
 				output = 0;
-			} else if (inputs[0] == 5 && inputs[1] == 5) {
+			} else if (inputs[0] != 0 && inputs[1] != 0) {
 				output = 5;
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 			}
 		} else if (transform.parent.name.Contains("_OR")) {
-			if (inputs[0] == 5 || inputs[1] == 5) {
+			if (inputs[0] != 0 || inputs[1] != 0) {
 				output = 5;
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 			} else if (inputs[0] == 0 && inputs[1] == 0) {
-				output = 0;
-			}
-		} else if (transform.parent.name.Contains("_XOR")) {
-			if ((inputs[0] == 1 && inputs[1] == 0) || (inputs[0] == 0 && inputs[1] == 1)) {
-				output = 1;
-			} else if ((inputs[0] == 0 && inputs[1] == 0) || (inputs[0] == 1 && inputs[1] == 1)) {
 				output = 0;
 			}
 		} else if (transform.parent.name.Contains("VALUE")) {
 			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0");
 			output = inputs[0];
+			outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+			outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 		} else if (transform.parent.name.Contains("_IF")) {
 			if (inputPins[0].connectedLine) {
 				if (comparator == "=") {

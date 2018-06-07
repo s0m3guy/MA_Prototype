@@ -1,12 +1,12 @@
 # Created by https://www.gitignore.io/api/unity
 
 ### Unity ###
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+MA_Prototype/[Ll]ibrary/
+MA_Prototype/[Tt]emp/
+MA_Prototype/[Oo]bj/
+MA_Prototype/[Bb]uild/
+MA_Prototype/[Bb]uilds/
+MA_Prototype/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -38,3 +38,5 @@ sysinfo.txt
 
 
 # End of https://www.gitignore.io/api/unity
+
+MA_Prototype/Temp/

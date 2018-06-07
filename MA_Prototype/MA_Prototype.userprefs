@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FunctionBlock.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FunctionBlockSpawner.cs">
     <Files>
       <File FileName="..\..\MA_Sandbox\Assets\MovingScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\FunctionBlock.cs" Line="154" Column="46" />
+      <File FileName="Assets\FunctionBlock.cs" Line="342" Column="147" />
+      <File FileName="Assets\Bezier_Spline.cs" Line="83" Column="43" />
+      <File FileName="Assets\FunctionBlockSpawner.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
