@@ -289,6 +289,21 @@ Prefab:
       propertyPath: m_TagString
       value: outputPin
       objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.5294118
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114981358710999984, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}
@@ -1848,6 +1863,21 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 212214540279526932, guid: 1ed521d8ac6589b4e84aa620f990659a,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.5294118
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114981358710999984, guid: 1ed521d8ac6589b4e84aa620f990659a, type: 2}

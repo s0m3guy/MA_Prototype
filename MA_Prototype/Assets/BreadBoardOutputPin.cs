@@ -51,6 +51,7 @@ public class BreadBoardOutputPin : MonoBehaviour {
 
 		if (connectedLine == null) {
 			input = 0;
+			GetComponent<SpriteRenderer>().color = new Color(135, 135, 135, 255);
 		}
 
 		if (connectedLine) {
