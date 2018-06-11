@@ -110,11 +110,6 @@ public class BreadBoardInputPin : MonoBehaviour {
 		line.name = "Line_(" + line.GetHashCode() + ")";
 		line.GetComponent<Bezier_Spline> ().originObject = this.gameObject;
 
-//		if (newLineObj) {
-//			newLineRend = newLineObj.GetComponent<LineRenderer> ();
-//			newLineScript = newLineObj.GetComponent<Line> ();
-//		}
-
 		Manager.currentlyDrawnLine = newLineObj;
 	}
 
@@ -135,18 +130,11 @@ public class BreadBoardInputPin : MonoBehaviour {
 		collisionObject = Physics2D.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 
 		line.GetComponent<Bezier_Spline>().tangent2.transform.position = new Vector3 (
-			//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 2,
-//			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - GetComponent<CircleCollider2D>().bounds.size.x,
 			((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x - 1),
 			Mathf.Clamp ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).y,
 				lowerBound.bounds.max.y,
 				upperBound.bounds.min.y),
 			(Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).z);
-
-//		if (overlappedCollider && (overlappedCollider.CompareTag ("inputPin")) 
-//			|| overlappedCollider && overlappedCollider.CompareTag("outputPin")) {
-//			line.GetComponent<LineRenderer> ().SetPosition (1, overlappedCollider.transform.position);
-//		}
 
 		if ((collisionObject && collisionObject.CompareTag("inputPin")) ||
 			collisionObject && collisionObject.CompareTag("outputPin")) {
