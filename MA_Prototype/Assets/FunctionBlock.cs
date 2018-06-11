@@ -349,8 +349,10 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (transform.parent.name.Contains("VALUE")) {
 			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0");
 			output = inputs[0];
-			outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
-			outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+			if (input1GO.GetComponent<FuncBlockInputPin>().connectedLine) {
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+			}
 		} else if (transform.parent.name.Contains("_IF")) {
 			if (inputPins[0].connectedLine) {
 				if (comparator == "=") {

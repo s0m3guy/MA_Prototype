@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FunctionBlockSpawner : MonoBehaviour {
 
@@ -12,13 +13,15 @@ public class FunctionBlockSpawner : MonoBehaviour {
 
 	Canvas UIcanvas;
 
+	SpriteRenderer[] childSprites;
+
 	void Awake() {
 		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
 	}
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -37,6 +40,7 @@ public class FunctionBlockSpawner : MonoBehaviour {
 		} else if (transform.parent.name.Contains("IF")) {
 			clone = Instantiate(Resources.Load("FB/FunctionBlock_IF")) as GameObject;
 		}
+		childSprites = clone.GetComponentsInChildren<SpriteRenderer>();
 
 		clone.GetComponentInChildren<FunctionBlock> ().isClone = true;
 		clone.tag = "funcBlockClone";
@@ -47,7 +51,17 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	}
 
 	void OnMouseDrag() {
-		
+
+//		transform.Find("Input 1").GetComponent<SpriteRenderer>().enabled = true;
+//		transform.Find("Input 2").GetComponent<SpriteRenderer>().enabled = true;
+//		transform.Find("Output").GetComponent<SpriteRenderer>().enabled = true;
+
+
+		foreach (SpriteRenderer sr in childSprites)
+			sr.enabled = true;
+
+		clone.GetComponentInChildren<Text>().enabled = true;
+
 		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
 		clone.transform.position = new Vector3 (
