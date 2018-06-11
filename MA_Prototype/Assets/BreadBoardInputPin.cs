@@ -115,6 +115,10 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	void OnMouseDrag () {
 
+		if (levelTimer < 0.25) {
+			line.GetComponent<LineRenderer>().enabled = true;
+		}
+
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
