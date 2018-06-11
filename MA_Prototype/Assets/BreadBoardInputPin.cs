@@ -180,8 +180,15 @@ public class BreadBoardInputPin : MonoBehaviour {
 		} else if (levelTimer < 0.25 && inputType == "digital") {
 			SwitchDot();
 			Destroy(line);
-		} else if (levelTimer < 0.25 && inputType == "analog") {
+		} else if (levelTimer > 0.25 && inputType != "" && (collisionObject && collisionObject.gameObject == this.gameObject)) {
+			Handheld.Vibrate();
+			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
+			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
 
+			UIcanvas.enabled = true;
+			triangle.enabled = true;
+			Manager.currentInputPin = this.gameObject;
+			Destroy(line);
 		}
 
 		levelTimer = 0;

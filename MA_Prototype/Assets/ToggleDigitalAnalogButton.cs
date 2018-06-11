@@ -38,6 +38,10 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 		Manager.currentInputPin.GetComponent<BreadBoardInputPin>().inputType = status;
 		if (status == "analog") {
 			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().startSine();
+		} else if (status == "digital") {
+			Debug.Log("Switched to digital");
+			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().CancelInvoke();
+			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().inputValue = 0;
 		}
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		sr.enabled = false;
