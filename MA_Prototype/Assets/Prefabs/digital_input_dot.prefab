@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4891207924742478}
   - component: {fileID: 212152838875619608}
-  - component: {fileID: 114493922001927316}
   - component: {fileID: 58806702980731486}
+  - component: {fileID: 114662540617862220}
   m_Layer: 0
   m_Name: digital_input_dot
   m_TagString: inputDot
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1922247906137968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.34, y: 3, z: 0}
-  m_LocalScale: {x: 0.67577845, y: 0.67577845, z: 0.67577845}
+  m_LocalPosition: {x: -6.228, y: 1.978, z: 0}
+  m_LocalScale: {x: 1.1343952, y: 1.1343952, z: 1.1343952}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +57,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.245
---- !u!114 &114493922001927316
+--- !u!114 &114662540617862220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1922247906137968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039dc89c315a06e4aa2b84dbf9d59417, type: 3}
+  m_Script: {fileID: 11500000, guid: 717a6f9aa1d995a4ab489a271eacac76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputValue: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   variable: 0
   inputType: 
   sineValue: 0
-  lerpedColor: {r: 1, g: 1, b: 1, a: 1}
+  lerpedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212152838875619608
 SpriteRenderer:
   m_ObjectHideFlags: 1

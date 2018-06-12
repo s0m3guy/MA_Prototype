@@ -332,6 +332,7 @@ public class FunctionBlock : MonoBehaviour {
 		if (transform.parent.name.Contains("_AND")) {
 			if (inputs[0] == 0 || inputs[1] == 0) {
 				output = 0;
+				setSpriteRendererColor("output", Color.white);
 			} else if (inputs[0] != 0 && inputs[1] != 0) {
 				output = 5;
 				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
