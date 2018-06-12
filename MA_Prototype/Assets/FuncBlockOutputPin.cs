@@ -34,6 +34,8 @@ public class FuncBlockOutputPin : MonoBehaviour {
 
 	void OnMouseDrag () {
 
+		line.GetComponent<LineRenderer>().enabled = true;
+
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 

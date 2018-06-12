@@ -16,12 +16,10 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 	void Update() {
 
-//		if (connectedLine) {
-//			GetComponent<SpriteRenderer> ().color = Color.green;
-//		} else {
-//			GetComponent<SpriteRenderer> ().color = Color.white;
-//		}
-	}
+		if (!connectedLine) {
+			GetComponent<SpriteRenderer>().color = Color.white;
+		}
+}
 
 	void OnMouseDrag() {
 

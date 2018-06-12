@@ -115,7 +115,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	void OnMouseDrag () {
 
-		if (levelTimer < 0.25) {
+		if (levelTimer >= 0.25) {
 			line.GetComponent<LineRenderer>().enabled = true;
 		}
 
