@@ -263,7 +263,6 @@ public class FunctionBlock : MonoBehaviour {
 
 	void OnMouseUp() {
 
-		Debug.Log(lineNames[0]);
 		if (transform.Find("tangent2") && lineNames[0] != null) {
 			transform.Find("tangent2").transform.parent = GameObject.Find(lineNames[0]).transform;
 		}
@@ -341,8 +340,10 @@ public class FunctionBlock : MonoBehaviour {
 		} else if (transform.parent.name.Contains("_OR")) {
 			if (inputs[0] != 0 || inputs[1] != 0) {
 				output = 5;
-				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
-				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+				if (input1GO.GetComponent<FuncBlockInputPin>().connectedLine) {
+					outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
+					outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+				}
 			} else if (inputs[0] == 0 && inputs[1] == 0) {
 				output = 0;
 			}
