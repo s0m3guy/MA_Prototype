@@ -1,11 +1,15 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FuncBlockInputPin.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FunctionBlock.cs">
     <Files>
-      <File FileName="Assets/BreadBoardInputPin.cs" Line="118" Column="1" />
-      <File FileName="Assets/FuncBlockOutputPin.cs" Line="37" Column="52" />
-      <File FileName="Assets/FuncBlockInputPin.cs" Line="74" Column="31" />
-      <File FileName="Assets/ToggleDigitalAnalogButton.cs" Line="42" Column="1" />
+      <File FileName="Assets\TestScript.cs" Line="29" Column="22" />
+      <File FileName="Assets\FunctionBlock.cs" Line="89" Column="34" />
+      <File FileName="Assets\BreadBoardInputPin.cs" Line="59" Column="76" />
+      <File FileName="Assets\FuncBlockOutputPin.cs" Line="1" Column="1" />
+      <File FileName="Assets\FuncBlockInputPin.cs" Line="1" Column="1" />
+      <File FileName="Assets\ToggleDigitalAnalogButton.cs" Line="46" Column="50" />
+      <File FileName="Assets\FunctionBlockSpawner.cs" Line="19" Column="1" />
+      <File FileName="Assets\UICanvasButton.cs" Line="52" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

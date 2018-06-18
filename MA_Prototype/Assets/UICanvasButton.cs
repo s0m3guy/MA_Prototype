@@ -12,10 +12,14 @@ public class UICanvasButton : MonoBehaviour {
 	string comparator, value;
 	float floatValue;
 
+	BoxCollider2D panelCollider;
+
 	void Start()
 	{
 		Button btn = yourButton.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
+
+		panelCollider = GetComponentInParent<BoxCollider2D>();
 	}
 
 	void TaskOnClick()
@@ -45,6 +49,7 @@ public class UICanvasButton : MonoBehaviour {
 		Manager.currentIFblock.GetComponentInChildren<Text>().text = "WENN \n" + comparator + value + "V?";
 		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparator = comparator;
 		Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparatorValue = floatValue;
+		panelCollider.enabled = false;
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		Manager.currentIFblock = null;
 	}
