@@ -19,16 +19,6 @@ public class FunctionBlockSpawner : MonoBehaviour {
 		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
 	}
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnMouseDown() {
 		
 		if (transform.parent.name.Contains("AND")) {
@@ -51,11 +41,6 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	}
 
 	void OnMouseDrag() {
-
-//		transform.Find("Input 1").GetComponent<SpriteRenderer>().enabled = true;
-//		transform.Find("Input 2").GetComponent<SpriteRenderer>().enabled = true;
-//		transform.Find("Output").GetComponent<SpriteRenderer>().enabled = true;
-
 
 		foreach (SpriteRenderer sr in childSprites)
 			sr.enabled = true;
