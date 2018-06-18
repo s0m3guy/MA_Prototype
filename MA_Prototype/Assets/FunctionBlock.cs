@@ -115,58 +115,6 @@ public class FunctionBlock : MonoBehaviour {
 				input2GO.GetComponent<SpriteRenderer>().color = input2GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
 			}
 		}
-
-
-		/* Possibly deprecated coloring of inputs and ouputs
-		 * 
-		if (transform.parent.name.Contains ("VALUE")) {
-			lerpedColor = Color.Lerp (Color.white, Color.green, inputs [0] / 5);
-			input1GO.GetComponent<SpriteRenderer> ().color = lerpedColor;
-		} else if (!transform.parent.name.Contains("VALUE") && inputs [0] == 0) {
-			input1GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (!transform.parent.name.Contains("VALUE") && inputs [0] == 5) {
-			input1GO.GetComponent<SpriteRenderer> ().color = Color.green;
-		}
-
-		if (inputs.Length == 2 && inputs [1] == 0) {
-			input2GO.GetComponent<SpriteRenderer> ().color = Color.white;
-		} else if (inputs.Length == 2 && inputs [1] == 5) {
-			input2GO.GetComponent<SpriteRenderer> ().color = Color.green;
-		}
-
-		if (output == 0) {
-			outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-		} else if (output == 5) {
-			outputGO.GetComponent<SpriteRenderer> ().color = Color.green;
-		}
-
-		if (transform.parent.name.Contains("VALUE")) {
-			lerpedColor = Color.Lerp(Color.white, Color.green, output / 5);
-			outputGO.GetComponent<SpriteRenderer>().color = lerpedColor;
-			if (!transform.parent.name.Contains("VALUE") && output == 0) {
-				outputGO.GetComponent<SpriteRenderer>().color = Color.white;
-			} else if (!transform.parent.name.Contains("VALUE") && output == 1) {
-				outputGO.GetComponent<SpriteRenderer>().color = Color.green;
-			}
-		}
-		*/
-
-			// in case removal overlay is active
-//		if (testSquare != null && testSquare.activeSelf) {
-//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Line";
-//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-//				this.GetComponentInChildren<Canvas> ().sortingOrder = 1;
-//
-//			foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>()) {
-//				spriteRend.sortingLayerName = "Functional Blocks";
-//			}
-//
-//				// in case it's not active
-//			} else if (testSquare != null && !testSquare.activeSelf) {
-//				testSquare.SetActive (false);
-//				this.GetComponent<SpriteRenderer> ().sortingLayerName = "Functional Blocks";
-//				this.GetComponentInChildren<Canvas> ().sortingLayerName = "FB Label";
-//			}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
