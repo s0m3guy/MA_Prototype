@@ -26,7 +26,7 @@ public class TestScript : MonoBehaviour {
 //		sr.color = Color.red;
 
 		if (Input.GetMouseButton(0)) {
-			Debug.Log(Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+//			Debug.Log(Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
 		}
 	}
 }

@@ -184,13 +184,41 @@ public class FunctionBlock : MonoBehaviour {
 				sr.sortingLayerName = "Above Removal Overlay";
 			}
 
+
+			foreach (FuncBlockInputPin ic in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
+				if (ic.connectedLine) {
+					ic.connectedLine.GetComponent<LineRenderer>().sortingLayerName = "Above Removal Overlay";
+				}
+
+			if (this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+				this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<LineRenderer>().sortingLayerName = "Above Removal Overlay";
+			}
+
+
 			this.GetComponent<SpriteRenderer>().sortingOrder = 1;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.grey;
-		elementAboveWasteBin = false;
+		if (other.gameObject.tag == "testSquare") {
+			GameObject.FindGameObjectWithTag("testInnerSquare").GetComponent<SpriteRenderer>().color = Color.grey;
+			elementAboveWasteBin = false;
+
+			this.GetComponent<SpriteRenderer>().sortingLayerName = "Functional Blocks";
+			this.GetComponentInChildren<Canvas>().sortingLayerName = "FB Label";
+			foreach (SpriteRenderer sr in this.GetComponentsInChildren(typeof(SpriteRenderer))) {
+				sr.sortingLayerName = "Functional Blocks";
+			}
+				
+			foreach (FuncBlockInputPin ic in this.GetComponentsInChildren(typeof(FuncBlockInputPin)))
+				if (ic.connectedLine) {
+					ic.connectedLine.GetComponent<LineRenderer>().sortingLayerName = "Line";
+				}
+
+			if (this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine) {
+				this.GetComponentInChildren<FuncBlockOutputPin>().connectedLine.GetComponent<LineRenderer>().sortingLayerName = "Line";
+			}
+		}
 	}
 
 	void OnMouseDown() {
