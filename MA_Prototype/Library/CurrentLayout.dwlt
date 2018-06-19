@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 471}
   m_MaxSize: {x: 10002, y: 14021}
   vertical: 1
-  controlID: 98
+  controlID: 155
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 571}
   m_MaxSize: {x: 18006, y: 18021}
   vertical: 0
-  controlID: 129
+  controlID: 107
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 571}
   m_MaxSize: {x: 14006, y: 18021}
   vertical: 1
-  controlID: 130
+  controlID: 108
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 471}
   m_MaxSize: {x: 14006, y: 14021}
   vertical: 0
-  controlID: 131
+  controlID: 109
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 442}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 132
+  controlID: 110
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -438,7 +438,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
     m_UniformScale: 1
     m_UpDirection: 1
@@ -496,24 +496,24 @@ MonoBehaviour:
     height: 376
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 645ffaff
-    m_LastClickedID: -368796
-    m_ExpandedIDs: 685ffaff527ffaffc8a2faff5ac6faff2ae1faffea3afcff043bfcff063bfcffd03cfcffe63cfcffe83cfcfff0f8fcfff2f8fcffe00efdffe20efdff9019fdff9219fdffb654fdff9efbffff00000000ec290000782b0000
+    scrollPos: {x: 0, y: 73}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 6e6effff0487ffff0687ffffc88fffff309bffffeedfffff9efbffff00000000322a0000fc2a0000542b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Input 1
+      m_OriginalName: Input 1
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -30994
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 4
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -561,18 +561,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Resources
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ilja\coding\MA_Prototype\MA_Prototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 17}
-    m_SelectedIDs: cc270000
-    m_LastClickedID: 10188
+    m_SelectedIDs: be270000
+    m_LastClickedID: 10174
     m_ExpandedIDs: 00000000be270000cc2700002e28000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 366}
+    m_ScrollPosition: {x: 0, y: 1482}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 110
 --- !u!114 &20
@@ -685,13 +685,13 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 344642.9429703924
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.051169395, y: 1.061624, z: 0.43783855}
+    m_Target: {x: 1.7620726, y: 0.8818407, z: 0.4782376}
     speed: 2
-    m_Value: {x: -0.051169395, y: 1.061624, z: 0.43783855}
+    m_Value: {x: 1.7620726, y: 0.8818407, z: 0.4782376}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -707,27 +707,27 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     yGrid:
-      m_Target: 1
-      speed: 2
-      m_Value: 1
-    zGrid:
       m_Target: 0
       speed: 2
       m_Value: 0
+    zGrid:
+      m_Target: 1
+      speed: 2
+      m_Value: 1
   m_Rotation:
-    m_Target: {x: 0.15593246, y: -0.44599074, z: 0.07922735, w: 0.87778145}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.15593246, y: -0.4459907, z: 0.07922735, w: 0.87778145}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.126039
+    m_Target: 9.081563
     speed: 2
-    m_Value: 13.126039
+    m_Value: 9.081563
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: 0.15593246, y: -0.44599074, z: 0.07922735, w: 0.87778145}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
