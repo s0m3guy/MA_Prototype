@@ -44,6 +44,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 	Vector3 clampVector;
 	BoxCollider2D upperBound, lowerBound;
 
+	Text debugText1, debugText2;
 
 	void Awake () {
 		spritRend = gameObject.GetComponent<SpriteRenderer> ();
@@ -59,6 +60,9 @@ public class BreadBoardInputPin : MonoBehaviour {
 		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
 
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs
+
+//		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
+//		debugText2 = GameObject.Find("DebugText2").GetComponent<Text>();
 	}
 
 	// Update is called once per frame
@@ -108,6 +112,8 @@ public class BreadBoardInputPin : MonoBehaviour {
 		// instantiate Line after clicking circle
 		line = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 		line.name = "Line_(" + line.GetHashCode() + ")";
+//		debugText1.text = "Instantiated " + line.name;
+
 		line.GetComponent<Bezier_Spline> ().originObject = this.gameObject;
 
 		Manager.currentlyDrawnLine = newLineObj;
@@ -118,7 +124,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		if (levelTimer >= 0.25) {
 			line.GetComponent<LineRenderer>().enabled = true;
 		}
-
+//
 		Vector2 screenPos = new Vector2 ();
 		Camera.main.ScreenToWorldPoint (screenPos);
 
@@ -149,13 +155,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 			line.GetComponent<Bezier_Spline>().controlPoints[5] = line.GetComponent<Bezier_Spline>().mouseFollower;
 		}
 	}
-
-	public void forwardInput (float input, float[] outputs) {
-		for (int i = 0; i <= outputs.Length-1; i++) {
-			outputs[i] = inputValue;
-		}
-	}
-
+		
 	void OnMouseUp () {
 
 		if (levelTimer < 0.25 && inputType == "") {
@@ -167,8 +167,8 @@ public class BreadBoardInputPin : MonoBehaviour {
 			UIcanvas.enabled = true;
 			triangle.enabled = true;
 			Manager.currentInputPin = this.gameObject;
+//			debugText2.text = "Destroyed " + line.name;
 			Destroy(line);
-
 		} else if (levelTimer < 0.25 && inputType == "digital") {
 			SwitchDot();
 			Destroy(line);
@@ -220,5 +220,11 @@ public class BreadBoardInputPin : MonoBehaviour {
 		}
 
 		Manager.currentlyDrawnLine = null;
+	}
+
+	public void forwardInput (float input, float[] outputs) {
+		for (int i = 0; i <= outputs.Length-1; i++) {
+			outputs[i] = inputValue;
+		}
 	}
 }

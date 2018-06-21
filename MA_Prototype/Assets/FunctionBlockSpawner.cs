@@ -15,8 +15,13 @@ public class FunctionBlockSpawner : MonoBehaviour {
 
 	SpriteRenderer[] childSprites;
 
+	Transform leftBound, rightBound;
+
 	void Awake() {
 		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
+
+		leftBound = GameObject.Find("LeftBound").GetComponent<Transform>();
+		rightBound = GameObject.Find("RightBound").GetComponent<Transform>();
 	}
 
 	void OnMouseDown() {
@@ -48,13 +53,15 @@ public class FunctionBlockSpawner : MonoBehaviour {
 		clone.GetComponentInChildren<Text>().enabled = true;
 
 		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
 		clone.transform.position = new Vector3 (
 			Mathf.Clamp (cursorPosition.x,
-				(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
-				breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
+				leftBound.position.x, 
+				rightBound.position.x),
 			cursorPosition.y,
 			cursorPosition.z);
+
 //		clone.transform.position = cursorPosition;
 	}
 

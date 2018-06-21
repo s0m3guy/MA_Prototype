@@ -54,6 +54,8 @@ public class FunctionBlock : MonoBehaviour {
 
 	SpriteRenderer outputSpriteRenderer, input1SpriteRenderer, input2SpriteRenderer;
 
+	Transform leftBound, rightBound;
+
 	void Awake () {
 
 		testSquare = GameObject.FindGameObjectWithTag("testSquare");
@@ -83,6 +85,9 @@ public class FunctionBlock : MonoBehaviour {
 		inputPins = GetComponentsInChildren<FuncBlockInputPin>() as FuncBlockInputPin[];
 			
 		block = transform.parent.gameObject.transform;
+
+		leftBound = GameObject.Find("LeftBound").GetComponent<Transform>();
+		rightBound = GameObject.Find("RightBound").GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -230,8 +235,8 @@ public class FunctionBlock : MonoBehaviour {
 			// Mathf.Clamp() restricts the movement of the dragged FB to the working area
 			transform.parent.position = new Vector3 (
 				Mathf.Clamp (curPosition.x,
-					(breadboardLeft.position.x+breadboardLeft.GetComponent<BoxCollider2D>().bounds.size.x)+0.4f, 
-					breadboardRight.position.x-breadboardRight.GetComponent<BoxCollider2D>().bounds.size.x),
+					leftBound.position.x, 
+					rightBound.position.x),
 				curPosition.y,
 				curPosition.z);
 		}
@@ -330,6 +335,8 @@ public class FunctionBlock : MonoBehaviour {
 			if (input1GO.GetComponent<FuncBlockInputPin>().connectedLine) {
 				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().startColor;
 				outputGO.GetComponent<SpriteRenderer>().color = input1GO.GetComponent<FuncBlockInputPin>().connectedLine.GetComponent<LineRenderer>().endColor;
+			} else if (!input1GO.GetComponent<FuncBlockInputPin>().connectedLine) {
+				setSpriteRendererColor("output", Color.white);
 			}
 		} else if (transform.parent.name.Contains("_IF")) {
 			if (inputPins[0].connectedLine) {
@@ -378,6 +385,7 @@ public class FunctionBlock : MonoBehaviour {
 				}
 			} else {
 				output = 0;
+				setSpriteRendererColor("output", Color.white);
 			}
 		}
 	}
