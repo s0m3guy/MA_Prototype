@@ -51,7 +51,8 @@ public class UICanvasButton : MonoBehaviour {
 			Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparator = comparator;
 			Manager.currentIFblock.GetComponentInChildren<FunctionBlock>().comparatorValue = floatValue;
 		}
-//		panelCollider.enabled = false;
+
+		panelCollider.size = new Vector2(0, 0);
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		Manager.currentIFblock = null;
 	}

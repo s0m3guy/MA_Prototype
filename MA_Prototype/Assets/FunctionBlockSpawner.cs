@@ -17,11 +17,15 @@ public class FunctionBlockSpawner : MonoBehaviour {
 
 	Transform leftBound, rightBound;
 
+	BoxCollider2D panelCollider;
+
 	void Awake() {
 		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
 
 		leftBound = GameObject.Find("LeftBound").GetComponent<Transform>();
 		rightBound = GameObject.Find("RightBound").GetComponent<Transform>();
+
+		panelCollider = UIcanvas.GetComponentInChildren<BoxCollider2D>();
 	}
 
 	void OnMouseDown() {
@@ -68,6 +72,7 @@ public class FunctionBlockSpawner : MonoBehaviour {
 	void OnMouseUp() {
 		if (transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
+			panelCollider.size = new Vector2(493.2578f, 382.9383f);
 			Manager.currentIFblock = clone.gameObject;
 		}
 	}

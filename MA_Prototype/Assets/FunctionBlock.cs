@@ -56,6 +56,8 @@ public class FunctionBlock : MonoBehaviour {
 
 	Transform leftBound, rightBound;
 
+	BoxCollider2D panelCollider;
+
 	void Awake () {
 
 		testSquare = GameObject.FindGameObjectWithTag("testSquare");
@@ -88,6 +90,8 @@ public class FunctionBlock : MonoBehaviour {
 
 		leftBound = GameObject.Find("LeftBound").GetComponent<Transform>();
 		rightBound = GameObject.Find("RightBound").GetComponent<Transform>();
+
+		panelCollider = UIcanvas.GetComponentInChildren<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
@@ -256,11 +260,14 @@ public class FunctionBlock : MonoBehaviour {
 
 		if (!isClone && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
+			panelCollider.size = new Vector2(493.2578f, 382.9383f);
+			Debug.Log(panelCollider.size);
 			Manager.currentIFblock = clone.gameObject;
 		}
 
 		if (isClone && levelTimer < 0.25 && transform.parent.name.Contains("_IF")) {
 			UIcanvas.enabled = true;
+			panelCollider.size = new Vector2(493.2578f, 382.9383f);
 			Manager.currentIFblock = transform.parent.gameObject;
 		}
 
