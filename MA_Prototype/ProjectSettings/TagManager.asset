@@ -37,6 +37,7 @@ TagManager:
   - breadboardRight
   - splitter
   - inputPin
+  - debugUI
   layers:
   - Default
   - TransparentFX
