@@ -335,6 +335,7 @@ public class FunctionBlock : MonoBehaviour {
 				}
 			} else if (inputs[0] == 0 && inputs[1] == 0) {
 				output = 0;
+				setSpriteRendererColor("output", Color.white);
 			}
 		} else if (transform.parent.name.Contains("VALUE")) {
 			this.GetComponentInChildren<Text>().text = inputs[0].ToString("0.0");

@@ -12,6 +12,8 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 	[SerializeField]
 	SpriteRenderer sr;
 
+	BreadBoardInputPin bbInputPinScript;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,14 +37,19 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 
 	public void TaskOnClick()
 	{
-		Manager.currentInputPin.GetComponent<BreadBoardInputPin>().inputType = status;
-		if (status == "analog") {
-			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().startSine();
-		} else if (status == "digital") {
-			Debug.Log("Switched to digital");
-			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().CancelInvoke();
-			Manager.currentInputPin.GetComponent<BreadBoardInputPin>().inputValue = 0;
+		bbInputPinScript = Manager.currentInputPin.GetComponent<BreadBoardInputPin>();
+
+		if (status == "analog") {				// if new status is analog
+			bbInputPinScript.startSine();
+		} else if (status == "digital") {		// if new status is digital
+			bbInputPinScript.CancelInvoke();
+			Debug.Log(bbInputPinScript.inputType);
+			if (bbInputPinScript.inputType == "analog") {
+				bbInputPinScript.inputValue = 0;
+			}
 		}
+		bbInputPinScript.inputType = status;
+
 		transform.parent.parent.GetComponent<Canvas>().enabled = false;
 		sr.enabled = false;
 		Manager.currentInputPin = null;

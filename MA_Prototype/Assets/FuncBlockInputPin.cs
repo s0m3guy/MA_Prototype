@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FuncBlockInputPin : MonoBehaviour {
 
@@ -9,9 +10,13 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 	BoxCollider2D upperBound, lowerBound;
 
+	Text debugText1;
+
 	void Start() {
 		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
 		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
+
+		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
 	}
 
 	void Update() {
@@ -99,7 +104,12 @@ public class FuncBlockInputPin : MonoBehaviour {
 			|| !collisionObject.CompareTag("outputPin")
 			|| !collisionObject.CompareTag("inputPin")
 			|| !collisionObject.CompareTag("output")) {
-			Destroy(connectedLine);
+			if (connectedLine) {
+				debugText1.text = "[FBInputPin] About to destroy " + connectedLine.name;
+			}
+			//			Destroy(connectedLine);
+			DestroyImmediate(connectedLine);
+
 		}
 	}
 }

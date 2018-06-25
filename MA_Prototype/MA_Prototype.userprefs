@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BreadBoardInputPin.cs">
     <Files>
-      <File FileName="Assets/BreadBoardInputPin.cs" Line="158" Column="3" />
+      <File FileName="Assets/BreadBoardInputPin.cs" Line="171" Column="9" />
+      <File FileName="Assets/FuncBlockInputPin.cs" Line="107" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

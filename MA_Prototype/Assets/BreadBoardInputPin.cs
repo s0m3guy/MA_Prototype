@@ -61,8 +61,8 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 
-//		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
-//		debugText2 = GameObject.Find("DebugText2").GetComponent<Text>();
+		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
+		debugText2 = GameObject.Find("DebugText2").GetComponent<Text>();
 	}
 
 	// Update is called once per frame
@@ -112,7 +112,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		// instantiate Line after clicking circle
 		line = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 		line.name = "Line_(" + line.GetHashCode() + ")";
-//		debugText1.text = "Instantiated " + line.name;
+		debugText1.text = "Instantiated " + line.name;
 
 		line.GetComponent<Bezier_Spline> ().originObject = this.gameObject;
 
@@ -125,7 +125,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 			line.GetComponent<LineRenderer>().enabled = true;
 		}
 //
-		Vector2 screenPos = new Vector2 ();
+		Vector2 screenPos = new Vector2 ();				
 		Camera.main.ScreenToWorldPoint (screenPos);
 
 		clampVector = new Vector3 ((Camera.main.ScreenToWorldPoint (Input.mousePosition) + Vector3.forward * 10).x,
@@ -158,29 +158,48 @@ public class BreadBoardInputPin : MonoBehaviour {
 		
 	void OnMouseUp () {
 
+//		if (levelTimer < 0.25 && inputType == "") {
+//
+//			// insert transform code here to make it appear close to pin
+//			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
+//			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
+//
+//			UIcanvas.enabled = true;
+//			triangle.enabled = true;
+//			Manager.currentInputPin = this.gameObject;
+//			debugText2.text = "About to destroy line " + line.name;
+////			Destroy(line);
+//			DestroyImmediate(line);
+//			// ***here is where the already drawn and connected line is destroyed***
+//		} else if (levelTimer < 0.25 && inputType == "digital") {
+//			SwitchDot();
+//			Destroy(line);
+//		} else if (levelTimer > 0.25 && inputType != "" && (collisionObject && collisionObject.gameObject == this.gameObject)) {
+//			Handheld.Vibrate();
+//			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
+//			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
+//
+//			UIcanvas.enabled = true;
+//			triangle.enabled = true;
+//			Manager.currentInputPin = this.gameObject;
+//			Destroy(line);
+//		}
+
+
 		if (levelTimer < 0.25 && inputType == "") {
-
-			// insert transform code here to make it appear close to pin
-			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
-			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
-
-			UIcanvas.enabled = true;
-			triangle.enabled = true;
-			Manager.currentInputPin = this.gameObject;
-//			debugText2.text = "Destroyed " + line.name;
-			Destroy(line);
+			if (!UIcanvas.enabled) {
+				setTriangleAndADPanelPositions(this.transform);
+				popADPanel();
+				Manager.currentInputPin = this.gameObject;
+			}
 		} else if (levelTimer < 0.25 && inputType == "digital") {
 			SwitchDot();
-			Destroy(line);
 		} else if (levelTimer > 0.25 && inputType != "" && (collisionObject && collisionObject.gameObject == this.gameObject)) {
-			Handheld.Vibrate();
-			triangle.transform.position = new Vector3(transform.position.x + 0.59f, transform.position.y - 0.33f, transform.position.z);
-			ADPanel.transform.position = new Vector3(transform.position.x + 2.5f, transform.position.y - 0.9f, transform.position.z);
-
-			UIcanvas.enabled = true;
-			triangle.enabled = true;
+			setTriangleAndADPanelPositions(this.transform);
+			popADPanel();
 			Manager.currentInputPin = this.gameObject;
 			Destroy(line);
+			Debug.Log("A");
 		}
 
 		levelTimer = 0;
@@ -190,19 +209,33 @@ public class BreadBoardInputPin : MonoBehaviour {
 			if (collisionObject.GetComponent<FuncBlockInputPin>().connectedLine) {
 				// Line is already connected
 				Destroy(collisionObject.GetComponent<FuncBlockInputPin>().connectedLine.gameObject);
+				Debug.Log("C");
 				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
+
+				if (inputType == "") {
+					setTriangleAndADPanelPositions(this.transform);
+					popADPanel();
+					Manager.currentInputPin = this.gameObject;
+				}
 			} else {
 				// No line connected
 				collisionObject.GetComponent<FuncBlockInputPin>().connectedLine = line;
 				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 				line.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
+
+				if (inputType == "") {
+					setTriangleAndADPanelPositions(this.transform);
+					popADPanel();
+					Manager.currentInputPin = this.gameObject;
+				}
 			}
 		} else if (collisionObject && collisionObject.CompareTag("outputPin")) {
 			if (collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine) {
 				Destroy(collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine.gameObject);
+				Debug.Log("D");
 				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
@@ -217,6 +250,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		          || !collisionObject.CompareTag("inputPin")
 		          || !collisionObject.CompareTag("output")) {
 			Destroy(line);
+			Debug.Log("B");
 		}
 
 		Manager.currentlyDrawnLine = null;
@@ -226,5 +260,15 @@ public class BreadBoardInputPin : MonoBehaviour {
 		for (int i = 0; i <= outputs.Length-1; i++) {
 			outputs[i] = inputValue;
 		}
+	}
+
+	void setTriangleAndADPanelPositions(Transform t) {
+		triangle.transform.position = new Vector3 (t.position.x + 0.59f, t.position.y - 0.33f, t.position.z);
+		ADPanel.transform.position = new Vector3(t.position.x + 2.5f, t.position.y - 0.9f, t.position.z);
+	}
+
+	void popADPanel() {
+		UIcanvas.enabled = true;
+		triangle.enabled = true;
 	}
 }
