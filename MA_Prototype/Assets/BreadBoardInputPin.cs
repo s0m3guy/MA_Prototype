@@ -44,6 +44,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 	Vector3 clampVector;
 	BoxCollider2D upperBound, lowerBound;
 
+	GameObject debugBox1, debugBox2;
 	Text debugText1, debugText2;
 
 	void Awake () {
@@ -61,8 +62,13 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 		x  = Random.Range(0,10); // Generates randomization for all analog inputs
 
-		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
-		debugText2 = GameObject.Find("DebugText2").GetComponent<Text>();
+		debugBox1 = GameObject.Find("DebugText1");
+		debugBox2 = GameObject.Find("DebugText2");
+
+		if (debugText1 && debugText2) {
+			debugText1 = debugBox1.GetComponent<Text>();
+			debugText2 = debugBox2.GetComponent<Text>();
+		}
 	}
 
 	// Update is called once per frame
@@ -112,8 +118,9 @@ public class BreadBoardInputPin : MonoBehaviour {
 		// instantiate Line after clicking circle
 		line = Instantiate (Resources.Load("LinePrefab")) as GameObject;
 		line.name = "Line_(" + line.GetHashCode() + ")";
-		debugText1.text = "Instantiated " + line.name;
-
+		if (debugBox1) {
+			debugText1.text = "Instantiated " + line.name;
+		}
 		line.GetComponent<Bezier_Spline> ().originObject = this.gameObject;
 
 		Manager.currentlyDrawnLine = newLineObj;
@@ -121,7 +128,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	void OnMouseDrag () {
 
-		if (levelTimer >= 0.25) {
+		if (collisionObject && collisionObject.CompareTag("breadboardLeft") ) {
 			line.GetComponent<LineRenderer>().enabled = true;
 		}
 //

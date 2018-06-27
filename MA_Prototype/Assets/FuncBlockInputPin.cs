@@ -10,13 +10,18 @@ public class FuncBlockInputPin : MonoBehaviour {
 
 	BoxCollider2D upperBound, lowerBound;
 
+	GameObject debugBox1;
 	Text debugText1;
 
 	void Start() {
 		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
 		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
 
-		debugText1 = GameObject.Find("DebugText1").GetComponent<Text>();
+		debugBox1 = GameObject.Find("DebugText1");
+		
+		if (debugText1) {
+			debugText1 = debugBox1.GetComponent<Text>();
+		}
 	}
 
 	void Update() {
@@ -105,7 +110,9 @@ public class FuncBlockInputPin : MonoBehaviour {
 			|| !collisionObject.CompareTag("inputPin")
 			|| !collisionObject.CompareTag("output")) {
 			if (connectedLine) {
-				debugText1.text = "[FBInputPin] About to destroy " + connectedLine.name;
+				if (debugBox1) {
+					debugText1.text = "[FBInputPin] About to destroy " + connectedLine.name;
+				}
 			}
 			//			Destroy(connectedLine);
 			DestroyImmediate(connectedLine);

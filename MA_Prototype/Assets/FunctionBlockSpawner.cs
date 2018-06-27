@@ -21,13 +21,11 @@ public class FunctionBlockSpawner : MonoBehaviour {
 
 	void Awake() {
 		UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas").GetComponent<Canvas>();
-		Debug.Log(UIcanvas);
 
 		leftBound = GameObject.Find("LeftBound").GetComponent<Transform>();
 		rightBound = GameObject.Find("RightBound").GetComponent<Transform>();
 
 		panelCollider = UIcanvas.GetComponentInChildren<BoxCollider2D>();
-		Debug.Log(panelCollider);
 	}
 
 	void OnMouseDown() {

@@ -43,7 +43,6 @@ public class ToggleDigitalAnalogButton : MonoBehaviour {
 			bbInputPinScript.startSine();
 		} else if (status == "digital") {		// if new status is digital
 			bbInputPinScript.CancelInvoke();
-			Debug.Log(bbInputPinScript.inputType);
 			if (bbInputPinScript.inputType == "analog") {
 				bbInputPinScript.inputValue = 0;
 			}
