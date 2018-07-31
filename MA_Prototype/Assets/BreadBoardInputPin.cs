@@ -20,6 +20,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 	Canvas UIcanvas;
 	[SerializeField]
 	GameObject ADPanel;
+	Switch switchScript;
 	[SerializeField]
 	SpriteRenderer triangle;
 
@@ -57,6 +58,9 @@ public class BreadBoardInputPin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		switchScript = ADPanel.GetComponentInChildren<Switch>();
+
 		upperBound = GameObject.Find("Upperbound").GetComponent<BoxCollider2D>();
 		lowerBound = GameObject.Find("Lowerbound").GetComponent<BoxCollider2D>();
 
@@ -202,6 +206,13 @@ public class BreadBoardInputPin : MonoBehaviour {
 		} else if (levelTimer < 0.25 && inputType == "digital") {
 			SwitchDot();
 		} else if (levelTimer > 0.25 && inputType != "" && (collisionObject && collisionObject.gameObject == this.gameObject)) {
+
+			if (inputType == "digital") {
+				switchScript.isOn = true;
+			} else if (inputType == "analog") {
+				switchScript.isOn = false;
+			}
+
 			Debug.Log("A");
 			setTriangleAndADPanelPositions(this.transform);
 			popADPanel();
