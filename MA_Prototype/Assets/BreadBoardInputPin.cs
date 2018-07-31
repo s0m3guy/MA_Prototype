@@ -202,6 +202,7 @@ public class BreadBoardInputPin : MonoBehaviour {
 		} else if (levelTimer < 0.25 && inputType == "digital") {
 			SwitchDot();
 		} else if (levelTimer > 0.25 && inputType != "" && (collisionObject && collisionObject.gameObject == this.gameObject)) {
+			Debug.Log("A");
 			setTriangleAndADPanelPositions(this.transform);
 			popADPanel();
 			Manager.currentInputPin = this.gameObject;
@@ -246,11 +247,24 @@ public class BreadBoardInputPin : MonoBehaviour {
 				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
+
+				if (inputType == "") {
+					setTriangleAndADPanelPositions(this.transform);
+					popADPanel();
+					Manager.currentInputPin = this.gameObject;
+				}
+
 			} else {
 				collisionObject.GetComponent<BreadBoardOutputPin>().connectedLine = line;
 				line.GetComponent<Bezier_Spline>().destinObject = collisionObject.gameObject;
 				line.GetComponent<Bezier_Spline>().originObject = this.gameObject;
 				line.GetComponent<Bezier_Spline>().isEndingPointSnapped = true;
+
+				if (inputType == "") {
+					setTriangleAndADPanelPositions(this.transform);
+					popADPanel();
+					Manager.currentInputPin = this.gameObject;
+				}
 			}
 		} else if (!collisionObject
 		          || !collisionObject.CompareTag("outputPin")
